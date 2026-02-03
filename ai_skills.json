@@ -1,0 +1,28 @@
+{
+    "Artificial Intelligence": {
+        "AI-Oriented Solution Design": {
+            "details": "Design AI-assisted solutions, modernize workflows",
+            "children": {
+                "AI Orchestration & Prompting": {
+                    "details": "Direct AI agents to generate code, analyze data, automate workflows",
+                    "children": {
+                        "Prompting for Code Generation": {},
+                        "Prompting for Data Analysis": {},
+                        "Prompting for Workflow Automation": {}
+                    }
+                },
+                "AI-Assisted Development": {
+                    "details": "Use AI to scaffold code, refactor, test edge cases",
+                    "children": {
+                        "Code Scaffolding & Refactoring": {},
+                        "SQL Analysis & Explanation": {},
+                        "Test & Edge-Case Generation": {}
+                    }
+                },
+                "AI-Integrated Applications": {
+                    "details": "Python / Flask / Langraph applications with AI integration"
+                }
+            }
+        }
+    }
+}

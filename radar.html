@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expertise Ecosystem - Interactive Discovery</title>
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',
+                            light: '#f8fafc',
+                            accent: '#0ea5e9'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Courier New', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- D3.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #020617;
+            color: #f8fafc;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .mesh-bg {
+            background-image: radial-gradient(circle at 50% 50%, #fff 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.15;
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="flex flex-col h-screen">
+
+    <!-- Header -->
+    <div
+        class="p-4 bg-slate-900/90 border-b border-white/5 flex justify-between items-center backdrop-blur-sm z-10 shadow-lg">
+        <div class="flex items-center gap-4">
+            <div>
+                <h1 class="text-xl font-bold text-white tracking-tight" id="map-title">Technical Expertise Ecosystem
+                </h1>
+                <p class="text-xs text-slate-400 font-mono" id="map-subtitle">Sunburst View. Interactive Drill-down.</p>
+            </div>
+            <div class="h-8 w-[1px] bg-white/10 mx-2"></div>
+            <span
+                class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Waal
+                Bridge</span>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <!-- Domain Selection (only for tech) -->
+            <div class="hidden items-center gap-1 bg-white/5 border border-white/10 rounded-lg p-1"
+                id="tech-navigation">
+                <button data-domain="ai"
+                    class="tech-btn px-4 py-1.5 text-[10px] font-bold uppercase tracking-widest rounded transition-all duration-300 bg-brand-accent-1 text-white">AI
+                    Orchestration</button>
+                <button data-domain="design"
+                    class="tech-btn px-4 py-1.5 text-[10px] font-bold uppercase tracking-widest rounded transition-all duration-300 text-gray-400 hover:text-white">Architecture
+                    & Design</button>
+                <button data-domain="implementation"
+                    class="tech-btn px-4 py-1.5 text-[10px] font-bold uppercase tracking-widest rounded transition-all duration-300 text-gray-400 hover:text-white">Engineering
+                    & Implementation</button>
+            </div>
+
+            <!-- Zoom & Spin Controls -->
+            <div class="flex items-center gap-2">
+                <!-- Spin Controls -->
+                <div class="flex items-center gap-1 bg-white/5 border border-white/10 rounded-lg p-1">
+                    <button id="spin-left" class="p-1 hover:bg-white/10 rounded text-gray-300" title="Spin Left">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                        </svg>
+                    </button>
+                    <button id="spin-reset"
+                        class="px-2 py-1 text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:bg-white/10 rounded"
+                        title="Reset Rotation">Orientation</button>
+                    <button id="spin-right" class="p-1 hover:bg-white/10 rounded text-gray-300" title="Spin Right">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Zoom Controls -->
+                <div class="flex items-center gap-1 bg-white/5 border border-white/10 rounded-lg p-1">
+                    <button id="zoom-out" class="p-1 hover:bg-white/10 rounded text-gray-300" title="Zoom Out">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
+                        </svg>
+                    </button>
+                    <button id="zoom-reset" class="px-2 py-1 text-xs font-mono text-gray-400 hover:bg-white/10 rounded"
+                        title="Reset Zoom">100%</button>
+                    <button id="zoom-in" class="p-1 hover:bg-white/10 rounded text-gray-300" title="Zoom In">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <button onclick="window.close()"
+                class="text-xs border border-white/20 bg-white/5 px-3 py-1 rounded hover:bg-white/10 text-white">Close
+                Window</button>
+        </div>
+    </div>
+
+    <!-- Chart Container -->
+    <div id="chart-container" class="flex-grow relative flex items-center justify-center overflow-hidden">
+        <!-- Backdrop Image ("The Bridge") -->
+        <div class="absolute inset-0 z-0 pointer-events-none">
+            <img src="./WaalbridgeBackdrop.png" alt="" class="w-full h-full object-cover opacity-20 mix-blend-screen">
+        </div>
+        <div class="mesh-bg"></div>
+        <div id="sunburst-chart" class="w-full h-full flex items-center justify-center relative z-10"></div>
+
+        <!-- Tooltip -->
+        <div id="sunburst-tooltip"
+            class="absolute pointer-events-none bg-slate-900/90 text-white text-sm px-4 py-2 rounded shadow-2xl transition-opacity duration-200 z-50 border border-brand-accent-1/30 backdrop-blur-md"
+            style="opacity: 0;"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./js/skills_sunburst.js?v=15"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const dataSource = urlParams.get('data') || './techverticals.json';
+
+            const titleEl = document.getElementById('map-title');
+            const subTitleEl = document.getElementById('map-subtitle');
+            const techNav = document.getElementById('tech-navigation');
+
+            let fullData = null;
+            let currentDomain = 'ai'; // 'ai', 'design', or 'implementation'
+
+            function updateView() {
+                const containerId = 'sunburst-chart';
+                let activeData = dataSource;
+
+                if (fullData && !techNav.classList.contains('hidden')) {
+                    const aiKey = "Artificial Intelligence";
+                    const techKey = "Technical Capabilities";
+
+                    if (currentDomain === 'ai') {
+                        activeData = { [aiKey]: fullData[aiKey] };
+                        subTitleEl.textContent = `AI Orchestration & Design // Interactive Drill-down`;
+                    } else if (currentDomain === 'design') {
+                        activeData = { "Technical Design": fullData[techKey]["Design"] };
+                        subTitleEl.textContent = `Architecture & Technical Design // Interactive Drill-down`;
+                    } else if (currentDomain === 'implementation') {
+                        activeData = { "Engineering & Implementation": fullData[techKey]["Implementation"] };
+                        subTitleEl.textContent = `Engineering & Implementation // Interactive Drill-down`;
+                    }
+                }
+
+                renderSunburst(activeData, containerId);
+            }
+
+            fetch(dataSource)
+                .then(r => r.json())
+                .then(data => {
+                    fullData = data;
+
+                    const isSplitTechView = data["Artificial Intelligence"] && data["Technical Capabilities"];
+
+                    if (isSplitTechView) {
+                        techNav.classList.remove('hidden');
+                        techNav.classList.add('flex');
+                        titleEl.textContent = "Technical Expertise Ecosystem";
+                    } else {
+                        techNav.classList.add('hidden');
+                        if (dataSource.includes('Bus_ana')) titleEl.textContent = "Business & Analytical Map";
+                        if (dataSource.includes('skill_collab')) titleEl.textContent = "Soft Skills & Collaboration";
+                    }
+
+                    updateView();
+                })
+                .catch(err => console.error("Data Load Error:", err));
+
+            // Tech Domain Handlers
+            document.querySelectorAll('.tech-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    currentDomain = btn.getAttribute('data-domain');
+
+                    document.querySelectorAll('.tech-btn').forEach(b => {
+                        b.classList.remove('bg-brand-accent-1', 'text-white');
+                        b.classList.add('text-gray-400');
+                    });
+                    btn.classList.add('bg-brand-accent-1', 'text-white');
+                    btn.classList.remove('text-gray-400');
+                    updateView();
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

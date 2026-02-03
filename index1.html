@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orchestrator Skills Showcase</title>
+    <link href="./css/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .mesh-bg {
+            background: #f8fafc;
+        }
+
+        .text-gradient-accent {
+            background: linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: #0ea5e9;
+        }
+    </style>
+</head>
+
+<body class="bg-brand-light text-brand-dark font-sans mesh-bg"
+    x-data="{
+
+    /* =========================
+       PUBLIC SKILLS (SURFACE)
+       ========================= */
+
+    skills: {
+        technical: [
+            { name: 'Python Applications', info: 'Flask apps, LangGraph workflows, AI-assisted integration' },
+            { name: 'Database Engineering', info: 'Oracle, SQL Server, Sybase • SQL, PL/SQL, T-SQL • Performance tuning' },
+            { name: 'BI & Analytics', info: 'Power BI (DAX), Tableau, QlikView, Management reporting' },
+            { name: 'Legacy System Modernisation', info: 'Migration, refactoring, controlled upgrades' }
+        ],
+        business: [
+            { name: 'Structured Problem Solving', info: 'Root cause analysis, systems thinking' },
+            { name: 'Process Improvement', info: 'Six Sigma, TQM, workflow optimisation' },
+            { name: 'Delivery & Assurance', info: 'Migration management, reporting, quality control' }
+        ],
+        soft: [
+            { name: 'Stakeholder Communication', info: 'Users, vendors, clients, senior management' },
+            { name: 'Mentoring & Guidance', info: 'Informal coaching and capability uplift' },
+            { name: 'Inclusive Collaboration', info: 'Effective across roles, cultures, and organisations' }
+        ]
+    },
+
+    /* =========================
+       CAPABILITY TREE (BACKBONE)
+       ========================= */
+
+    capabilityTree: {
+        Technical: {
+            'Application & System Development': [
+                'Python (Flask, LangGraph, AI-assisted workflows)',
+                'VB / VBA client–server systems',
+                'C# application development',
+                'GUI design (desktop, web, mobile)'
+            ],
+            'Data Engineering & Databases': [
+                'Oracle (SQL, PL/SQL)',
+                'SQL Server & Sybase (SQL, T-SQL)',
+                'Performance tuning (Oracle, SQL Server)',
+                'OLTP systems',
+                'Data Warehousing & Data Marts',
+                'Star schema design',
+                'ETL / Data pipelines',
+                'Cloud-hosted databases'
+            ],
+            'BI & Analytics': [
+                'Power BI (DAX)',
+                'Tableau',
+                'QlikView',
+                'Management reporting systems'
+            ]
+        },
+
+        AI_Orchestration: {
+            'AI-Augmented Delivery': [
+                'Prompt engineering',
+                'Agent orchestration',
+                'Human-in-the-loop systems',
+                'AI-assisted analysis and design'
+            ]
+        },
+
+        Delivery_and_Governance: {
+            'Quality & Assurance': [
+                'Data testing and validation',
+                'Migration assurance',
+                'Legacy system modernisation'
+            ],
+            'Methods & Standards': [
+                'Six Sigma',
+                'TQM',
+                'Critical path analysis',
+                'UML modelling'
+            ],
+            'Regulatory': [
+                'GDPR',
+                'Healthcare procedures'
+            ]
+        },
+
+        Business_and_Leadership: {
+            'Delivery Roles': [
+                'Migration Manager',
+                'Reporting Manager'
+            ],
+            'Stakeholder & Vendor Engagement': [
+                'User liaison',
+                'Vendor management',
+                'Issue resolution'
+            ],
+            'People & Culture': [
+                'Mentoring and coaching',
+                'Inclusive collaboration',
+                'Working across all organisational levels'
+            ]
+        },
+
+        Industry_Experience: [
+            'Engineering',
+            'Healthcare',
+            'Pharmaceuticals',
+            'Finance'
+        ]
+    }
+}">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 glass-panel border-b border-white/20">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <span class="text-xl font-extrabold tracking-tight text-gradient-accent">ORCHESTRATOR</span>
+            </div>
+            <div class="space-x-8 text-sm font-medium text-gray-600">
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#skills">Expertise</a>
+                <a href="#achievements">Delivered</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="about" class="min-h-screen flex items-center justify-center pt-20">
+        <div class="container mx-auto px-6 text-center max-w-4xl">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-8">
+                Delivering results through
+                <span class="text-gradient-accent">experience</span> and
+                <span class="text-gradient-accent">orchestration</span>
+            </h1>
+            <p class="text-xl text-gray-600 mb-12">
+                Senior software and data delivery experience helping organisations modernise systems,
+                improve processes, and navigate complex, regulated environments.
+            </p>
+            <a href="#contact"
+                class="inline-flex items-center px-8 py-4 bg-brand-dark text-white rounded-full font-bold">
+                Get in Touch
+            </a>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-4">How I Help</h2>
+            <p class="text-gray-600 max-w-3xl mx-auto">
+                Trusted to step into complex situations, align people and systems, and deliver
+                pragmatic, maintainable outcomes.
+            </p>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="py-24 bg-white/60">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold mb-3">Core Competencies</h2>
+                <p class="text-sm text-gray-500">
+                    Capabilities shown here represent a subset of a broader delivery and orchestration skill set.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-12">
+                <template x-for="(group, key) in skills" :key="key">
+                    <div>
+                        <h3 class="text-xl font-bold mb-6 capitalize" x-text="key.replace('_',' ')"></h3>
+                        <div class="space-y-4">
+                            <template x-for="item in group" :key="item.name">
+                                <div class="bg-white p-4 rounded-xl border">
+                                    <div class="font-bold" x-text="item.name"></div>
+                                    <div class="text-sm text-gray-500" x-text="item.info"></div>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements -->
+    <section id="achievements" class="py-24 bg-brand-dark text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-4">Representative Deliveries</h2>
+            <p class="max-w-3xl mx-auto text-gray-300">
+                Legacy modernisation, data transformation, cross-industry delivery, and rapid
+                resolution of complex technical and organisational challenges.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-24">
+        <div class="container mx-auto px-6 max-w-xl text-center">
+            <h2 class="text-3xl font-bold mb-6">Let’s Talk</h2>
+            <p class="text-gray-600 mb-8">
+                Available for complex delivery, advisory, and orchestration engagements.
+            </p>
+        </div>
+    </section>
+
+    <footer class="bg-brand-dark text-gray-500 py-10 text-center text-sm">
+        Capability-led portfolio • Hosted on GitHub Pages
+    </footer>
+
+</body>
+
+</html>

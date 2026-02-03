@@ -1,0 +1,113 @@
+{
+    "Technical Capabilities": {
+        "Design": {
+            "System & Data Architecture": {
+                "children": {
+                    "Database Designer": {},
+                    "Data Warehousing & Star Schemas": {
+                        "children": {
+                            "Fact Tables": {},
+                            "Dimension Tables": {},
+                            "Star Schema Design": {},
+                            "Snowflake Schema Awareness": {}
+                        }
+                    },
+                    "Datamarts": {},
+                    "OLTP Processing": {},
+                    "UML & Modeling": {
+                        "children": {
+                            "Unified Modeling Language (UML)": {
+                                "children": {
+                                    "Use Case Diagrams": {},
+                                    "Class Diagrams": {},
+                                    "Sequence Diagrams": {},
+                                    "Activity / Process Modeling": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "Data Modelling": {},
+            "Analytics & Reporting Design": {},
+            "Legacy Modernisation Strategies": {}
+        },
+        "Implementation": {
+            "Modern / AI-Oriented Development": {
+                "children": {
+                    "Python Applications (Enabler)": {
+                        "children": {
+                            "Flask Web Applications": {},
+                            "Langraph-Based Systems": {},
+                            "AI-Integrated Applications": {}
+                        }
+                    },
+                    "Legacy & Other Applications": {
+                        "children": {
+                            "VB / C# Applications": {
+                                "children": {
+                                    "VB Client/Server Applications": {},
+                                    "C# Applications": {}
+                                }
+                            },
+                            "Integration with Databases": {}
+                        }
+                    },
+                    "GUI / User Interface Design": {
+                        "children": {
+                            "Desktop Applications (VB / C#)": {},
+                            "Web Applications (Python / Flask / Langraph)": {},
+                            "Mobile / Cross-Platform Interfaces": {}
+                        }
+                    }
+                }
+            },
+            "Database Development": {
+                "children": {
+                    "Enterprise RDBMS Environments": {
+                        "children": {
+                            "Oracle": {
+                                "details": "SQL, PL/SQL, Performance Tuning"
+                            },
+                            "SQL Server": {
+                                "details": "SQL, T-SQL, Performance Tuning"
+                            },
+                            "Sybase": {
+                                "details": "SQL, T-SQL"
+                            }
+                        }
+                    },
+                    "Complex SQL & Stored Logic": {},
+                    "Schema Evolution in Live Systems": {},
+                    "Data Integrity & Validation": {}
+                }
+            },
+            "ETL / Data Pipelines": {
+                "details": "Extraction, Transformation, Loading"
+            },
+            "BI & Analytics Implementation": {
+                "details": "Power BI (DAX), Tableau, QlikView, Management Reporting Systems"
+            },
+            "Legacy System Refactoring": {
+                "details": "VB / VBA to Modern Stacks, Incremental Replacement, Creation & Updating of Legacy Systems"
+            },
+            "Data Testing & Validation": {
+                "details": "Testing Data on New Systems, Data Integrity & Consistency Checks, Validation of ETL Pipelines, Verification of Reporting & Analytics Outputs, Testing AI-Integrated Applications"
+            },
+            "Office / Productivity Development": {
+                "details": "Excel (VBA, Advanced Formulas, Macros), Word (VBA Automation, Templates), Access (DBs, Forms, Reports), PowerPoint / Outlook Integration & Automation"
+            },
+            "Version Control / DevOps": {
+                "details": "Git / Source Control, Deployment Awareness / CI-CD"
+            },
+            "Cloud Platforms": {
+                "children": {
+                    "Cloud Databases": {}
+                }
+            },
+            "Operating Systems / Platforms": {
+                "details": "Microsoft Windows, UNIX, Linux"
+            }
+        }
+    }
+}
