@@ -1,0 +1,61 @@
+[
+  {
+    "cardType": "vertical",
+    "title": "Database & Data Architecture",
+    "icon": "database-icon",
+    "teaserBullets": [
+      "Enterprise RDBMS",
+      "Data Modeling",
+      "Schema Evolution"
+    ],
+    "details": "Design, develop, and optimize relational databases for enterprise applications",
+    "childrenCards": [
+      {
+        "cardType": "tool",
+        "title": "Oracle",
+        "details": "SQL, PL/SQL, Performance Tuning",
+        "childrenCards": [
+          {
+            "cardType": "subSkill",
+            "title": "PL/SQL",
+            "details": "Stored procedures, triggers, packages",
+            "diagram": {
+              "description": "PL/SQL workflow",
+              "imageUrl": "images/plsql.png",
+              "popup": true
+            }
+          }
+        ]
+      },
+      {
+        "cardType": "tool",
+        "title": "SQL Server",
+        "details": "SQL, T-SQL, Performance Tuning",
+        "childrenCards": [
+          {
+            "cardType": "subSkill",
+            "title": "T-SQL",
+            "details": "Stored procedures, views, triggers",
+            "diagram": {
+              "description": "T-SQL workflow",
+              "imageUrl": "images/tsql.png",
+              "popup": true
+            }
+          }
+        ]
+      },
+      {
+        "cardType": "tool",
+        "title": "SQLite",
+        "details": "Lightweight relational database for prototyping",
+        "childrenCards": [
+          {
+            "cardType": "subSkill",
+            "title": "SQLite Scripting",
+            "details": "Small-scale database scripts and prototyping"
+          }
+        ]
+      }
+    ]
+  }
+]

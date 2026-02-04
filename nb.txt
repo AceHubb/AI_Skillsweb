@@ -1,0 +1,76 @@
+Prompt: Nuts & Bolts Interactive Playing-Card Stacks
+
+Project Description:
+We are building an interactive “Nuts & Bolts” skills section for a professional portfolio website. This section displays a hierarchy of technical skills, tools, and sub-skills as stacks of cards inside a 6×6 modal grid, with the visual style of playing cards stacked.
+
+Core Concept:
+
+Each stack of cards represents a skill hierarchy: vertical ? tool ? sub-skill ? applied projects.
+
+The top card of the stack is fully visible, and clicking it reveals the next card underneath in the stack.
+
+Cards should visually resemble physical playing cards, slightly offset, so the stacked nature is apparent.
+
+Users can drill down through the stack to explore skills without cluttering the screen.
+
+Requirements:
+
+Modal Window:
+
+Opens on “View Skills” click
+
+Covers most of the viewport, dims background
+
+Scrollable if needed, responsive on mobile (vertical stack)
+
+Card Matrix (6×6 grid):
+
+Each cell holds a stack of cards
+
+Front of card: icon/logo, title, teaser bullets
+
+Back of card: detailed description, applied projects, optional sub-skills
+
+Cards flip in place to reveal back content
+
+Visual style: playing-card look (border, subtle shadow, slight tilt offset for stacked cards)
+
+Cascading / Branching Cards (Stacks):
+
+Cards can have children cards, forming a stack
+
+Clicking a card reveals the next card in the stack in the same grid cell or adjacent cell
+
+Example: Database stack ? Oracle card ? PL/SQL card
+
+Each stack can grow dynamically based on JSON content
+
+Diagram Popups:
+
+Cards can have a “View Diagram” button
+
+Clicking opens a secondary modal overlay showing a large diagram
+
+User closes overlay ? returns to stack
+
+UX & Interaction:
+
+Hover/focus: subtle scale-up or shadow
+
+Optional breadcrumbs show stack path (Database ? Oracle ? PL/SQL)
+
+Mobile: convert 6×6 grid into vertical swipeable stacks
+
+JSON Driven:
+
+Each stack is defined in JSON with fields:
+
+cardType: vertical, tool, subSkill
+
+title, icon, teaserBullets, details
+
+childrenCards: array of cards forming the stack
+
+diagram: optional image with popup
+
+UI dynamically renders stacks from JSON
