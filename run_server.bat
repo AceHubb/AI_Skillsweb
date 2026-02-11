@@ -1,0 +1,6 @@
+@echo off
+echo Starting Card Manager Server...
+echo Opening in browser...
+start http://localhost:8000/card_manager.html
+python server.py
+pause

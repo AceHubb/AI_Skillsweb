@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card & Relationship Manager</title>
+
+    <!-- Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <!-- Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slate: {
+                            850: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+
+        .card-input {
+            @apply bg-slate-800 border-slate-700 text-white text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5;
+        }
+
+        .btn-primary {
+            @apply text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none;
+        }
+
+        .btn-danger {
+            @apply text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none;
+        }
+
+        .btn-secondary {
+            @apply text-white bg-slate-700 hover:bg-slate-800 focus:ring-4 focus:ring-slate-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none;
+        }
+
+        /* D3 Graph Styles */
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .node circle {
+            stroke: #fff;
+            stroke-width: 1.5px;
+            cursor: pointer;
+            transition: stroke-width 0.2s;
+        }
+
+        .node:hover circle {
+            stroke: #60a5fa;
+            stroke-width: 3px;
+        }
+
+        .node text {
+            font-family: sans-serif;
+            font-size: 10px;
+            fill: #cbd5e1;
+            pointer-events: none;
+        }
+
+        .link {
+            stroke: #475569;
+            stroke-opacity: 0.6;
+            stroke-width: 1.5px;
+        }
+
+        .link.choice {
+            stroke: #f59e0b;
+            stroke-dasharray: 5, 5;
+            stroke-width: 2px;
+        }
+
+        /* Highlight styles */
+        .node.selected circle {
+            stroke: #f59e0b;
+            stroke-width: 4px;
+        }
+
+        .node.target-candidate circle {
+            stroke: #10b981;
+            stroke-width: 3px;
+            stroke-dasharray: 4;
+        }
+    </style>
+</head>
+
+<body class="h-screen flex flex-col overflow-hidden" x-data="cardManager()">
+
+    <!-- Data Loader Overlay -->
+    <div x-show="!started"
+        class="fixed inset-0 z-50 bg-slate-900/95 flex flex-col items-center justify-center text-center p-8 transition-opacity">
+
+        <div class="max-w-lg space-y-8 bg-slate-800 p-8 rounded-xl border border-slate-700 shadow-2xl">
+            <div>
+                <h2 class="text-3xl font-bold text-white mb-2">Card Nexus</h2>
+                <p class="text-slate-400">Load your universe to begin.</p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div class="space-y-2">
+                    <label
+                        class="block w-full h-32 border-2 border-dashed border-slate-600 rounded-lg flex flex-col items-center justify-center cursor-pointer hover:border-blue-500 hover:bg-slate-700/50 transition-all group">
+                        <span class="text-2xl mb-2 group-hover:scale-110 transition-transform">📄</span>
+                        <span class="text-sm font-bold text-slate-300">Select cards.json</span>
+                        <span class="text-xs text-slate-500" x-show="!data.cards.length">Required</span>
+                        <span class="text-xs text-green-400 font-bold" x-show="data.cards.length > 0">✓ Loaded</span>
+                        <input type="file" class="hidden" @change="uploadCards">
+                    </label>
+                </div>
+
+                <div class="space-y-2">
+                    <label
+                        class="block w-full h-32 border-2 border-dashed border-slate-600 rounded-lg flex flex-col items-center justify-center cursor-pointer hover:border-blue-500 hover:bg-slate-700/50 transition-all group">
+                        <span class="text-2xl mb-2 group-hover:scale-110 transition-transform">🔗</span>
+                        <span class="text-sm font-bold text-slate-300">Select relationships.json</span>
+                        <span class="text-xs text-slate-500" x-show="!data.relationships.length">Optional</span>
+                        <span class="text-xs text-green-400 font-bold" x-show="data.relationships.length > 0">✓
+                            Loaded</span>
+                        <input type="file" class="hidden" @change="uploadRelationships">
+                    </label>
+                </div>
+            </div>
+
+            <div class="text-xs text-slate-500">
+                <p>Browsers block auto-loading local files (CORS).<br>Please select your files manually.</p>
+            </div>
+
+            <button x-show="data.cards.length > 0" @click="started = true; setTimeout(() => initGraph(), 100)"
+                class="w-full btn-primary text-lg py-3 animate-pulse">
+                Enter Universe 🚀
+            </button>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-slate-900 border-b border-slate-700 p-4 flex justify-between items-center z-10 shadow-md">
+        <div class="flex flex-col">
+            <h1 class="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                Card Nexus
+            </h1>
+            <div class="text-[10px] text-slate-500 font-mono flex gap-3" x-show="started">
+                <span x-text="cardsFilename ? '📄 ' + cardsFilename : ''" class="flex items-center gap-1"></span>
+                <span x-text="relationshipsFilename ? '🔗 ' + relationshipsFilename : ''"
+                    class="flex items-center gap-1"></span>
+            </div>
+        </div>
+
+        <!-- Linking Mode Toggle -->
+        <div class="flex items-center gap-2">
+            <!-- Settings Button -->
+            <button @click="showSettings = !showSettings" class="text-slate-400 hover:text-white mr-2"
+                title="Developer Settings">
+                ⚙️
+            </button>
+            <button @click="toggleLinkMode()" class="px-4 py-2 rounded-lg text-sm font-bold transition-all border"
+                :class="linkMode ? 'bg-amber-600 text-white border-amber-500 shadow-[0_0_15px_rgba(245,158,11,0.5)]' : 'bg-slate-800 text-slate-400 border-slate-700 hover:border-slate-600'">
+                <span x-text="linkMode ? '🔗 Linking Mode Active' : 'Enable Graphical Linking'"></span>
+            </button>
+            <button @click="zoomEnabled = !zoomEnabled"
+                class="px-3 py-2 rounded-lg text-sm font-bold transition-all border flex items-center gap-2"
+                :class="zoomEnabled ? 'bg-slate-800 text-blue-400 border-slate-700 hover:border-blue-500' : 'bg-red-900/30 text-red-400 border-red-900 hover:border-red-800'">
+                <span x-text="zoomEnabled ? '🔭 View: Unlocked' : '🔒 View: Locked'"></span>
+            </button>
+        </div>
+
+        <div class="flex gap-2">
+            <!-- Cards IO -->
+            <div class="flex items-center gap-1 border-r border-slate-700 pr-2 mr-2">
+                <span class="text-xs text-slate-500 font-mono uppercase">Cards</span>
+                <button @click="viewJson('cards')"
+                    class="text-xs bg-slate-800 text-slate-400 hover:text-white px-2 py-1 rounded"
+                    title="View JSON">View</button>
+                <button @click="downloadCards()" class="btn-secondary px-3 py-1 text-xs" title="Download cards.json">
+                    Save
+                </button>
+                <label class="btn-primary px-3 py-1 text-xs cursor-pointer" title="Load cards.json">
+                    Load
+                    <input type="file" class="hidden" @change="uploadCards">
+                </label>
+            </div>
+
+            <!-- Relationships IO -->
+            <div class="flex items-center gap-1">
+                <span class="text-xs text-slate-500 font-mono uppercase">Links</span>
+                <button @click="viewJson('relationships')"
+                    class="text-xs bg-slate-800 text-slate-400 hover:text-white px-2 py-1 rounded"
+                    title="View JSON">View</button>
+                <button @click="downloadRelationships()" class="btn-secondary px-3 py-1 text-xs"
+                    title="Download relationships.json">
+                    Save
+                </button>
+                <label class="btn-primary px-3 py-1 text-xs cursor-pointer" title="Load relationships.json">
+                    Load
+                    <input type="file" class="hidden" @change="uploadRelationships">
+                </label>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dev Settings Panel -->
+    <div x-show="showSettings" @click.away="showSettings = false"
+        class="fixed top-16 right-4 z-50 bg-white dark:bg-slate-800 p-4 rounded shadow-lg border border-slate-700 w-80"
+        style="display: none;">
+        <h3 class="font-bold text-slate-200 mb-2">Data Source (Dev)</h3>
+        <div class="flex flex-col gap-2">
+            <label class="text-xs text-slate-400">Cards URL</label>
+            <input type="text" x-model="settings.cardsUrl"
+                class="bg-slate-900 text-slate-300 text-sm p-1 rounded border border-slate-600">
+
+            <label class="text-xs text-slate-400">Relationships URL</label>
+            <input type="text" x-model="settings.relationshipsUrl"
+                class="bg-slate-900 text-slate-300 text-sm p-1 rounded border border-slate-600">
+
+            <div class="flex gap-2 mt-2">
+                <button @click="saveSettings()"
+                    class="bg-blue-600 text-white text-xs px-3 py-1 rounded hover:bg-blue-500">Save & Reload</button>
+                <button @click="resetSettings()"
+                    class="bg-red-900 text-red-200 text-xs px-3 py-1 rounded hover:bg-red-800">Reset</button>
+            </div>
+            <p class="text-[10px] text-slate-500 mt-1">
+                Note: Relative paths work (e.g. `../folder/cards.json`) depending on browser security.
+            </p>
+        </div>
+    </div>
+
+    <!-- Edit Card Modal -->
+    <div x-show="showEditModal" class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
+        style="display: none;">
+        <div class="bg-slate-900 border border-slate-700 rounded-lg shadow-2xl w-full max-w-lg p-6 space-y-4"
+            @click.outside="showEditModal = false">
+            <div class="flex justify-between items-center border-b border-slate-800 pb-4">
+                <h3 class="text-lg font-bold text-white">Edit Card</h3>
+                <button @click="showEditModal = false" class="text-slate-400 hover:text-white">✕</button>
+            </div>
+
+            <div class="space-y-4" x-data="{ }">
+                <div>
+                    <label class="text-xs text-slate-500 uppercase font-bold block mb-1">ID (Read-only)</label>
+                    <input type="text" x-model="editingCard.id" disabled
+                        class="w-full bg-slate-800 border-slate-700 text-slate-400 p-2 rounded cursor-not-allowed">
+                </div>
+
+                <div>
+                    <label class="text-xs text-slate-500 uppercase font-bold block mb-1">Title</label>
+                    <input type="text" x-model="editingCard.title"
+                        class="w-full bg-slate-800 border-slate-600 text-white p-2 rounded focus:border-blue-500 outline-none">
+                </div>
+
+                <div>
+                    <label class="text-xs text-slate-500 uppercase font-bold block mb-1">Type</label>
+                    <input type="text" x-model="editingCard.type" placeholder="stack, capability, etc."
+                        class="w-full bg-slate-800 border-slate-600 text-white p-2 rounded focus:border-blue-500 outline-none">
+                </div>
+
+                <div>
+                    <label class="text-xs text-slate-500 uppercase font-bold block mb-1">Description</label>
+                    <textarea x-model="editingCard.description" rows="3"
+                        class="w-full bg-slate-800 border-slate-600 text-white p-2 rounded focus:border-blue-500 outline-none"></textarea>
+                </div>
+
+                <div>
+                    <label class="text-xs text-slate-500 uppercase font-bold block mb-1">Media (Comma separated)</label>
+                    <input type="text" x-model="editingCard.mediaInput"
+                        class="w-full bg-slate-800 border-slate-600 text-white p-2 rounded focus:border-blue-500 outline-none">
+                </div>
+            </div>
+
+            <div class="flex justify-end gap-3 pt-4 border-t border-slate-800">
+                <button @click="showEditModal = false"
+                    class="px-4 py-2 text-slate-400 hover:text-white transition-colors">Cancel</button>
+                <button @click="saveEditedCard()"
+                    class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded transition-colors">Save
+                    Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JSON Viewer Modal -->
+    <div x-show="showJsonModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
+        style="display: none;">
+        <div class="bg-slate-900 border border-slate-700 rounded-lg shadow-xl w-3/4 h-3/4 flex flex-col"
+            @click.away="showJsonModal = false">
+            <div class="p-4 border-b border-slate-700 flex justify-between items-center bg-slate-800 rounded-t-lg">
+                <h3 class="text-slate-200 font-bold" x-text="jsonModalTitle"></h3>
+                <div class="flex gap-2">
+                    <button @click="copyJson()"
+                        class="text-xs bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-500 border border-blue-500">Copy</button>
+                    <button @click="showJsonModal = false" class="text-slate-400 hover:text-white px-2">✕</button>
+                </div>
+            </div>
+            <div class="flex-1 overflow-auto bg-slate-950 flex font-mono text-xs">
+                <!-- Line Numbers -->
+                <div
+                    class="bg-slate-900 text-slate-600 text-right p-4 select-none border-r border-slate-800 shrink-0 min-h-full">
+                    <template x-for="(_, i) in jsonLines" :key="i">
+                        <div x-text="i + 1" class="leading-relaxed h-5 text-[10px] pt-0.5"></div>
+                    </template>
+                </div>
+                <!-- Code -->
+                <div class="flex-1 p-4 text-slate-300 overflow-auto whitespace-pre">
+                    <template x-for="line in jsonLines" :key="Math.random()">
+                        <div x-text="line" class="leading-relaxed h-5"></div>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex flex-1 overflow-hidden">
+        <!-- Sidebar: Editors -->
+        <aside class="w-96 bg-slate-900 border-r border-slate-700 flex flex-col overflow-y-auto">
+
+            <!-- Tabs -->
+            <div class="flex border-b border-slate-700">
+                <button @click="activeTab = 'cards'"
+                    :class="{'border-b-2 border-blue-500 text-blue-400': activeTab === 'cards', 'text-slate-400': activeTab !== 'cards'}"
+                    class="flex-1 py-3 text-sm font-medium hover:text-white transition-colors">
+                    Cards (<span x-text="data.cards.length"></span>)
+                </button>
+                <button @click="activeTab = 'links'"
+                    :class="{'border-b-2 border-blue-500 text-blue-400': activeTab === 'links', 'text-slate-400': activeTab !== 'links'}"
+                    class="flex-1 py-3 text-sm font-medium hover:text-white transition-colors">
+                    Relationships (<span x-text="data.relationships.length"></span>)
+                </button>
+                <button @click="activeTab = 'todo'"
+                    :class="{'border-b-2 border-amber-500 text-amber-400': activeTab === 'todo', 'text-slate-400': activeTab !== 'todo'}"
+                    class="flex-1 py-3 text-sm font-medium hover:text-white transition-colors"
+                    title="Unconnected Cards">
+                    Todo (<span x-text="getOrphans().length"></span>)
+                </button>
+            </div>
+
+            <!-- TODO Panel (Orphans) -->
+            <div x-show="activeTab === 'todo'" class="p-4 space-y-4">
+                <div class="space-y-2">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-xs font-bold text-amber-500 uppercase tracking-wider">Unconnected Cards</h3>
+                        <button @click="copyOrphansToClipboard()"
+                            class="text-xs bg-slate-800 text-slate-400 hover:text-white border border-slate-700 hover:border-slate-500 px-2 py-1 rounded transition-colors"
+                            title="Copy JSON to Clipboard">
+                            📋 Copy JSON
+                        </button>
+                    </div>
+                    <p class="text-xs text-slate-400 mb-2">Cards with no relationships yet.</p>
+
+                    <template x-for="card in getOrphans()" :key="card.id">
+                        <div class="bg-slate-800 p-3 rounded border border-slate-700 hover:border-amber-500/50 transition-colors group cursor-pointer"
+                            @click="locateNode(card.id)">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <div class="font-bold text-white text-sm" x-text="card.title"></div>
+                                    <div class="text-xs font-mono text-slate-500" x-text="card.id"></div>
+                                </div>
+                                <button
+                                    class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded border border-amber-800 hover:bg-amber-800"
+                                    @click.stop="startLinkFromTodo(card.id)">
+                                    Link
+                                </button>
+                            </div>
+                        </div>
+                    </template>
+
+                    <div x-show="getOrphans().length === 0" class="text-center py-8 text-slate-500 text-sm">
+                        All cards are connected! 🎉
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cards Panel -->
+            <div x-show="activeTab === 'cards'" class="p-4 space-y-4">
+                <div class="bg-slate-800 p-4 rounded-lg border border-slate-700 shadow-sm">
+                    <h3 class="text-sm font-bold text-slate-300 mb-2 uppercase tracking-wide">Add New Card</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-2">
+                            <input type="text" x-model="newCard.id" @input="idModified = true"
+                                placeholder="ID (Auto-generated)"
+                                class="card-input bg-slate-900 border-slate-600 focus:border-blue-500 font-mono text-xs flex-1">
+                            <button @click="idModified = false; newCard.id = generateNextId(newCard.title)"
+                                class="p-2 text-slate-500 hover:text-blue-400" title="Regenerate ID">
+                                ↺
+                            </button>
+                        </div>
+                        <input type="text" x-model="newCard.title" placeholder="Title"
+                            class="card-input bg-slate-900 border-slate-600 focus:border-blue-500">
+                        <input type="text" x-model="newCard.type" placeholder="Type (e.g. stack, capability)"
+                            class="card-input bg-slate-900 border-slate-600 focus:border-blue-500">
+                        <textarea x-model="newCard.description" placeholder="Description (Optional)" rows="2"
+                            class="card-input bg-slate-900 border-slate-600 focus:border-blue-500"></textarea>
+
+                        <!-- Media Array -->
+                        <input type="text" x-model="newCard.mediaInput" placeholder="Media (comma separated filenames)"
+                            class="card-input bg-slate-900 border-slate-600 focus:border-blue-500">
+
+                        <button @click="addCard()" class="btn-primary w-full">Add Card</button>
+                    </div>
+                </div>
+
+                <!-- Scrollable List of Cards -->
+                <div class="space-y-2 mt-4 max-h-[60vh] overflow-y-auto pr-2">
+                    <div class="sticky top-0 bg-slate-900 py-1 flex justify-between items-center z-10">
+                        <h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider">Existing Cards</h3>
+                        <button @click="showStacksOnly = !showStacksOnly"
+                            class="text-[10px] px-2 py-1 rounded border transition-all flex items-center gap-1"
+                            :class="showStacksOnly ? 'bg-amber-900/50 text-amber-300 border-amber-800' : 'bg-slate-800 text-slate-400 border-slate-700 hover:text-slate-200'">
+                            <span x-text="showStacksOnly ? 'Stacks Only' : 'All Cards'"></span>
+                            <span x-show="showStacksOnly" class="text-amber-400">⚡</span>
+                        </button>
+                    </div>
+
+                    <template x-for="card in (showStacksOnly ? data.cards.filter(c => c.type === 'stack') : data.cards)"
+                        :key="card.id">
+                        <div class="bg-slate-800 p-3 rounded border border-slate-700 hover:border-blue-500/50 transition-colors group cursor-pointer relative"
+                            @click="locateNode(card.id); scrollToCard(card.id)">
+                            <div class="flex justify-between items-start">
+                                <div class="pr-8">
+                                    <div class="font-bold text-white text-sm" x-text="card.title"></div>
+                                    <div class="text-xs font-mono text-slate-500" x-text="card.id"></div>
+                                    <div class="text-xs text-blue-4000 bg-blue-900/30 text-blue-300 px-1.5 py-0.5 rounded inline-block mt-1"
+                                        x-text="card.type"></div>
+                                </div>
+                                <div class="flex flex-col gap-1 absolute top-2 right-2">
+                                    <button @click.stop="startEditCard(card)"
+                                        class="p-1.5 text-slate-500 hover:text-blue-400 hover:bg-slate-700 rounded transition-colors"
+                                        title="Edit Card">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                    <button @click.stop="deleteCard(card.id)"
+                                        class="p-1.5 text-slate-500 hover:text-red-400 hover:bg-slate-700 rounded transition-colors"
+                                        title="Delete Card">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="text-xs text-slate-400 mt-2 line-clamp-2" x-text="card.description"></div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+
+            <!-- Links Panel -->
+            <div x-show="activeTab === 'links'" class="p-4 space-y-4">
+                <div class="bg-slate-800 p-4 rounded-lg border border-slate-700 shadow-sm">
+                    <h3 class="text-sm font-bold text-slate-300 mb-2 uppercase tracking-wide">Add Relationship</h3>
+
+                    <!-- Tips for Linking -->
+                    <div class="bg-blue-900/20 border border-blue-900/50 p-2 rounded mb-3" x-show="linkMode">
+                        <p class="text-[10px] text-blue-300">
+                            <strong>Linking Mode:</strong><br>
+                            1. Click a node to select it as SOURCE (orange).<br>
+                            2. Click another node to select as TARGET and create link.
+                        </p>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div>
+                            <label class="text-xs text-slate-500 block mb-1">From (Source)</label>
+                            <select x-model="newLink.from" class="card-input bg-slate-900 border-slate-600">
+                                <option value="" disabled selected>Select Source</option>
+                                <template x-for="n in sortedCards()" :key="n.id">
+                                    <option :value="n.id" x-text="n.title + ' (' + n.id + ')'"></option>
+                                </template>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-xs text-slate-500 block mb-1">To (Target)</label>
+                            <select x-model="newLink.to" class="card-input bg-slate-900 border-slate-600">
+                                <option value="" disabled selected>Select Target</option>
+                                <template x-for="n in sortedCards()" :key="n.id">
+                                    <option :value="n.id" x-text="n.title + ' (' + n.id + ')'"></option>
+                                </template>
+                            </select>
+                        </div>
+                        <input type="text" x-model="newLink.type" placeholder="Type (e.g. contains, leads_to)"
+                            class="card-input bg-slate-900 border-slate-600">
+                        <input type="text" x-model="newLink.label" placeholder="Label (Optional)"
+                            class="card-input bg-slate-900 border-slate-600">
+                        <input type="number" x-model="newLink.strength" placeholder="Strength (Default: 1)"
+                            class="card-input bg-slate-900 border-slate-600 focus:border-blue-500">
+                        <button @click="addLink()" class="btn-primary w-full">Link Cards</button>
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider">Connections</h3>
+                    <template x-for="(link, index) in data.relationships" :key="index">
+                        <div
+                            class="bg-slate-800 p-3 rounded border border-slate-700 flex justify-between items-center group">
+                            <div class="text-sm w-full">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span
+                                        class="text-blue-400 font-mono text-xs border border-blue-900/50 bg-blue-900/20 px-1 rounded uppercase"
+                                        x-text="link.type"></span>
+                                    <span class="text-slate-500 text-xs" x-show="link.label"
+                                        x-text="'(' + link.label + ')'"></span>
+                                    <span class="text-amber-500 text-[10px] ml-1" x-show="link.strength"
+                                        x-text="'S:' + link.strength"></span>
+                                </div>
+                                <div class="flex items-center text-xs text-slate-400 gap-2">
+                                    <span class="truncate max-w-[100px]" title="Source"
+                                        x-text="getCardTitle(link.from)"></span>
+                                    <span>→</span>
+                                    <span class="truncate max-w-[100px]" title="Target"
+                                        x-text="getCardTitle(link.to)"></span>
+                                </div>
+                            </div>
+                            <button @click="deleteLink(index)"
+                                class="text-slate-500 hover:text-red-400 opacity-0 group-hover:opacity-100 transition-opacity ml-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content: Graph Visualization -->
+        <main class="flex-1 bg-slate-950 relative" id="graph-container">
+            <div class="absolute top-4 left-4 bg-slate-900/80 backdrop-blur text-xs p-2 rounded border border-slate-700 text-slate-400 pointer-events-none z-10"
+                x-show="!linkMode">
+                Scroll to Zoom • Drag to Pan • Drag Nodes to Move
+            </div>
+            <div class="absolute top-4 left-4 bg-amber-900/80 backdrop-blur text-xs p-2 rounded border border-amber-700 text-amber-200 pointer-events-none z-10 animate-pulse"
+                x-show="linkMode">
+                ⚠️ Linking Mode: Click two nodes to connect them
+            </div>
+            <!-- D3 Graph SVG will be appended here -->
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('cardManager', () => ({
+                activeTab: 'cards',
+                linkMode: false,
+                zoomEnabled: true,
+                started: false,
+                showStacksOnly: false,
+                data: { cards: [], relationships: [] },
+
+                newCard: { id: '', title: '', type: '', description: '', mediaInput: '' },
+                idModified: false,
+                editingCard: { id: '', title: '', type: '', description: '', mediaInput: '' },
+                showEditModal: false,
+                newLink: { from: '', to: '', type: '', label: '', strength: '1' },
+
+                // File Tracking
+                cardsFilename: '',
+                relationshipsFilename: '',
+
+                // Developer Settings
+                showSettings: false,
+                settings: {
+                    cardsUrl: 'cards.json',
+                    relationshipsUrl: 'relationships.json'
+                },
+
+                // JSON Viewer
+                showJsonModal: false,
+                jsonModalTitle: '',
+                viewingJson: '',
+                jsonLines: [],
+
+                viewJson(type) {
+                    this.jsonModalTitle = type === 'cards' ? 'Cards JSON' : 'Relationships JSON';
+                    const content = type === 'cards' ? this.data.cards : this.data.relationships;
+                    // Wrap in object to match file format structure
+                    const wrapper = type === 'cards' ? { cards: content } : { relationships: content };
+                    this.viewingJson = JSON.stringify(wrapper, null, 2);
+                    this.jsonLines = this.viewingJson.split('\n');
+                    this.showJsonModal = true;
+                },
+
+                copyJson() {
+                    navigator.clipboard.writeText(this.viewingJson).then(() => {
+                        alert('Copied to clipboard!');
+                    });
+                },
+
+                // Graphical Linking State
+                linkSourceId: null,
+
+                graphSimulation: null,
+                svg: null,
+
+                init() {
+                    // console.log("Init...");
+                    this.initSettings();
+
+                    // Intentional Auto-load (settings-based)
+                    if (true) {
+                        this.loading = true;
+                        const t = new Date().getTime(); // Cache busting
+
+                        // Default filenames to URL
+                        this.cardsFilename = this.settings.cardsUrl + ' (Auto)';
+                        this.relationshipsFilename = this.settings.relationshipsUrl + ' (Auto)';
+
+                        Promise.all([
+                            fetch(this.settings.cardsUrl + '?' + t).then(r => r.ok ? r.json() : { cards: [] }),
+                            fetch(this.settings.relationshipsUrl + '?' + t).then(r => r.ok ? r.json() : { relationships: [] })
+                        ]).then(([cardsData, relsData]) => {
+                            if (cardsData.cards && cardsData.cards.length > 0) {
+                                this.data.cards = this.sortCardsArray(cardsData.cards);
+                                // Ensure we don't lose data if relationships logic is acting up
+                                this.data.relationships = (relsData.relationships || []);
+
+                                // Update filenames with full path context if possible
+                                const appPath = this.getAppPath();
+                                if (!this.settings.cardsUrl.includes('/') && !this.settings.cardsUrl.includes('\\')) {
+                                    this.cardsFilename = appPath + this.settings.cardsUrl;
+                                } else {
+                                    this.cardsFilename = this.settings.cardsUrl;
+                                }
+
+                                if (!this.settings.relationshipsUrl.includes('/') && !this.settings.relationshipsUrl.includes('\\')) {
+                                    this.relationshipsFilename = appPath + this.settings.relationshipsUrl;
+                                } else {
+                                    this.relationshipsFilename = this.settings.relationshipsUrl;
+                                }
+
+                                this.started = true;
+                                this.initGraph();
+                            } else {
+                                this.data.cards = [];
+                                this.data.relationships = [];
+                            }
+                        });
+                    }
+
+                    this.$watch('data', () => {
+                        // Debounce update
+                        if (this.updateTimeout) clearTimeout(this.updateTimeout);
+                        this.updateTimeout = setTimeout(() => this.updateGraph(), 100);
+                    });
+
+                    // Auto-generate ID watcher
+                    this.$watch('newCard.title', (value) => {
+                        if (!this.idModified) {
+                            this.newCard.id = this.generateNextId(value);
+                        }
+                    });
+                },
+
+                // Settings Management
+                initSettings() {
+                    const stored = localStorage.getItem('cardNexusSettings');
+                    if (stored) {
+                        try {
+                            const parsed = JSON.parse(stored);
+                            this.settings = { ...this.settings, ...parsed };
+                        } catch (e) { console.error("Bad settings", e); }
+                    }
+                },
+
+                saveSettings() {
+                    localStorage.setItem('cardNexusSettings', JSON.stringify(this.settings));
+                    window.location.reload();
+                },
+
+                resetSettings() {
+                    localStorage.removeItem('cardNexusSettings');
+                    window.location.reload();
+                },
+
+                // --- Data Helpers ---
+
+                sortCardsArray(cards) {
+                    return cards.sort((a, b) => {
+                        const titleA = (a.title || '').trim().toLowerCase();
+                        const titleB = (b.title || '').trim().toLowerCase();
+                        return titleA.localeCompare(titleB);
+                    });
+                },
+
+                getOrphans() {
+                    if (!this.data.cards) return [];
+                    const connected = new Set();
+                    this.data.relationships.forEach(r => {
+                        connected.add(r.from);
+                        connected.add(r.to);
+                    });
+                    return this.data.cards.filter(c => !connected.has(c.id));
+                },
+
+                getAppPath() {
+                    if (window.location.protocol === 'file:') {
+                        const pathname = decodeURIComponent(window.location.pathname);
+                        // Remove leading slash on Windows if present (e.g. /C:/...)
+                        let path = pathname.replace(/^\/([A-Z]:)/, '$1');
+                        return path.substring(0, path.lastIndexOf('/') + 1);
+                    }
+                    return window.location.origin + window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
+                },
+
+                copyOrphansToClipboard() {
+                    const orphans = this.getOrphans();
+                    if (orphans.length === 0) return alert("No unconnected cards to copy.");
+                    const json = JSON.stringify(orphans, null, 2);
+                    navigator.clipboard.writeText(json).then(() => {
+                        alert(`Copied ${orphans.length} cards to clipboard!`);
+                    }).catch(err => {
+                        console.error('Failed to copy: ', err);
+                        alert("Failed to copy to clipboard.");
+                    });
+                },
+
+                locateNode(id) {
+                    const nodeDisplay = this.data.cards.find(n => n.id === id);
+                    if (nodeDisplay) {
+                        // Set selection for visual highlight
+                        this.linkSourceId = id;
+
+                        // Set as TARGET for linking (User Request)
+                        this.newLink.to = id;
+
+                        this.updateGraph();
+
+                        // Find the D3 node to get its coordinates
+                        if (this.simulation) {
+                            const d3Node = this.simulation.nodes().find(n => n.id === id);
+                            if (d3Node && this.svg) {
+                                // Pan to node
+                                const width = this.width || 800;
+                                const height = this.height || 600;
+                                const k = 1.5; // Zoom level
+
+                                // Transition the graph group transform
+                                // We need the zoom behavior instance if we want to update D3's internal state
+                                // Assuming this.zoom is available or accessible via this.svg.call(d3.zoom...
+
+                                // If we stored the zoom behavior:
+                                if (this.zoomBehavior && this.svgSelection) {
+                                    this.svgSelection.transition().duration(750).call(
+                                        this.zoomBehavior.transform,
+                                        d3.zoomIdentity.translate(width / 2, height / 2).scale(k).translate(-d3Node.x, -d3Node.y)
+                                    );
+                                }
+                            }
+                        }
+                    }
+                },
+
+                startLinkFromTodo(id) {
+                    this.activeTab = 'links';
+                    this.toggleLinkMode(); // Ensure mode is active
+                    // Select as source
+                    this.linkSourceId = id;
+                    this.newLink.from = id;
+                    this.updateGraph();
+                },
+
+                generateNextId(title) {
+                    if (!title) return '';
+                    const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
+
+                    const numbers = this.data.cards.map(c => {
+                        const m = c.id.toString().match(/^(\d+)_/);
+                        return m ? parseInt(m[1]) : null;
+                    }).filter(n => n !== null && n < 9000); // Filter out media IDs
+
+                    let nextNum = 1;
+                    if (numbers.length > 0) {
+                        nextNum = Math.max(...numbers) + 1;
+                    }
+
+                    const prefix = String(nextNum).padStart(3, '0');
+                    return `${prefix}_${slug}`;
+                },
+
+                getCardTitle(id) {
+                    const c = this.data.cards.find(n => n.id === id);
+                    return c ? c.title : id;
+                },
+
+                sortedCards() {
+                    return [...this.data.cards].sort((a, b) => a.title.localeCompare(b.title));
+                },
+
+                // --- Actions ---
+
+                addCard() {
+                    if (!this.newCard.id) this.newCard.id = this.generateNextId(this.newCard.title);
+                    if (!this.newCard.title) return alert("Title is required");
+
+                    if (this.data.cards.find(c => c.id === this.newCard.id)) {
+                        return alert("ID already exists!");
+                    }
+
+                    const card = {
+                        id: this.newCard.id,
+                        title: this.newCard.title,
+                        type: this.newCard.type || 'generic',
+                        description: this.newCard.description || ''
+                    };
+
+                    if (this.newCard.mediaInput) {
+                        card.media = this.newCard.mediaInput.split(',').map(s => s.trim()).filter(s => s);
+                    }
+
+                    this.data.cards.push(card);
+
+                    this.newCard = { id: '', title: '', type: '', description: '', mediaInput: '' };
+                    this.idModified = false;
+                    this.updateGraph();
+                },
+
+                deleteCard(id) {
+                    if (!confirm("Delete this card and all its connections?")) return;
+
+                    // Remove Card
+                    this.data.cards = this.data.cards.filter(n => n.id !== id);
+
+                    // Remove Relationships (Handle D3 object references)
+                    this.data.relationships = this.data.relationships.filter(r => {
+                        const rFrom = (typeof r.from === 'object' && r.from !== null) ? r.from.id : r.from;
+                        const rTo = (typeof r.to === 'object' && r.to !== null) ? r.to.id : r.to;
+                        return rFrom !== id && rTo !== id;
+                    });
+
+                    // If deleted card was the source, clear it
+                    if (this.linkSourceId === id) {
+                        this.linkSourceId = null;
+                        this.newLink.from = '';
+                    }
+
+                    this.updateGraph();
+                },
+
+                addLink() {
+                    if (!this.newLink.from || !this.newLink.to) return alert("Select both source and target");
+                    if (this.newLink.from === this.newLink.to) return alert("Cannot link a card to itself");
+
+                    // Check duplicate
+                    const exists = this.data.relationships.find(r => r.from === this.newLink.from && r.to === this.newLink.to);
+                    if (exists) return alert("Link already exists");
+
+                    const link = {
+                        from: this.newLink.from,
+                        to: this.newLink.to,
+                        type: this.newLink.type || 'contains',
+                        strength: this.newLink.strength || '1'
+                    };
+                    if (this.newLink.label) link.label = this.newLink.label;
+
+                    this.data.relationships.push(link);
+                    this.newLink.label = '';
+                    this.updateGraph();
+                },
+
+                deleteLink(index) {
+                    if (confirm('Are you sure you want to delete this relationship?')) {
+                        this.data.relationships.splice(index, 1);
+                        this.updateGraph();
+                    }
+                },
+
+                // --- Card Editing ---
+                startEditCard(card) {
+                    this.editingCard = { ...card, mediaInput: (card.media || []).join(', ') };
+                    this.showEditModal = true;
+                },
+
+                saveEditedCard() {
+                    const index = this.data.cards.findIndex(c => c.id === this.editingCard.id);
+                    if (index !== -1) {
+                        // Process media input back to array
+                        const mediaArray = this.editingCard.mediaInput ?
+                            this.editingCard.mediaInput.split(',').map(s => s.trim()).filter(s => s) : [];
+
+                        this.data.cards[index] = {
+                            ...this.editingCard,
+                            media: mediaArray
+                        };
+                        // Remove temporary input field before saving to object (optional, but cleaner)
+                        delete this.data.cards[index].mediaInput;
+
+                        this.showEditModal = false;
+                        this.updateGraph();
+                    }
+                },
+
+                // --- Linking Mode Logic ---
+
+                toggleLinkMode() {
+                    this.linkMode = !this.linkMode;
+                    if (this.linkMode) {
+                        this.zoomEnabled = false; // Auto-lock view
+                    }
+                    this.linkSourceId = null;
+                    this.activeTab = 'links'; // Switch tab to help user see form
+                    this.updateGraph(); // Re-render to clear highlights
+                },
+
+                handleNodeClick(event, d) {
+                    if (event && event.stopPropagation) event.stopPropagation();
+
+                    // Standard Selection Mode (View/Edit)
+                    if (!this.linkMode) {
+                        this.linkSourceId = (this.linkSourceId === d.id) ? null : d.id;
+                        this.newLink.from = this.linkSourceId || '';
+                        this.updateGraph();
+                        return;
+                    }
+
+                    // --- Link Mode Logic ---
+                    if (!this.linkSourceId) {
+                        // Case 1: No Source selected. Select this node as Source.
+                        this.linkSourceId = d.id;
+                        this.newLink.from = d.id;
+                    } else if (this.linkSourceId === d.id) {
+                        // Case 2: Clicked the Source again. Deselect.
+                        this.linkSourceId = null;
+                        this.newLink.from = '';
+                    } else {
+                        // Case 3: Clicked a different node. Treat as Target and Link.
+                        this.newLink.to = d.id;
+
+                        // Attempt to link
+                        this.addLink();
+
+                        // Keep Source selected for Hub mode
+                    }
+                    this.updateGraph();
+                },
+
+                // --- IO ---
+
+                // --- IO ---
+
+                async saveToServer(endpoint, data) {
+                    try {
+                        const response = await fetch(endpoint, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(data)
+                        });
+                        if (response.ok) {
+                            const resData = await response.json();
+                            if (resData.path && resData.timestamp) {
+                                alert(`Saved successfully!\nLocation: ${resData.path}\nTimestamp: ${resData.timestamp}`);
+                            } else {
+                                alert("Saved successfully to disk!");
+                            }
+                        } else {
+                            throw new Error("Server error");
+                        }
+                    } catch (e) {
+                        console.error(e);
+                        // Fallback to download if server fails
+                        const filename = endpoint.includes('cards') ? 'cards.json' : 'relationships.json';
+                        const wrapper = {};
+                        if (filename === 'cards.json') wrapper.cards = data.cards; // Wrapper fix
+                        else wrapper.relationships = data.relationships;
+
+                        this.downloadFile(wrapper, filename);
+                    }
+                },
+
+                downloadCards() {
+                    // Use Alpine.raw to ensure we strip proxies
+                    const rawCards = Alpine.raw(this.data.cards);
+                    const output = { cards: rawCards };
+
+                    // Check if we are running on localhost (server mode)
+                    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                        this.saveToServer('/save/cards', output);
+                    } else {
+                        this.downloadFile(output, "cards.json");
+                    }
+                },
+
+                // Debugging: Log calls to save
+                downloadRelationships() {
+                    console.log("Saving relationships...");
+                    const rawRels = Alpine.raw(this.data.relationships);
+                    const count = rawRels.length;
+
+                    if (!confirm(`Overwrite relationships.json with ${count} links?`)) {
+                        return;
+                    }
+
+                    const output = { relationships: rawRels };
+
+                    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                        this.saveToServer('/save/relationships', output);
+                    } else {
+                        this.downloadFile(output, "relationships.json");
+                    }
+                },
+
+                downloadFile(obj, filename) {
+                    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(obj, null, 2));
+                    const a = document.createElement('a');
+                    a.setAttribute("href", dataStr);
+                    a.setAttribute("download", filename);
+                    document.body.appendChild(a);
+                    a.click();
+                    a.remove();
+                },
+
+                uploadCards(event) {
+                    const file = event.target.files[0];
+                    this.readFile(file, (json) => {
+                        if (json.cards && Array.isArray(json.cards)) {
+                            this.data.cards = this.sortCardsArray(json.cards);
+                            this.cardsFilename = '(Upload) ' + file.name;
+                            this.updateGraph();
+                        } else {
+                            alert("Invalid cards.json format. Expected { cards: [...] }");
+                        }
+                    });
+                },
+
+                uploadRelationships(event) {
+                    const file = event.target.files[0];
+                    this.readFile(file, (json) => {
+                        if (json.relationships && Array.isArray(json.relationships)) {
+                            this.data.relationships = json.relationships;
+                            this.relationshipsFilename = '(Upload) ' + file.name;
+                            this.updateGraph();
+                        } else {
+                            alert("Invalid relationships.json format. Expected { relationships: [...] }");
+                        }
+                    });
+                },
+
+                readFile(file, callback) {
+                    if (!file) return;
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        try {
+                            const json = JSON.parse(e.target.result);
+                            callback(json);
+                        } catch (err) {
+                            alert("Error parsing JSON");
+                        }
+                    };
+                    reader.readAsText(file);
+                },
+
+                // --- Visualization (D3.js) ---
+
+                initGraph() {
+                    const container = document.getElementById('graph-container');
+                    const width = container.clientWidth;
+                    const height = container.clientHeight;
+
+                    d3.select("#graph-container").selectAll("*").remove();
+
+                    this.zoomBehavior = d3.zoom()
+                        .filter((event) => {
+                            // Disable zoom/pan if in linkMode OR manually disabled
+                            if (this.linkMode || !this.zoomEnabled) return false;
+                            return !event.ctrlKey && !event.button;
+                        })
+                        .on("zoom", (event) => {
+                            this.graphGroup.attr("transform", event.transform);
+                        });
+
+                    this.svg = d3.select("#graph-container")
+                        .append("svg")
+                        .attr("width", "100%")
+                        .attr("height", "100%")
+                        .call(this.zoomBehavior) // Correctly apply zoom behavior
+                        .on("click", (event) => {
+                            // If clicking background in link mode, deselect
+                            if (event.target.tagName === 'svg' && this.linkMode) {
+                                this.linkSourceId = null;
+                                this.newLink.from = '';
+                                this.updateGraph();
+                            }
+                        });
+
+                    // Store selection for transition
+                    this.svgSelection = this.svg;
+
+
+                    // Add arrow marker
+                    this.svg.append("defs").selectAll("marker")
+                        .data(["end"])
+                        .enter().append("marker")
+                        .attr("id", "arrow")
+                        .attr("viewBox", "0 -5 10 10")
+                        .attr("refX", 25)
+                        .attr("refY", 0)
+                        .attr("markerWidth", 6)
+                        .attr("markerHeight", 6)
+                        .attr("orient", "auto")
+                        .append("path")
+                        .attr("d", "M0,-5L10,0L0,5")
+                        .attr("fill", "#475569");
+
+                    this.graphGroup = this.svg.append("g");
+                    this.width = width;
+                    this.height = height;
+
+                    this.simulation = d3.forceSimulation()
+                        .force("link", d3.forceLink().id(d => d.id).distance(500))
+                        .force("charge", d3.forceManyBody().strength(d => d.type === 'stack' ? -6000 : -2000))
+                        .force("collide", d3.forceCollide(100));
+
+                    this.updateGraph();
+
+                    window.addEventListener('resize', () => {
+                        const w = container.clientWidth;
+                        const h = container.clientHeight;
+                        this.width = w;
+                        this.height = h;
+                        this.simulation.alpha(0.3).restart();
+                    });
+                },
+
+                updateGraph() {
+                    if (!this.simulation) return;
+
+                    // Compute degrees
+                    const degrees = new Map();
+                    this.data.cards.forEach(c => degrees.set(c.id, 0));
+                    this.data.relationships.forEach(r => {
+                        degrees.set(r.from, (degrees.get(r.from) || 0) + 1);
+                        degrees.set(r.to, (degrees.get(r.to) || 0) + 1);
+                    });
+
+                    // Preserve previous node positions to prevent layout jumping
+                    const oldNodes = new Map(this.simulation ? this.simulation.nodes().map(n => [n.id, n]) : []);
+
+                    const d3Nodes = this.data.cards.map(c => {
+                        const n = { ...c };
+                        const old = oldNodes.get(c.id);
+                        if (old) {
+                            n.x = old.x;
+                            n.y = old.y;
+                            n.vx = old.vx;
+                            n.vy = old.vy;
+                        }
+                        return n;
+                    });
+
+                    const d3Links = this.data.relationships.map(r => ({
+                        source: (typeof r.from === 'object' ? r.from.id : r.from),
+                        target: (typeof r.to === 'object' ? r.to.id : r.to),
+                        type: r.type,
+                        _sourceId: (typeof r.from === 'object' ? r.from.id : r.from),
+                        _targetId: (typeof r.to === 'object' ? r.to.id : r.to)
+                    })).filter(l => {
+                        const s = d3Nodes.find(n => n.id === l._sourceId);
+                        const t = d3Nodes.find(n => n.id === l._targetId);
+                        return s && t;
+                    });
+
+                    // Links
+                    const linkSelection = this.graphGroup.selectAll(".link")
+                        .data(d3Links, d => {
+                            const s = (d.source && d.source.id) ? d.source.id : d.source;
+                            const t = (d.target && d.target.id) ? d.target.id : d.target;
+                            return `${s}-${t}`;
+                        });
+
+                    linkSelection.exit().remove();
+
+                    const linkEnter = linkSelection.enter()
+                        .append("path")
+                        .attr("class", d => "link" + (d.type === 'choice' ? " choice" : ""))
+                        .attr("fill", "none")
+                        .attr("stroke", "#475569") // Explicit stroke
+                        .attr("stroke-width", 1.5)
+                        .attr("stroke-opacity", 0.6)
+                        .attr("marker-end", "url(#arrow)")
+                        .style("cursor", "pointer")
+                        .on("click", (event, d) => {
+                            if (this.linkMode) return;
+                            // Find original relationship index
+                            // Handle object vs string source
+                            const sId = (d.source && d.source.id) ? d.source.id : d.source;
+                            const tId = (d.target && d.target.id) ? d.target.id : d.target;
+
+                            const index = this.data.relationships.findIndex(r =>
+                                r.from === sId && r.to === tId
+                            );
+                            if (index !== -1) {
+                                this.deleteLink(index);
+                            }
+                        })
+                        .append("title") // Tooltip
+                        .text(d => {
+                            const s = (d.source && d.source.title) ? d.source.title : (d.source.id ? d.source.id : d.source);
+                            const t = (d.target && d.target.title) ? d.target.title : (d.target.id ? d.target.id : d.target);
+
+                            // Try to look up title from cards data if we only have ID
+                            const sNode = this.data.cards.find(c => c.id === s);
+                            const tNode = this.data.cards.find(c => c.id === t);
+
+                            const sTitle = sNode ? sNode.title : s;
+                            const tTitle = tNode ? tNode.title : t;
+
+                            return `Click to delete connection: ${sTitle} -> ${tTitle}`;
+                        });
+
+                    const link = linkEnter.merge(linkSelection);
+
+                    // Nodes
+                    const nodeSelection = this.graphGroup.selectAll(".node")
+                        .data(d3Nodes, d => d.id);
+
+                    nodeSelection.exit().remove();
+
+                    const nodeEnter = nodeSelection.enter()
+                        .append("g")
+                        .attr("class", "node")
+                        .attr("id", d => d.id) // Add ID for testing/automation
+                        .call(d3.drag()
+                            .on("start", this.dragstarted.bind(this))
+                            .on("drag", this.dragged.bind(this))
+                            .on("end", this.dragended.bind(this)));
+
+                    nodeEnter.on("click", (event, d) => this.handleNodeClick(event, d));
+
+                    // Use PATH instead of CIRCLE to enable shape switching
+                    nodeEnter.append("path")
+                        .attr("d", d3.symbol().type(d3.symbolCircle).size(300))
+                        .attr("fill", d => this.getColor(d.type));
+
+                    nodeEnter.append("text")
+                        .attr("dy", 26)
+                        .attr("text-anchor", "middle")
+                        .text(d => d.title);
+
+                    const node = nodeEnter.merge(nodeSelection);
+
+                    node.select("text").text(d => d.title);
+
+                    // Update Shape & Color based on selection
+                    node.select("path")
+                        .attr("d", d => {
+                            if (d.id === this.linkSourceId) {
+                                // "Twice as big" -> Make it significantly larger. 
+                                // previous was 800. Let's do 3500.
+                                return d3.symbol().type(d3.symbolStar).size(3500)();
+                            }
+                            return d3.symbol().type(d3.symbolCircle).size(300)();
+                        })
+                        .attr("fill", d => {
+                            if (d.id === this.linkSourceId) return "#fbbf24";
+                            return this.getColor(d.type);
+                        })
+                        .attr("stroke", d => d.id === this.linkSourceId ? "#fff" : "none")
+                        .attr("stroke-width", d => d.id === this.linkSourceId ? 2 : 0);
+
+                    // CSS classes
+                    node.attr("class", d => {
+                        let classes = "node";
+                        if (this.linkSourceId === d.id) classes += " selected";
+                        return classes;
+                    });
+
+                    // Forces
+                    const width = this.width || 800;
+                    const height = this.height || 600;
+
+                    this.simulation
+                        .force("x", d3.forceX(d => {
+                            const degree = degrees.get(d.id);
+                            return (degree === 0) ? 100 : width * 0.6;
+                        }).strength(0.02))
+                        .force("y", d3.forceY(height / 2).strength(0.02));
+
+
+                    if (this.linkMode) {
+                        // In Link Mode: completely STOP simulation to freeze layout
+                        this.simulation.stop();
+
+                        // Manually update DOM positions one last time to ensure sync
+                        this.simulation.nodes(d3Nodes);
+                        this.simulation.force("link").links(d3Links);
+
+                        link.attr("d", d => `M${d.source.x},${d.source.y}L${d.target.x},${d.target.y}`);
+                        node.attr("transform", d => `translate(${d.x},${d.y})`);
+                    } else {
+                        this.simulation.nodes(d3Nodes).on("tick", () => {
+                            link.attr("d", d => {
+                                if (!d.source || !d.target) return "";
+                                return `M${d.source.x},${d.source.y}L${d.target.x},${d.target.y}`;
+                            });
+                            node.attr("transform", d => `translate(${d.x},${d.y})`);
+                        });
+                        this.simulation.force("link").links(d3Links);
+
+                        // Normal Mode: Heat up
+                        this.simulation.alpha(1).restart();
+                    }
+                },
+
+                getColor(type) {
+                    const colors = ["#3b82f6", "#8b5cf6", "#ec4899", "#ef4444", "#f59e0b", "#10b981", "#6366f1"];
+                    let hash = 0;
+                    if (!type) return colors[0];
+                    for (let i = 0; i < type.length; i++) hash = type.charCodeAt(i) + ((hash << 5) - hash);
+                    return colors[Math.abs(hash) % colors.length];
+                },
+
+                dragstarted(event, d) {
+                    if (this.linkMode) return; // Disable drag in link mode
+                    if (!event.active) this.simulation.alphaTarget(0.3).restart();
+                    d.fx = d.x;
+                    d.fy = d.y;
+                },
+
+                dragged(event, d) {
+                    if (this.linkMode) return; // Disable drag in link mode
+                    d.fx = event.x;
+                    d.fy = event.y;
+                },
+
+                dragended(event, d) {
+                    if (this.linkMode) return; // Disable drag in link mode
+                    if (!event.active) this.simulation.alphaTarget(0);
+                    // d.fx = null; // Sticky drag: keep position fixed
+                    // d.fy = null;
+                }
+            }));
+        });
+    </script>
+</body>
+
+</html>

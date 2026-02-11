@@ -1,0 +1,34 @@
+{
+    "nodes": [
+        {
+            "id": "1",
+            "label": "Project Alpha",
+            "type": "Project",
+            "description": "The main initiative for Q1."
+        },
+        {
+            "id": "2",
+            "label": "Team Bravo",
+            "type": "Team",
+            "description": "The engineering team responsible for Alpha."
+        },
+        {
+            "id": "3",
+            "label": "Launch Date",
+            "type": "Milestone",
+            "description": "Targeting end of March."
+        }
+    ],
+    "links": [
+        {
+            "source": "2",
+            "target": "1",
+            "relation": "MANAGES"
+        },
+        {
+            "source": "1",
+            "target": "3",
+            "relation": "TARGETS"
+        }
+    ]
+}
