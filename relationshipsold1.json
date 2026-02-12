@@ -1,0 +1,2190 @@
+{
+  "relationships": [
+    {
+      "from": "1201_doc_maintenance",
+      "to": "tech_doc_level2_1",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1201_doc_maintenance",
+      "to": "tech_doc_level2_2",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "tech_doc_level2_1",
+      "to": "tech_doc_level3_1",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "tech_doc_level2_1",
+      "to": "tech_doc_level3_2",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "tech_doc_level3_1",
+      "to": "tech_doc_level4_1",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "001_stack_development_leadership",
+      "to": "100_agile_methods",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "001_stack_development_leadership",
+      "to": "102_pm_reporting",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "001_stack_development_leadership",
+      "to": "103_tech_authorship",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "102_pm_reporting",
+      "to": "10001_media_gantt_chart",
+      "type": "show_media",
+      "label": "Show Gantt Chart",
+      "strength": "1"
+    },
+    {
+      "from": "102_pm_reporting",
+      "to": "10003_media_pm_dashboard",
+      "type": "show_media",
+      "label": "Show PM Dashboard",
+      "strength": "1"
+    },
+    {
+      "from": "103_tech_authorship",
+      "to": "10002_media_architecture_diagram",
+      "type": "show_media",
+      "label": "Show Architecture Diagram",
+      "strength": "1"
+    },
+    {
+      "from": "002_stack_data_engineering",
+      "to": "200_decision_database_platform",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "200_decision_database_platform",
+      "to": "201_oracle",
+      "type": "choice",
+      "label": "Oracle",
+      "strength": "1"
+    },
+    {
+      "from": "200_decision_database_platform",
+      "to": "202_sql_server",
+      "type": "choice",
+      "label": "SQL Server",
+      "strength": "1"
+    },
+    {
+      "from": "201_oracle",
+      "to": "203_plsql_dev",
+      "type": "leads_to",
+      "strength": "1"
+    },
+    {
+      "from": "202_sql_server",
+      "to": "204_tsql_dev",
+      "type": "leads_to",
+      "strength": "1"
+    },
+    {
+      "from": "203_plsql_dev",
+      "to": "10006_media_plsql_pipeline",
+      "type": "show_media",
+      "label": "Show PL/SQL Pipeline",
+      "strength": "1"
+    },
+    {
+      "from": "204_tsql_dev",
+      "to": "10007_media_tsql_pipeline",
+      "type": "show_media",
+      "label": "Show T-SQL Pipeline",
+      "strength": "1"
+    },
+    {
+      "from": "002_stack_data_engineering",
+      "to": "205_db_schema_design",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "002_stack_data_engineering",
+      "to": "206_datawarehouse_design",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "205_db_schema_design",
+      "to": "10004_media_er_diagram",
+      "type": "show_media",
+      "label": "Show ER Diagram",
+      "strength": "1"
+    },
+    {
+      "from": "206_datawarehouse_design",
+      "to": "10005_media_star_schema",
+      "type": "show_media",
+      "label": "Show Star Schema",
+      "strength": "1"
+    },
+    {
+      "from": "003_stack_etl_integration",
+      "to": "300_ssis_azure",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "003_stack_etl_integration",
+      "to": "301_specialist_dataset",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "003_stack_etl_integration",
+      "to": "302_data_validation",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "302_data_validation",
+      "to": "10008_media_pipeline_diagram",
+      "type": "show_media",
+      "label": "Show Pipeline Diagram",
+      "strength": "1"
+    },
+    {
+      "from": "302_data_validation",
+      "to": "10009_media_dataset_flow",
+      "type": "show_media",
+      "label": "Show Dataset Flow",
+      "strength": "1"
+    },
+    {
+      "from": "004_stack_analytics_reporting",
+      "to": "400_powerbi_tableau_qlik",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "004_stack_analytics_reporting",
+      "to": "401_excel_ssrs",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "004_stack_analytics_reporting",
+      "to": "402_six_sigma",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "402_six_sigma",
+      "to": "10010_media_kpi_dashboard",
+      "type": "show_media",
+      "label": "Show KPI Dashboard",
+      "strength": "1"
+    },
+    {
+      "from": "402_six_sigma",
+      "to": "10011_media_control_chart",
+      "type": "show_media",
+      "label": "Show Control Chart",
+      "strength": "1"
+    },
+    {
+      "from": "005_stack_business_analysis",
+      "to": "500_requirements_gathering",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "005_stack_business_analysis",
+      "to": "501_kpi_functional_spec",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "005_stack_business_analysis",
+      "to": "502_crypto_research",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "502_crypto_research",
+      "to": "10012_media_process_diagram",
+      "type": "show_media",
+      "label": "Show Process Diagram",
+      "strength": "1"
+    },
+    {
+      "from": "502_crypto_research",
+      "to": "10013_media_crypto_dashboard",
+      "type": "show_media",
+      "label": "Show Crypto Dashboard",
+      "strength": "1"
+    },
+    {
+      "from": "006_stack_legacy_modernisation",
+      "to": "600_vb_python",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "006_stack_legacy_modernisation",
+      "to": "601_vendor_software",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "006_stack_legacy_modernisation",
+      "to": "602_vendor_migrations",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "602_vendor_migrations",
+      "to": "10014_media_before_after_architecture",
+      "type": "show_media",
+      "label": "Show Before/After Architecture Diagram",
+      "strength": "1"
+    },
+    {
+      "from": "007_stack_greenfield_dev",
+      "to": "700_csharp_python",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "007_stack_greenfield_dev",
+      "to": "701_gui_design",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "007_stack_greenfield_dev",
+      "to": "702_microservices_rad",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "701_gui_design",
+      "to": "10015_media_gui_screenshot",
+      "type": "show_media",
+      "label": "Show GUI Screenshot",
+      "strength": "1"
+    },
+    {
+      "from": "702_microservices_rad",
+      "to": "10016_media_ci_cd_pipeline",
+      "type": "show_media",
+      "label": "Show CI/CD Pipeline Diagram",
+      "strength": "1"
+    },
+    {
+      "from": "008_stack_ai_development",
+      "to": "800_openai_langchain",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "008_stack_ai_development",
+      "to": "801_vector_db",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "008_stack_ai_development",
+      "to": "802_ai_doc_systems",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "802_ai_doc_systems",
+      "to": "10017_media_ai_workflow",
+      "type": "show_media",
+      "label": "Show AI Workflow Diagram",
+      "strength": "1"
+    },
+    {
+      "from": "009_stack_real_world",
+      "to": "900_oltp",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "009_stack_real_world",
+      "to": "901_inventory_ops",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "009_stack_real_world",
+      "to": "902_stp",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "902_stp",
+      "to": "10018_media_transaction_workflow",
+      "type": "show_media",
+      "label": "Show Transaction Workflow Diagram",
+      "strength": "1"
+    },
+    {
+      "from": "010_stack_cloud_hosting",
+      "to": "1000_aws",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "010_stack_cloud_hosting",
+      "to": "1001_azure",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "010_stack_cloud_hosting",
+      "to": "1002_monitoring_scaling",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1002_monitoring_scaling",
+      "to": "10019_media_cloud_architecture",
+      "type": "show_media",
+      "label": "Show Cloud Architecture Diagram",
+      "strength": "1"
+    },
+    {
+      "from": "011_stack_governance_compliance",
+      "to": "1100_gdpr",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "011_stack_governance_compliance",
+      "to": "1101_access_control",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "011_stack_governance_compliance",
+      "to": "1102_policy_compliance",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "011_stack_governance_compliance",
+      "to": "0111_governance",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "011_stack_governance_compliance",
+      "to": "0112_compliance",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1102_policy_compliance",
+      "to": "10020_media_anonymized_flow",
+      "type": "show_media",
+      "label": "Show Anonymized Data Flow Diagram",
+      "strength": "1"
+    },
+    {
+      "from": "012_stack_professional_practices",
+      "to": "1200_six_sigma_pp",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "012_stack_professional_practices",
+      "to": "1201_doc_maintenance",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "012_stack_professional_practices",
+      "to": "1202_delivery_methodologies",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1200_six_sigma_pp",
+      "to": "10021_media_control_charts",
+      "type": "show_media",
+      "label": "Show Control Charts",
+      "strength": "1"
+    },
+    {
+      "from": "1202_delivery_methodologies",
+      "to": "10022_media_methodology_visuals",
+      "type": "show_media",
+      "label": "Show Project Methodology Visuals",
+      "strength": "1"
+    },
+    {
+      "from": "0112_compliance",
+      "to": "1203_gdpr",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "0112_compliance",
+      "to": "1204_sarbanes_oaxley",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1205_data_protection_an_piracy",
+      "to": "1210_pipeda",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1205_data_protection_an_piracy",
+      "to": "1207_uk_data_protection_act_2018",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1205_data_protection_an_piracy",
+      "to": "1209_ccpa_cpra",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1205_data_protection_an_piracy",
+      "to": "1206_gdpr_eu_uk_gdpr",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1205_data_protection_an_piracy",
+      "to": "1211_lgpd",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1205_data_protection_an_piracy",
+      "to": "1208_eprivacy_directive_pecr",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1212_information_security_data_handling",
+      "to": "1213_iso_27001",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1212_information_security_data_handling",
+      "to": "1214_iso_27701",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1212_information_security_data_handling",
+      "to": "1215_soc_2",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1212_information_security_data_handling",
+      "to": "1216_nist_cybersecurity_framework",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1212_information_security_data_handling",
+      "to": "1217_cyber_essentials_cyber_essentials_plus",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1218_finance_payments",
+      "to": "1223_basel_iii",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1218_finance_payments",
+      "to": "1222_sox",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1218_finance_payments",
+      "to": "1221_pci_dss",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1219_healthcare_life_sciences",
+      "to": "1224_hipaa",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1219_healthcare_life_sciences",
+      "to": "1225_gxp_gamp5",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1219_healthcare_life_sciences",
+      "to": "1226_fda_21_cfr_part_11",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1220_general_corporate_governance_risk",
+      "to": "1229_coso",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1220_general_corporate_governance_risk",
+      "to": "1227_iso_9001",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1220_general_corporate_governance_risk",
+      "to": "1228_iso_22301",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "0112_compliance",
+      "to": "1219_healthcare_life_sciences",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "0112_compliance",
+      "to": "1205_data_protection_an_piracy",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "0112_compliance",
+      "to": "1212_information_security_data_handling",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "0112_compliance",
+      "to": "1218_finance_payments",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "0112_compliance",
+      "to": "1220_general_corporate_governance_risk",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1230_corporate_organizational_governance",
+      "to": "1236_corporate_governance_codes",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1230_corporate_organizational_governance",
+      "to": "1237_oecd_corporate_governance_principles",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1230_corporate_organizational_governance",
+      "to": "1238_board_oversight_audit_committees_risk_committees_etc",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1245_common_frameworks",
+      "to": "1246_dama_dmbok",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1245_common_frameworks",
+      "to": "1247_dcam",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1245_common_frameworks",
+      "to": "1248_enterprise_data_governance_frameworks",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1232_data_governance",
+      "to": "1245_common_frameworks",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1232_data_governance",
+      "to": "1239_data_ownership_stewardship",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1232_data_governance",
+      "to": "1240_data_quality_management",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1232_data_governance",
+      "to": "1241_data_classification",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1232_data_governance",
+      "to": "1242_retention_deletion_policies",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1232_data_governance",
+      "to": "1243_access_controls",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1232_data_governance",
+      "to": "1244_metadata_management",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1233_it_governance",
+      "to": "1249_cobit",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1233_it_governance",
+      "to": "1250_itil",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1233_it_governance",
+      "to": "1251_iso_38500",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1233_it_governance",
+      "to": "1216_nist_cybersecurity_framework",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1234_information_governance_nhs_healthcare",
+      "to": "1253_often_includes",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1234_information_governance_nhs_healthcare",
+      "to": "1252_combines",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1252_combines",
+      "to": "1254_data_protection",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1252_combines",
+      "to": "1255_records_management",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1252_combines",
+      "to": "1256_information_security",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1252_combines",
+      "to": "1257_data_sharing_controls",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1253_often_includes",
+      "to": "1261_gdpr_compliance",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1253_often_includes",
+      "to": "1258_records_retention",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1253_often_includes",
+      "to": "1259_secure_disposal",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1253_often_includes",
+      "to": "1260_information_lifecycle_management",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1235_risk_compliance_governance",
+      "to": "1262_iso_31000",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1235_risk_compliance_governance",
+      "to": "1263_coso",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1235_risk_compliance_governance",
+      "to": "1264_three_lines_model",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "0111_governance",
+      "to": "1235_risk_compliance_governance",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "0111_governance",
+      "to": "1232_data_governance",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "0111_governance",
+      "to": "1230_corporate_organizational_governance",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1265_analytics",
+      "to": "1266_analytics_foundations",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1265_analytics",
+      "to": "1267_kpi_metrics_design",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1265_analytics",
+      "to": "1268_operational_reporting",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1265_analytics",
+      "to": "1269_dashboard_architecture",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1265_analytics",
+      "to": "1270_something_specific_from_our_experience",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "004_stack_analytics_reporting",
+      "to": "1265_analytics",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1266_analytics_foundations",
+      "to": "1271_descriptive_analytics",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1266_analytics_foundations",
+      "to": "1272_diagnostic_analytics",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1266_analytics_foundations",
+      "to": "1273_predictive_analytics",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1266_analytics_foundations",
+      "to": "1274_prescriptive_analytics",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1266_analytics_foundations",
+      "to": "1275_exploratory_data_analysis_eda",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1266_analytics_foundations",
+      "to": "1276_statistical_analysis",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1266_analytics_foundations",
+      "to": "1277_trend_time_series_analysis",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1266_analytics_foundations",
+      "to": "1278_segmentation_cohort_analysis",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1266_analytics_foundations",
+      "to": "1279_forecasting",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1266_analytics_foundations",
+      "to": "1280_anomaly_detection",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1281_kpi_metrics_design",
+      "to": "1282_kpi_identification",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1281_kpi_metrics_design",
+      "to": "1283_metric_definition_calculation",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1281_kpi_metrics_design",
+      "to": "1284_leading_vs_lagging_indicators",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1281_kpi_metrics_design",
+      "to": "1285_balanced_scorecard_alignment",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1281_kpi_metrics_design",
+      "to": "1286_operational_vs_strategic_metrics",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1281_kpi_metrics_design",
+      "to": "1287_kpi_governance_quality",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1265_analytics",
+      "to": "1281_kpi_metrics_design",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1288_operational_reporting",
+      "to": "1289_standard_reports",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1288_operational_reporting",
+      "to": "1290_ad_hoc_reports",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1288_operational_reporting",
+      "to": "1291_exception_alert_reporting",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1288_operational_reporting",
+      "to": "1292_report_automation_scheduling",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1288_operational_reporting",
+      "to": "1293_data_accuracy_validation",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1265_analytics",
+      "to": "1288_operational_reporting",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1295_dashboard_architecture",
+      "to": "1296_dashboard_requirements_audience",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1295_dashboard_architecture",
+      "to": "1297_information_hierarchy_layout",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1295_dashboard_architecture",
+      "to": "1298_visualization_selection_best_practices",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1295_dashboard_architecture",
+      "to": "1299_interactivity_drill_downs",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1295_dashboard_architecture",
+      "to": "1300_dashboard_performance_maintenance",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1265_analytics",
+      "to": "1295_dashboard_architecture",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1301_advanced_applied_analytics",
+      "to": "1302_customer_segmentation_behaviour_analysis",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1301_advanced_applied_analytics",
+      "to": "1303_predictive_analytics_forecasting",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1301_advanced_applied_analytics",
+      "to": "1304_anomaly_detection_fraud_analytics",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1301_advanced_applied_analytics",
+      "to": "1305_trend_analysis_market_insights",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1301_advanced_applied_analytics",
+      "to": "1306_performance_optimization_operational_analytics",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1265_analytics",
+      "to": "1301_advanced_applied_analytics",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1294_dashboard_architecture",
+      "to": "1307_layout_visual_design",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1294_dashboard_architecture",
+      "to": "1308_navigation_interactivity",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1294_dashboard_architecture",
+      "to": "1309_user_experience_ux",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1265_analytics",
+      "to": "1294_dashboard_architecture",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1310_cyber_security",
+      "to": "1311_computing_basics_linux",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1310_cyber_security",
+      "to": "1312_sql_databases",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1310_cyber_security",
+      "to": "1335_platform_security_models",
+      "type": "includes",
+      "strength": "1"
+    },
+    {
+      "from": "1310_cyber_security",
+      "to": "1336_microsoft_security_ecosystem",
+      "type": "includes",
+      "strength": "1"
+    },
+    {
+      "from": "1310_cyber_security",
+      "to": "1342_google_cloud_security",
+      "type": "includes",
+      "strength": "1"
+    },
+    {
+      "from": "1311_computing_basics_linux",
+      "to": "1313_os_fundamentals_boot",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1311_computing_basics_linux",
+      "to": "1314_gui_cli_interfaces",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1311_computing_basics_linux",
+      "to": "1315_linux_history_open_source",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1311_computing_basics_linux",
+      "to": "1316_linux_architecture",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1311_computing_basics_linux",
+      "to": "1317_linux_distributions",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1311_computing_basics_linux",
+      "to": "1318_kali_linux_security_tools",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1311_computing_basics_linux",
+      "to": "1319_bash_shell",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1311_computing_basics_linux",
+      "to": "1320_file_system_navigation",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1311_computing_basics_linux",
+      "to": "1321_file_content_reading",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1311_computing_basics_linux",
+      "to": "1322_file_directory_management",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1311_computing_basics_linux",
+      "to": "1323_cli_text_editing",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1311_computing_basics_linux",
+      "to": "1324_linux_permissions_model",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1311_computing_basics_linux",
+      "to": "1325_modify_permissions_chmod",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1311_computing_basics_linux",
+      "to": "1326_user_auth_management",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1311_computing_basics_linux",
+      "to": "1327_filtering_and_piping",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1311_computing_basics_linux",
+      "to": "1328_linux_help_resources",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1312_sql_databases",
+      "to": "1329_relational_databases",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1312_sql_databases",
+      "to": "1330_basic_sql_queries",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1312_sql_databases",
+      "to": "1331_sql_data_types",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1312_sql_databases",
+      "to": "1332_sql_filtering_where",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1312_sql_databases",
+      "to": "1333_sql_pattern_matching",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1312_sql_databases",
+      "to": "1334_sql_logical_operators",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1312_sql_databases",
+      "to": "1335_sql_joins",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1336_microsoft_security_ecosystem",
+      "to": "1337_ms_identity_access",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1336_microsoft_security_ecosystem",
+      "to": "1338_ms_endpoint_security",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1336_microsoft_security_ecosystem",
+      "to": "1339_ms_cloud_security",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1336_microsoft_security_ecosystem",
+      "to": "1340_ms_siem_soc",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1336_microsoft_security_ecosystem",
+      "to": "1341_ms_data_security",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1342_google_cloud_security",
+      "to": "1343_gcp_identity_access",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1342_google_cloud_security",
+      "to": "1344_gcp_infrastructure_security",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1342_google_cloud_security",
+      "to": "1345_gcp_data_protection",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1342_google_cloud_security",
+      "to": "1346_gcp_threat_detection",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1342_google_cloud_security",
+      "to": "1347_gcp_workload_security",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1348_azure_security",
+      "to": "1349_azure_identity_access",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1348_azure_security",
+      "to": "1350_azure_infrastructure_security",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1348_azure_security",
+      "to": "1351_azure_data_protection",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1348_azure_security",
+      "to": "1352_azure_threat_detection",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1348_azure_security",
+      "to": "1353_azure_workload_security",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "parent_id": "1338_windows_fundamentals",
+      "child_id": "1339_windows_os_architecture",
+      "strength": "1"
+    },
+    {
+      "parent_id": "1338_windows_fundamentals",
+      "child_id": "1340_registry_file_system_security",
+      "strength": "1"
+    },
+    {
+      "parent_id": "1338_windows_fundamentals",
+      "child_id": "1341_powershell_cli_scripting",
+      "strength": "1"
+    },
+    {
+      "parent_id": "1338_windows_fundamentals",
+      "child_id": "1342_user_group_management",
+      "strength": "1"
+    },
+    {
+      "parent_id": "1338_windows_fundamentals",
+      "child_id": "1343_active_directory_basics",
+      "strength": "1"
+    },
+    {
+      "parent_id": "1338_windows_fundamentals",
+      "child_id": "1344_event_logs_security_monitoring",
+      "strength": "1"
+    },
+    {
+      "parent_id": "1345_data_quality_validation",
+      "child_id": "1346_kpi_performance_reporting",
+      "strength": "1"
+    },
+    {
+      "parent_id": "1345_data_quality_validation",
+      "child_id": "1347_cross_system_data_integration",
+      "strength": "1"
+    },
+    {
+      "parent_id": "1345_data_quality_validation",
+      "child_id": "1348_etl_data_pipelines",
+      "strength": "1"
+    },
+    {
+      "parent_id": "1345_data_quality_validation",
+      "child_id": "1349_data_governance_compliance",
+      "strength": "1"
+    },
+    {
+      "parent_id": "1351_bi_dashboard_development",
+      "child_id": "1346_kpi_performance_reporting",
+      "strength": "1"
+    },
+    {
+      "parent_id": "1351_bi_dashboard_development",
+      "child_id": "1352_programming_automation",
+      "strength": "1"
+    },
+    {
+      "parent_id": "1351_bi_dashboard_development",
+      "child_id": "1353_system_integration_ui_design",
+      "strength": "1"
+    },
+    {
+      "parent_id": "1351_bi_dashboard_development",
+      "child_id": "1354_test_automation_tdd",
+      "strength": "1"
+    },
+    {
+      "parent_id": "1355_project_planning_risk_management",
+      "child_id": "1356_stakeholder_engagement_coordination",
+      "strength": "1"
+    },
+    {
+      "parent_id": "1355_project_planning_risk_management",
+      "child_id": "1357_implementation_leadership",
+      "strength": "1"
+    },
+    {
+      "from": "1355_project_planning_risk_management",
+      "to": "1364_change_management_adoption",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1231_corporate_organizational_governance",
+      "to": "1358_cross_team_knowledge_sharing",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1231_corporate_organizational_governance",
+      "to": "1360_financial_performance_optimization",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1231_corporate_organizational_governance",
+      "to": "1361_operational_efficiency",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1231_corporate_organizational_governance",
+      "to": "1362_service_delivery_monitoring",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1231_corporate_organizational_governance",
+      "to": "1363_strategic_insight_decision_support",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1231_corporate_organizational_governance",
+      "to": "1359_structured_problem_solving",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1265_analytics",
+      "to": "1346_kpi_performance_reporting",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1265_analytics",
+      "to": "1345_data_quality_validation",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1265_analytics",
+      "to": "1347_cross_system_data_integration",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1265_analytics",
+      "to": "1348_etl_data_pipelines",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1353_system_integration_ui_design",
+      "to": "002_stack_data_engineering",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "007_stack_greenfield_dev",
+      "to": "1352_programming_automation",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "007_stack_greenfield_dev",
+      "to": "1354_test_automation_tdd",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1365_delivery_implementation",
+      "to": "1357_implementation_leadership",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1365_delivery_implementation",
+      "to": "1356_stakeholder_engagement_coordination",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1310_cyber_security",
+      "to": "1348_azure_security",
+      "type": "includes",
+      "strength": "1"
+    },
+    {
+      "from": "1336_microsoft_security_ecosystem",
+      "to": "1338_windows_fundamentals",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1387_analytics_reporting",
+      "to": "1388_data_analysis_visualization",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1387_analytics_reporting",
+      "to": "1389_kpi_dashboard_development",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1387_analytics_reporting",
+      "to": "1390_predictive_advanced_analytics",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1387_analytics_reporting",
+      "to": "1391_technical_report_writing",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1387_analytics_reporting",
+      "to": "1392_process_documentation",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1393_ai_based_workflows_applications",
+      "to": "1394_non_ai_apps_using_ai",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1393_ai_based_workflows_applications",
+      "to": "1395_ai_native_applications",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1367_military_computer_system_hardware",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1368_datawarehouse_datamarts",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1369_data_migration",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1370_document_management",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1371_tender_management",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1372_healthcare_systems_multiple",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1373_healthcare_commissioning_finance",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1374_banking_stp_trade_reconciliation",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1375_project_workstream_management",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1376_stakeholder_vendor_management",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1377_process_management",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1378_analytics_reporting",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1379_ai_based_workflows_applications",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1380_project_management_systems_oil_gas",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1381_robotics_systems_integration",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1382_online_payment_collection_backend",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1383_advanced_chemical_discovery",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1405_advanced_chemical_discovery",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1393_ai_native_applications",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1402_banking_stp_trade_reconciliation",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1351_bi_dashboard_development",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1387_data_analysis_visualization",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1349_data_governance_compliance",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1350_database_architecture_optimization",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1385_datawarehouse_datamarts",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1398_document_management",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1401_healthcare_commissioning_finance",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1400_healthcare_systems_multiple",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1388_kpi_dashboard_development",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1384_military_computer_systems",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1404_online_payment_collection_backend",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1389_predictive_advanced_analytics",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1397_process_management",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1394_project_management_systems_oil_gas",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1395_project_workstream_management",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1403_robotics_systems_integration",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1396_stakeholder_vendor_management",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1390_technical_report_writing",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1399_tender_management",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1386_data_migration",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1393_ai_native_applications",
+      "to": "1392_non_ai_apps_using_ai",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1391_ai_based_workflows_applications",
+      "to": "1393_ai_native_applications",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1338_windows_fundamentals",
+      "to": "1339_windows_os_architecture",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1338_ms_endpoint_security",
+      "to": "1410_ms_defender_for_endpoint",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1338_ms_endpoint_security",
+      "to": "1411_attack_surface_reduction",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1338_ms_endpoint_security",
+      "to": "1412_endpoint_detection_response",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1338_ms_endpoint_security",
+      "to": "1413_endpoint_vulnerability_management",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1338_ms_endpoint_security",
+      "to": "1414_device_and_removable_media_control",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1338_windows_fundamentals",
+      "to": "1343_active_directory_basics",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1338_windows_fundamentals",
+      "to": "1344_event_logs_security_monitoring",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1338_windows_fundamentals",
+      "to": "1341_powershell_cli_scripting",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1338_windows_fundamentals",
+      "to": "1340_registry_file_system_security",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1338_windows_fundamentals",
+      "to": "1342_user_group_management",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1437_the_atmosphere_heading",
+      "to": "1440_google_sre",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1437_the_atmosphere_heading",
+      "to": "1441_antifragile",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1437_the_atmosphere_heading",
+      "to": "1449_the_black_swan",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1443_blaise_intelligence",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1444_woods_ai_leader",
+      "to": "1443_blaise_intelligence",
+      "type": "supports",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1444_woods_ai_leader",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1445_keller_one_thing",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1446_cialdini_influence",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1447_toyota_way",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1448_six_sigma_way",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1450_thinking_in_systems",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1451_thinking_fast_and_slow",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1452_algorithms_to_live_by",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1453_books_and_articles",
+      "to": "1415_the_soil_heading",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1453_books_and_articles",
+      "to": "1417_the_taproot_heading",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1453_books_and_articles",
+      "to": "1421_the_trunk_heading",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1453_books_and_articles",
+      "to": "1427_the_branches_heading",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1453_books_and_articles",
+      "to": "1437_the_atmosphere_heading",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1453_books_and_articles",
+      "to": "1442_the_fruit_heading",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1415_the_soil_heading",
+      "to": "1416_art_of_electronics",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1417_the_taproot_heading",
+      "to": "1418_masm_assembly",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1417_the_taproot_heading",
+      "to": "1419_kr_c_programming",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1417_the_taproot_heading",
+      "to": "1420_practice_of_programming",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1421_the_trunk_heading",
+      "to": "1422_unix_reference",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1421_the_trunk_heading",
+      "to": "1423_gof_design_patterns",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1421_the_trunk_heading",
+      "to": "1424_clean_code",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1421_the_trunk_heading",
+      "to": "1425_uml_distilled",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1421_the_trunk_heading",
+      "to": "1426_vb_objects_ntier",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1427_the_branches_heading",
+      "to": "1428_feuerstein_plsql",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1427_the_branches_heading",
+      "to": "1429_oracle_reference",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1427_the_branches_heading",
+      "to": "1430_knight_ssis",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1427_the_branches_heading",
+      "to": "1431_sql_server_programming",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1427_the_branches_heading",
+      "to": "1432_jesse_liberty_csharp",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1427_the_branches_heading",
+      "to": "1433_ethereum_contracts",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1427_the_branches_heading",
+      "to": "1434_qlikview_business",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1427_the_branches_heading",
+      "to": "1435_tableau_data",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1427_the_branches_heading",
+      "to": "1436_power_bi_transform",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1437_the_atmosphere_heading",
+      "to": "1438_aws_architect",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1437_the_atmosphere_heading",
+      "to": "1439_azure_architect",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "101_critical_path",
+      "to": "1454_monte_carlo_simulations",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1457_high_complexity_industrial_domains_heading",
+      "to": "1458_offshore_topsides_planning",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1457_high_complexity_industrial_domains_heading",
+      "to": "1459_refinery_infrastructure_planning",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1457_high_complexity_industrial_domains_heading",
+      "to": "1460_underground_utility_networks",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1457_high_complexity_industrial_domains_heading",
+      "to": "1461_incineration_energy_plants",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "101_critical_path",
+      "to": "1457_high_complexity_industrial_domains_heading",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "101_critical_path",
+      "to": "1462_procurement_planning",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "001_stack_development_leadership",
+      "to": "1465_engineering_project_support",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1465_engineering_project_support",
+      "to": "1464_project_controls",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1464_project_controls",
+      "to": "1463_cost_control",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1464_project_controls",
+      "to": "1466_planning_and_scheduling",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1466_planning_and_scheduling",
+      "to": "101_critical_path",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "009_stack_real_world",
+      "type": "contains",
+      "strength": "1"
+    }
+  ]
+}

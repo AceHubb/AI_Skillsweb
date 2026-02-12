@@ -3,7 +3,7 @@ import json
 import os
 from collections import Counter
 
-cards_path = r'c:\PythonApplications\Aardvarkscratch\cards.json'
+cards_path = r'c:\PythonApplications\ai_skillsweb\cards.json'
 
 print(f"Validating {cards_path}...")
 

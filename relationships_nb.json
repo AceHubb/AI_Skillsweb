@@ -1,0 +1,34 @@
+{
+  "relationships": [
+    {
+      "from": "database_data_architecture",
+      "to": "oracle",
+      "type": "contains"
+    },
+    {
+      "from": "oracle",
+      "to": "pl_sql",
+      "type": "contains"
+    },
+    {
+      "from": "database_data_architecture",
+      "to": "sql_server",
+      "type": "contains"
+    },
+    {
+      "from": "sql_server",
+      "to": "t_sql",
+      "type": "contains"
+    },
+    {
+      "from": "database_data_architecture",
+      "to": "sqlite",
+      "type": "contains"
+    },
+    {
+      "from": "sqlite",
+      "to": "sqlite_scripting",
+      "type": "contains"
+    }
+  ]
+}

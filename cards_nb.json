@@ -1,0 +1,52 @@
+{
+  "cards": [
+    {
+      "id": "database_data_architecture",
+      "title": "Database & Data Architecture",
+      "type": "stack",
+      "description": "Design, develop, and optimize relational databases for enterprise applications"
+    },
+    {
+      "id": "oracle",
+      "title": "Oracle",
+      "type": "tool",
+      "description": "SQL, PL/SQL, Performance Tuning"
+    },
+    {
+      "id": "pl_sql",
+      "title": "PL/SQL",
+      "type": "subSkill",
+      "description": "Stored procedures, triggers, packages",
+      "media": [
+        "images/plsql.png"
+      ]
+    },
+    {
+      "id": "sql_server",
+      "title": "SQL Server",
+      "type": "tool",
+      "description": "SQL, T-SQL, Performance Tuning"
+    },
+    {
+      "id": "t_sql",
+      "title": "T-SQL",
+      "type": "subSkill",
+      "description": "Stored procedures, views, triggers",
+      "media": [
+        "images/tsql.png"
+      ]
+    },
+    {
+      "id": "sqlite",
+      "title": "SQLite",
+      "type": "tool",
+      "description": "Lightweight relational database for prototyping"
+    },
+    {
+      "id": "sqlite_scripting",
+      "title": "SQLite Scripting",
+      "type": "subSkill",
+      "description": "Small-scale database scripts and prototyping"
+    }
+  ]
+}

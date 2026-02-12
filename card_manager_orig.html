@@ -140,14 +140,26 @@
                 </div>
             </div>
 
-            <div class="text-xs text-slate-500">
-                <p>Browsers block auto-loading local files (CORS).<br>Please select your files manually.</p>
+            <!-- Error Display -->
+            <div x-show="loadError"
+                class="mt-4 p-4 bg-red-950/80 border border-red-800 text-red-200 rounded max-w-lg text-left">
+                <p class="font-bold text-sm mb-1">Auto-load Failed:</p>
+                <p x-text="loadError" class="text-xs font-mono break-all"></p>
+                <p class="text-xs text-slate-400 mt-2">Possible causes: CORS (file://), missing file, or bad JSON.</p>
             </div>
 
             <button x-show="data.cards.length > 0" @click="started = true; setTimeout(() => initGraph(), 100)"
-                class="w-full btn-primary text-lg py-3 animate-pulse">
+                class="w-full btn-primary text-lg py-3 animate-pulse mt-4">
                 Enter Universe 🚀
             </button>
+
+            <!-- Reset Settings -->
+            <div class="mt-8 pt-8 border-t border-slate-800 w-1/3">
+                <button @click="resetSettings()"
+                    class="text-xs text-slate-500 hover:text-red-400 transition-colors uppercase tracking-widest">
+                    Reset Settings & Reload
+                </button>
+            </div>
         </div>
     </div>
 
@@ -158,6 +170,11 @@
                 Card Nexus
             </h1>
             <div class="text-[10px] text-slate-500 font-mono flex gap-3" x-show="started">
+                <button @click="showUniverseIds = !showUniverseIds; updateGraph()"
+                    class="px-2 py-0.5 rounded border transition-colors"
+                    :class="showUniverseIds ? 'bg-amber-900/50 text-amber-300 border-amber-800' : 'bg-slate-800 border-slate-700 hover:text-white'">
+                    Universe
+                </button>
                 <span x-text="cardsFilename ? '📄 ' + cardsFilename : ''" class="flex items-center gap-1"></span>
                 <span x-text="relationshipsFilename ? '🔗 ' + relationshipsFilename : ''"
                     class="flex items-center gap-1"></span>
@@ -242,102 +259,28 @@
         </div>
     </div>
 
-    <!-- Edit Card Modal -->
-    <div x-show="showEditModal" class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
-        style="display: none;">
-        <div class="bg-slate-900 border border-slate-700 rounded-lg shadow-2xl w-full max-w-lg p-6 space-y-4"
-            @click.outside="showEditModal = false">
-            <div class="flex justify-between items-center border-b border-slate-800 pb-4">
-                <h3 class="text-lg font-bold text-white">Edit Card</h3>
-                <button @click="showEditModal = false" class="text-slate-400 hover:text-white">✕</button>
-            </div>
-
-            <div class="space-y-4" x-data="{ }">
-                <div>
-                    <label class="text-xs text-slate-500 uppercase font-bold block mb-1">ID (Read-only)</label>
-                    <input type="text" x-model="editingCard.id" disabled
-                        class="w-full bg-slate-800 border-slate-700 text-slate-400 p-2 rounded cursor-not-allowed">
-                </div>
-
-                <div>
-                    <label class="text-xs text-slate-500 uppercase font-bold block mb-1">Title</label>
-                    <input type="text" x-model="editingCard.title"
-                        class="w-full bg-slate-800 border-slate-600 text-white p-2 rounded focus:border-blue-500 outline-none">
-                </div>
-
-                <div>
-                    <label class="text-xs text-slate-500 uppercase font-bold block mb-1">Type</label>
-                    <input type="text" x-model="editingCard.type" placeholder="stack, capability, etc."
-                        class="w-full bg-slate-800 border-slate-600 text-white p-2 rounded focus:border-blue-500 outline-none">
-                </div>
-
-                <div>
-                    <label class="text-xs text-slate-500 uppercase font-bold block mb-1">Description</label>
-                    <textarea x-model="editingCard.description" rows="3"
-                        class="w-full bg-slate-800 border-slate-600 text-white p-2 rounded focus:border-blue-500 outline-none"></textarea>
-                </div>
-
-                <div>
-                    <label class="text-xs text-slate-500 uppercase font-bold block mb-1">Media (Comma separated)</label>
-                    <input type="text" x-model="editingCard.mediaInput"
-                        class="w-full bg-slate-800 border-slate-600 text-white p-2 rounded focus:border-blue-500 outline-none">
-                </div>
-
-                <div>
-                    <label class="text-xs text-slate-500 uppercase font-bold block mb-1">Front Image URL</label>
-                    <input type="text" x-model="editingCard.frontImageInput"
-                        class="w-full bg-slate-800 border-slate-600 text-white p-2 rounded focus:border-blue-500 outline-none">
-                </div>
-
-                <div>
-                    <label class="text-xs text-slate-500 uppercase font-bold block mb-1">Background Color</label>
-                    <input type="text" x-model="editingCard.bgColorInput" placeholder="e.g. lightblue"
-                        class="w-full bg-slate-800 border-slate-600 text-white p-2 rounded focus:border-blue-500 outline-none">
-                </div>
-            </div>
-
-            <div class="flex justify-end gap-3 pt-4 border-t border-slate-800">
-                <button @click="showEditModal = false"
-                    class="px-4 py-2 text-slate-400 hover:text-white transition-colors">Cancel</button>
-                <button @click="saveEditedCard()"
-                    class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded transition-colors">Save
-                    Changes</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- JSON Viewer Modal -->
-    <div x-show="showJsonModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
-        style="display: none;">
-        <div class="bg-slate-900 border border-slate-700 rounded-lg shadow-xl w-3/4 h-3/4 flex flex-col"
-            @click.away="showJsonModal = false">
-            <div class="p-4 border-b border-slate-700 flex justify-between items-center bg-slate-800 rounded-t-lg">
-                <h3 class="text-slate-200 font-bold" x-text="jsonModalTitle"></h3>
-                <div class="flex gap-2">
-                    <button @click="copyJson()"
-                        class="text-xs bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-500 border border-blue-500">Copy</button>
-                    <button @click="showJsonModal = false" class="text-slate-400 hover:text-white px-2">✕</button>
-                </div>
-            </div>
-            <div class="flex-1 overflow-auto bg-slate-950 flex font-mono text-xs">
-                <!-- Line Numbers -->
-                <div
-                    class="bg-slate-900 text-slate-600 text-right p-4 select-none border-r border-slate-800 shrink-0 min-h-full">
-                    <template x-for="(_, i) in jsonLines" :key="i">
-                        <div x-text="i + 1" class="leading-relaxed h-5 text-[10px] pt-0.5"></div>
-                    </template>
-                </div>
-                <!-- Code -->
-                <div class="flex-1 p-4 text-slate-300 overflow-auto whitespace-pre">
-                    <template x-for="line in jsonLines" :key="Math.random()">
-                        <div x-text="line" class="leading-relaxed h-5"></div>
-                    </template>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="flex flex-1 overflow-hidden">
+
+        <!-- JSON Viewer Modal -->
+        <div x-show="showJsonModal"
+            class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
+            style="display: none;">
+            <div class="bg-slate-900 border border-slate-700 rounded-lg shadow-xl w-3/4 h-3/4 flex flex-col"
+                @click.away="showJsonModal = false">
+                <div class="p-4 border-b border-slate-700 flex justify-between items-center bg-slate-800 rounded-t-lg">
+                    <h3 class="text-slate-200 font-bold" x-text="jsonModalTitle"></h3>
+                    <div class="flex gap-2">
+                        <button @click="copyJson()"
+                            class="text-xs bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-500 border border-blue-500">Copy</button>
+                        <button @click="showJsonModal = false" class="text-slate-400 hover:text-white px-2">✕</button>
+                    </div>
+                </div>
+                <div class="flex-1 overflow-auto p-4 bg-slate-950">
+                    <pre class="text-xs font-mono text-slate-300 whitespace-pre-wrap" x-text="viewingJson"></pre>
+                </div>
+            </div>
+        </div>
+
         <!-- Sidebar: Editors -->
         <aside class="w-96 bg-slate-900 border-r border-slate-700 flex flex-col overflow-y-auto">
 
@@ -440,7 +383,8 @@
 
                     <template x-for="card in (showStacksOnly ? data.cards.filter(c => c.type === 'stack') : data.cards)"
                         :key="card.id">
-                        <div class="bg-slate-800 p-3 rounded border border-slate-700 hover:border-blue-500/50 transition-colors group cursor-pointer relative"
+                        <div class="p-3 rounded border transition-colors group cursor-pointer relative"
+                            :class="card.type === 'stack' ? 'bg-yellow-900/40 border-yellow-700 hover:border-yellow-500' : 'bg-slate-800 border-slate-700 hover:border-blue-500/50'"
                             @click="locateNode(card.id); scrollToCard(card.id)">
                             <div class="flex justify-between items-start">
                                 <div class="pr-8">
@@ -449,26 +393,15 @@
                                     <div class="text-xs text-blue-4000 bg-blue-900/30 text-blue-300 px-1.5 py-0.5 rounded inline-block mt-1"
                                         x-text="card.type"></div>
                                 </div>
-                                <div class="flex flex-col gap-1 absolute top-2 right-2">
-                                    <button @click.stop="startEditCard(card)"
-                                        class="p-1.5 text-slate-500 hover:text-blue-400 hover:bg-slate-700 rounded transition-colors"
-                                        title="Edit Card">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z">
-                                            </path>
-                                        </svg>
-                                    </button>
-                                    <button @click.stop="deleteCard(card.id)"
-                                        class="p-1.5 text-slate-500 hover:text-red-400 hover:bg-slate-700 rounded transition-colors"
-                                        title="Delete Card">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
-                                            </path>
-                                        </svg>
-                                    </button>
-                                </div>
+                                <button @click.stop="deleteCard(card.id)"
+                                    class="absolute top-2 right-2 p-1.5 text-slate-500 hover:text-red-400 hover:bg-slate-700 rounded transition-colors"
+                                    title="Delete Card">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                                        </path>
+                                    </svg>
+                                </button>
                             </div>
                             <div class="text-xs text-slate-400 mt-2 line-clamp-2" x-text="card.description"></div>
                         </div>
@@ -577,12 +510,11 @@
                 zoomEnabled: true,
                 started: false,
                 showStacksOnly: false,
+                showUniverseIds: false,
                 data: { cards: [], relationships: [] },
 
                 newCard: { id: '', title: '', type: '', description: '', mediaInput: '' },
                 idModified: false,
-                editingCard: { id: '', title: '', type: '', description: '', mediaInput: '' },
-                showEditModal: false,
                 newLink: { from: '', to: '', type: '', label: '', strength: '1' },
 
                 // File Tracking
@@ -605,7 +537,7 @@
                 viewJson(type) {
                     this.jsonModalTitle = type === 'cards' ? 'Cards JSON' : 'Relationships JSON';
                     const content = type === 'cards' ? this.data.cards : this.data.relationships;
-                    // Wrap in object to match file format structure
+                    // Wrap in object to match file format structure (e.g. { cards: [...] })
                     const wrapper = type === 'cards' ? { cards: content } : { relationships: content };
                     this.viewingJson = JSON.stringify(wrapper, null, 2);
                     this.jsonLines = this.viewingJson.split('\n');
@@ -638,12 +570,17 @@
                         this.relationshipsFilename = this.settings.relationshipsUrl + ' (Auto)';
 
                         Promise.all([
-                            fetch(this.settings.cardsUrl + '?' + t).then(r => r.ok ? r.json() : { cards: [] }),
-                            fetch(this.settings.relationshipsUrl + '?' + t).then(r => r.ok ? r.json() : { relationships: [] })
+                            fetch(this.settings.cardsUrl + '?' + t).then(r => {
+                                if (!r.ok) throw new Error(`${this.settings.cardsUrl}: ${r.statusText} (${r.status})`);
+                                return r.json();
+                            }),
+                            fetch(this.settings.relationshipsUrl + '?' + t).then(r => {
+                                if (!r.ok) throw new Error(`${this.settings.relationshipsUrl}: ${r.statusText} (${r.status})`);
+                                return r.json();
+                            })
                         ]).then(([cardsData, relsData]) => {
                             if (cardsData.cards && cardsData.cards.length > 0) {
                                 this.data.cards = this.sortCardsArray(cardsData.cards);
-                                // Ensure we don't lose data if relationships logic is acting up
                                 this.data.relationships = (relsData.relationships || []);
 
                                 // Update filenames with full path context if possible
@@ -663,9 +600,12 @@
                                 this.started = true;
                                 this.initGraph();
                             } else {
-                                this.data.cards = [];
-                                this.data.relationships = [];
+                                throw new Error("Loaded data was empty or invalid format.");
                             }
+                        }).catch(e => {
+                            console.error("Auto-load failed:", e);
+                            this.loadError = e.message;
+                            this.loading = false;
                         });
                     }
 
@@ -681,6 +621,36 @@
                             this.newCard.id = this.generateNextId(value);
                         }
                     });
+                },
+
+                // --- Data Helpers ---
+
+                sortCardsArray(cards) {
+                    return cards.sort((a, b) => {
+                        const titleA = (a.title || '').trim().toLowerCase();
+                        const titleB = (b.title || '').trim().toLowerCase();
+                        return titleA.localeCompare(titleB);
+                    });
+                },
+
+                initSettings() {
+                    const stored = localStorage.getItem('cardNexusSettings');
+                    if (stored) {
+                        try {
+                            const parsed = JSON.parse(stored);
+                            this.settings = { ...this.settings, ...parsed };
+                        } catch (e) { console.error("Bad settings", e); }
+                    }
+                },
+
+                saveSettings() {
+                    localStorage.setItem('cardNexusSettings', JSON.stringify(this.settings));
+                    window.location.reload();
+                },
+
+                resetSettings() {
+                    localStorage.removeItem('cardNexusSettings');
+                    window.location.reload();
                 },
 
                 // Settings Management
@@ -702,16 +672,6 @@
                 resetSettings() {
                     localStorage.removeItem('cardNexusSettings');
                     window.location.reload();
-                },
-
-                // --- Data Helpers ---
-
-                sortCardsArray(cards) {
-                    return cards.sort((a, b) => {
-                        const titleA = (a.title || '').trim().toLowerCase();
-                        const titleB = (b.title || '').trim().toLowerCase();
-                        return titleA.localeCompare(titleB);
-                    });
                 },
 
                 getOrphans() {
@@ -815,7 +775,11 @@
                 },
 
                 sortedCards() {
-                    return [...this.data.cards].sort((a, b) => a.title.localeCompare(b.title));
+                    return [...this.data.cards].sort((a, b) => {
+                        const titleA = (a.title || '').trim().toLowerCase();
+                        const titleB = (b.title || '').trim().toLowerCase();
+                        return titleA.localeCompare(titleB);
+                    });
                 },
 
                 // --- Actions ---
@@ -890,61 +854,8 @@
                 },
 
                 deleteLink(index) {
-                    if (confirm('Are you sure you want to delete this relationship?')) {
-                        this.data.relationships.splice(index, 1);
-                        this.updateGraph();
-                    }
-                },
-
-                // --- Card Editing ---
-                startEditCard(card) {
-                    this.editingCard = {
-                        ...card,
-                        mediaInput: (card.media || []).join(', '),
-                        frontImageInput: (card.displayImages && card.displayImages.front) ? card.displayImages.front.url : '',
-                        bgColorInput: card.frontBackgroundColor || ''
-                    };
-                    this.showEditModal = true;
-                },
-
-                saveEditedCard() {
-                    const index = this.data.cards.findIndex(c => c.id === this.editingCard.id);
-                    if (index !== -1) {
-                        // Process media input back to array
-                        const mediaArray = this.editingCard.mediaInput ?
-                            this.editingCard.mediaInput.split(',').map(s => s.trim()).filter(s => s) : [];
-
-                        // Reconstruct displayImages safely
-                        const existingImages = this.editingCard.displayImages || {};
-                        const displayImages = {
-                            ...existingImages,
-                            front: {
-                                ...(existingImages.front || {}),
-                                url: this.editingCard.frontImageInput,
-                                alt: (existingImages.front && existingImages.front.alt) ? existingImages.front.alt : 'Cyber Icon'
-                            }
-                        };
-                        // Ensure background/thumbnail/diagram keys exist if we are being strict, but preserving existingImages should cover it.
-                        // If it was empty, we might want to initialize standard structure? User didn't ask, so keep it simple.
-
-                        // Construct updated card object
-                        const updatedCard = {
-                            ...this.editingCard,
-                            media: mediaArray,
-                            frontBackgroundColor: this.editingCard.bgColorInput,
-                            displayImages: displayImages
-                        };
-
-                        // Remove temporary inputs
-                        delete updatedCard.mediaInput;
-                        delete updatedCard.frontImageInput;
-                        delete updatedCard.bgColorInput;
-
-                        this.data.cards[index] = updatedCard;
-
-                        this.showEditModal = false;
-                        this.updateGraph();
-                    }
+                    this.data.relationships.splice(index, 1);
+                    this.updateGraph();
                 },
 
                 // --- Linking Mode Logic ---
@@ -959,12 +870,12 @@
                     this.updateGraph(); // Re-render to clear highlights
                 },
 
-                handleNodeClick(event, d) {
-                    if (event && event.stopPropagation) event.stopPropagation();
+                handleNodeClick(d) {
+                    // Always select the node for visualization
+                    this.linkSourceId = (this.linkSourceId === d.id) ? null : d.id;
 
-                    // Standard Selection Mode (View/Edit)
+                    // If NOT in link mode, just update graph to show selection and exit
                     if (!this.linkMode) {
-                        this.linkSourceId = (this.linkSourceId === d.id) ? null : d.id;
                         this.newLink.from = this.linkSourceId || '';
                         this.updateGraph();
                         return;
@@ -972,21 +883,30 @@
 
                     // --- Link Mode Logic ---
                     if (!this.linkSourceId) {
-                        // Case 1: No Source selected. Select this node as Source.
-                        this.linkSourceId = d.id;
-                        this.newLink.from = d.id;
-                    } else if (this.linkSourceId === d.id) {
-                        // Case 2: Clicked the Source again. Deselect.
-                        this.linkSourceId = null;
+                        // Deselected
                         this.newLink.from = '';
                     } else {
-                        // Case 3: Clicked a different node. Treat as Target and Link.
-                        this.newLink.to = d.id;
+                        // Source is set (this.linkSourceId is d.id)
+                        const sourceId = this.linkSourceId;
 
-                        // Attempt to link
-                        this.addLink();
+                        // If we clicked a different node (Target), processing needed?
+                        // Actually, my logic above toggles. If I click Node A, it sets Source=A.
+                        // If I then click Node B:
+                        //   Current logic: linkSourceId becomes B. It switches source.
+                        //   Desired Link Mode logic: Source=A, Click B -> Create Link A-B.
 
-                        // Keep Source selected for Hub mode
+                        // Let's refine for Link Mode:
+                        // We need to know if we are selecting a SOURCE or a TARGET.
+                        // If we already had a source unrelated to this click... but wait, 
+                        // single click sets linkSourceId.
+
+                        // REVERTED LOGIC needed for Link Mode to work as "Click A then Click B":
+                        // The previous logic used 'this.linkSourceId' as the "Active Source".
+                        // If I click A, linkSourceId = A.
+                        // If I click B, I want to link A->B.
+
+                        // So I need a separate tracker or logic.
+                        // Let's go back to specific Link Mode handling.
                     }
                     this.updateGraph();
                 },
@@ -1037,16 +957,8 @@
                     }
                 },
 
-                // Debugging: Log calls to save
                 downloadRelationships() {
-                    console.log("Saving relationships...");
                     const rawRels = Alpine.raw(this.data.relationships);
-                    const count = rawRels.length;
-
-                    if (!confirm(`Overwrite relationships.json with ${count} links?`)) {
-                        return;
-                    }
-
                     const output = { relationships: rawRels };
 
                     if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
@@ -1056,8 +968,33 @@
                     }
                 },
 
-                downloadFile(obj, filename) {
-                    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(obj, null, 2));
+                async downloadFile(obj, filename) {
+                    const content = JSON.stringify(obj, null, 2);
+
+                    // Try Native File System Access API (Chrome/Edge)
+                    if (window.showSaveFilePicker) {
+                        try {
+                            const handle = await window.showSaveFilePicker({
+                                suggestedName: filename,
+                                types: [{
+                                    description: 'JSON File',
+                                    accept: { 'application/json': ['.json'] },
+                                }],
+                            });
+                            const writable = await handle.createWritable();
+                            await writable.write(content);
+                            await writable.close();
+                            alert(`Saved ${filename} successfully!`);
+                            return;
+                        } catch (err) {
+                            if (err.name === 'AbortError') return; // User cancelled
+                            console.error('File Save Failed', err);
+                            // Fallback to legacy download on error
+                        }
+                    }
+
+                    // Legacy Download
+                    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(content);
                     const a = document.createElement('a');
                     a.setAttribute("href", dataStr);
                     a.setAttribute("download", filename);
@@ -1205,24 +1142,14 @@
                     });
 
                     const d3Links = this.data.relationships.map(r => ({
-                        source: (typeof r.from === 'object' ? r.from.id : r.from),
-                        target: (typeof r.to === 'object' ? r.to.id : r.to),
-                        type: r.type,
-                        _sourceId: (typeof r.from === 'object' ? r.from.id : r.from),
-                        _targetId: (typeof r.to === 'object' ? r.to.id : r.to)
-                    })).filter(l => {
-                        const s = d3Nodes.find(n => n.id === l._sourceId);
-                        const t = d3Nodes.find(n => n.id === l._targetId);
-                        return s && t;
-                    });
+                        source: r.from,
+                        target: r.to,
+                        type: r.type
+                    })).filter(l => d3Nodes.find(n => n.id === l.source) && d3Nodes.find(n => n.id === l.target));
 
                     // Links
                     const linkSelection = this.graphGroup.selectAll(".link")
-                        .data(d3Links, d => {
-                            const s = (d.source && d.source.id) ? d.source.id : d.source;
-                            const t = (d.target && d.target.id) ? d.target.id : d.target;
-                            return `${s}-${t}`;
-                        });
+                        .data(d3Links, d => `${d.source}-${d.target}`);
 
                     linkSelection.exit().remove();
 
@@ -1230,39 +1157,7 @@
                         .append("path")
                         .attr("class", d => "link" + (d.type === 'choice' ? " choice" : ""))
                         .attr("fill", "none")
-                        .attr("stroke", "#475569") // Explicit stroke
-                        .attr("stroke-width", 1.5)
-                        .attr("stroke-opacity", 0.6)
-                        .attr("marker-end", "url(#arrow)")
-                        .style("cursor", "pointer")
-                        .on("click", (event, d) => {
-                            if (this.linkMode) return;
-                            // Find original relationship index
-                            // Handle object vs string source
-                            const sId = (d.source && d.source.id) ? d.source.id : d.source;
-                            const tId = (d.target && d.target.id) ? d.target.id : d.target;
-
-                            const index = this.data.relationships.findIndex(r =>
-                                r.from === sId && r.to === tId
-                            );
-                            if (index !== -1) {
-                                this.deleteLink(index);
-                            }
-                        })
-                        .append("title") // Tooltip
-                        .text(d => {
-                            const s = (d.source && d.source.title) ? d.source.title : (d.source.id ? d.source.id : d.source);
-                            const t = (d.target && d.target.title) ? d.target.title : (d.target.id ? d.target.id : d.target);
-
-                            // Try to look up title from cards data if we only have ID
-                            const sNode = this.data.cards.find(c => c.id === s);
-                            const tNode = this.data.cards.find(c => c.id === t);
-
-                            const sTitle = sNode ? sNode.title : s;
-                            const tTitle = tNode ? tNode.title : t;
-
-                            return `Click to delete connection: ${sTitle} -> ${tTitle}`;
-                        });
+                        .attr("marker-end", "url(#arrow)");
 
                     const link = linkEnter.merge(linkSelection);
 
@@ -1275,13 +1170,12 @@
                     const nodeEnter = nodeSelection.enter()
                         .append("g")
                         .attr("class", "node")
-                        .attr("id", d => d.id) // Add ID for testing/automation
                         .call(d3.drag()
                             .on("start", this.dragstarted.bind(this))
                             .on("drag", this.dragged.bind(this))
                             .on("end", this.dragended.bind(this)));
 
-                    nodeEnter.on("click", (event, d) => this.handleNodeClick(event, d));
+                    nodeEnter.on("click", (event, d) => this.handleNodeClick(d));
 
                     // Use PATH instead of CIRCLE to enable shape switching
                     nodeEnter.append("path")
@@ -1295,7 +1189,7 @@
 
                     const node = nodeEnter.merge(nodeSelection);
 
-                    node.select("text").text(d => d.title);
+                    node.select("text").text(d => this.showUniverseIds ? `${d.title} [${d.id}]` : d.title);
 
                     // Update Shape & Color based on selection
                     node.select("path")
@@ -1345,10 +1239,7 @@
                         node.attr("transform", d => `translate(${d.x},${d.y})`);
                     } else {
                         this.simulation.nodes(d3Nodes).on("tick", () => {
-                            link.attr("d", d => {
-                                if (!d.source || !d.target) return "";
-                                return `M${d.source.x},${d.source.y}L${d.target.x},${d.target.y}`;
-                            });
+                            link.attr("d", d => `M${d.source.x},${d.source.y}L${d.target.x},${d.target.y}`);
                             node.attr("transform", d => `translate(${d.x},${d.y})`);
                         });
                         this.simulation.force("link").links(d3Links);

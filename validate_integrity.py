@@ -3,8 +3,8 @@ import json
 import os
 from collections import Counter
 
-cards_path = r'c:\PythonApplications\Aardvarkscratch\cards.json'
-rels_path = r'c:\PythonApplications\Aardvarkscratch\relationships.json'
+cards_path = r'c:\PythonApplications\ai_skillsweb\cards.json'
+rels_path = r'c:\PythonApplications\ai_skillsweb\relationships.json'
 
 print(f"Validating integrity between {cards_path} and {rels_path}...")
 

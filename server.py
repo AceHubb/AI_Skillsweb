@@ -4,7 +4,7 @@ import json
 import os
 import datetime
 
-PORT = 8000
+PORT = 8002
 
 class CardHandler(http.server.SimpleHTTPRequestHandler):
     def do_POST(self):

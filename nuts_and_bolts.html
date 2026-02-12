@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuts & Bolts Card Prototype</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #2c3e50;
+      margin: 0;
+      overflow-x: hidden;
+      color: #333;
+    }
+
+    /* Sidebar Layout */
+    #pathSidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 300px;
+      background: #2c3e50;
+      border-right: 1px solid #34495e;
+      overflow-y: auto;
+      padding: 20px 0;
+      box-sizing: border-box;
+      z-index: 100;
+      color: #ecf0f1;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    #pathSidebar h3 {
+      padding-left: 20px;
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      border-bottom: 1px solid #34495e;
+      padding-bottom: 15px;
+    }
+
+    .sidebar-item {
+      padding: 8px 20px;
+      font-size: 0.95rem;
+      color: #bdc3c7;
+      transition: color 0.2s;
+      position: relative;
+      cursor: default;
+    }
+
+    .sidebar-item.current-node {
+      font-weight: bold;
+      color: #f1c40f;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .sidebar-connector {
+      position: absolute;
+      left: 10px;
+      top: 0;
+      bottom: 0;
+      border-left: 1px dashed #7f8c8d;
+    }
+
+    .modal {
+      margin-left: 300px;
+      /* Offset for sidebar */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px;
+      box-sizing: border-box;
+    }
+
+    h2 {
+      color: #ecf0f1;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    /* Grid Layout */
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      max-width: 1600px;
+      transition: opacity 0.3s;
+    }
+
+    /* Stack Container - The "Pile" */
+    .stack {
+      position: relative;
+      width: 140px;
+      height: 200px;
+      perspective: 1200px;
+      cursor: pointer;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s;
+      z-index: 1;
+    }
+
+    /* The "fake" cards below the top card */
+    /* The "fake" cards below the top card */
+    .stack.piled::before,
+    .stack.piled::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #fafafa;
+      border-radius: 12px;
+      border: 1px solid #ddd;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      z-index: -1;
+      transition: transform 0.3s;
+    }
+
+    /* Rotate the layers slightly to look messy */
+    .stack.piled::before {
+      transform: translate(2px, 3px) rotate(2deg);
+    }
+
+    .stack.piled::after {
+      transform: translate(-3px, 4px) rotate(-1.5deg);
+      z-index: -2;
+    }
+
+    /* Hover effect: slightly spread the stack */
+    .stack.piled:hover::before {
+      transform: translate(4px, 4px) rotate(4deg);
+    }
+
+    .stack.piled:hover::after {
+      transform: translate(-6px, 6px) rotate(-3deg);
+    }
+
+    /* Focused State */
+    .stack.focused {
+      position: fixed;
+      top: 50%;
+      left: calc(50% + 150px);
+      transform: translate(-50%, -50%) scale(2.6);
+      /* Reduced scale slightly as cards are big */
+      z-index: 1000;
+      /* Ensure it doesn't get clipped if it's too big */
+      max-height: 90vh;
+      max-width: calc(100vw - 340px);
+    }
+
+    .stack.faded {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.3s, visibility 0.3s;
+    }
+
+    /* Card Stylings */
+    .card {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      z-index: 2;
+      /* Ensure top card is above the stack pile pseudo-elements */
+    }
+
+    .card.flip {
+      transform: rotateY(180deg);
+    }
+
+    .card .front,
+    .card .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+      box-sizing: border-box;
+      background: white;
+      border: 1px solid #ccc;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+      /* Soft shadow */
+    }
+
+    /* Playing Card "Face" Pattern (Simplified) */
+    .card .front {
+      /* Clean white per user request for Most-Wanted style (utilitarian look) */
+      background: white;
+      padding: 24px;
+    }
+
+    /* Corners for Rank/Suit */
+    .corner {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 1;
+      font-weight: bold;
+      font-size: 1.2rem;
+      padding: 8px;
+    }
+
+    .top-left {
+      top: 5px;
+      left: 5px;
+    }
+
+    .bottom-right {
+      bottom: 5px;
+      right: 5px;
+      transform: rotate(180deg);
+    }
+
+    .card-content-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 40px;
+      /* Space for corners */
+    }
+
+    .card-title {
+      font-family: 'Courier New', Courier, monospace;
+      /* Utilitarian/Typewriter feel */
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: 1px;
+      font-size: 0.75rem;
+      /* Reduced for 140px width */
+    }
+
+    .card .back {
+      transform: rotateY(180deg);
+      background: #f1c40f;
+      /* Yellow background */
+      color: #333;
+      justify-content: space-between;
+      /* Space out elements */
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    /* New Back Styles */
+    .back-image-container {
+      width: 100%;
+      height: 120px;
+      /* Adjust as needed */
+      border: 2px solid black;
+      background: white;
+      /* Fallback if no image */
+      margin-top: 30px;
+      /* Space for flip button */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .back-image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .back-text-container {
+      width: 100%;
+      height: 80px;
+      /* Adjust as needed */
+      border: 2px solid black;
+      padding: 5px;
+      box-sizing: border-box;
+      overflow-y: auto;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.8rem;
+      background: transparent;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-title-back {
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    /* Buttons */
+    .explore-btn {
+      padding: 10px 30px;
+      border: none;
+      border-radius: 8px;
+      background: #3498db;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
+    .explore-btn:hover {
+      background: #2980b9;
+    }
+
+    /* Back Button */
+    .navigation-controls {
+      position: sticky;
+      top: 20px;
+      /* Centered in flex column modal */
+      align-self: center;
+      display: flex;
+      gap: 20px;
+      z-index: 2000;
+      pointer-events: none;
+      /* Let clicks pass through empty space */
+      margin-bottom: 20px;
+      /* Space between buttons and cards */
+    }
+
+
+
+    .back-button {
+      display: none;
+      /* Toggled via JS */
+      padding: 10px 20px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      pointer-events: auto;
+      /* Re-enable clicks on buttons */
+      transition: background-color 0.2s, transform 0.2s;
+    }
+
+    .back-button:hover {
+      background: #c0392b;
+    }
+
+    /* Popup */
+    .diagram-popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 500;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .diagram-popup img {
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 8px;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    }
+
+    .close-btn {
+      color: white;
+      font-size: 2rem;
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      cursor: pointer;
+    }
+
+    .caption {
+      color: white;
+      margin-top: 20px;
+      font-size: 1.2rem;
+    }
+
+    /* Pagination */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+
+    .page-btn {
+      padding: 10px 15px;
+      background: #34495e;
+      color: #ecf0f1;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+
+    .page-btn.active {
+      background: #3498db;
+    }
+
+    .page-btn:hover:not(.active) {
+      background: #2c3e50;
+    }
+
+    .child-indicator {
+      position: absolute;
+      bottom: 15px;
+      left: 15px;
+      width: 12px;
+      height: 12px;
+      background-color: #2E8B57;
+      /* Waal Bridge Green */
+      border-radius: 50%;
+      z-index: 10;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      border: 1px solid white;
+    }
+
+    .flip-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 30px;
+      height: 30px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      display: flex;
+      /* Flexbox for centering */
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      /* z-index: 20; removed high z-index to check layering */
+      font-size: 20px;
+      color: #333;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      user-select: none;
+      display: none;
+      /* Hidden by default */
+    }
+
+    /* Ensure flip button on back is visible */
+    .card .back .flip-button {
+      display: flex;
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .stack.focused .flip-button {
+      display: flex;
+      /* Shown when focused */
+    }
+
+    .flip-button:hover {
+      background-color: #fff;
+      transform: scale(1.1);
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div id="pathSidebar">
+    <h3>Navigation</h3>
+    <div id="sidebarContent"></div>
+  </div>
+
+  <div class="modal">
+    <!-- Navigation Controls Container -->
+    <div class="navigation-controls" id="navControls">
+      <button class="back-button" id="backButton">Back to Grid</button>
+      <button class="back-button" id="upLevelBtn" style="background-color: #27ae60;">Up One Level</button>
+    </div>
+
+    <div class="grid" id="stackGrid"></div>
+    <div class="pagination" id="pagination"></div>
+  </div>
+
+  <div class="diagram-popup" id="diagramPopup">
+    <span class="close-btn" onclick="closeDiagram()">× Close</span>
+    <img id="diagramImage" src="" alt="Diagram">
+    <div id="diagramCaption"></div>
+  </div>
+
+  <div class="diagram-popup" id="mediaSelectionPopup" style="background: rgba(0,0,0,0.9);">
+    <span class="close-btn" onclick="closeMediaSelection()">× Close</span>
+    <h2 style="color: white; margin-bottom: 20px;">Select an Image</h2>
+    <div id="mediaSelectionContainer" style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;"></div>
+  </div>
+
+  <script>
+    let cards = {};
+    let relationships = [];
+    let currentStackId = null;
+    let breadcrumbs = [];
+
+    // Load Data
+    Promise.all([
+      fetch('cards.json?t=' + Date.now()).then(r => r.json()),
+      fetch('relationships.json?t=' + Date.now()).then(r => r.json())
+    ]).then(([cardsData, relationshipsData]) => {
+      // Handle wrappers if present (user provided files have 'cards' and 'relationships' keys)
+      const cList = cardsData.cards || cardsData;
+      const rList = relationshipsData.relationships || relationshipsData;
+
+      cList.forEach(c => cards[c.id] = c);
+      relationships = rList;
+      init();
+    }).catch(err => console.error("Error loading data:", err));
+
+    function init() {
+      // Find top-level stacks and assign Suit/Rank 
+      const suits = ['♠', '♥', '♣', '♦'];
+      // User request: "They can all be aces"
+      const rank = 'A';
+
+      const allCards = Object.values(cards);
+      allCards.forEach((c, index) => {
+        const suit = suits[index % suits.length];
+        c.suit = suit;
+        c.rank = rank;
+        c.color = (suit === '♥' || suit === '♦') ? '#e74c3c' : '#2c3e50';
+      });
+
+      renderRoot();
+    }
+
+    // Navigation
+    function renderRoot() {
+      currentStackId = null;
+      breadcrumbs = [];
+      updateBreadcrumbs();
+
+      const rootStacks = Object.values(cards).filter(c => c.type === 'stack');
+      // Sort by ID to ensure order if needed, assuming numeric prefixes in IDs like '001_'
+      rootStacks.sort((a, b) => a.id.localeCompare(b.id));
+      renderGrid(rootStacks);
+    }
+
+    function renderGrid(cardList) {
+      const grid = document.getElementById('stackGrid');
+      grid.innerHTML = '';
+
+      cardList.forEach(card => {
+        const cardEl = createCardElement(card);
+        grid.appendChild(cardEl);
+      });
+    }
+
+    function createCardElement(card) {
+      const el = document.createElement('div');
+
+      // Helper functions for relationships
+      const getSource = (r) => r.source || r.from;
+      const getTarget = (r) => r.target || r.to;
+
+      el.className = 'stack'; // Using 'stack' class for main grid items for now
+
+      const hasChildren = relationships.some(r => (r.source || r.from) === card.id && (r.type === 'contains' || r.type === 'leads_to'));
+      const indicatorHtml = hasChildren ? '<div class="child-indicator" title="Click to view more details"></div>' : '';
+
+      el.className = 'stack'; // Base class
+      if (hasChildren) {
+        el.classList.add('piled');
+      }
+
+      // Determine contents for back of card
+      const description = card.description || card.details || card.title || "No description available.";
+
+      // Image Logic: Prefer displayImages.front.url -> card_image -> boltandnut.png
+      let frontImage = null;
+      if (card.displayImages && card.displayImages.front && card.displayImages.front.url) {
+        frontImage = card.displayImages.front.url;
+      } else if (card.card_image) {
+        frontImage = card.card_image;
+      }
+
+      // Back image logic
+      let imageSrc = "boltandnut.png";
+      if (card.card_image) {
+        imageSrc = card.card_image;
+      } else if (card.displayImages && card.displayImages.front && card.displayImages.front.url) {
+        imageSrc = card.displayImages.front.url;
+      }
+
+      el.innerHTML = `
+        <div class="card">
+            <div class="front" style="color: ${card.color || 'black'}; background-color: ${card.frontBackgroundColor || '#fafafa'};">
+                <div class="flip-button" title="Flip Card">⟳</div>
+                ${indicatorHtml}
+                <div class="corner top-left">
+                    <div class="suit"><img src="boltandnut.png" alt="suit" style="width: 24px; height: auto; filter: sepia(1) hue-rotate(90deg) saturate(3) brightness(0.9);"></div>
+                </div>
+                
+                <div class="card-content-wrapper">
+                   ${frontImage ? `<div class="card-image-custom"><img src="${frontImage}" alt="Card Image" style="max-width: 100%; height: 65px; object-fit: contain; margin-bottom: 10px;"></div>` : ''}
+                   <div class="card-title">${card.title}</div>
+                </div>
+
+                <div class="corner bottom-right">
+                    <div class="suit"><img src="boltandnut.png" alt="suit" style="width: 24px; height: auto; filter: sepia(1) hue-rotate(90deg) saturate(3) brightness(0.9);"></div>
+                </div>
+            </div>
+            <div class="back">
+                <div class="flip-button" title="Flip Card">⟳</div>
+                
+                <div class="back-image-container">
+                    <img src="${imageSrc}" alt="Card Media">
+                </div>
+                
+                <div class="back-text-container">
+                    ${description}
+                </div>
+                
+                <button class="explore-btn">Explore</button>
+            </div>
+        </div>
+      `;
+
+      // Flip button Logic
+      const cardInner = el.querySelector('.card');
+      const flipButtons = el.querySelectorAll('.flip-button');
+      flipButtons.forEach(btn => {
+        btn.onclick = (e) => {
+          e.stopPropagation(); // Stop bubbling to card click
+          cardInner.classList.toggle('flip');
+        };
+      });
+
+      // Explore Button Logic
+      const exploreBtn = el.querySelector('.explore-btn');
+      exploreBtn.onclick = (e) => {
+        e.stopPropagation();
+
+        // Button ONLY handles Media interactions as requested 
+        // "Currently if you click on anywhere other than the button you display the childen of the big card. Its only when you click on the button you get the image options."
+
+        if (card.media && Array.isArray(card.media) && card.media.length > 0) {
+          if (card.media.length === 1) {
+            showMedia({ ...card, media: card.media[0] });
+          } else {
+            showMediaSelection(card);
+          }
+          return;
+        }
+
+        const mediaRels = relationships.filter(r => getSource(r) === card.id && r.type === 'show_media');
+
+        if (mediaRels.length > 0) {
+          const targetId = getTarget(mediaRels[0]);
+          if (cards[targetId]) {
+            showMedia(cards[targetId]);
+          }
+        } else {
+          console.log("No media to explore for this card.");
+        }
+      };
+
+      // Card Grid Click Logic (Focus Interaction)
+      el.onclick = (e) => {
+        // Ignore clicks on buttons or interactive elements
+        if (e.target.closest('button') || e.target.closest('.flip-button') || e.target.closest('.explore-btn') || e.target.closest('.child-indicator')) return;
+
+        if (el.classList.contains('focused')) {
+          // "Currently if you click on anywhere other than the button you display the childen of the big card."
+          // So clicking a focused card should drill down.
+
+          const hasKids = relationships.some(r => (r.source || r.from) === card.id && (r.type === 'contains' || r.type === 'leads_to'));
+          if (hasKids) {
+            navigateTo(card);
+          } else {
+            // Leaf node: fallback to flip toggle if no children
+            const cardInner = el.querySelector('.card');
+            cardInner.classList.toggle('flip');
+          }
+        } else {
+          // Not focused, just focus
+          focusStack(el);
+        }
+      };
+
+      return el;
+    }
+
+    function focusStack(stackEl) {
+      if (stackEl.classList.contains('focused')) {
+        return;
+      }
+
+      const grid = document.getElementById('stackGrid');
+      // Fade out others
+      Array.from(grid.children).forEach(child => {
+        if (child !== stackEl) child.classList.add('faded');
+      });
+
+      stackEl.classList.add('focused');
+      document.getElementById('backButton').style.display = 'block';
+      document.querySelector('.navigation-controls').style.display = 'flex';
+    }
+
+    function clearFocus() {
+      const grid = document.getElementById('stackGrid');
+      if (grid) {
+        Array.from(grid.children).forEach(child => {
+          child.classList.remove('faded');
+          child.classList.remove('focused');
+          const card = child.querySelector('.card');
+          if (card) card.classList.remove('flip');
+        });
+      }
+    }
+
+    document.getElementById('backButton').onclick = () => {
+      clearFocus();
+
+      // If we are drilled down, "Back to Grid" means "Home" / "Top Level"
+      if (breadcrumbs.length > 0) {
+        renderRoot();
+        // renderRoot handles breadcrumbs reset and UI updates
+        return;
+      }
+
+      // If we are at root (breadcrumbs.length === 0), just unfocus (which we did above)
+      document.getElementById('backButton').style.display = 'none';
+      document.querySelector('.navigation-controls').style.display = 'none';
+    };
+
+    function navigateTo(parentCard, specificChild = null) {
+      // No need to click backButton, it resets breadcrumbs! 
+      // Just proceed to render new level.
+
+      // Update State
+      currentStackId = parentCard.id;
+      breadcrumbs.push(parentCard);
+      updateBreadcrumbs();
+
+      const grid = document.getElementById('stackGrid');
+      grid.innerHTML = '';
+
+      const getSource = (r) => r.source || r.from;
+      const getTarget = (r) => r.target || r.to;
+
+      let itemsToShow = [];
+      if (specificChild) {
+        itemsToShow = [specificChild];
+      } else {
+        const childrenIds = relationships
+          .filter(r => getSource(r) === parentCard.id && r.type === 'contains')
+          .map(r => getTarget(r));
+        itemsToShow = childrenIds.map(id => cards[id]);
+      }
+
+      // If no children found for a stack
+      if (itemsToShow.length === 0) {
+        grid.innerHTML = '<div style="color:white; text-align:center; width:100%;">No items found in this category.</div>';
+        return;
+      }
+
+      itemsToShow.forEach(c => {
+        if (!c) return;
+        grid.appendChild(createCardElement(c));
+      });
+    }
+
+
+    function updateBreadcrumbs() {
+      // Sidebar Update
+      updateSidebar();
+
+      // Top Breadcrumbs (Home > ...) removed as per user request (replaced by sidebar)
+      /*
+      let bcContainer = document.getElementById('breadcrumbs');
+      if (!bcContainer) {
+         // ...
+      }
+      */
+      // Ensure existing specific breadcrumb container is removed if it exists from previous renders
+      let bcContainer = document.getElementById('breadcrumbs');
+      if (bcContainer) {
+        bcContainer.style.display = 'none';
+      }
+
+      const upBtn = document.getElementById('upLevelBtn');
+      if (breadcrumbs.length > 0) {
+        upBtn.style.display = 'block';
+        upBtn.onclick = () => {
+          // If a card is currently focused, unfocus it first
+          const focusedCard = document.querySelector('.focused');
+          if (focusedCard) {
+            clearFocus();
+            focusedCard.classList.remove('focused');
+            // If the user wants "Up One Level" to effectively mean "Back to the grid I was just looking at", 
+            // then we stop here because we just revealed the grid.
+            // But if "Up One Level" means "Go to Parent Stack", we should proceed?
+            // Current behavior: Button says "Up One Level". 
+            // If I am zoomed in on a card, "Up" is "Zoom Out back to grid". 
+            return;
+          }
+
+          if (breadcrumbs.length === 1) {
+            renderRoot();
+          } else {
+            jumpToCrumb(breadcrumbs.length - 2);
+          }
+        };
+      }
+
+      const navControls = document.querySelector('.navigation-controls');
+      if (navControls) {
+        // Show controls if we are deep in hierarchy OR if a card is focused (handled by focusStack usually, but nice to be robust)
+        // User wants buttons visible "all the time appart from the top level stack card view"
+        if (breadcrumbs.length > 0) {
+          navControls.style.display = 'flex';
+          document.getElementById('backButton').style.display = 'block';
+        } else {
+          // At root. Only show if a card is focused (handled by focusStack). 
+          // If no card is focused, hide.
+          if (!document.querySelector('.focused')) {
+            navControls.style.display = 'none';
+          }
+        }
+      }
+    }
+
+    function updateSidebar() {
+      const container = document.getElementById('sidebarContent');
+      if (!container) return;
+      container.innerHTML = '';
+
+      // Build path array: Home + breadcrumbs
+      const path = [{ title: 'Home', id: 'root' }, ...breadcrumbs];
+
+      path.forEach((item, index) => {
+        const div = document.createElement('div');
+        div.className = 'sidebar-item';
+
+        // Indentation
+        div.style.paddingLeft = (20 + (index * 15)) + 'px';
+
+        // Current Node Highlight
+        if (index === path.length - 1) {
+          div.classList.add('current-node');
+        }
+
+        // Reduced interactivity significantly as per user request "Sidebar is readonly"
+        // No click handlers here.
+
+        div.textContent = item.title || item.id;
+        container.appendChild(div);
+      });
+
+      // Auto-scroll to bottom of sidebar
+      const sidebar = document.getElementById('pathSidebar');
+      sidebar.scrollTop = sidebar.scrollHeight;
+    }
+
+
+    function jumpToCrumb(index) {
+      // targetCard is the card at index (0-based in breadcrumbs)
+      const targetCard = breadcrumbs[index];
+
+      // Slice breadcrumbs to include up to index (so we keep 0..index)
+      // correct slice is (0, index + 1)
+      breadcrumbs = breadcrumbs.slice(0, index + 1);
+      currentStackId = targetCard.id;
+
+      // Clear focus if any
+      const grid = document.getElementById('stackGrid');
+      if (grid) {
+        Array.from(grid.children).forEach(child => child.classList.remove('focused', 'faded'));
+      }
+      document.getElementById('backButton').style.display = 'none';
+
+      updateBreadcrumbs();
+
+      // Render content
+      const gridEl = document.getElementById('stackGrid');
+      gridEl.innerHTML = '';
+
+      const getSource = (r) => r.source || r.from;
+      const getTarget = (r) => r.target || r.to;
+
+      const childrenIds = relationships
+        .filter(r => getSource(r) === targetCard.id && r.type === 'contains')
+        .map(r => getTarget(r));
+
+      let itemsToShow = childrenIds.map(id => cards[id]);
+
+      if (itemsToShow.length === 0) {
+        gridEl.innerHTML = '<div style="color:white; text-align:center;">No items found.</div>';
+      } else {
+        itemsToShow.forEach(c => {
+          if (c) gridEl.appendChild(createCardElement(c));
+        });
+      }
+    }
+    window.renderRoot = renderRoot;
+
+    function showMedia(mediaCard) {
+      // Logic handled before calling, but robust check:
+      let finalSrc = (typeof mediaCard.media === 'string') ? mediaCard.media : mediaCard.card_image;
+
+      if (mediaCard.media && typeof mediaCard.media === 'string') {
+        finalSrc = mediaCard.media;
+      } else if (Array.isArray(mediaCard.media) && mediaCard.media.length > 0) {
+        finalSrc = mediaCard.media[0];
+      }
+
+      // Detect media type
+      const popupContent = document.getElementById('diagramPopup');
+      // Clear existing content except caption/close
+      const imgEl = document.getElementById('diagramImage');
+      const captionEl = document.getElementById('diagramCaption');
+
+      // Remove any existing iframe
+      const existingIframe = document.getElementById('pdfFrame');
+      if (existingIframe) existingIframe.remove();
+
+      if (finalSrc && finalSrc.toLowerCase().endsWith('.pdf')) {
+        imgEl.style.display = 'none';
+
+        const iframe = document.createElement('iframe');
+        iframe.id = 'pdfFrame';
+        iframe.src = finalSrc;
+        iframe.style.width = '90%';
+        iframe.style.height = '80vh';
+        iframe.style.border = 'none';
+        iframe.style.borderRadius = '8px';
+        iframe.style.boxShadow = '0 0 50px rgba(0, 0, 0, 0.5)';
+
+        popupContent.insertBefore(iframe, captionEl); // Insert before caption
+      } else {
+        imgEl.style.display = 'block';
+        imgEl.src = finalSrc || '';
+      }
+
+      captionEl.textContent = mediaCard.title || '';
+      popupContent.style.display = 'flex';
+    }
+
+    function showMediaSelection(card) {
+      const container = document.getElementById('mediaSelectionContainer');
+      container.innerHTML = ''; // Clear previous
+
+      card.media.forEach(imgName => {
+        const btn = document.createElement('div');
+        btn.style.cssText = `
+                width: 150px; 
+                height: 150px; 
+                border: 2px solid white; 
+                border-radius: 8px; 
+                overflow: hidden; 
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: #333;
+                flex-direction: column;
+            `;
+
+        // Try to show preview if it's an image, else text/icon for PDF
+        let previewHtml = '';
+        if (imgName.toLowerCase().endsWith('.pdf')) {
+          previewHtml = `
+             <div style="width: 100%; height: 100px; display: flex; align-items: center; justify-content: center; background: #e74c3c; color: white; font-weight: bold; font-size: 24px;">PDF</div>
+            `;
+        } else {
+          previewHtml = `<img src="${imgName}" style="width: 100%; height: 100px; object-fit: cover; margin-bottom: 5px;">`;
+        }
+
+        btn.innerHTML = `
+                ${previewHtml}
+                <span style="color: white; font-size: 0.8rem; word-break: break-all; padding: 2px;">${imgName}</span>
+            `;
+
+        btn.onclick = () => {
+          closeMediaSelection();
+          showMedia({ ...card, media: imgName, title: `${card.title} - ${imgName}` });
+        };
+
+        container.appendChild(btn);
+      });
+
+      document.getElementById('mediaSelectionPopup').style.display = 'flex';
+    }
+
+    function closeMediaSelection() {
+      document.getElementById('mediaSelectionPopup').style.display = 'none';
+    }
+
+    function closeDiagram() {
+      document.getElementById('diagramPopup').style.display = 'none';
+      // Check if we need to show selection popup again? 
+      // User request: "When i close the popup containing the rendered image. I should return to the back of the card view."
+      // So we do NOT re-open the selection popup.
+    }
+
+    // Clean up pagination as it's not strictly compatible with the drill-down unless we re-implement it per level
+    document.getElementById('pagination').style.display = 'none';
+    document.getElementById('backButton').style.display = 'none'; // Replaced by breadcrumbs
+
+  </script>
+
+</body>
+
+</html>
