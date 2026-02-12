@@ -127,7 +127,10 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/Advanced_Applied_Ana.pdf"
+      ]
     },
     {
       "id": "1405_advanced_chemical_discovery",
@@ -178,7 +181,10 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/Software_Delivery_Me.pdf"
+      ]
     },
     {
       "id": "802_ai_doc_systems",
@@ -282,7 +288,12 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/Artificial_Intellige.pdf",
+        "pdf/Vector_Databases_AI.pdf",
+        "pdf/AI-Driven_Private_Do.pdf, images/BookCLanguage.png"
+      ]
     },
     {
       "id": "1393_ai_native_applications",
@@ -308,7 +319,11 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/AI-Driven_Private_Do.pdf",
+        "pdf/Backend_Application_.pdf"
+      ]
     },
     {
       "id": "1452_algorithms_to_live_by",
@@ -386,7 +401,14 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/KPI_and_Metrics_Desi.pdf",
+        "pdf/Operational_Reportin.pdf",
+        "pdf/Structural_Integrity.pdf",
+        "pdf/Advanced_Applied_Ana.pdf",
+        "pdf/Dashboard_Architectu.pdf"
+      ]
     },
     {
       "id": "1266_analytics_foundations",
@@ -412,7 +434,10 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/Computing_Foundation.pdf"
+      ]
     },
     {
       "id": "1280_anomaly_detection",
@@ -700,7 +725,10 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/Azure_Cloud_Infrastr.pdf"
+      ]
     },
     {
       "id": "1285_balanced_scorecard_alignment",
@@ -963,7 +991,12 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/Requirements_Gatheri.pdf",
+        "pdf/Strategic_KPI_Defini.pdf",
+        "pdf/High-Volatility_Data.pdf"
+      ]
     },
     {
       "id": "700_csharp_python",
@@ -1127,7 +1160,12 @@
       "id": "010_stack_cloud_hosting",
       "type": "other",
       "title": "Cloud & Hosting",
-      "media": [],
+      "media": [
+        "df/Infrastructure_as_a_.pdf",
+        "pdf/Azure_Cloud_Infrastr.pdf",
+        "pdf/System_Monitoring",
+        "_S.pdf"
+      ],
       "displayImages": {
         "background": {
           "url": "",
@@ -1173,7 +1211,11 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/Azure_Cloud_Infrastr.pdf",
+        "pdf/Infrastructure_as_a_.pdf"
+      ]
     },
     {
       "id": "10019_media_cloud_architecture",
@@ -1574,6 +1616,35 @@
       "frontBackgroundColor": "lightblue"
     },
     {
+      "id": "1463_cost_control",
+      "title": "Cost Control",
+      "type": "other",
+      "description": "Monitoring the projects costs and expenditures",
+      "displayImages": {
+        "background": {
+          "url": "",
+          "alt": ""
+        },
+        "front": {
+          "url": "images/WaalBridgeIcon.png",
+          "alt": "Cyber Icon"
+        },
+        "thumbnail": {
+          "url": "",
+          "alt": ""
+        },
+        "diagram": {
+          "url": "",
+          "alt": ""
+        }
+      },
+      "assets": [],
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/Cost_Control_in_High.pdf"
+      ]
+    },
+    {
       "id": "101_critical_path",
       "type": "capability",
       "title": "Critical Path Method Planning",
@@ -1779,7 +1850,14 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/Computing_Foundation.pdf",
+        "pdf/SQL_and_Relational_D.pdf",
+        "pdf/Platform_Security_Mo.pdf",
+        "pdf/Microsoft_Security_E.pdf",
+        "pdf/Google_Cloud_Securit.pdf"
+      ]
     },
     {
       "id": "1246_dama_dmbok",
@@ -1831,7 +1909,10 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/Dashboard_Architectu.pdf"
+      ]
     },
     {
       "id": "1294_dashboard_architecture",
@@ -2038,7 +2119,12 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/Database_Platform_De.pdf",
+        "Database_Schema_Desi.pdf",
+        "Data_Warehouse_and_D.pdf"
+      ]
     },
     {
       "id": "1232_data_governance",
@@ -2374,7 +2460,10 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/Data_Warehouse_and_D.pdf"
+      ]
     },
     {
       "id": "1350_database_architecture_optimization",
@@ -2530,7 +2619,10 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/Delivery_Methodology.pdf"
+      ]
     },
     {
       "id": "1271_descriptive_analytics",
@@ -2608,7 +2700,13 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "description": "Leading software development teams to deliver high-quality solutions. Focus on mentorship, code quality, and architectural integrity. Balancing technical debt with feature delivery and fostering a culture of continuous improvement.",
+      "media": [
+        "pdf/Software_Delivery_Me.pdf",
+        "pdf/Project_Management_R.pdf",
+        "pdf/Technical_Authorship.pdf"
+      ]
     },
     {
       "id": "1414_device_and_removable_media_control",
@@ -2667,6 +2765,35 @@
       "type": "capability",
       "title": "Document Management",
       "description": "Implementation of structured document and records management systems to support operational efficiency and compliance.",
+      "displayImages": {
+        "background": {
+          "url": "",
+          "alt": ""
+        },
+        "front": {
+          "url": "images/WaalBridgeIcon.png",
+          "alt": "Cyber Icon"
+        },
+        "thumbnail": {
+          "url": "",
+          "alt": ""
+        },
+        "diagram": {
+          "url": "",
+          "alt": ""
+        }
+      },
+      "assets": [],
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/Identity_Management_.pdf"
+      ]
+    },
+    {
+      "id": "1466_earned_value_engine_development",
+      "type": "capability",
+      "title": "Earned Value & Progress Engines",
+      "description": "Engineering the algorithmic logic behind CPI/SPI calculations, automated progress measurement, and forecast-to-complete modeling.",
       "displayImages": {
         "background": {
           "url": "",
@@ -2745,6 +2872,32 @@
       "type": "capability",
       "title": "Endpoint Vulnerability Management",
       "description": "Discovery and prioritization of device vulnerabilities and configuration weaknesses across managed endpoints.",
+      "displayImages": {
+        "background": {
+          "url": "",
+          "alt": ""
+        },
+        "front": {
+          "url": "images/WaalBridgeIcon.png",
+          "alt": "Cyber Icon"
+        },
+        "thumbnail": {
+          "url": "",
+          "alt": ""
+        },
+        "diagram": {
+          "url": "",
+          "alt": ""
+        }
+      },
+      "assets": [],
+      "frontBackgroundColor": "lightblue"
+    },
+    {
+      "id": "1465_engineering_project_support",
+      "title": "Engineering Project Support",
+      "type": "none",
+      "description": "Supports the leadership tem",
       "displayImages": {
         "background": {
           "url": "",
@@ -3180,7 +3333,10 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/Orchestrating_Large-.pdf"
+      ]
     },
     {
       "id": "10001_media_gantt_chart",
@@ -3285,7 +3441,10 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/GDPR_and_Data_Privac.pdf"
+      ]
     },
     {
       "id": "1261_gdpr_compliance",
@@ -3311,7 +3470,10 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/Policy,_Compliance,_.pdf"
+      ]
     },
     {
       "id": "1220_general_corporate_governance_risk",
@@ -3344,7 +3506,10 @@
       "type": "other",
       "title": "Google Cloud Security Model",
       "description": "Google Cloud\u2019s security model focusing on infrastructure protection, identity control, and workload security.",
-      "media": [],
+      "media": [
+        "pdf/Google_Cloud_Securit.pdf",
+        "pdf/Legacy_Codebase_Mode.pdf"
+      ],
       "displayImages": {
         "background": {
           "url": "",
@@ -3398,9 +3563,10 @@
       "title": "Governance & Compliance",
       "description": "Overall management of governance and compliance practices in the organisation.",
       "media": [
-        "testimage1.jpg",
-        "testimage2.jpg",
-        "GDPR \u2013 Data Privacy Compliance.pdf"
+        "pdf/GDPR_and_Data_Privac.pdf",
+        "pdf/Identity_Management_.pdf",
+        "pdf/Policy",
+        "_Compliance.pdf"
       ],
       "displayImages": {
         "background": {
@@ -3446,7 +3612,12 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/Backend_Application_.pdf",
+        "pdf/GUI_Design_and_Rapid.pdf",
+        "pdf/Microservices_Archit.pdf"
+      ]
     },
     {
       "id": "1314_gui_cli_interfaces",
@@ -3497,7 +3668,10 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/GUI_Design_and_Rapid.pdf"
+      ]
     },
     {
       "id": "10015_media_gui_screenshot",
@@ -3890,7 +4064,10 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/Platform_Security_Mo.pdf"
+      ]
     },
     {
       "id": "1212_information_security_data_handling",
@@ -3923,6 +4100,35 @@
       "type": "capability",
       "title": "Infrastructure & Network Security",
       "description": "Secure networking using VPC isolation, firewall controls, and private access configurations.",
+      "displayImages": {
+        "background": {
+          "url": "",
+          "alt": ""
+        },
+        "front": {
+          "url": "images/WaalBridgeIcon.png",
+          "alt": "Cyber Icon"
+        },
+        "thumbnail": {
+          "url": "",
+          "alt": ""
+        },
+        "diagram": {
+          "url": "",
+          "alt": ""
+        }
+      },
+      "assets": [],
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/Structural_Integrity.pdf"
+      ]
+    },
+    {
+      "id": "1467_integrated_cost_schedule_systems",
+      "type": "capability",
+      "title": "Integrated Cost-Schedule Systems",
+      "description": "Developing data pipelines that unify disparate scheduling (CPM) and financial (ERP) datasets to provide a 'Single Source of Truth' for project health.",
       "displayImages": {
         "background": {
           "url": "",
@@ -3993,7 +4199,10 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/Inventory_and_Operat.pdf"
+      ]
     },
     {
       "id": "1228_iso_22301",
@@ -4253,7 +4462,10 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/KPI_and_Metrics_Desi.pdf"
+      ]
     },
     {
       "id": "1281_kpi_metrics_design",
@@ -4513,7 +4725,11 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/Legacy_Codebase_Mode.pdf",
+        "pdf/Orchestrating_Large-.pdf"
+      ]
     },
     {
       "id": "1211_lgpd",
@@ -4746,7 +4962,10 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/Microservices_Archit.pdf"
+      ]
     },
     {
       "id": "1439_azure_architect",
@@ -4807,7 +5026,9 @@
       "type": "other",
       "title": "Microsoft Security Ecosystem",
       "description": "Microsoft\u2019s integrated security stack covering identity, endpoint, cloud, data protection, and SOC operations across Azure and Microsoft 365.",
-      "media": [],
+      "media": [
+        "pdf/Microsoft_Security_E.pdf"
+      ],
       "displayImages": {
         "background": {
           "url": "",
@@ -4936,6 +5157,9 @@
       "title": "Monte Carlo Simulations",
       "type": "other",
       "description": "A Monte Carlo simulation replaces fixed task durations with probability distributions to account for uncertainty, running thousands of project iterations to calculate every possible outcome. The result is a statistical \"S-curve\" that allows leaders to set deadlines based on specific confidence levels (e.g., P80) rather than optimistic guesses.",
+      "media": [
+        "pdf/1454_monte_carlo_simulations.pdf"
+      ],
       "displayImages": {
         "background": {
           "url": "",
@@ -5239,7 +5463,10 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/Operational_Reportin.pdf"
+      ]
     },
     {
       "id": "1288_operational_reporting",
@@ -5558,6 +5785,35 @@
       "frontBackgroundColor": "lightblue"
     },
     {
+      "id": "1466_planning_and_scheduling",
+      "title": "Planning and Scheduling",
+      "type": "none",
+      "description": "Controling the schedule for the development process",
+      "displayImages": {
+        "background": {
+          "url": "",
+          "alt": ""
+        },
+        "front": {
+          "url": "images/WaalBridgeIcon.png",
+          "alt": "Cyber Icon"
+        },
+        "thumbnail": {
+          "url": "",
+          "alt": ""
+        },
+        "diagram": {
+          "url": "",
+          "alt": ""
+        }
+      },
+      "assets": [],
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/Planning_and_Schedul.pdf"
+      ]
+    },
+    {
       "id": "1335_platform_security_models",
       "type": "stack",
       "title": "Platform Security Models",
@@ -5868,6 +6124,35 @@
         }
       },
       "assets": [],
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/Project_Management_R.pdf"
+      ]
+    },
+    {
+      "id": "1462_procurement_planning",
+      "title": "Procurement planning",
+      "type": "other",
+      "description": "Procurement of  equipment at the design stage",
+      "displayImages": {
+        "background": {
+          "url": "",
+          "alt": ""
+        },
+        "front": {
+          "url": "images/WaalBridgeIcon.png",
+          "alt": "Cyber Icon"
+        },
+        "thumbnail": {
+          "url": "",
+          "alt": ""
+        },
+        "diagram": {
+          "url": "",
+          "alt": ""
+        }
+      },
+      "assets": [],
       "frontBackgroundColor": "lightblue"
     },
     {
@@ -5877,6 +6162,9 @@
       "card_image": "boltandnut.png",
       "description": "Testing",
       "media": [
+        "Process_Improvement_.pdf",
+        "pdf/Document_Maintenance.pdf",
+        "pdf/Delivery_Methodology.pdf",
         "testimage1.jpg",
         "testimage2.jpg",
         "testimage3.jpg"
@@ -5988,6 +6276,63 @@
       "title": "Programming C# 8.0 (O'Reilly)",
       "isbn": "978-1492056812",
       "description": "Full-stack development using the .NET framework and managed object-oriented logic.",
+      "displayImages": {
+        "background": {
+          "url": "",
+          "alt": ""
+        },
+        "front": {
+          "url": "images/WaalBridgeIcon.png",
+          "alt": "Cyber Icon"
+        },
+        "thumbnail": {
+          "url": "",
+          "alt": ""
+        },
+        "diagram": {
+          "url": "",
+          "alt": ""
+        }
+      },
+      "assets": [],
+      "frontBackgroundColor": "lightblue"
+    },
+    {
+      "id": "1464_project_controls",
+      "title": "Project controls ",
+      "type": "other",
+      "description": "Groups who control the costs and project schedule.\n",
+      "displayImages": {
+        "background": {
+          "url": "",
+          "alt": ""
+        },
+        "front": {
+          "url": "images/WaalBridgeIcon.png",
+          "alt": "Cyber Icon"
+        },
+        "thumbnail": {
+          "url": "",
+          "alt": ""
+        },
+        "diagram": {
+          "url": "",
+          "alt": ""
+        }
+      },
+      "assets": [],
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/Cost_Control_in_High.pdf",
+        "pdf/Planning_and_Schedul.pdf",
+        "pdf/1454_monte_carlo_simulations.pdf"
+      ]
+    },
+    {
+      "id": "1465_project_controls_software_architecture",
+      "type": "capability",
+      "title": "Project Controls Software Architecture",
+      "description": "Designing and developing enterprise systems for cost-engineering, scheduling, and risk analysis specifically for high-hazard industrial sectors.",
       "displayImages": {
         "background": {
           "url": "",
@@ -6216,7 +6561,11 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/Inventory_and_Operat.pdf",
+        "pdf/Straight-Through_Pro.pdf"
+      ]
     },
     {
       "id": "1406_real_world_systems",
@@ -6372,7 +6721,12 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/High-Volatility_Data.pdf",
+        "pdf/SQL_and_Relational_D.pdf",
+        "pdf/Vector_Databases_AI.pdf"
+      ]
     },
     {
       "id": "1292_report_automation_scheduling",
@@ -6423,7 +6777,10 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/Requirements_Gatheri.pdf"
+      ]
     },
     {
       "id": "1242_retention_deletion_policies",
@@ -6605,7 +6962,11 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/Software_Delivery_Me.pdf",
+        "pdf/System_Monitoring,_S.pdf"
+      ]
     },
     {
       "id": "1340_ms_siem_soc",
@@ -6683,7 +7044,10 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/Process_Improvement_.pdf"
+      ]
     },
     {
       "id": "402_six_sigma",
@@ -7078,7 +7442,8 @@
       "type": "media",
       "title": "Star schema visual",
       "media": [
-        "star_schema.png"
+        "star_schema.png",
+        "pdf/Database_Schema_Desi.pdf"
       ],
       "displayImages": {
         "background": {
@@ -7125,7 +7490,10 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/Artificial_Intellige.pdf"
+      ]
     },
     {
       "id": "902_stp",
@@ -7150,7 +7518,10 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/Straight-Through_Pro.pdf"
+      ]
     },
     {
       "id": "1363_strategic_insight_decision_support",
@@ -7176,7 +7547,10 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/Strategic_KPI_Defini.pdf"
+      ]
     },
     {
       "id": "1359_structured_problem_solving",
@@ -7420,7 +7794,10 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/Document_Maintenance.pdf"
+      ]
     },
     {
       "id": "1390_technical_report_writing",
@@ -7446,7 +7823,10 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/Technical_Authorship.pdf"
+      ]
     },
     {
       "id": "1399_tender_management",
@@ -8498,7 +8878,10 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": [
+        "pdf/Database_Platform_De.pdf"
+      ]
     },
     {
       "id": "1339_windows_os_architecture",
@@ -8531,214 +8914,6 @@
       "type": "capability",
       "title": "Workload & Container Security",
       "description": "Protection of container and Kubernetes workloads using artifact scanning and runtime security controls.",
-      "displayImages": {
-        "background": {
-          "url": "",
-          "alt": ""
-        },
-        "front": {
-          "url": "images/WaalBridgeIcon.png",
-          "alt": "Cyber Icon"
-        },
-        "thumbnail": {
-          "url": "",
-          "alt": ""
-        },
-        "diagram": {
-          "url": "",
-          "alt": ""
-        }
-      },
-      "assets": [],
-      "frontBackgroundColor": "lightblue"
-    },
-    {
-      "id": "1462_procurement_planning",
-      "title": "Procurement planning",
-      "type": "other",
-      "description": "Procurement of  equipment at the design stage",
-      "displayImages": {
-        "background": {
-          "url": "",
-          "alt": ""
-        },
-        "front": {
-          "url": "images/WaalBridgeIcon.png",
-          "alt": "Cyber Icon"
-        },
-        "thumbnail": {
-          "url": "",
-          "alt": ""
-        },
-        "diagram": {
-          "url": "",
-          "alt": ""
-        }
-      },
-      "assets": [],
-      "frontBackgroundColor": "lightblue"
-    },
-    {
-      "id": "1463_cost_control",
-      "title": "Cost Control",
-      "type": "other",
-      "description": "Monitoring the projects costs and expenditures",
-      "displayImages": {
-        "background": {
-          "url": "",
-          "alt": ""
-        },
-        "front": {
-          "url": "images/WaalBridgeIcon.png",
-          "alt": "Cyber Icon"
-        },
-        "thumbnail": {
-          "url": "",
-          "alt": ""
-        },
-        "diagram": {
-          "url": "",
-          "alt": ""
-        }
-      },
-      "assets": [],
-      "frontBackgroundColor": "lightblue"
-    },
-    {
-      "id": "1464_project_controls",
-      "title": "Project controls ",
-      "type": "other",
-      "description": "Groups who control the costs and project schedule.\n",
-      "displayImages": {
-        "background": {
-          "url": "",
-          "alt": ""
-        },
-        "front": {
-          "url": "images/WaalBridgeIcon.png",
-          "alt": "Cyber Icon"
-        },
-        "thumbnail": {
-          "url": "",
-          "alt": ""
-        },
-        "diagram": {
-          "url": "",
-          "alt": ""
-        }
-      },
-      "assets": [],
-      "frontBackgroundColor": "lightblue"
-    },
-    {
-      "id": "1465_engineering_project_support",
-      "title": "Engineering Project Support",
-      "type": "none",
-      "description": "Supports the leadership tem",
-      "displayImages": {
-        "background": {
-          "url": "",
-          "alt": ""
-        },
-        "front": {
-          "url": "images/WaalBridgeIcon.png",
-          "alt": "Cyber Icon"
-        },
-        "thumbnail": {
-          "url": "",
-          "alt": ""
-        },
-        "diagram": {
-          "url": "",
-          "alt": ""
-        }
-      },
-      "assets": [],
-      "frontBackgroundColor": "lightblue"
-    },
-    {
-      "id": "1466_planning_and_scheduling",
-      "title": "Planning and Scheduling",
-      "type": "none",
-      "description": "Controling the schedule for the development process",
-      "displayImages": {
-        "background": {
-          "url": "",
-          "alt": ""
-        },
-        "front": {
-          "url": "images/WaalBridgeIcon.png",
-          "alt": "Cyber Icon"
-        },
-        "thumbnail": {
-          "url": "",
-          "alt": ""
-        },
-        "diagram": {
-          "url": "",
-          "alt": ""
-        }
-      },
-      "assets": [],
-      "frontBackgroundColor": "lightblue"
-    },
-    {
-      "id": "1465_project_controls_software_architecture",
-      "type": "capability",
-      "title": "Project Controls Software Architecture",
-      "description": "Designing and developing enterprise systems for cost-engineering, scheduling, and risk analysis specifically for high-hazard industrial sectors.",
-      "displayImages": {
-        "background": {
-          "url": "",
-          "alt": ""
-        },
-        "front": {
-          "url": "images/WaalBridgeIcon.png",
-          "alt": "Cyber Icon"
-        },
-        "thumbnail": {
-          "url": "",
-          "alt": ""
-        },
-        "diagram": {
-          "url": "",
-          "alt": ""
-        }
-      },
-      "assets": [],
-      "frontBackgroundColor": "lightblue"
-    },
-    {
-      "id": "1466_earned_value_engine_development",
-      "type": "capability",
-      "title": "Earned Value & Progress Engines",
-      "description": "Engineering the algorithmic logic behind CPI/SPI calculations, automated progress measurement, and forecast-to-complete modeling.",
-      "displayImages": {
-        "background": {
-          "url": "",
-          "alt": ""
-        },
-        "front": {
-          "url": "images/WaalBridgeIcon.png",
-          "alt": "Cyber Icon"
-        },
-        "thumbnail": {
-          "url": "",
-          "alt": ""
-        },
-        "diagram": {
-          "url": "",
-          "alt": ""
-        }
-      },
-      "assets": [],
-      "frontBackgroundColor": "lightblue"
-    },
-    {
-      "id": "1467_integrated_cost_schedule_systems",
-      "type": "capability",
-      "title": "Integrated Cost-Schedule Systems",
-      "description": "Developing data pipelines that unify disparate scheduling (CPM) and financial (ERP) datasets to provide a 'Single Source of Truth' for project health.",
       "displayImages": {
         "background": {
           "url": "",

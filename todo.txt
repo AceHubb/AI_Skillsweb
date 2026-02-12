@@ -1,0 +1,41 @@
+001 Development Leadership	Software_Delivery_Me.pdf	100
+Project_Management_R.pdf	102
+Technical_Authorship.pdf	103
+002 Data Engineering	Database_Platform_De.pdf	200
+Database_Schema_Desi.pdf	205
+Data_Warehouse_and_D.pdf	206
+004 Analytics & Reporting	KPI_and_Metrics_Desi.pdf	1281
+Operational_Reportin.pdf	1288
+Structural_Integrity.pdf	1295
+Advanced_Applied_Ana.pdf	1301
+Dashboard_Architectu.pdf	1294
+1310 Cyber Security	Computing_Foundation.pdf	1311
+SQL_and_Relational_D.pdf	1312
+Platform_Security_Mo.pdf	1335
+Microsoft_Security_E.pdf	1336
+Google_Cloud_Securit.pdf	1342
+005 Business Analysis	Requirements_Gatheri.pdf	500
+Strategic_KPI_Defini.pdf	501
+High-Volatility_Data.pdf	502
+006 Legacy Modernisation	Legacy_Codebase_Mode.pdf	600
+Orchestrating_Large-.pdf	602
+007 Greenfield / Software	Backend_Application_.pdf	700
+GUI_Design_and_Rapid.pdf	701
+Microservices_Archit.pdf	702
+008 AI-Driven Development	Artificial_Intellige.pdf	800
+Vector_Databases_AI.pdf	801
+AI-Driven_Private_Do.pdf	802
+009 Real-World Deployment	Inventory_and_Operat.pdf	901
+Straight-Through_Pro.pdf	902
+010 Cloud & Hosting	Infrastructure_as_a_.pdf	1000
+Azure_Cloud_Infrastr.pdf	1001
+System_Monitoring,_S.pdf	1002
+011 Governance & Compliance	GDPR_and_Data_Privac.pdf	1100
+Identity_Management_.pdf	1101
+Policy,_Compliance,_.pdf	1102
+012 Professional Practices	Process_Improvement_.pdf	1200
+Document_Maintenance.pdf	1201
+Delivery_Methodology.pdf	1202
+1464 Project Controls	Cost_Control_in_High.pdf	1463
+Planning_and_Schedul.pdf	1466
+1454_monte_carlo_simulations.pdf	1454

@@ -84,20 +84,21 @@
 
     /* Grid Layout */
     .grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 30px;
       width: 100%;
-      max-width: 1600px;
+      max-width: 1800px;
       transition: opacity 0.3s;
+      justify-items: center;
+      /* Center items within grid cells */
     }
 
     /* Stack Container - The "Pile" */
     .stack {
       position: relative;
-      width: 140px;
-      height: 200px;
+      width: 200px;
+      height: 280px;
       perspective: 1200px;
       cursor: pointer;
       transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s;
@@ -258,68 +259,74 @@
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
     }
 
-    /* New Back Styles */
-    .back-image-container {
+    /* New Back Styles - FlipCardApp Design */
+    /* Sizes are reduced to compensate for 2.6x scale when focused */
+    .card-description-input {
+      font-size: 0.5rem;
+      text-align: left;
+      flex-grow: 1;
       width: 100%;
-      height: 120px;
-      /* Adjust as needed */
-      border: 2px solid black;
-      background: white;
-      /* Fallback if no image */
-      margin-top: 30px;
-      /* Space for flip button */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .back-image-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .back-text-container {
-      width: 100%;
-      height: 80px;
-      /* Adjust as needed */
-      border: 2px solid black;
-      padding: 5px;
+      padding: 4px;
+      border: 1px solid #333;
+      border-radius: 2px;
+      background-color: rgba(255, 255, 255, 0.9);
+      color: #333;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      resize: none;
+      min-height: 50px;
       box-sizing: border-box;
-      overflow-y: auto;
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 0.8rem;
-      background: transparent;
-      text-align: center;
+      margin-top: 4px;
+    }
+
+    .checkbox-container {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin: 4px 0;
+    }
+
+    .checkbox-label {
       display: flex;
       align-items: center;
-      justify-content: center;
+      gap: 3px;
+      cursor: pointer;
+      font-size: 0.5rem;
+      font-weight: 500;
     }
 
-    .card-title-back {
-      font-size: 1.2rem;
-      font-weight: bold;
-      text-align: center;
-      color: #2c3e50;
+    .checkbox-label input[type="checkbox"] {
+      width: 8px;
+      height: 8px;
+      cursor: pointer;
     }
 
-    /* Buttons */
+    .checkbox-label span {
+      user-select: none;
+    }
+
+    /* Buttons - Sizes reduced to compensate for 2.6x scale */
     .explore-btn {
-      padding: 10px 30px;
+      padding: 4px 12px;
       border: none;
-      border-radius: 8px;
+      border-radius: 3px;
       background: #3498db;
       color: white;
       font-weight: 600;
       cursor: pointer;
       transition: background 0.2s;
-      font-size: 1rem;
-      margin-bottom: 10px;
+      font-size: 0.5rem;
+      margin-top: 2px;
+      align-self: center;
     }
 
     .explore-btn:hover {
       background: #2980b9;
+    }
+
+    .explore-btn:disabled {
+      background-color: #95a5a6;
+      cursor: not-allowed;
+      opacity: 0.6;
     }
 
     /* Back Button */
@@ -368,7 +375,7 @@
       width: 100%;
       height: 100%;
       background: rgba(0, 0, 0, 0.85);
-      z-index: 500;
+      z-index: 3000 !important;
       align-items: center;
       justify-content: center;
       flex-direction: column;
@@ -597,12 +604,22 @@
       }
 
       // Back image logic
-      let imageSrc = "boltandnut.png";
-      if (card.card_image) {
-        imageSrc = card.card_image;
-      } else if (card.displayImages && card.displayImages.front && card.displayImages.front.url) {
-        imageSrc = card.displayImages.front.url;
+      const imageSrc = card.card_image || "boltandnut.png";
+
+      // Determine media availability
+      let hasPdf = false;
+      let hasGraphic = false;
+
+      if (card.media && Array.isArray(card.media)) {
+        hasPdf = card.media.some(file => file.toLowerCase().endsWith('.pdf'));
+        hasGraphic = card.media.some(file => {
+          const f = file.toLowerCase();
+          return f.endsWith('.png') || f.endsWith('.jpg') || f.endsWith('.jpeg') || f.endsWith('.gif') || f.endsWith('.webp');
+        });
       }
+
+      // Auto-enable view button if content exists
+      const viewDisabled = (!hasPdf && !hasGraphic) ? 'disabled' : '';
 
       el.innerHTML = `
         <div class="card">
@@ -625,15 +642,20 @@
             <div class="back">
                 <div class="flip-button" title="Flip Card">⟳</div>
                 
-                <div class="back-image-container">
-                    <img src="${imageSrc}" alt="Card Media">
+                <textarea class="card-description-input" readonly>${card.title}\n\n${description}</textarea>
+                
+                <div class="checkbox-container">
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="pdf-checkbox" name="pdf" ${hasPdf ? 'checked' : ''} disabled>
+                        <span>PDF</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="graphic-checkbox" name="graphic" ${hasGraphic ? 'checked' : ''} disabled>
+                        <span>Graphic</span>
+                    </label>
                 </div>
                 
-                <div class="back-text-container">
-                    ${description}
-                </div>
-                
-                <button class="explore-btn">Explore</button>
+                <button class="explore-btn" ${viewDisabled}>View</button>
             </div>
         </div>
       `;
@@ -648,6 +670,11 @@
         };
       });
 
+      // Checkbox validation logic for View button removed as checkboxes are now readonly.
+      // View button state is set initially based on content.
+      const pdfCheckbox = el.querySelector('.pdf-checkbox');
+      const graphicCheckbox = el.querySelector('.graphic-checkbox');
+
       // Explore Button Logic
       const exploreBtn = el.querySelector('.explore-btn');
       exploreBtn.onclick = (e) => {
@@ -656,11 +683,22 @@
         // Button ONLY handles Media interactions as requested 
         // "Currently if you click on anywhere other than the button you display the childen of the big card. Its only when you click on the button you get the image options."
 
-        if (card.media && Array.isArray(card.media) && card.media.length > 0) {
-          if (card.media.length === 1) {
-            showMedia({ ...card, media: card.media[0] });
+        let mediaList = [];
+        if (card.media) {
+          if (Array.isArray(card.media)) {
+            // Flatten and split any comma-separated strings inside the array
+            mediaList = card.media.flatMap(m => m.split(',').map(s => s.trim()));
+          } else if (typeof card.media === 'string') {
+            mediaList = card.media.split(',').map(s => s.trim());
+          }
+        }
+
+        if (mediaList.length > 0) {
+          if (mediaList.length === 1) {
+            showMedia({ ...card, media: mediaList[0] });
           } else {
-            showMediaSelection(card);
+            // Pass the split list as the media property for the selection popup
+            showMediaSelection({ ...card, media: mediaList });
           }
           return;
         }
@@ -918,6 +956,7 @@
     window.renderRoot = renderRoot;
 
     function showMedia(mediaCard) {
+      console.log("showMedia called with:", mediaCard);
       // Logic handled before calling, but robust check:
       let finalSrc = (typeof mediaCard.media === 'string') ? mediaCard.media : mediaCard.card_image;
 
@@ -926,6 +965,8 @@
       } else if (Array.isArray(mediaCard.media) && mediaCard.media.length > 0) {
         finalSrc = mediaCard.media[0];
       }
+
+      console.log("finalSrc:", finalSrc);
 
       // Detect media type
       const popupContent = document.getElementById('diagramPopup');
@@ -938,6 +979,7 @@
       if (existingIframe) existingIframe.remove();
 
       if (finalSrc && finalSrc.toLowerCase().endsWith('.pdf')) {
+        console.log("Displaying as PDF");
         imgEl.style.display = 'none';
 
         const iframe = document.createElement('iframe');
@@ -951,12 +993,26 @@
 
         popupContent.insertBefore(iframe, captionEl); // Insert before caption
       } else {
+        console.log("Displaying as Image");
         imgEl.style.display = 'block';
         imgEl.src = finalSrc || '';
+        imgEl.onerror = function () {
+          this.style.display = 'none';
+          const errDiv = document.createElement('div');
+          errDiv.id = 'imgError';
+          errDiv.style.color = 'white';
+          errDiv.style.textAlign = 'center';
+          errDiv.innerHTML = '<h3>Image Not Found</h3><p>' + (finalSrc || 'No source provided') + '</p>';
+          popupContent.insertBefore(errDiv, captionEl);
+        };
+        // Reset error message if it exists from previous open
+        const existingErr = document.getElementById('imgError');
+        if (existingErr) existingErr.remove();
       }
 
       captionEl.textContent = mediaCard.title || '';
       popupContent.style.display = 'flex';
+      console.log("Popup display set to flex");
     }
 
     function showMediaSelection(card) {
@@ -989,14 +1045,17 @@
           previewHtml = `<img src="${imgName}" style="width: 100%; height: 100px; object-fit: cover; margin-bottom: 5px;">`;
         }
 
+        // Clean Title
+        const cleanTitle = imgName.split(/[/\\]/).pop().split('.')[0].replace(/[-_]/g, ' ');
+
         btn.innerHTML = `
                 ${previewHtml}
-                <span style="color: white; font-size: 0.8rem; word-break: break-all; padding: 2px;">${imgName}</span>
+                <span style="color: white; font-size: 0.8rem; word-break: break-all; padding: 2px; text-transform: capitalize;">${cleanTitle}</span>
             `;
 
         btn.onclick = () => {
           closeMediaSelection();
-          showMedia({ ...card, media: imgName, title: `${card.title} - ${imgName}` });
+          showMedia({ ...card, media: imgName, title: `${card.title} - ${cleanTitle}` });
         };
 
         container.appendChild(btn);

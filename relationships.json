@@ -2185,6 +2185,204 @@
       "to": "009_stack_real_world",
       "type": "contains",
       "strength": "1"
+    },
+    {
+      "from": "1415_the_soil_heading",
+      "to": "1405_advanced_chemical_discovery",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1415_the_soil_heading",
+      "to": "1411_attack_surface_reduction",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1415_the_soil_heading",
+      "to": "1402_banking_stp_trade_reconciliation",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1453_books_and_articles",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1417_the_taproot_heading",
+      "to": "1424_clean_code",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1417_the_taproot_heading",
+      "to": "1423_gof_design_patterns",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1415_the_soil_heading",
+      "to": "1414_device_and_removable_media_control",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1415_the_soil_heading",
+      "to": "1412_endpoint_detection_response",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1415_the_soil_heading",
+      "to": "1413_endpoint_vulnerability_management",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1415_the_soil_heading",
+      "to": "1401_healthcare_commissioning_finance",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1415_the_soil_heading",
+      "to": "1400_healthcare_systems_multiple",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1457_high_complexity_industrial_domains_heading",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1461_incineration_energy_plants",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1454_monte_carlo_simulations",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1458_offshore_topsides_planning",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1415_the_soil_heading",
+      "to": "1404_online_payment_collection_backend",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1415_the_soil_heading",
+      "to": "1406_real_world_systems",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1459_refinery_infrastructure_planning",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1415_the_soil_heading",
+      "to": "1403_robotics_systems_integration",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1449_the_black_swan",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1417_the_taproot_heading",
+      "to": "1421_the_trunk_heading",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1417_the_taproot_heading",
+      "to": "1425_uml_distilled",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1460_underground_utility_networks",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1417_the_taproot_heading",
+      "to": "1422_unix_reference",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1417_the_taproot_heading",
+      "to": "1426_vb_objects_ntier",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1462_procurement_planning",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1463_cost_control",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1464_project_controls",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1465_engineering_project_support",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1466_planning_and_scheduling",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1465_project_controls_software_architecture",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1466_earned_value_engine_development",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1467_integrated_cost_schedule_systems",
+      "type": "contains",
+      "strength": "1"
     }
   ]
 }

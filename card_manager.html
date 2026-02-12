@@ -426,133 +426,153 @@
                     </div>
                 </div>
 
-                <!-- Scrollable List of Cards -->
-                <div class="space-y-2 mt-4 max-h-[60vh] overflow-y-auto pr-2">
-                    <div class="sticky top-0 bg-slate-900 py-1 flex justify-between items-center z-10">
-                        <h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider">Existing Cards</h3>
-                        <button @click="showStacksOnly = !showStacksOnly"
-                            class="text-[10px] px-2 py-1 rounded border transition-all flex items-center gap-1"
-                            :class="showStacksOnly ? 'bg-amber-900/50 text-amber-300 border-amber-800' : 'bg-slate-800 text-slate-400 border-slate-700 hover:text-slate-200'">
-                            <span x-text="showStacksOnly ? 'Stacks Only' : 'All Cards'"></span>
-                            <span x-show="showStacksOnly" class="text-amber-400">⚡</span>
-                        </button>
-                    </div>
+                <!-- Filter Controls -->
+                <div class="space-y-2 mt-4">
+                    <div class="bg-slate-900 border-b border-slate-700 pb-2">
+                        <select x-model="selectedStackFilter"
+                            class="w-full bg-slate-800 text-xs text-slate-300 border border-slate-700 rounded p-1 mb-2 focus:border-blue-500 outline-none">
+                            <option value="">All Stacks</option>
+                            <template
+                                x-for="stack in data.cards.filter(c => (c.type || '').toLowerCase().trim() === 'stack').sort((a,b) => a.title.localeCompare(b.title))"
+                                :key="stack.id">
+                                <option :value="stack.id" x-text="stack.title"></option>
+                            </template>
+                        </select>
 
-                    <template x-for="card in (showStacksOnly ? data.cards.filter(c => c.type === 'stack') : data.cards)"
-                        :key="card.id">
-                        <div class="bg-slate-800 p-3 rounded border border-slate-700 hover:border-blue-500/50 transition-colors group cursor-pointer relative"
-                            @click="locateNode(card.id); scrollToCard(card.id)">
-                            <div class="flex justify-between items-start">
-                                <div class="pr-8">
-                                    <div class="font-bold text-white text-sm" x-text="card.title"></div>
-                                    <div class="text-xs font-mono text-slate-500" x-text="card.id"></div>
-                                    <div class="text-xs text-blue-4000 bg-blue-900/30 text-blue-300 px-1.5 py-0.5 rounded inline-block mt-1"
-                                        x-text="card.type"></div>
-                                </div>
-                                <div class="flex flex-col gap-1 absolute top-2 right-2">
-                                    <button @click.stop="startEditCard(card)"
-                                        class="p-1.5 text-slate-500 hover:text-blue-400 hover:bg-slate-700 rounded transition-colors"
-                                        title="Edit Card">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z">
-                                            </path>
-                                        </svg>
-                                    </button>
-                                    <button @click.stop="deleteCard(card.id)"
-                                        class="p-1.5 text-slate-500 hover:text-red-400 hover:bg-slate-700 rounded transition-colors"
-                                        title="Delete Card">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
-                                            </path>
-                                        </svg>
-                                    </button>
-                                </div>
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                                Existing Cards (<span x-text="getFilteredCards().length"></span>)
+                            </h3>
+                            <div class="flex gap-1">
+                                <button @click="toggleStacksOnly()"
+                                    class="text-[10px] px-2 py-1 rounded border transition-all flex items-center gap-1"
+                                    :class="filterMode === 'stacks' ? 'bg-amber-900/50 text-amber-300 border-amber-800' : 'bg-slate-800 text-slate-400 border-slate-700 hover:text-slate-200'">
+                                    <span x-text="filterMode === 'stacks' ? 'Stacks Only' : 'Stacks'"></span>
+                                    <span x-show="filterMode === 'stacks'" class="text-amber-400">⚡</span>
+                                </button>
+                                <button @click="toggleLevel2Only()"
+                                    class="text-[10px] px-2 py-1 rounded border transition-all flex items-center gap-1"
+                                    :class="filterMode === 'level2' ? 'bg-blue-900/50 text-blue-300 border-blue-800' : 'bg-slate-800 text-slate-400 border-slate-700 hover:text-slate-200'">
+                                    <span x-text="filterMode === 'level2' ? 'L2 Only' : 'L2'"></span>
+                                    <span x-show="filterMode === 'level2'" class="text-blue-400">🔹</span>
+                                </button>
                             </div>
-                            <div class="text-xs text-slate-400 mt-2 line-clamp-2" x-text="card.description"></div>
                         </div>
-                    </template>
-                </div>
-            </div>
 
-            <!-- Links Panel -->
-            <div x-show="activeTab === 'links'" class="p-4 space-y-4">
-                <div class="bg-slate-800 p-4 rounded-lg border border-slate-700 shadow-sm">
-                    <h3 class="text-sm font-bold text-slate-300 mb-2 uppercase tracking-wide">Add Relationship</h3>
-
-                    <!-- Tips for Linking -->
-                    <div class="bg-blue-900/20 border border-blue-900/50 p-2 rounded mb-3" x-show="linkMode">
-                        <p class="text-[10px] text-blue-300">
-                            <strong>Linking Mode:</strong><br>
-                            1. Click a node to select it as SOURCE (orange).<br>
-                            2. Click another node to select as TARGET and create link.
-                        </p>
-                    </div>
-
-                    <div class="space-y-3">
-                        <div>
-                            <label class="text-xs text-slate-500 block mb-1">From (Source)</label>
-                            <select x-model="newLink.from" class="card-input bg-slate-900 border-slate-600">
-                                <option value="" disabled selected>Select Source</option>
-                                <template x-for="n in sortedCards()" :key="n.id">
-                                    <option :value="n.id" x-text="n.title + ' (' + n.id + ')'"></option>
-                                </template>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="text-xs text-slate-500 block mb-1">To (Target)</label>
-                            <select x-model="newLink.to" class="card-input bg-slate-900 border-slate-600">
-                                <option value="" disabled selected>Select Target</option>
-                                <template x-for="n in sortedCards()" :key="n.id">
-                                    <option :value="n.id" x-text="n.title + ' (' + n.id + ')'"></option>
-                                </template>
-                            </select>
-                        </div>
-                        <input type="text" x-model="newLink.type" placeholder="Type (e.g. contains, leads_to)"
-                            class="card-input bg-slate-900 border-slate-600">
-                        <input type="text" x-model="newLink.label" placeholder="Label (Optional)"
-                            class="card-input bg-slate-900 border-slate-600">
-                        <input type="number" x-model="newLink.strength" placeholder="Strength (Default: 1)"
-                            class="card-input bg-slate-900 border-slate-600 focus:border-blue-500">
-                        <button @click="addLink()" class="btn-primary w-full">Link Cards</button>
-                    </div>
-                </div>
-
-                <div class="space-y-2">
-                    <h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider">Connections</h3>
-                    <template x-for="(link, index) in data.relationships" :key="index">
-                        <div
-                            class="bg-slate-800 p-3 rounded border border-slate-700 flex justify-between items-center group">
-                            <div class="text-sm w-full">
-                                <div class="flex items-center gap-2 mb-1">
-                                    <span
-                                        class="text-blue-400 font-mono text-xs border border-blue-900/50 bg-blue-900/20 px-1 rounded uppercase"
-                                        x-text="link.type"></span>
-                                    <span class="text-slate-500 text-xs" x-show="link.label"
-                                        x-text="'(' + link.label + ')'"></span>
-                                    <span class="text-amber-500 text-[10px] ml-1" x-show="link.strength"
-                                        x-text="'S:' + link.strength"></span>
+                        <template x-for="card in getFilteredCards()" :key="card.id">
+                            <div class="bg-slate-800 p-3 rounded border border-slate-700 hover:border-blue-500/50 transition-colors group cursor-pointer relative"
+                                @click="locateNode(card.id); scrollToCard(card.id)">
+                                <div class="flex justify-between items-start">
+                                    <div class="pr-8">
+                                        <div class="font-bold text-white text-sm" x-text="card.title"></div>
+                                        <div class="text-xs font-mono text-slate-500" x-text="card.id"></div>
+                                        <div class="text-xs text-blue-4000 bg-blue-900/30 text-blue-300 px-1.5 py-0.5 rounded inline-block mt-1"
+                                            x-text="card.type"></div>
+                                    </div>
+                                    <div class="flex flex-col gap-1 absolute top-2 right-2">
+                                        <button @click.stop="startEditCard(card)"
+                                            class="p-1.5 text-slate-500 hover:text-blue-400 hover:bg-slate-700 rounded transition-colors"
+                                            title="Edit Card">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                        <button @click.stop="deleteCard(card.id)"
+                                            class="p-1.5 text-slate-500 hover:text-red-400 hover:bg-slate-700 rounded transition-colors"
+                                            title="Delete Card">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                    </div>
                                 </div>
-                                <div class="flex items-center text-xs text-slate-400 gap-2">
-                                    <span class="truncate max-w-[100px]" title="Source"
-                                        x-text="getCardTitle(link.from)"></span>
-                                    <span>→</span>
-                                    <span class="truncate max-w-[100px]" title="Target"
-                                        x-text="getCardTitle(link.to)"></span>
-                                </div>
+                                <div class="text-xs text-slate-400 mt-2 line-clamp-2" x-text="card.description"></div>
                             </div>
-                            <button @click="deleteLink(index)"
-                                class="text-slate-500 hover:text-red-400 opacity-0 group-hover:opacity-100 transition-opacity ml-2">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M6 18L18 6M6 6l12 12"></path>
-                                </svg>
-                            </button>
-                        </div>
-                    </template>
+                        </template>
+                    </div>
                 </div>
-            </div>
+
+                <!-- Links Panel -->
+                <div x-show="activeTab === 'links'" class="p-4 space-y-4">
+                    <div class="bg-slate-800 p-4 rounded-lg border border-slate-700 shadow-sm">
+                        <h3 class="text-sm font-bold text-slate-300 mb-2 uppercase tracking-wide">Add Relationship</h3>
+
+                        <!-- Tips for Linking -->
+                        <div class="bg-blue-900/20 border border-blue-900/50 p-2 rounded mb-3" x-show="linkMode">
+                            <p class="text-[10px] text-blue-300">
+                                <strong>Linking Mode:</strong><br>
+                                1. Click a node to select it as SOURCE (orange).<br>
+                                2. Click another node to select as TARGET and create link.
+                            </p>
+                        </div>
+
+                        <div class="space-y-3">
+                            <div>
+                                <label class="text-xs text-slate-500 block mb-1">From (Source)</label>
+                                <select x-model="newLink.from" class="card-input bg-slate-900 border-slate-600">
+                                    <option value="" disabled selected>Select Source</option>
+                                    <template x-for="n in sortedCards()" :key="n.id">
+                                        <option :value="n.id" x-text="n.title + ' (' + n.id + ')'"></option>
+                                    </template>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="text-xs text-slate-500 block mb-1">To (Target)</label>
+                                <select x-model="newLink.to" class="card-input bg-slate-900 border-slate-600">
+                                    <option value="" disabled selected>Select Target</option>
+                                    <template x-for="n in sortedCards()" :key="n.id">
+                                        <option :value="n.id" x-text="n.title + ' (' + n.id + ')'"></option>
+                                    </template>
+                                </select>
+                            </div>
+                            <input type="text" x-model="newLink.type" placeholder="Type (e.g. contains, leads_to)"
+                                class="card-input bg-slate-900 border-slate-600">
+                            <input type="text" x-model="newLink.label" placeholder="Label (Optional)"
+                                class="card-input bg-slate-900 border-slate-600">
+                            <input type="number" x-model="newLink.strength" placeholder="Strength (Default: 1)"
+                                class="card-input bg-slate-900 border-slate-600 focus:border-blue-500">
+                            <button @click="addLink()" class="btn-primary w-full">Link Cards</button>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider">Connections</h3>
+                        <template x-for="(link, index) in data.relationships" :key="index">
+                            <div
+                                class="bg-slate-800 p-3 rounded border border-slate-700 flex justify-between items-center group">
+                                <div class="text-sm w-full">
+                                    <div class="flex items-center gap-2 mb-1">
+                                        <span
+                                            class="text-blue-400 font-mono text-xs border border-blue-900/50 bg-blue-900/20 px-1 rounded uppercase"
+                                            x-text="link.type"></span>
+                                        <span class="text-slate-500 text-xs" x-show="link.label"
+                                            x-text="'(' + link.label + ')'"></span>
+                                        <span class="text-amber-500 text-[10px] ml-1" x-show="link.strength"
+                                            x-text="'S:' + link.strength"></span>
+                                    </div>
+                                    <div class="flex items-center text-xs text-slate-400 gap-2">
+                                        <span class="truncate max-w-[100px]" title="Source"
+                                            x-text="getCardTitle(link.from)"></span>
+                                        <span>→</span>
+                                        <span class="truncate max-w-[100px]" title="Target"
+                                            x-text="getCardTitle(link.to)"></span>
+                                    </div>
+                                </div>
+                                <button @click="deleteLink(index)"
+                                    class="text-slate-500 hover:text-red-400 opacity-0 group-hover:opacity-100 transition-opacity ml-2">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M6 18L18 6M6 6l12 12"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </template>
+                    </div>
+                </div>
         </aside>
 
         <!-- Main Content: Graph Visualization -->
@@ -576,7 +596,8 @@
                 linkMode: false,
                 zoomEnabled: true,
                 started: false,
-                showStacksOnly: false,
+                filterMode: 'all', // 'all', 'stacks', 'level2'
+                selectedStackFilter: '',
                 data: { cards: [], relationships: [] },
 
                 newCard: { id: '', title: '', type: '', description: '', mediaInput: '' },
@@ -744,6 +765,42 @@
                         console.error('Failed to copy: ', err);
                         alert("Failed to copy to clipboard.");
                     });
+                },
+
+                toggleStacksOnly() {
+                    this.filterMode = this.filterMode === 'stacks' ? 'all' : 'stacks';
+                },
+
+                toggleLevel2Only() {
+                    this.filterMode = this.filterMode === 'level2' ? 'all' : 'level2';
+                },
+
+                selectedStackFilter: '',
+
+                getFilteredCards() {
+                    let cards = this.data.cards;
+                    const mode = this.filterMode;
+
+                    // 1. Filter by Mode (Stacks vs L2)
+                    if (mode === 'stacks') {
+                        cards = cards.filter(c => (c.type || '').toLowerCase().trim() === 'stack');
+                    } else if (mode === 'level2') {
+                        cards = cards.filter(c => (c.type || '').toLowerCase().trim() !== 'stack');
+                    }
+
+                    // 2. Filter by Selected Stack (Parent)
+                    if (this.selectedStackFilter) {
+                        const childIds = new Set(
+                            this.data.relationships
+                                .filter(r => r.from === this.selectedStackFilter && r.type === 'contains')
+                                .map(r => r.to)
+                        );
+                        // Also include the stack itself if mode allows, or just children? 
+                        // User likely wants to see content of the stack.
+                        cards = cards.filter(c => childIds.has(c.id));
+                    }
+
+                    return cards;
                 },
 
                 locateNode(id) {
