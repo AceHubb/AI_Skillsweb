@@ -157,11 +157,12 @@
             <h1 class="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
                 Card Nexus
             </h1>
-            <div class="text-[10px] text-slate-500 font-mono flex gap-3" x-show="started">
-                <span x-text="cardsFilename ? '📄 ' + cardsFilename : ''" class="flex items-center gap-1"></span>
-                <span x-text="relationshipsFilename ? '🔗 ' + relationshipsFilename : ''"
-                    class="flex items-center gap-1"></span>
-            </div>
+            <span x-text="cardsFilename ? '📄 ' + cardsFilename : ''" class="flex items-center gap-1"></span>
+            <span x-text="relationshipsFilename ? '🔗 ' + relationshipsFilename : ''"
+                class="flex items-center gap-1"></span>
+            <span class="text-amber-500 font-bold ml-2 bg-amber-900/20 px-2 rounded border border-amber-900/50"
+                x-text="'Next ID: ' + nextSequence" title="Next Available Sequence Number"></span>
+        </div>
         </div>
 
         <!-- Linking Mode Toggle -->
@@ -189,12 +190,26 @@
                 <button @click="viewJson('cards')"
                     class="text-xs bg-slate-800 text-slate-400 hover:text-white px-2 py-1 rounded"
                     title="View JSON">View</button>
-                <button @click="downloadCards()" class="btn-secondary px-3 py-1 text-xs" title="Download cards.json">
+                <button @click="downloadCards()" class="px-3 py-1 text-xs transition-colors duration-300 rounded"
+                    :class="cardsDirty ? 'bg-red-600 text-white animate-pulse font-bold' : 'btn-secondary'"
+                    title="Download cards.json">
                     Save
                 </button>
                 <label class="btn-primary px-3 py-1 text-xs cursor-pointer" title="Load cards.json">
                     Load
                     <input type="file" class="hidden" @change="uploadCards">
+                </label>
+                <div class="flex items-center bg-indigo-900/50 rounded-lg p-0.5 border border-indigo-700/50 mr-1"
+                    title="CSV Delimiter (Type \t for Tab)">
+                    <span class="text-xs text-indigo-300 pl-2 pr-1">Sep:</span>
+                    <input type="text" x-model="csvDelimiter" placeholder=","
+                        class="bg-indigo-900 text-indigo-200 text-xs border-none rounded focus:ring-0 py-1 w-12 text-center outline-none">
+                </div>
+                <label
+                    class="bg-indigo-700 hover:bg-indigo-800 text-white focus:ring-4 focus:ring-indigo-300 font-medium rounded-lg text-xs px-3 py-1 cursor-pointer focus:outline-none"
+                    title="Import CSV">
+                    Import CSV
+                    <input type="file" class="hidden" accept=".csv,.txt" @change="importCsv">
                 </label>
             </div>
 
@@ -204,7 +219,9 @@
                 <button @click="viewJson('relationships')"
                     class="text-xs bg-slate-800 text-slate-400 hover:text-white px-2 py-1 rounded"
                     title="View JSON">View</button>
-                <button @click="downloadRelationships()" class="btn-secondary px-3 py-1 text-xs"
+                <button @click="downloadRelationships()"
+                    class="px-3 py-1 text-xs transition-colors duration-300 rounded"
+                    :class="relationshipsDirty ? 'bg-red-600 text-white animate-pulse font-bold' : 'btn-secondary'"
                     title="Download relationships.json">
                     Save
                 </button>
@@ -212,6 +229,10 @@
                     Load
                     <input type="file" class="hidden" @change="uploadRelationships">
                 </label>
+                <button @click="showHelpModal = true" class="text-slate-400 hover:text-white ml-1"
+                    title="Help: What do these properties mean?">
+                    ❓
+                </button>
             </div>
         </div>
     </header>
@@ -306,6 +327,68 @@
         </div>
     </div>
 
+    </div>
+
+    <!-- Help Modal -->
+    <div x-show="showHelpModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
+        style="display: none;">
+        <div class="bg-slate-900 border border-slate-700 rounded-lg shadow-xl w-full max-w-lg p-6 space-y-4"
+            @click.away="showHelpModal = false">
+            <div class="flex justify-between items-center border-b border-slate-700 pb-4">
+                <h3 class="text-lg font-bold text-white">Relationship Properties Guide</h3>
+                <button @click="showHelpModal = false" class="text-slate-400 hover:text-white">✕</button>
+            </div>
+
+            <div class="space-y-4 text-sm text-slate-300">
+                <div>
+                    <h4 class="font-bold text-blue-400 mb-1">Relationship Type</h4>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li><strong class="text-white">contains</strong>: Hierarchical link. Parent card "contains" the
+                            child. (Standard structure).</li>
+                        <li><strong class="text-white">relates_to</strong>: Lateral link. Related concepts without
+                            hierarchy.</li>
+                        <li><strong class="text-white">choice</strong>: Decision based link. Indicates an alternative or
+                            branch.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-amber-400 mb-1">Connection Strength</h4>
+                    <p class="mb-2">A numeric value influencing the graph layout physics.</p>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li><strong class="text-white">1 (Weak)</strong>: Nodes can drift further apart.</li>
+                        <li><strong class="text-white">3 (Normal)</strong>: Standard attraction.</li>
+                        <li><strong class="text-white">5 (Strong)</strong>: Nodes are pulled tightly together.</li>
+                    </ul>
+                </div>
+
+                <!-- Data Health Section -->
+                <div x-show="getBrokenLinks().length > 0" class="pt-4 border-t border-slate-700">
+                    <h4 class="font-bold text-red-500 mb-2">⚠️ Data Health: Broken Links Detected</h4>
+                    <p class="mb-2 text-xs">The following links point to missing cards:</p>
+                    <div class="bg-slate-950 p-2 rounded max-h-32 overflow-y-auto space-y-1">
+                        <template x-for="(link, index) in getBrokenLinks()" :key="index">
+                            <div class="flex justify-between items-center text-xs bg-slate-800 p-1 rounded">
+                                <span class="font-mono text-slate-400">
+                                    <span x-text="link.from"></span> ➔ <span x-text="link.to"></span>
+                                </span>
+                                <button @click="deleteBrokenLink(link)"
+                                    class="text-red-400 hover:text-red-300 hover:bg-slate-700 px-2 py-0.5 rounded transition-colors">
+                                    Delete
+                                </button>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-700 text-right">
+                <button @click="showHelpModal = false"
+                    class="px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded transition-colors">Close</button>
+            </div>
+        </div>
+    </div>
+
     <!-- JSON Viewer Modal -->
     <div x-show="showJsonModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
         style="display: none;">
@@ -382,11 +465,19 @@
                                     <div class="font-bold text-white text-sm" x-text="card.title"></div>
                                     <div class="text-xs font-mono text-slate-500" x-text="card.id"></div>
                                 </div>
-                                <button
-                                    class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded border border-amber-800 hover:bg-amber-800"
-                                    @click.stop="startLinkFromTodo(card.id)">
-                                    Link
-                                </button>
+                                <div class="flex gap-2">
+                                    <button
+                                        class="text-xs bg-red-900/40 text-red-300 px-2 py-1 rounded border border-red-800 hover:bg-red-800 transition-colors"
+                                        @click.stop="deleteCard(card.id); cardsDirty = true;"
+                                        title="Delete Orphan Card">
+                                        🗑️
+                                    </button>
+                                    <button
+                                        class="text-xs bg-amber-900/40 text-amber-300 px-2 py-1 rounded border border-amber-800 hover:bg-amber-800"
+                                        @click.stop="startLinkFromTodo(card.id)">
+                                        Link
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </template>
@@ -479,7 +570,7 @@
                                                 </path>
                                             </svg>
                                         </button>
-                                        <button @click.stop="deleteCard(card.id)"
+                                        <button @click.stop="deleteCard(card.id); cardsDirty = true;"
                                             class="p-1.5 text-slate-500 hover:text-red-400 hover:bg-slate-700 rounded transition-colors"
                                             title="Delete Card">
                                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -496,83 +587,85 @@
                     </div>
                 </div>
 
-                <!-- Links Panel -->
-                <div x-show="activeTab === 'links'" class="p-4 space-y-4">
-                    <div class="bg-slate-800 p-4 rounded-lg border border-slate-700 shadow-sm">
-                        <h3 class="text-sm font-bold text-slate-300 mb-2 uppercase tracking-wide">Add Relationship</h3>
+            </div>
 
-                        <!-- Tips for Linking -->
-                        <div class="bg-blue-900/20 border border-blue-900/50 p-2 rounded mb-3" x-show="linkMode">
-                            <p class="text-[10px] text-blue-300">
-                                <strong>Linking Mode:</strong><br>
-                                1. Click a node to select it as SOURCE (orange).<br>
-                                2. Click another node to select as TARGET and create link.
-                            </p>
-                        </div>
+            <!-- Links Panel -->
+            <div x-show="activeTab === 'links'" class="p-4 space-y-4">
+                <div class="bg-slate-800 p-4 rounded-lg border border-slate-700 shadow-sm">
+                    <h3 class="text-sm font-bold text-slate-300 mb-2 uppercase tracking-wide">Add Relationship</h3>
 
-                        <div class="space-y-3">
-                            <div>
-                                <label class="text-xs text-slate-500 block mb-1">From (Source)</label>
-                                <select x-model="newLink.from" class="card-input bg-slate-900 border-slate-600">
-                                    <option value="" disabled selected>Select Source</option>
-                                    <template x-for="n in sortedCards()" :key="n.id">
-                                        <option :value="n.id" x-text="n.title + ' (' + n.id + ')'"></option>
-                                    </template>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="text-xs text-slate-500 block mb-1">To (Target)</label>
-                                <select x-model="newLink.to" class="card-input bg-slate-900 border-slate-600">
-                                    <option value="" disabled selected>Select Target</option>
-                                    <template x-for="n in sortedCards()" :key="n.id">
-                                        <option :value="n.id" x-text="n.title + ' (' + n.id + ')'"></option>
-                                    </template>
-                                </select>
-                            </div>
-                            <input type="text" x-model="newLink.type" placeholder="Type (e.g. contains, leads_to)"
-                                class="card-input bg-slate-900 border-slate-600">
-                            <input type="text" x-model="newLink.label" placeholder="Label (Optional)"
-                                class="card-input bg-slate-900 border-slate-600">
-                            <input type="number" x-model="newLink.strength" placeholder="Strength (Default: 1)"
-                                class="card-input bg-slate-900 border-slate-600 focus:border-blue-500">
-                            <button @click="addLink()" class="btn-primary w-full">Link Cards</button>
-                        </div>
+                    <!-- Tips for Linking -->
+                    <div class="bg-blue-900/20 border border-blue-900/50 p-2 rounded mb-3" x-show="linkMode">
+                        <p class="text-[10px] text-blue-300">
+                            <strong>Linking Mode:</strong><br>
+                            1. Click a node to select it as SOURCE (orange).<br>
+                            2. Click another node to select as TARGET and create link.
+                        </p>
                     </div>
 
-                    <div class="space-y-2">
-                        <h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider">Connections</h3>
-                        <template x-for="(link, index) in data.relationships" :key="index">
-                            <div
-                                class="bg-slate-800 p-3 rounded border border-slate-700 flex justify-between items-center group">
-                                <div class="text-sm w-full">
-                                    <div class="flex items-center gap-2 mb-1">
-                                        <span
-                                            class="text-blue-400 font-mono text-xs border border-blue-900/50 bg-blue-900/20 px-1 rounded uppercase"
-                                            x-text="link.type"></span>
-                                        <span class="text-slate-500 text-xs" x-show="link.label"
-                                            x-text="'(' + link.label + ')'"></span>
-                                        <span class="text-amber-500 text-[10px] ml-1" x-show="link.strength"
-                                            x-text="'S:' + link.strength"></span>
-                                    </div>
-                                    <div class="flex items-center text-xs text-slate-400 gap-2">
-                                        <span class="truncate max-w-[100px]" title="Source"
-                                            x-text="getCardTitle(link.from)"></span>
-                                        <span>→</span>
-                                        <span class="truncate max-w-[100px]" title="Target"
-                                            x-text="getCardTitle(link.to)"></span>
-                                    </div>
-                                </div>
-                                <button @click="deleteLink(index)"
-                                    class="text-slate-500 hover:text-red-400 opacity-0 group-hover:opacity-100 transition-opacity ml-2">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M6 18L18 6M6 6l12 12"></path>
-                                    </svg>
-                                </button>
-                            </div>
-                        </template>
+                    <div class="space-y-3">
+                        <div>
+                            <label class="text-xs text-slate-500 block mb-1">From (Source)</label>
+                            <select x-model="newLink.from" class="card-input bg-slate-900 border-slate-600">
+                                <option value="" disabled selected>Select Source</option>
+                                <template x-for="n in sortedCards()" :key="n.id">
+                                    <option :value="n.id" x-text="n.title + ' (' + n.id + ')'"></option>
+                                </template>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-xs text-slate-500 block mb-1">To (Target)</label>
+                            <select x-model="newLink.to" class="card-input bg-slate-900 border-slate-600">
+                                <option value="" disabled selected>Select Target</option>
+                                <template x-for="n in sortedCards()" :key="n.id">
+                                    <option :value="n.id" x-text="n.title + ' (' + n.id + ')'"></option>
+                                </template>
+                            </select>
+                        </div>
+                        <input type="text" x-model="newLink.type" placeholder="Type (e.g. contains, leads_to)"
+                            class="card-input bg-slate-900 border-slate-600">
+                        <input type="text" x-model="newLink.label" placeholder="Label (Optional)"
+                            class="card-input bg-slate-900 border-slate-600">
+                        <input type="number" x-model="newLink.strength" placeholder="Strength (Default: 1)"
+                            class="card-input bg-slate-900 border-slate-600 focus:border-blue-500">
+                        <button @click="addLink()" class="btn-primary w-full">Link Cards</button>
                     </div>
                 </div>
+
+                <div class="space-y-2">
+                    <h3 class="text-xs font-bold text-slate-500 uppercase tracking-wider">Connections</h3>
+                    <template x-for="(link, index) in data.relationships" :key="index">
+                        <div
+                            class="bg-slate-800 p-3 rounded border border-slate-700 flex justify-between items-center group">
+                            <div class="text-sm w-full">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span
+                                        class="text-blue-400 font-mono text-xs border border-blue-900/50 bg-blue-900/20 px-1 rounded uppercase"
+                                        x-text="link.type"></span>
+                                    <span class="text-slate-500 text-xs" x-show="link.label"
+                                        x-text="'(' + link.label + ')'"></span>
+                                    <span class="text-amber-500 text-[10px] ml-1" x-show="link.strength"
+                                        x-text="'S:' + link.strength"></span>
+                                </div>
+                                <div class="flex items-center text-xs text-slate-400 gap-2">
+                                    <span class="truncate max-w-[100px]" title="Source"
+                                        x-text="getCardTitle(link.from)"></span>
+                                    <span>→</span>
+                                    <span class="truncate max-w-[100px]" title="Target"
+                                        x-text="getCardTitle(link.to)"></span>
+                                </div>
+                            </div>
+                            <button @click="deleteLink(index); relationshipsDirty = true;"
+                                class="text-slate-500 hover:text-red-400 opacity-0 group-hover:opacity-100 transition-opacity ml-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </template>
+                </div>
+            </div>
         </aside>
 
         <!-- Main Content: Graph Visualization -->
@@ -599,6 +692,14 @@
                 filterMode: 'all', // 'all', 'stacks', 'level2'
                 selectedStackFilter: '',
                 data: { cards: [], relationships: [] },
+                nextSequence: 0,
+
+                // Dirty Checks for Save Status
+                cardsDirty: false,
+                relationshipsDirty: false,
+
+                // CSV Import Options
+                csvDelimiter: ',',
 
                 newCard: { id: '', title: '', type: '', description: '', mediaInput: '' },
                 idModified: false,
@@ -619,6 +720,7 @@
 
                 // JSON Viewer
                 showJsonModal: false,
+                showHelpModal: false, // New Help Modal state
                 jsonModalTitle: '',
                 viewingJson: '',
                 jsonLines: [],
@@ -684,9 +786,9 @@
                                 this.started = true;
                                 this.initGraph();
                             } else {
-                                this.data.cards = [];
                                 this.data.relationships = [];
                             }
+                            this.updateNextSequence(); // Initial calculation
                         });
                     }
 
@@ -701,6 +803,10 @@
                         if (!this.idModified) {
                             this.newCard.id = this.generateNextId(value);
                         }
+                    });
+
+                    this.$watch('data.cards', () => {
+                        this.updateNextSequence();
                     });
                 },
 
@@ -800,7 +906,24 @@
                         cards = cards.filter(c => childIds.has(c.id));
                     }
 
-                    return cards;
+                    // Ensure the result is sorted alphabetically
+                    return this.sortCardsArray(cards);
+                },
+
+                getBrokenLinks() {
+                    const cardIds = new Set(this.data.cards.map(c => c.id));
+                    return this.data.relationships.filter(r => {
+                        const fromId = (typeof r.from === 'object') ? r.from.id : r.from;
+                        const toId = (typeof r.to === 'object') ? r.to.id : r.to;
+                        return !cardIds.has(fromId) || !cardIds.has(toId);
+                    });
+                },
+
+                deleteBrokenLink(link) {
+                    if (!confirm("Delete this broken link?")) return;
+                    this.data.relationships = this.data.relationships.filter(r => r !== link);
+                    this.relationshipsDirty = true;
+                    this.updateGraph();
                 },
 
                 locateNode(id) {
@@ -841,10 +964,19 @@
 
                 startLinkFromTodo(id) {
                     this.activeTab = 'links';
-                    this.toggleLinkMode(); // Ensure mode is active
-                    // Select as source
-                    this.linkSourceId = id;
+
+                    // 1. Pan to node
+                    this.locateNode(id);
+
+                    // 2. Set form state
                     this.newLink.from = id;
+                    this.newLink.to = id;
+                    this.linkSourceId = id;
+
+                    // 3. Ensure we are NOT in link mode (so form is usable)
+                    this.linkMode = false;
+                    this.zoomEnabled = true;
+
                     this.updateGraph();
                 },
 
@@ -852,17 +984,10 @@
                     if (!title) return '';
                     const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
 
-                    const numbers = this.data.cards.map(c => {
-                        const m = c.id.toString().match(/^(\d+)_/);
-                        return m ? parseInt(m[1]) : null;
-                    }).filter(n => n !== null && n < 9000); // Filter out media IDs
+                    // Use cached sequence if available, otherwise fallback (safeguard)
+                    if (!this.nextSequence) this.updateNextSequence();
 
-                    let nextNum = 1;
-                    if (numbers.length > 0) {
-                        nextNum = Math.max(...numbers) + 1;
-                    }
-
-                    const prefix = String(nextNum).padStart(3, '0');
+                    const prefix = String(this.nextSequence).padStart(4, '0');
                     return `${prefix}_${slug}`;
                 },
 
@@ -897,6 +1022,10 @@
                     }
 
                     this.data.cards.push(card);
+                    // Auto-sort alphabetically
+                    this.data.cards = this.sortCardsArray(this.data.cards);
+
+                    this.cardsDirty = true; // Mark as dirty
 
                     this.newCard = { id: '', title: '', type: '', description: '', mediaInput: '' };
                     this.idModified = false;
@@ -943,6 +1072,7 @@
 
                     this.data.relationships.push(link);
                     this.newLink.label = '';
+                    this.relationshipsDirty = true;
                     this.updateGraph();
                 },
 
@@ -1000,6 +1130,7 @@
                         this.data.cards[index] = updatedCard;
 
                         this.showEditModal = false;
+                        this.cardsDirty = true;
                         this.updateGraph();
                     }
                 },
@@ -1092,6 +1223,7 @@
                     } else {
                         this.downloadFile(output, "cards.json");
                     }
+                    this.cardsDirty = false;
                 },
 
                 // Debugging: Log calls to save
@@ -1111,6 +1243,7 @@
                     } else {
                         this.downloadFile(output, "relationships.json");
                     }
+                    this.relationshipsDirty = false;
                 },
 
                 downloadFile(obj, filename) {
@@ -1129,11 +1262,116 @@
                         if (json.cards && Array.isArray(json.cards)) {
                             this.data.cards = this.sortCardsArray(json.cards);
                             this.cardsFilename = '(Upload) ' + file.name;
+                            this.updateNextSequence();
                             this.updateGraph();
                         } else {
                             alert("Invalid cards.json format. Expected { cards: [...] }");
                         }
                     });
+                },
+
+                importCsv(event) {
+                    const file = event.target.files[0];
+                    if (!file) return;
+
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        const text = e.target.result;
+                        const lines = text.split(/\r?\n/);
+                        let addedCount = 0;
+                        const newCards = [];
+
+                        // Ensure we rely on the latest sequence
+                        this.updateNextSequence();
+                        let currentSeq = parseInt(this.nextSequence) || 1;
+
+                        lines.forEach(line => {
+                            line = line.trim();
+                            if (!line) return;
+
+                            // Simple CSV parse: Title, Description
+                            // Handle potential commas in fields if quoted? 
+                            // For now, assuming simple split by first comma for speed/robustness against simple files
+                            // If strictly comma delimited, use split(',')
+
+                            // Handle literal "\t" input for Tab
+                            let delimiter = this.csvDelimiter;
+                            if (delimiter === '\\t') delimiter = '\t';
+                            if (!delimiter) delimiter = ','; // Fallback
+
+                            // Strategy: Split by selected delimiter. First part = Title, Rest = Description
+                            const parts = line.split(delimiter);
+                            if (parts.length < 1) return;
+
+                            let title = parts[0].trim();
+                            // Optional: Remove quotes if strictly CSV
+                            title = title.replace(/^"|"$/g, '');
+
+                            if (!title) return;
+
+                            let description = parts.slice(1).join(delimiter).trim();
+                            description = description.replace(/^"|"$/g, '');
+
+                            // Generate ID based on currentSeq
+                            const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
+                            const idPrefix = String(currentSeq).padStart(4, '0');
+                            const id = `${idPrefix}_${slug}`;
+
+                            newCards.push({
+                                id: id,
+                                title: title,
+                                type: 'capability', // Default type
+                                description: description,
+                                media: [],
+                                assets: [],
+                                displayImages: { front: { url: 'images/WaalBridgeIcon.png', alt: 'Icon' } },
+                                frontBackgroundColor: 'lightblue'
+                            });
+
+                            currentSeq++;
+                            addedCount++;
+                        });
+
+                        if (addedCount > 0) {
+                            // Alpine Reactivity Fix: Reassign array or push effectively
+                            // pushing one by one inside a callback might lose reactivity context
+                            // Best practice: Spread into new array to force update
+                            // Best practice: Spread into new array to force update
+                            let updatedCards = [...this.data.cards, ...newCards];
+                            // Auto-sort alphabetically
+                            this.data.cards = this.sortCardsArray(updatedCards);
+
+                            this.updateNextSequence();
+                            this.cardsDirty = true;
+
+                            // Ensure graph updates after DOM cycle
+                            setTimeout(() => {
+                                this.updateGraph();
+                                alert(`Successfully imported ${addedCount} cards from CSV.`);
+                            }, 50);
+                        } else {
+                            alert("No valid cards found in CSV.");
+                        }
+                    };
+                    reader.readAsText(file);
+                    // Reset input
+                    event.target.value = '';
+                },
+
+                updateNextSequence() {
+                    const numbers = this.data.cards.map(c => {
+                        const m = c.id.toString().match(/^(\d+)_/);
+                        return m ? parseInt(m[1]) : null;
+                    }).filter(n => n !== null); // Remove limit for now or keep < 9000 if media items misuse IDs
+
+                    // Filter out likely non-sequence IDs if necessary, but "9999" suggests high numbers are valid.
+                    // Assuming media IDs are distinct or we just take the max regardless.
+
+                    let nextNum = 1;
+                    if (numbers.length > 0) {
+                        nextNum = Math.max(...numbers) + 1;
+                    }
+                    this.nextSequence = nextNum; // Store as number
                 },
 
                 uploadRelationships(event) {
@@ -1299,9 +1537,33 @@
                             const sId = (d.source && d.source.id) ? d.source.id : d.source;
                             const tId = (d.target && d.target.id) ? d.target.id : d.target;
 
-                            const index = this.data.relationships.findIndex(r =>
-                                r.from === sId && r.to === tId
-                            );
+                            const index = this.data.relationships.findIndex(r => {
+                                const rFrom = (r.from && typeof r.from === 'object') ? r.from.id : r.from;
+                                const rTo = (r.to && typeof r.to === 'object') ? r.to.id : r.to;
+                                // Loose equality to handle string vs number IDs
+                                return rFrom == sId && rTo == tId;
+                            });
+
+                            if (index !== -1) {
+                                this.deleteLink(index);
+                            } else {
+                                console.warn("Could not find relationship to delete:", sId, "->", tId);
+                            }
+                        })
+                        .on("contextmenu", (event, d) => {
+                            event.preventDefault(); // Prevent browser menu
+                            // Allow deletion even in link mode (it's a distinct right-click action)
+
+                            // Reuse deletion logic
+                            const sId = (d.source && d.source.id) ? d.source.id : d.source;
+                            const tId = (d.target && d.target.id) ? d.target.id : d.target;
+
+                            const index = this.data.relationships.findIndex(r => {
+                                const rFrom = (r.from && typeof r.from === 'object') ? r.from.id : r.from;
+                                const rTo = (r.to && typeof r.to === 'object') ? r.to.id : r.to;
+                                return rFrom == sId && rTo == tId;
+                            });
+
                             if (index !== -1) {
                                 this.deleteLink(index);
                             }
@@ -1318,7 +1580,7 @@
                             const sTitle = sNode ? sNode.title : s;
                             const tTitle = tNode ? tNode.title : t;
 
-                            return `Click to delete connection: ${sTitle} -> ${tTitle}`;
+                            return `Right-click to delete connection: ${sTitle} -> ${tTitle}`;
                         });
 
                     const link = linkEnter.merge(linkSelection);

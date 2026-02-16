@@ -78,14 +78,14 @@
     {
       "from": "200_decision_database_platform",
       "to": "201_oracle",
-      "type": "choice",
+      "type": "contains",
       "label": "Oracle",
       "strength": "1"
     },
     {
       "from": "200_decision_database_platform",
       "to": "202_sql_server",
-      "type": "choice",
+      "type": "contains",
       "label": "SQL Server",
       "strength": "1"
     },
@@ -352,12 +352,6 @@
     },
     {
       "from": "010_stack_cloud_hosting",
-      "to": "1001_azure",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "010_stack_cloud_hosting",
       "to": "1002_monitoring_scaling",
       "type": "contains",
       "strength": "1"
@@ -367,24 +361,6 @@
       "to": "10019_media_cloud_architecture",
       "type": "show_media",
       "label": "Show Cloud Architecture Diagram",
-      "strength": "1"
-    },
-    {
-      "from": "011_stack_governance_compliance",
-      "to": "1100_gdpr",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "011_stack_governance_compliance",
-      "to": "1101_access_control",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "011_stack_governance_compliance",
-      "to": "1102_policy_compliance",
-      "type": "contains",
       "strength": "1"
     },
     {
@@ -1070,20 +1046,8 @@
     },
     {
       "from": "1310_cyber_security",
-      "to": "1311_computing_basics_linux",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1310_cyber_security",
       "to": "1312_sql_databases",
       "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1310_cyber_security",
-      "to": "1335_platform_security_models",
-      "type": "includes",
       "strength": "1"
     },
     {
@@ -1096,102 +1060,6 @@
       "from": "1310_cyber_security",
       "to": "1342_google_cloud_security",
       "type": "includes",
-      "strength": "1"
-    },
-    {
-      "from": "1311_computing_basics_linux",
-      "to": "1313_os_fundamentals_boot",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1311_computing_basics_linux",
-      "to": "1314_gui_cli_interfaces",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1311_computing_basics_linux",
-      "to": "1315_linux_history_open_source",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1311_computing_basics_linux",
-      "to": "1316_linux_architecture",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1311_computing_basics_linux",
-      "to": "1317_linux_distributions",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1311_computing_basics_linux",
-      "to": "1318_kali_linux_security_tools",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1311_computing_basics_linux",
-      "to": "1319_bash_shell",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1311_computing_basics_linux",
-      "to": "1320_file_system_navigation",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1311_computing_basics_linux",
-      "to": "1321_file_content_reading",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1311_computing_basics_linux",
-      "to": "1322_file_directory_management",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1311_computing_basics_linux",
-      "to": "1323_cli_text_editing",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1311_computing_basics_linux",
-      "to": "1324_linux_permissions_model",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1311_computing_basics_linux",
-      "to": "1325_modify_permissions_chmod",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1311_computing_basics_linux",
-      "to": "1326_user_auth_management",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1311_computing_basics_linux",
-      "to": "1327_filtering_and_piping",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1311_computing_basics_linux",
-      "to": "1328_linux_help_resources",
-      "type": "contains",
       "strength": "1"
     },
     {
@@ -1297,36 +1165,6 @@
       "strength": "1"
     },
     {
-      "from": "1348_azure_security",
-      "to": "1349_azure_identity_access",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1348_azure_security",
-      "to": "1350_azure_infrastructure_security",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1348_azure_security",
-      "to": "1351_azure_data_protection",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1348_azure_security",
-      "to": "1352_azure_threat_detection",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1348_azure_security",
-      "to": "1353_azure_workload_security",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
       "parent_id": "1338_windows_fundamentals",
       "child_id": "1339_windows_os_architecture",
       "strength": "1"
@@ -1369,16 +1207,6 @@
     {
       "parent_id": "1345_data_quality_validation",
       "child_id": "1348_etl_data_pipelines",
-      "strength": "1"
-    },
-    {
-      "parent_id": "1345_data_quality_validation",
-      "child_id": "1349_data_governance_compliance",
-      "strength": "1"
-    },
-    {
-      "parent_id": "1351_bi_dashboard_development",
-      "child_id": "1346_kpi_performance_reporting",
       "strength": "1"
     },
     {
@@ -1582,84 +1410,6 @@
     },
     {
       "from": "1406_real_world_systems",
-      "to": "1371_tender_management",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1406_real_world_systems",
-      "to": "1372_healthcare_systems_multiple",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1406_real_world_systems",
-      "to": "1373_healthcare_commissioning_finance",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1406_real_world_systems",
-      "to": "1374_banking_stp_trade_reconciliation",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1406_real_world_systems",
-      "to": "1375_project_workstream_management",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1406_real_world_systems",
-      "to": "1376_stakeholder_vendor_management",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1406_real_world_systems",
-      "to": "1377_process_management",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1406_real_world_systems",
-      "to": "1378_analytics_reporting",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1406_real_world_systems",
-      "to": "1379_ai_based_workflows_applications",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1406_real_world_systems",
-      "to": "1380_project_management_systems_oil_gas",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1406_real_world_systems",
-      "to": "1381_robotics_systems_integration",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1406_real_world_systems",
-      "to": "1382_online_payment_collection_backend",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1406_real_world_systems",
-      "to": "1383_advanced_chemical_discovery",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1406_real_world_systems",
       "to": "1405_advanced_chemical_discovery",
       "type": "contains",
       "strength": "1"
@@ -1816,12 +1566,6 @@
     },
     {
       "from": "1338_ms_endpoint_security",
-      "to": "1410_ms_defender_for_endpoint",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1338_ms_endpoint_security",
       "to": "1411_attack_surface_reduction",
       "type": "contains",
       "strength": "1"
@@ -1883,12 +1627,6 @@
     {
       "from": "1437_the_atmosphere_heading",
       "to": "1441_antifragile",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1437_the_atmosphere_heading",
-      "to": "1449_the_black_swan",
       "type": "contains",
       "strength": "1"
     },
@@ -1991,18 +1729,6 @@
     {
       "from": "1415_the_soil_heading",
       "to": "1416_art_of_electronics",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1417_the_taproot_heading",
-      "to": "1418_masm_assembly",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1417_the_taproot_heading",
-      "to": "1419_kr_c_programming",
       "type": "contains",
       "strength": "1"
     },
@@ -2187,24 +1913,6 @@
       "strength": "1"
     },
     {
-      "from": "1415_the_soil_heading",
-      "to": "1405_advanced_chemical_discovery",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1415_the_soil_heading",
-      "to": "1411_attack_surface_reduction",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1415_the_soil_heading",
-      "to": "1402_banking_stp_trade_reconciliation",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
       "from": "1442_the_fruit_heading",
       "to": "1453_books_and_articles",
       "type": "contains",
@@ -2223,84 +1931,6 @@
       "strength": "1"
     },
     {
-      "from": "1415_the_soil_heading",
-      "to": "1414_device_and_removable_media_control",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1415_the_soil_heading",
-      "to": "1412_endpoint_detection_response",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1415_the_soil_heading",
-      "to": "1413_endpoint_vulnerability_management",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1415_the_soil_heading",
-      "to": "1401_healthcare_commissioning_finance",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1415_the_soil_heading",
-      "to": "1400_healthcare_systems_multiple",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1442_the_fruit_heading",
-      "to": "1457_high_complexity_industrial_domains_heading",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1442_the_fruit_heading",
-      "to": "1461_incineration_energy_plants",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1442_the_fruit_heading",
-      "to": "1454_monte_carlo_simulations",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1442_the_fruit_heading",
-      "to": "1458_offshore_topsides_planning",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1415_the_soil_heading",
-      "to": "1404_online_payment_collection_backend",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1415_the_soil_heading",
-      "to": "1406_real_world_systems",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1442_the_fruit_heading",
-      "to": "1459_refinery_infrastructure_planning",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1415_the_soil_heading",
-      "to": "1403_robotics_systems_integration",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
       "from": "1442_the_fruit_heading",
       "to": "1449_the_black_swan",
       "type": "contains",
@@ -2308,19 +1938,7 @@
     },
     {
       "from": "1417_the_taproot_heading",
-      "to": "1421_the_trunk_heading",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1417_the_taproot_heading",
       "to": "1425_uml_distilled",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1442_the_fruit_heading",
-      "to": "1460_underground_utility_networks",
       "type": "contains",
       "strength": "1"
     },
@@ -2333,36 +1951,6 @@
     {
       "from": "1417_the_taproot_heading",
       "to": "1426_vb_objects_ntier",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1442_the_fruit_heading",
-      "to": "1462_procurement_planning",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1442_the_fruit_heading",
-      "to": "1463_cost_control",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1442_the_fruit_heading",
-      "to": "1464_project_controls",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1442_the_fruit_heading",
-      "to": "1465_engineering_project_support",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1442_the_fruit_heading",
-      "to": "1466_planning_and_scheduling",
       "type": "contains",
       "strength": "1"
     },
@@ -2381,6 +1969,348 @@
     {
       "from": "1442_the_fruit_heading",
       "to": "1467_integrated_cost_schedule_systems",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1471_aws_amaxon_web_services",
+      "to": "1472_aws_career_paths",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1471_aws_amaxon_web_services",
+      "to": "1473_aws_newworking",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1471_aws_amaxon_web_services",
+      "to": "1474_begining_aws",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "011_stack_governance_compliance",
+      "to": "1310_cyber_security",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "0112_compliance",
+      "to": "1100_gdpr",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1310_cyber_security",
+      "to": "1101_access_control",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "0112_compliance",
+      "to": "1102_policy_compliance",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1000_aws",
+      "to": "10025_aws_ai_machine_learning_the_intelligence",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1000_aws",
+      "to": "10030_aws_analytics_the_insights",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1000_aws",
+      "to": "10031_aws_application_integration_the_glue",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1000_aws",
+      "to": "10023_aws_compute_the_engine",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1000_aws",
+      "to": "10026_aws_databases_the_ledger",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1000_aws",
+      "to": "10034_aws_developer_tools_the_workbench",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1000_aws",
+      "to": "10032_aws_key_services_sqs_queues",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1000_aws",
+      "to": "10028_aws_key_services_vpc_isolated_network",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1000_aws",
+      "to": "10033_aws_management_governance_the_oversight",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1000_aws",
+      "to": "10027_aws_networking_the_nervous_system",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1000_aws",
+      "to": "10029_aws_security_identity_the_guardrails",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1000_aws",
+      "to": "10024_aws_storage_the_memory",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1453_books_and_articles",
+      "to": "1468_python",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1468_python",
+      "to": "1469_python_crash_course",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1468_python",
+      "to": "1470_python_programming",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1453_books_and_articles",
+      "to": "10035_c_language",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10035_c_language",
+      "to": "1419_kr_c_programming",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "010_stack_cloud_hosting",
+      "to": "10046_microsoft_azure",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10046_microsoft_azure",
+      "to": "10038_ai_machine_learning_the_intelligence",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10046_microsoft_azure",
+      "to": "10042_analytics_the_insights",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10046_microsoft_azure",
+      "to": "10036_compute_the_engine",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10046_microsoft_azure",
+      "to": "10039_databases_the_ledger",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10046_microsoft_azure",
+      "to": "10045_developer_tools_the_workbench",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10046_microsoft_azure",
+      "to": "10041_identity_security_the_guardrails",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10046_microsoft_azure",
+      "to": "10043_integration_the_glue",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10046_microsoft_azure",
+      "to": "10044_management_governance_the_oversight",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10046_microsoft_azure",
+      "to": "10037_storage_the_memory",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10046_microsoft_azure",
+      "to": "10040_networking_the_nervous_system",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1002_monitoring_scaling",
+      "to": "10050_google_cloud_data_analytics_the_brain",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1002_monitoring_scaling",
+      "to": "10052_google_cloud_networking_the_nervous_system",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1002_monitoring_scaling",
+      "to": "10055_google_cloud_application_integration_the_glue",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1002_monitoring_scaling",
+      "to": "10047_google_cloud_compute_the_engine",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1002_monitoring_scaling",
+      "to": "10051_google_cloud_databases_the_ledger",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1002_monitoring_scaling",
+      "to": "10053_google_cloud_security_identity_the_guardrails",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1002_monitoring_scaling",
+      "to": "10048_google_cloud_storage_the_memory",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1002_monitoring_scaling",
+      "to": "10056_google_cloud_developer_tools_firebase_the_workbench",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1002_monitoring_scaling",
+      "to": "10049_google_cloud_ai_machine_learning_the_intelligence",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1002_monitoring_scaling",
+      "to": "10054_google_cloud_management_operations_the_oversight",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10064_linux",
+      "to": "10061_linux_system_monitoring_troubleshooting",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10064_linux",
+      "to": "10058_linux_command_line_administration_automation",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10064_linux",
+      "to": "10063_linux_security_environments_optional",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10064_linux",
+      "to": "10044_management_governance_the_oversight",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10064_linux",
+      "to": "10059_linux_file_systems_storage_management",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10064_linux",
+      "to": "10062_linux_environment_deployment_support",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10064_linux",
+      "to": "10057_linux_operating_systems_linux_administration",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1310_cyber_security",
+      "to": "10064_linux",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10064_linux",
+      "to": "1319_bash_shell",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1310_cyber_security",
+      "to": "1318_kali_linux_security_tools",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1415_the_soil_heading",
+      "to": "1418_masm_assembly",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "002_stack_data_engineering",
+      "to": "003_stack_etl_integration",
       "type": "contains",
       "strength": "1"
     }

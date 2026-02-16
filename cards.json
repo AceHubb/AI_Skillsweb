@@ -187,6 +187,21 @@
       ]
     },
     {
+      "id": "10038_ai_machine_learning_the_intelligence",
+      "title": "AI & Machine Learning (The Intelligence)",
+      "type": "capability",
+      "description": "Definition: Tools to build, train, and deploy AI models and agents.Key Services: Azure OpenAI Service, Azure AI Foundry (Model Catalog), Azure AI Search. Transition from \"Cognitive Services\" to Unified AI Foundry for agentic AI development.",
+      "media": [],
+      "assets": [],
+      "displayImages": {
+        "front": {
+          "url": "images/WaalBridgeIcon.png",
+          "alt": "Icon"
+        }
+      },
+      "frontBackgroundColor": "lightblue"
+    },
+    {
       "id": "802_ai_doc_systems",
       "type": "capability",
       "title": "AI Document Interrogation Systems",
@@ -376,6 +391,21 @@
         }
       },
       "assets": [],
+      "frontBackgroundColor": "lightblue"
+    },
+    {
+      "id": "10042_analytics_the_insights",
+      "title": "Analytics (The Insights)",
+      "type": "capability",
+      "description": "Definition: End-to-end data analytics and big data processing.Key Services: Microsoft Fabric (Unified Platform), Synapse Analytics, Azure Databricks.  Microsoft Fabric has become the \"Single Pane of Glass\" for all Azure data tasks.",
+      "media": [],
+      "assets": [],
+      "displayImages": {
+        "front": {
+          "url": "images/WaalBridgeIcon.png",
+          "alt": "Icon"
+        }
+      },
       "frontBackgroundColor": "lightblue"
     },
     {
@@ -653,14 +683,14 @@
     {
       "id": "1000_aws",
       "type": "capability",
-      "title": "AWS (EC2, S3, CloudWatch)",
+      "title": "AWS ",
       "displayImages": {
         "background": {
           "url": "",
           "alt": ""
         },
         "front": {
-          "url": "images/WaalBridgeIcon.png",
+          "url": "images/AWSLogo.png",
           "alt": "Cyber Icon"
         },
         "thumbnail": {
@@ -673,6 +703,200 @@
         }
       },
       "assets": [],
+      "frontBackgroundColor": "lightblue",
+      "media": []
+    },
+    {
+      "id": "10025_aws_ai_machine_learning_the_intelligence",
+      "title": "AWS AI & Machine Learning (The Intelligence)",
+      "type": "capability",
+      "description": "Definition: Generative AI, foundational models, and data intelligence. Amazon Bedrock (Models/Agents), Amazon Q (AI Assistant), SageMaker (ML Ops). Moving from \"Building Models\" to \"Consuming Models\" via Bedrock.",
+      "media": [],
+      "assets": [],
+      "displayImages": {
+        "front": {
+          "url": "images/AWSLogo.png",
+          "alt": "Icon"
+        }
+      },
+      "frontBackgroundColor": "lightblue"
+    },
+    {
+      "id": "1471_aws_amaxon_web_services",
+      "title": "AWS Amaxon Web Services",
+      "type": "generic",
+      "description": "",
+      "media": [],
+      "frontBackgroundColor": "",
+      "displayImages": {
+        "front": {
+          "url": "images/AWSLogo.png",
+          "alt": "Cyber Icon"
+        }
+      }
+    },
+    {
+      "id": "10030_aws_analytics_the_insights",
+      "title": "AWS Analytics (The Insights)",
+      "type": "capability",
+      "description": "Definition: Real-time data processing and big data visualization. Key Services: Glue (Data Prep), Athena (Serverless Query), Redshift (Data Warehouse).\"Serverless Analytics\" as the default for all big data tasks.",
+      "media": [
+        "AWSLogo.png"
+      ],
+      "assets": [],
+      "displayImages": {
+        "front": {
+          "url": "images/AWSLogo.png",
+          "alt": "Icon"
+        }
+      },
+      "frontBackgroundColor": "lightblue"
+    },
+    {
+      "id": "10031_aws_application_integration_the_glue",
+      "title": "AWS Application Integration (The Glue)",
+      "type": "capability",
+      "description": "Definition: Decoupling services via event-driven messaging.",
+      "media": [],
+      "assets": [],
+      "displayImages": {
+        "front": {
+          "url": "images/AWSLogo.png",
+          "alt": "Icon"
+        }
+      },
+      "frontBackgroundColor": "lightblue"
+    },
+    {
+      "id": "1472_aws_career_paths",
+      "title": "AWS Career Paths",
+      "type": "generic",
+      "description": "Different roles using AWS\n"
+    },
+    {
+      "id": "10023_aws_compute_the_engine",
+      "title": "AWS Compute (The Engine)",
+      "type": "capability",
+      "description": "Definition: Scalable processing power for any workload.  Key Services: EC2 (Virtual Servers), Lambda (Serverless Functions), Fargate (Serverless Containers).",
+      "media": [],
+      "assets": [],
+      "displayImages": {
+        "front": {
+          "url": "images/AWSLogo.png",
+          "alt": "Icon"
+        }
+      },
+      "frontBackgroundColor": "lightblue"
+    },
+    {
+      "id": "10026_aws_databases_the_ledger",
+      "title": "AWS Databases (The Ledger)",
+      "type": "capability",
+      "description": "Definition: High-performance, fully managed data engines. Key Services: RDS (Relational), DynamoDB (NoSQL), Aurora (Cloud-Native), Neptune (Graph).Zero-ETL integrations across the entire database suite.",
+      "media": [],
+      "assets": [],
+      "displayImages": {
+        "front": {
+          "url": "images/AWSLogo.png",
+          "alt": "Icon"
+        }
+      },
+      "frontBackgroundColor": "lightblue"
+    },
+    {
+      "id": "10034_aws_developer_tools_the_workbench",
+      "title": "AWS Developer Tools (The Workbench)",
+      "type": "capability",
+      "description": "Tools for building, testing, and deploying code. Key Services: CodePipeline (CI/CD), CloudFormation (IaC), CDK (Cloud Dev Kit). Terraform (HashiCorp)",
+      "media": [],
+      "assets": [],
+      "displayImages": {
+        "front": {
+          "url": "images/AWSLogo.png",
+          "alt": "Icon"
+        }
+      },
+      "frontBackgroundColor": "lightblue"
+    },
+    {
+      "id": "10032_aws_key_services_sqs_queues",
+      "title": "AWS Key Services: SQS (Queues)",
+      "type": "capability",
+      "description": "SNS (Notifications), EventBridge (Event Bus).Event-driven architecture.",
+      "media": [],
+      "assets": [],
+      "displayImages": {
+        "front": {
+          "url": "images/AWSLogo.png",
+          "alt": "Icon"
+        }
+      },
+      "frontBackgroundColor": "lightblue"
+    },
+    {
+      "id": "10028_aws_key_services_vpc_isolated_network",
+      "title": "AWS Key Services: VPC (Isolated Network)",
+      "type": "capability",
+      "description": "CloudFront (CDN), Route 53 (DNS). Automated network security via AI-driven traffic analysis.",
+      "media": [],
+      "assets": [],
+      "displayImages": {
+        "front": {
+          "url": "images/AWSLogo.png",
+          "alt": "Icon"
+        }
+      },
+      "frontBackgroundColor": "lightblue"
+    },
+    {
+      "id": "10033_aws_management_governance_the_oversight",
+      "title": "AWS Management & Governance (The Oversight)",
+      "type": "capability",
+      "description": "Definition: Observability, compliance, and FinOps (Cost Management). Key Services: CloudWatch (Monitoring), Systems Manager (Operations), Trusted Advisor. Cost optimization and \"Self-Healing\" infrastructure.",
+      "media": [],
+      "assets": [],
+      "displayImages": {
+        "front": {
+          "url": "images/AWSLogo.png",
+          "alt": "Icon"
+        }
+      },
+      "frontBackgroundColor": "lightblue"
+    },
+    {
+      "id": "10027_aws_networking_the_nervous_system",
+      "title": "AWS Networking (The Nervous System)",
+      "type": "capability",
+      "description": "Definition: Secure global connectivity, isolation, and traffic routing.",
+      "media": [],
+      "assets": [],
+      "displayImages": {
+        "front": {
+          "url": "images/AWSLogo.png",
+          "alt": "Icon"
+        }
+      },
+      "frontBackgroundColor": "lightblue"
+    },
+    {
+      "id": "1473_aws_newworking",
+      "title": "AWS Newworking",
+      "type": "generic",
+      "description": ""
+    },
+    {
+      "id": "10029_aws_security_identity_the_guardrails",
+      "title": "AWS Security & Identity (The Guardrails)",
+      "type": "capability",
+      "description": "Definition: Identity management, encryption, and threat detection. Key Services: IAM (Access Control), KMS (Encryption), GuardDuty (Threat Intel). Centralized governance via AWS Organizations and Control Tower.",
+      "media": [],
+      "assets": [],
+      "displayImages": {
+        "front": {
+          "url": "images/AWSLogo.png",
+          "alt": "Icon"
+        }
+      },
       "frontBackgroundColor": "lightblue"
     },
     {
@@ -703,32 +927,19 @@
       "frontBackgroundColor": "lightblue"
     },
     {
-      "id": "1001_azure",
+      "id": "10024_aws_storage_the_memory",
+      "title": "AWS Storage (The Memory),",
       "type": "capability",
-      "title": "Azure (VMs, Data Factory, Integration)",
+      "description": "Definition: Secure, durable data persistence at any scale. Key Services: S3 (Object), EBS (Block), EFS (File), FSx (High-Performance). AI-ready storage tiers that automatically index data for LLMs.",
+      "media": [],
+      "assets": [],
       "displayImages": {
-        "background": {
-          "url": "",
-          "alt": ""
-        },
         "front": {
-          "url": "images/WaalBridgeIcon.png",
-          "alt": "Cyber Icon"
-        },
-        "thumbnail": {
-          "url": "",
-          "alt": ""
-        },
-        "diagram": {
-          "url": "",
-          "alt": ""
+          "url": "images/AWSLogo.png",
+          "alt": "Icon"
         }
       },
-      "assets": [],
-      "frontBackgroundColor": "lightblue",
-      "media": [
-        "pdf/Azure_Cloud_Infrastr.pdf"
-      ]
+      "frontBackgroundColor": "lightblue"
     },
     {
       "id": "1285_balanced_scorecard_alignment",
@@ -861,6 +1072,12 @@
       },
       "assets": [],
       "frontBackgroundColor": "lightblue"
+    },
+    {
+      "id": "1474_begining_aws",
+      "title": "Begining AWS",
+      "type": "generic",
+      "description": ""
     },
     {
       "id": "1351_bi_dashboard_development",
@@ -999,6 +1216,12 @@
       ]
     },
     {
+      "id": "10035_c_language",
+      "title": "C Language",
+      "type": "generic",
+      "description": ""
+    },
+    {
       "id": "700_csharp_python",
       "type": "capability",
       "title": "C# / Python Applications",
@@ -1115,33 +1338,7 @@
           "alt": ""
         },
         "front": {
-          "url": "images/WaalBridgeIcon.png",
-          "alt": "Cyber Icon"
-        },
-        "thumbnail": {
-          "url": "",
-          "alt": ""
-        },
-        "diagram": {
-          "url": "",
-          "alt": ""
-        }
-      },
-      "assets": [],
-      "frontBackgroundColor": "lightblue"
-    },
-    {
-      "id": "1323_cli_text_editing",
-      "type": "capability",
-      "title": "CLI Text Editing",
-      "description": "Editing files directly from the command line using lightweight editors for configuration and troubleshooting tasks.",
-      "displayImages": {
-        "background": {
-          "url": "",
-          "alt": ""
-        },
-        "front": {
-          "url": "images/WaalBridgeIcon.png",
+          "url": "images/BookCleanCode.png",
           "alt": "Cyber Icon"
         },
         "thumbnail": {
@@ -1158,7 +1355,7 @@
     },
     {
       "id": "010_stack_cloud_hosting",
-      "type": "other",
+      "type": "stack",
       "title": "Cloud & Hosting",
       "media": [
         "df/Infrastructure_as_a_.pdf",
@@ -1403,30 +1600,18 @@
       "frontBackgroundColor": "lightblue"
     },
     {
-      "id": "1311_computing_basics_linux",
-      "type": "other",
-      "title": "Computing Basics & Linux",
-      "description": "Foundational knowledge of operating systems, Linux architecture, and command-line tools commonly required in security operations and analysis.",
+      "id": "10036_compute_the_engine",
+      "title": "Compute (The Engine)",
+      "type": "capability",
+      "description": "Definition: On-demand cloud computing capacity and application hosting.Key Services: Virtual Machines, Azure Functions (Serverless), Azure Kubernetes Service (AKS). High adoption of Azure Compute Fleet for automated spot instance management.",
       "media": [],
+      "assets": [],
       "displayImages": {
-        "background": {
-          "url": "",
-          "alt": ""
-        },
         "front": {
           "url": "images/WaalBridgeIcon.png",
-          "alt": "Cyber Icon"
-        },
-        "thumbnail": {
-          "url": "",
-          "alt": ""
-        },
-        "diagram": {
-          "url": "",
-          "alt": ""
+          "alt": "Icon"
         }
       },
-      "assets": [],
       "frontBackgroundColor": "lightblue"
     },
     {
@@ -1828,7 +2013,7 @@
     },
     {
       "id": "1310_cyber_security",
-      "type": "stack",
+      "type": "other",
       "title": "Cyber Security",
       "description": "Protection of systems, networks, and data from unauthorized access, disruption, or attack through secure design, monitoring, and operational controls.",
       "displayImages": {
@@ -2517,6 +2702,21 @@
       "frontBackgroundColor": "lightblue"
     },
     {
+      "id": "10039_databases_the_ledger",
+      "title": "Databases (The Ledger)",
+      "type": "capability",
+      "description": "Definition: Fully managed relational, NoSQL, and in-memory databases. Key Services: Azure SQL (Relational), Cosmos DB (Global NoSQL), Azure Database for PostgreSQL. Focus on Managed Redis and seamless integration with Microsoft Fabric.",
+      "media": [],
+      "assets": [],
+      "displayImages": {
+        "front": {
+          "url": "images/WaalBridgeIcon.png",
+          "alt": "Icon"
+        }
+      },
+      "frontBackgroundColor": "lightblue"
+    },
+    {
       "id": "10009_media_dataset_flow",
       "type": "media",
       "title": "Dataset flow",
@@ -2662,7 +2862,7 @@
           "alt": ""
         },
         "front": {
-          "url": "images/WaalBridgeIcon.png",
+          "url": "images/Bookgofdespat.png",
           "alt": "Cyber Icon"
         },
         "thumbnail": {
@@ -2675,6 +2875,21 @@
         }
       },
       "assets": [],
+      "frontBackgroundColor": "lightblue"
+    },
+    {
+      "id": "10045_developer_tools_the_workbench",
+      "title": "Developer Tools (The Workbench)",
+      "type": "capability",
+      "description": "Definition: Services for the entire DevOps lifecycle and developer productivity. Key Services: Azure DevOps, GitHub Copilot (Integration), Microsoft Dev Box (Cloud Workstations).",
+      "media": [],
+      "assets": [],
+      "displayImages": {
+        "front": {
+          "url": "images/WaalBridgeIcon.png",
+          "alt": "Icon"
+        }
+      },
       "frontBackgroundColor": "lightblue"
     },
     {
@@ -3027,7 +3242,7 @@
     },
     {
       "id": "003_stack_etl_integration",
-      "type": "stack",
+      "type": "other",
       "title": "ETL & Integration",
       "displayImages": {
         "background": {
@@ -3048,7 +3263,8 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": []
     },
     {
       "id": "1344_event_logs_security_monitoring",
@@ -3158,84 +3374,6 @@
       "title": "FDA 21 CFR Part 11",
       "type": "generic",
       "description": "",
-      "displayImages": {
-        "background": {
-          "url": "",
-          "alt": ""
-        },
-        "front": {
-          "url": "images/WaalBridgeIcon.png",
-          "alt": "Cyber Icon"
-        },
-        "thumbnail": {
-          "url": "",
-          "alt": ""
-        },
-        "diagram": {
-          "url": "",
-          "alt": ""
-        }
-      },
-      "assets": [],
-      "frontBackgroundColor": "lightblue"
-    },
-    {
-      "id": "1322_file_directory_management",
-      "type": "capability",
-      "title": "File & Directory Management",
-      "description": "Creating, copying, moving, and deleting files and directories within Linux systems.",
-      "displayImages": {
-        "background": {
-          "url": "",
-          "alt": ""
-        },
-        "front": {
-          "url": "images/WaalBridgeIcon.png",
-          "alt": "Cyber Icon"
-        },
-        "thumbnail": {
-          "url": "",
-          "alt": ""
-        },
-        "diagram": {
-          "url": "",
-          "alt": ""
-        }
-      },
-      "assets": [],
-      "frontBackgroundColor": "lightblue"
-    },
-    {
-      "id": "1320_file_system_navigation",
-      "type": "capability",
-      "title": "File System Navigation",
-      "description": "Core commands used to move through and inspect directory structures within Linux environments.",
-      "displayImages": {
-        "background": {
-          "url": "",
-          "alt": ""
-        },
-        "front": {
-          "url": "images/WaalBridgeIcon.png",
-          "alt": "Cyber Icon"
-        },
-        "thumbnail": {
-          "url": "",
-          "alt": ""
-        },
-        "diagram": {
-          "url": "",
-          "alt": ""
-        }
-      },
-      "assets": [],
-      "frontBackgroundColor": "lightblue"
-    },
-    {
-      "id": "1327_filtering_and_piping",
-      "type": "capability",
-      "title": "Filtering & Piping",
-      "description": "Combining commands and filtering outputs to efficiently search and process command-line results.",
       "displayImages": {
         "background": {
           "url": "",
@@ -3502,6 +3640,168 @@
       "frontBackgroundColor": "lightblue"
     },
     {
+      "id": "1002_monitoring_scaling",
+      "type": "capability",
+      "title": "Google Cloud",
+      "displayImages": {
+        "background": {
+          "url": "",
+          "alt": ""
+        },
+        "front": {
+          "url": "images/GoogleCloud.png",
+          "alt": "Cyber Icon"
+        },
+        "thumbnail": {
+          "url": "",
+          "alt": ""
+        },
+        "diagram": {
+          "url": "",
+          "alt": ""
+        }
+      },
+      "assets": [],
+      "frontBackgroundColor": "lightblue",
+      "description": "Google Cloud",
+      "media": []
+    },
+    {
+      "id": "10050_google_cloud_data_analytics_the_brain",
+      "title": "Google Cloud  Data Analytics (The Brain)",
+      "type": "capability",
+      "description": "Definition: Large-scale data processing and real-time business intelligence. Key Services: BigQuery (Warehouse), Dataflow (Streaming), Pub/Sub (Messaging), Looker (BI). BigQuery is now a \"Data Intelligence\" engine that runs ML models directly on your data in real-time.",
+      "media": [],
+      "assets": [],
+      "displayImages": {
+        "front": {
+          "url": "images/GoogleCloud.png",
+          "alt": "Icon"
+        }
+      },
+      "frontBackgroundColor": "lightblue"
+    },
+    {
+      "id": "10056_google_cloud_developer_tools_firebase_the_workbench",
+      "title": "Google Cloud  Developer Tools & Firebase (The Workbench)",
+      "type": "capability",
+      "description": "Definition: Tools to build, deploy, and scale web and mobile applications. Key Services: Cloud Build (CI/CD), Artifact Registry, Firebase (App Dev Platform).  Firebase Data Connect allows developers to bridge mobile apps directly into PostgreSQL/AlloyDB.",
+      "media": [],
+      "assets": [],
+      "displayImages": {
+        "front": {
+          "url": "images/GoogleCloud.png",
+          "alt": "Icon"
+        }
+      },
+      "frontBackgroundColor": "lightblue"
+    },
+    {
+      "id": "10052_google_cloud_networking_the_nervous_system",
+      "title": "Google Cloud  Networking (The Nervous System)",
+      "type": "capability",
+      "description": "Definition: High-speed, private global network connecting apps and users. Key Services: VPC (Network), Cloud Load Balancing, Cloud CDN, Service Directory.  \"Cross-Cloud Network\" simplifies connecting GCP resources directly to AWS or Azure.",
+      "media": [],
+      "assets": [],
+      "displayImages": {
+        "front": {
+          "url": "images/GoogleCloud.png",
+          "alt": "Icon"
+        }
+      },
+      "frontBackgroundColor": "lightblue"
+    },
+    {
+      "id": "10049_google_cloud_ai_machine_learning_the_intelligence",
+      "title": "Google Cloud AI & Machine Learning (The Intelligence)",
+      "type": "capability",
+      "description": "Definition: The platform for building Generative AI, agents, and custom models. Key Services: Vertex AI (The Platform), Gemini (Models), Vertex AI Agents. Major focus on \"Agentic AI\"\ufffdautonomous bots that perform multi-step business tasks.",
+      "media": [],
+      "assets": [],
+      "displayImages": {
+        "front": {
+          "url": "images/GoogleCloud.png",
+          "alt": "Icon"
+        }
+      },
+      "frontBackgroundColor": "lightblue"
+    },
+    {
+      "id": "10055_google_cloud_application_integration_the_glue",
+      "title": "Google Cloud Application Integration (The Glue)",
+      "type": "capability",
+      "description": "Definition: Orchestrating workflows and connecting APIs across services. Key Services: Apigee (API Management), Workflows (Orchestration), Eventarc (Event-driven).  Eventarc now supports cross-platform events (e.g., an S3 upload in AWS triggering a GCP function).",
+      "media": [],
+      "assets": [],
+      "displayImages": {
+        "front": {
+          "url": "images/GoogleCloud.png",
+          "alt": "Icon"
+        }
+      },
+      "frontBackgroundColor": "lightblue"
+    },
+    {
+      "id": "10047_google_cloud_compute_the_engine",
+      "title": "Google Cloud Compute (The Engine)",
+      "type": "capability",
+      "description": "Definition: Flexible infrastructure for VMs, containers, and serverless code. Key Services: Compute Engine (VMs), GKE (Kubernetes), Cloud Run (Serverless Containers). \"Cloud Run Functions\" has fully unified serverless execution into a single, simplified workflow.",
+      "media": [],
+      "assets": [],
+      "displayImages": {
+        "front": {
+          "url": "images/GoogleCloud.png",
+          "alt": "Icon"
+        }
+      },
+      "frontBackgroundColor": "lightblue"
+    },
+    {
+      "id": "10051_google_cloud_databases_the_ledger",
+      "title": "Google Cloud Databases (The Ledger)",
+      "type": "capability",
+      "description": "Definition: Scalable relational and NoSQL databases for global applications. Key Services: Cloud Spanner (Global Relational), AlloyDB (PostgreSQL-compatible), Firestore (NoSQL).  AlloyDB AI integration, allowing vector search and ML embedding directly in the database.",
+      "media": [],
+      "assets": [],
+      "displayImages": {
+        "front": {
+          "url": "images/GoogleCloud.png",
+          "alt": "Icon"
+        }
+      },
+      "frontBackgroundColor": "lightblue"
+    },
+    {
+      "id": "10054_google_cloud_management_operations_the_oversight",
+      "title": "Google Cloud Management & Operations (The Oversight)",
+      "type": "capability",
+      "description": "Definition: Monitoring, logging, and managing cloud health and costs. Key Services: Cloud Logging, Cloud Monitoring, Error Reporting, Cloud Deployment Manager.  Gemini in Operations allows you to troubleshoot system errors using natural language prompts.",
+      "media": [],
+      "assets": [],
+      "displayImages": {
+        "front": {
+          "url": "images/GoogleCloud.png",
+          "alt": "Icon"
+        }
+      },
+      "frontBackgroundColor": "lightblue"
+    },
+    {
+      "id": "10053_google_cloud_security_identity_the_guardrails",
+      "title": "Google Cloud Security & Identity (The Guardrails)",
+      "type": "capability",
+      "description": "Definition: Zero-trust security, identity management, and threat detection. Key Services: IAM (Access), Security Command Center, Identity Platform, BeyondCorp (Zero Trust).  Chronicle Security Operations uses AI to automate incident response and threat hunting.",
+      "media": [],
+      "assets": [],
+      "displayImages": {
+        "front": {
+          "url": "images/GoogleCloud.png",
+          "alt": "Icon"
+        }
+      },
+      "frontBackgroundColor": "lightblue"
+    },
+    {
       "id": "1342_google_cloud_security",
       "type": "other",
       "title": "Google Cloud Security Model",
@@ -3516,7 +3816,7 @@
           "alt": ""
         },
         "front": {
-          "url": "images/WaalBridgeIcon.png",
+          "url": "images/GoogleCloud.png",
           "alt": "Cyber Icon"
         },
         "thumbnail": {
@@ -3529,6 +3829,21 @@
         }
       },
       "assets": [],
+      "frontBackgroundColor": "lightblue"
+    },
+    {
+      "id": "10048_google_cloud_storage_the_memory",
+      "title": "Google Cloud Storage (The Memory)",
+      "type": "capability",
+      "description": "Definition: High-performance storage for objects, blocks, and shared files. Key Services: Cloud Storage (Object), Persistent Disk (Block), Cloud Filestore. Automatic \"AI-Stream\" metadata tagging within Cloud Storage for instant Vertex AI indexing.",
+      "media": [],
+      "assets": [],
+      "displayImages": {
+        "front": {
+          "url": "images/GoogleCloud.png",
+          "alt": "Icon"
+        }
+      },
       "frontBackgroundColor": "lightblue"
     },
     {
@@ -3560,7 +3875,7 @@
     {
       "id": "011_stack_governance_compliance",
       "type": "stack",
-      "title": "Governance & Compliance",
+      "title": "Governance & Compliance & Cyber",
       "description": "Overall management of governance and compliance practices in the organisation.",
       "media": [
         "pdf/GDPR_and_Data_Privac.pdf",
@@ -3618,32 +3933,6 @@
         "pdf/GUI_Design_and_Rapid.pdf",
         "pdf/Microservices_Archit.pdf"
       ]
-    },
-    {
-      "id": "1314_gui_cli_interfaces",
-      "type": "capability",
-      "title": "GUI and CLI Interfaces",
-      "description": "Differences between graphical interfaces and command-line interaction, including when CLI provides efficiency and control.",
-      "displayImages": {
-        "background": {
-          "url": "",
-          "alt": ""
-        },
-        "front": {
-          "url": "images/WaalBridgeIcon.png",
-          "alt": "Cyber Icon"
-        },
-        "thumbnail": {
-          "url": "",
-          "alt": ""
-        },
-        "diagram": {
-          "url": "",
-          "alt": ""
-        }
-      },
-      "assets": [],
-      "frontBackgroundColor": "lightblue"
     },
     {
       "id": "701_gui_design",
@@ -3881,6 +4170,21 @@
         }
       },
       "assets": [],
+      "frontBackgroundColor": "lightblue"
+    },
+    {
+      "id": "10041_identity_security_the_guardrails",
+      "title": "Identity & Security (The Guardrails)",
+      "type": "capability",
+      "description": "Definition: Protecting identities, data, and apps across hybrid environments.Key Services: Microsoft Entra ID (Access), Microsoft Defender for Cloud, Azure Key Vault.Microsoft Security Copilot is now natively embedded in every security dashboard.",
+      "media": [],
+      "assets": [],
+      "displayImages": {
+        "front": {
+          "url": "images/WaalBridgeIcon.png",
+          "alt": "Icon"
+        }
+      },
       "frontBackgroundColor": "lightblue"
     },
     {
@@ -4148,6 +4452,21 @@
         }
       },
       "assets": [],
+      "frontBackgroundColor": "lightblue"
+    },
+    {
+      "id": "10043_integration_the_glue",
+      "title": "Integration (The Glue)",
+      "type": "capability",
+      "description": "Definition: Connecting disparate systems through messaging and workflows. Key Services: Logic Apps (Workflows), Service Bus (Messaging), Event Grid (Pub/Sub). AI-augmented workflow generation within Logic Apps.",
+      "media": [],
+      "assets": [],
+      "displayImages": {
+        "front": {
+          "url": "images/WaalBridgeIcon.png",
+          "alt": "Icon"
+        }
+      },
       "frontBackgroundColor": "lightblue"
     },
     {
@@ -4423,7 +4742,7 @@
           "alt": ""
         },
         "front": {
-          "url": "images/WaalBridgeIcon.png",
+          "url": "images/KaliLinux.png",
           "alt": "Cyber Icon"
         },
         "thumbnail": {
@@ -4436,7 +4755,8 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "media": []
     },
     {
       "id": "1267_kpi_metrics_design",
@@ -4758,133 +5078,114 @@
       "frontBackgroundColor": "lightblue"
     },
     {
-      "id": "1316_linux_architecture",
+      "id": "10064_linux",
+      "title": "Linux",
+      "type": "generic",
+      "description": ""
+    },
+    {
+      "id": "10058_linux_command_line_administration_automation",
+      "title": "Linux Command-Line Administration & Automation",
       "type": "capability",
-      "title": "Linux Architecture",
-      "description": "Understanding Linux layers including user space, shell, filesystem, kernel, and hardware interaction.",
+      "description": "Use of command-line environments and scripting to manage systems efficiently and automate operational tasks.",
+      "media": [],
+      "assets": [],
       "displayImages": {
-        "background": {
-          "url": "",
-          "alt": ""
-        },
         "front": {
           "url": "images/WaalBridgeIcon.png",
-          "alt": "Cyber Icon"
-        },
-        "thumbnail": {
-          "url": "",
-          "alt": ""
-        },
-        "diagram": {
-          "url": "",
-          "alt": ""
+          "alt": "Icon"
         }
       },
-      "assets": [],
       "frontBackgroundColor": "lightblue"
     },
     {
-      "id": "1317_linux_distributions",
+      "id": "10062_linux_environment_deployment_support",
+      "title": "Linux Environment Deployment & Support",
       "type": "capability",
-      "title": "Linux Distributions",
-      "description": "Overview of common Linux distributions such as Debian, Ubuntu, and Red Hat and how they package tools around the kernel.",
+      "description": "Setup, configuration, and ongoing support of Linux environments for development, operations, and production usage.",
+      "media": [],
+      "assets": [],
       "displayImages": {
-        "background": {
-          "url": "",
-          "alt": ""
-        },
         "front": {
           "url": "images/WaalBridgeIcon.png",
-          "alt": "Cyber Icon"
-        },
-        "thumbnail": {
-          "url": "",
-          "alt": ""
-        },
-        "diagram": {
-          "url": "",
-          "alt": ""
+          "alt": "Icon"
         }
       },
-      "assets": [],
       "frontBackgroundColor": "lightblue"
     },
     {
-      "id": "1328_linux_help_resources",
+      "id": "10059_linux_file_systems_storage_management",
+      "title": "Linux File Systems & Storage Management",
       "type": "capability",
-      "title": "Linux Help Resources",
-      "description": "Using built-in documentation and command help systems to understand and troubleshoot system commands.",
+      "description": "Configuration and management of Linux file systems, storage structures, and data organization.",
+      "media": [],
+      "assets": [],
       "displayImages": {
-        "background": {
-          "url": "",
-          "alt": ""
-        },
         "front": {
           "url": "images/WaalBridgeIcon.png",
-          "alt": "Cyber Icon"
-        },
-        "thumbnail": {
-          "url": "",
-          "alt": ""
-        },
-        "diagram": {
-          "url": "",
-          "alt": ""
+          "alt": "Icon"
         }
       },
-      "assets": [],
       "frontBackgroundColor": "lightblue"
     },
     {
-      "id": "1315_linux_history_open_source",
+      "id": "10057_linux_operating_systems_linux_administration",
+      "title": "Linux Operating Systems & Linux Administration",
       "type": "capability",
-      "title": "Linux History & Open Source",
-      "description": "Origins of Linux and the principles of open-source software shaping modern operating systems and tooling.",
+      "description": "Deployment, configuration, and management of Linux-based systems across server and workstation environments.",
+      "media": [],
+      "assets": [],
       "displayImages": {
-        "background": {
-          "url": "",
-          "alt": ""
-        },
         "front": {
           "url": "images/WaalBridgeIcon.png",
-          "alt": "Cyber Icon"
-        },
-        "thumbnail": {
-          "url": "",
-          "alt": ""
-        },
-        "diagram": {
-          "url": "",
-          "alt": ""
+          "alt": "Icon"
         }
       },
-      "assets": [],
       "frontBackgroundColor": "lightblue"
     },
     {
-      "id": "1324_linux_permissions_model",
+      "id": "10063_linux_security_environments_optional",
+      "title": "Linux Security Environments (Optional)",
       "type": "capability",
-      "title": "Linux Permissions Model",
-      "description": "Understanding read, write, and execute permissions across user, group, and other access categories.",
+      "description": "Deployment and use of security-focused Linux environments for security assessment, analysis, and controlled testing activities.",
+      "media": [],
+      "assets": [],
       "displayImages": {
-        "background": {
-          "url": "",
-          "alt": ""
-        },
         "front": {
           "url": "images/WaalBridgeIcon.png",
-          "alt": "Cyber Icon"
-        },
-        "thumbnail": {
-          "url": "",
-          "alt": ""
-        },
-        "diagram": {
-          "url": "",
-          "alt": ""
+          "alt": "Icon"
         }
       },
+      "frontBackgroundColor": "lightblue"
+    },
+    {
+      "id": "10061_linux_system_monitoring_troubleshooting",
+      "title": "Linux System Monitoring & Troubleshooting",
+      "type": "capability",
+      "description": "Diagnosis and resolution of system performance issues, configuration problems, and operational faults.",
+      "media": [],
       "assets": [],
+      "displayImages": {
+        "front": {
+          "url": "images/WaalBridgeIcon.png",
+          "alt": "Icon"
+        }
+      },
+      "frontBackgroundColor": "lightblue"
+    },
+    {
+      "id": "10044_management_governance_the_oversight",
+      "title": "Management & Governance (The Oversight)",
+      "type": "capability",
+      "description": "Definition: Monitoring, compliance, and multi-cloud management. Key Services: Azure Monitor, Azure Policy, Azure Arc (Hybrid/Multi-cloud management). Copilot in Azure handles natural language queries for cost and performance audits.",
+      "media": [],
+      "assets": [],
+      "displayImages": {
+        "front": {
+          "url": "images/WaalBridgeIcon.png",
+          "alt": "Icon"
+        }
+      },
       "frontBackgroundColor": "lightblue"
     },
     {
@@ -4966,6 +5267,20 @@
       "media": [
         "pdf/Microservices_Archit.pdf"
       ]
+    },
+    {
+      "id": "10046_microsoft_azure",
+      "title": "Microsoft Azure",
+      "type": "generic",
+      "description": "",
+      "media": [],
+      "frontBackgroundColor": "",
+      "displayImages": {
+        "front": {
+          "url": "/images/Azure.png",
+          "alt": "Cyber Icon"
+        }
+      }
     },
     {
       "id": "1439_azure_architect",
@@ -5102,57 +5417,6 @@
       "frontBackgroundColor": "lightblue"
     },
     {
-      "id": "1325_modify_permissions_chmod",
-      "type": "capability",
-      "title": "Modifying Permissions (chmod)",
-      "description": "Changing access rights on files and directories using symbolic or numeric permission assignments.",
-      "displayImages": {
-        "background": {
-          "url": "",
-          "alt": ""
-        },
-        "front": {
-          "url": "images/WaalBridgeIcon.png",
-          "alt": "Cyber Icon"
-        },
-        "thumbnail": {
-          "url": "",
-          "alt": ""
-        },
-        "diagram": {
-          "url": "",
-          "alt": ""
-        }
-      },
-      "assets": [],
-      "frontBackgroundColor": "lightblue"
-    },
-    {
-      "id": "1002_monitoring_scaling",
-      "type": "capability",
-      "title": "Monitoring & Scaling (Grafana, Auto-scaling)",
-      "displayImages": {
-        "background": {
-          "url": "",
-          "alt": ""
-        },
-        "front": {
-          "url": "images/WaalBridgeIcon.png",
-          "alt": "Cyber Icon"
-        },
-        "thumbnail": {
-          "url": "",
-          "alt": ""
-        },
-        "diagram": {
-          "url": "",
-          "alt": ""
-        }
-      },
-      "assets": [],
-      "frontBackgroundColor": "lightblue"
-    },
-    {
       "id": "1454_monte_carlo_simulations",
       "title": "Monte Carlo Simulations",
       "type": "other",
@@ -5205,6 +5469,21 @@
         }
       },
       "assets": [],
+      "frontBackgroundColor": "lightblue"
+    },
+    {
+      "id": "10040_networking_the_nervous_system",
+      "title": "Networking (The Nervous System)",
+      "type": "capability",
+      "description": "Definition: Connect, deliver, and protect your cloud-native and hybrid infrastructure.Key Services: Virtual Network (VNet), Azure Front Door (CDN/Security), ExpressRoute (Private Link).Azure Private 5G Core integration for industrial edge networking.",
+      "media": [],
+      "assets": [],
+      "displayImages": {
+        "front": {
+          "url": "images/WaalBridgeIcon.png",
+          "alt": "Icon"
+        }
+      },
       "frontBackgroundColor": "lightblue"
     },
     {
@@ -5600,32 +5879,6 @@
       "frontBackgroundColor": "lightblue"
     },
     {
-      "id": "1313_os_fundamentals_boot",
-      "type": "capability",
-      "title": "OS Fundamentals & Boot Process",
-      "description": "Understanding how operating systems manage hardware resources and how systems start using BIOS/UEFI and bootloaders.",
-      "displayImages": {
-        "background": {
-          "url": "",
-          "alt": ""
-        },
-        "front": {
-          "url": "images/WaalBridgeIcon.png",
-          "alt": "Cyber Icon"
-        },
-        "thumbnail": {
-          "url": "",
-          "alt": ""
-        },
-        "diagram": {
-          "url": "",
-          "alt": ""
-        }
-      },
-      "assets": [],
-      "frontBackgroundColor": "lightblue"
-    },
-    {
       "id": "1221_pci_dss",
       "title": "PCI DSS",
       "type": "generic",
@@ -5812,32 +6065,6 @@
       "media": [
         "pdf/Planning_and_Schedul.pdf"
       ]
-    },
-    {
-      "id": "1335_platform_security_models",
-      "type": "stack",
-      "title": "Platform Security Models",
-      "description": "Security architectures provided by major cloud and platform vendors to protect identity, infrastructure, workloads, and data.",
-      "displayImages": {
-        "background": {
-          "url": "",
-          "alt": ""
-        },
-        "front": {
-          "url": "images/PlatSecModIcon.png",
-          "alt": "Cyber Icon"
-        },
-        "thumbnail": {
-          "url": "",
-          "alt": ""
-        },
-        "diagram": {
-          "url": "",
-          "alt": ""
-        }
-      },
-      "assets": [],
-      "frontBackgroundColor": "lightblue"
     },
     {
       "id": "10003_media_pm_dashboard",
@@ -6162,12 +6389,12 @@
       "card_image": "boltandnut.png",
       "description": "Testing",
       "media": [
-        "Process_Improvement_.pdf",
+        "pdf/Process_Improvement_.pdf",
         "pdf/Document_Maintenance.pdf",
         "pdf/Delivery_Methodology.pdf",
-        "testimage1.jpg",
-        "testimage2.jpg",
-        "testimage3.jpg"
+        "images/testimage1.jpg",
+        "images/testimage2.jpg",
+        "images/testimage3.jpg"
       ],
       "displayImages": {
         "background": {
@@ -6486,37 +6713,60 @@
       "frontBackgroundColor": "lightblue"
     },
     {
+      "id": "1469_python_crash_course",
+      "title": "Python Crash Course",
+      "type": "ther",
+      "description": "",
+      "media": [
+        "/images/BookPythonCrash",
+        "png"
+      ],
+      "frontBackgroundColor": "",
+      "displayImages": {
+        "front": {
+          "url": "",
+          "alt": "Cyber Icon"
+        }
+      }
+    },
+    {
+      "id": "1468_python",
+      "title": "Python Language",
+      "type": "other",
+      "description": "Python Language",
+      "media": [
+        "/images/PythonLogo.png"
+      ],
+      "frontBackgroundColor": "",
+      "displayImages": {
+        "front": {
+          "url": "",
+          "alt": "Cyber Icon"
+        }
+      }
+    },
+    {
+      "id": "1470_python_programming",
+      "title": "Python Programming",
+      "type": "other",
+      "description": "",
+      "media": [
+        "/images/BookPythonProg.png"
+      ],
+      "frontBackgroundColor": "",
+      "displayImages": {
+        "front": {
+          "url": "",
+          "alt": "Cyber Icon"
+        }
+      }
+    },
+    {
       "id": "1434_qlikview_business",
       "type": "capability",
       "title": "QlikView Your Business",
       "isbn": "978-1118949559",
       "description": "Advanced data modeling using associative engines to uncover non-linear insights.",
-      "displayImages": {
-        "background": {
-          "url": "",
-          "alt": ""
-        },
-        "front": {
-          "url": "images/WaalBridgeIcon.png",
-          "alt": "Cyber Icon"
-        },
-        "thumbnail": {
-          "url": "",
-          "alt": ""
-        },
-        "diagram": {
-          "url": "",
-          "alt": ""
-        }
-      },
-      "assets": [],
-      "frontBackgroundColor": "lightblue"
-    },
-    {
-      "id": "1321_file_content_reading",
-      "type": "capability",
-      "title": "Reading File Content",
-      "description": "Viewing and inspecting file contents to analyze logs, configuration files, and system outputs.",
       "displayImages": {
         "background": {
           "url": "",
@@ -7046,7 +7296,8 @@
       "assets": [],
       "frontBackgroundColor": "lightblue",
       "media": [
-        "pdf/Process_Improvement_.pdf"
+        "pdf/Process_Improvement_.pdf",
+        "pdf/ReviewSixSigm.pdf"
       ]
     },
     {
@@ -7496,6 +7747,21 @@
       ]
     },
     {
+      "id": "10037_storage_the_memory",
+      "title": "Storage (The Memory)",
+      "type": "capability",
+      "description": "Definition: Scalable, redundant storage for unstructured and structured data.Key Services: Blob Storage (Object), Azure Files (File Shares), Managed Disks (Block Storage). Cold Storage tiers now feature instant-retrieval for AI training workloads.",
+      "media": [],
+      "assets": [],
+      "displayImages": {
+        "front": {
+          "url": "images/WaalBridgeIcon.png",
+          "alt": "Icon"
+        }
+      },
+      "frontBackgroundColor": "lightblue"
+    },
+    {
       "id": "902_stp",
       "type": "capability",
       "title": "Straight Through Processing (STP)",
@@ -7855,6 +8121,12 @@
       "frontBackgroundColor": "lightblue"
     },
     {
+      "id": "10065_test",
+      "title": "test",
+      "type": "generic",
+      "description": ""
+    },
+    {
       "id": "1354_test_automation_tdd",
       "type": "capability",
       "title": "Test Automation & TDD",
@@ -7919,7 +8191,7 @@
           "alt": ""
         },
         "front": {
-          "url": "images/WaalBridgeIcon.png",
+          "url": "images/BookTheartofassm.png",
           "alt": "Cyber Icon"
         },
         "thumbnail": {
@@ -7946,7 +8218,7 @@
           "alt": ""
         },
         "front": {
-          "url": "images/WaalBridgeIcon.png",
+          "url": "images/BookTheartelectronics.png",
           "alt": "Cyber Icon"
         },
         "thumbnail": {
@@ -7972,7 +8244,7 @@
           "alt": ""
         },
         "front": {
-          "url": "images/WaalBridgeIcon.png",
+          "url": "images/Atmosphere.png",
           "alt": "Cyber Icon"
         },
         "thumbnail": {
@@ -8051,7 +8323,7 @@
           "alt": ""
         },
         "front": {
-          "url": "images/WaalBridgeIcon.png",
+          "url": "images/branches.png",
           "alt": "Cyber Icon"
         },
         "thumbnail": {
@@ -8104,7 +8376,7 @@
           "alt": ""
         },
         "front": {
-          "url": "images/WaalBridgeIcon.png",
+          "url": "images/fruit.png",
           "alt": "Cyber Icon"
         },
         "thumbnail": {
@@ -8158,7 +8430,7 @@
           "alt": ""
         },
         "front": {
-          "url": "images/WaalBridgeIcon.png",
+          "url": "images/Bookthepracticeofprog.png",
           "alt": "Cyber Icon"
         },
         "thumbnail": {
@@ -8211,7 +8483,7 @@
           "alt": ""
         },
         "front": {
-          "url": "images/WaalBridgeIcon.png",
+          "url": "images/Soil.png",
           "alt": "Cyber Icon"
         },
         "thumbnail": {
@@ -8237,7 +8509,7 @@
           "alt": ""
         },
         "front": {
-          "url": "images/WaalBridgeIcon.png",
+          "url": "images/Root.png",
           "alt": "Cyber Icon"
         },
         "thumbnail": {
@@ -8290,7 +8562,7 @@
           "alt": ""
         },
         "front": {
-          "url": "images/WaalBridgeIcon.png",
+          "url": "images/trunk.png",
           "alt": "Cyber Icon"
         },
         "thumbnail": {
@@ -8582,7 +8854,7 @@
           "alt": ""
         },
         "front": {
-          "url": "images/WaalBridgeIcon.png",
+          "url": "images/BookUnixCompleteRef.png",
           "alt": "Cyber Icon"
         },
         "thumbnail": {
@@ -8627,32 +8899,6 @@
       "type": "capability",
       "title": "User & Group Management",
       "description": "Managing Windows user accounts, groups, and permissions to enforce access control and least-privilege principles.",
-      "displayImages": {
-        "background": {
-          "url": "",
-          "alt": ""
-        },
-        "front": {
-          "url": "images/WaalBridgeIcon.png",
-          "alt": "Cyber Icon"
-        },
-        "thumbnail": {
-          "url": "",
-          "alt": ""
-        },
-        "diagram": {
-          "url": "",
-          "alt": ""
-        }
-      },
-      "assets": [],
-      "frontBackgroundColor": "lightblue"
-    },
-    {
-      "id": "1326_user_auth_management",
-      "type": "capability",
-      "title": "User Authentication & Management",
-      "description": "Managing user accounts and permissions, including secure use of elevated privileges.",
       "displayImages": {
         "background": {
           "url": "",

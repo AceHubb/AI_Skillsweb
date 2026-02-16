@@ -1,6 +1,6 @@
 @echo off
 echo Starting Card Manager Server...
 echo Opening in browser...
-start http://localhost:8002/card_manager.html
+start http://localhost:8002/Nuts_and_bolts.html
 python server.py
 pause
