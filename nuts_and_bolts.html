@@ -5,13 +5,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nuts & Bolts Card Prototype</title>
+
+  <!-- Waal Bridge Resources -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <!-- Tailwind/Custom Vars (Note: style.css defines vars in :root) -->
+  <link href="./css/style.css" rel="stylesheet">
+
   <style>
+    :root {
+      /* Re-declare key vars if style.css doesn't load or for specificity within this file's scope if needed */
+      --font-sans: 'Inter', sans-serif;
+      --color-brand-midnight: #020617;
+      --color-brand-dark: #0f172a;
+      --color-brand-light: #f8fafc;
+      --color-brand-accent-1: #38bdf8;
+      /* Blue */
+      --color-brand-accent-2: #2dd4bf;
+      /* Teal */
+      --color-brand-accent-3: #a855f7;
+      /* Purple */
+    }
+
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #2c3e50;
+      font-family: var(--font-sans);
+      background-color: var(--color-brand-midnight);
+      background-image: url('./WaalbridgeBackdrop.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
       margin: 0;
       overflow-x: hidden;
-      color: #333;
+      color: var(--color-brand-light);
     }
 
     /* Sidebar Layout */
@@ -21,14 +48,19 @@
       left: 0;
       bottom: 0;
       width: 300px;
-      background: #2c3e50;
-      border-right: 1px solid #34495e;
+
+      /* Glass Panel Effect Waal Bridge Style */
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+
       overflow-y: auto;
       padding: 20px 0;
       box-sizing: border-box;
       z-index: 100;
-      color: #ecf0f1;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--color-brand-light);
+      font-family: 'Inter', sans-serif;
     }
 
     #pathSidebar h3 {
@@ -37,22 +69,41 @@
       margin-bottom: 20px;
       font-size: 1.2rem;
       text-transform: uppercase;
-      border-bottom: 1px solid #34495e;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       padding-bottom: 15px;
+
+      /* Text Gradient Accent */
+      background: linear-gradient(135deg, var(--color-brand-accent-1) 0%, var(--color-brand-accent-3) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: var(--color-brand-accent-1);
+      /* Fallback */
     }
 
     .sidebar-item {
       padding: 8px 20px;
       font-size: 0.95rem;
-      color: #bdc3c7;
-      transition: color 0.2s;
+      color: #94a3b8;
+      /* Slate-400 equivalent */
+      transition: all 0.2s;
       position: relative;
       cursor: default;
+      border-left: 2px solid transparent;
     }
 
     .sidebar-item.current-node {
-      font-weight: bold;
-      color: #f1c40f;
+      font-weight: 600;
+      color: var(--color-brand-accent-2);
+      /* Teal */
+      background: rgba(45, 212, 191, 0.1);
+      border-left: 2px solid var(--color-brand-accent-2);
+    }
+
+    .sidebar-item:hover {
+      color: var(--color-brand-light);
       background: rgba(255, 255, 255, 0.05);
     }
 
@@ -61,7 +112,7 @@
       left: 10px;
       top: 0;
       bottom: 0;
-      border-left: 1px dashed #7f8c8d;
+      border-left: 1px dashed rgba(255, 255, 255, 0.2);
     }
 
     .modal {
@@ -76,10 +127,13 @@
     }
 
     h2 {
-      color: #ecf0f1;
+      color: var(--color-brand-light);
       margin-bottom: 30px;
       text-transform: uppercase;
       letter-spacing: 2px;
+      font-weight: 800;
+      text-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+      /* Blue Glow */
     }
 
     /* Grid Layout */
@@ -91,7 +145,8 @@
       max-width: 1800px;
       transition: opacity 0.3s;
       justify-items: center;
-      /* Center items within grid cells */
+      padding-bottom: 100px;
+      /* Space for scroll */
     }
 
     /* Stack Container - The "Pile" */
@@ -106,7 +161,6 @@
     }
 
     /* The "fake" cards below the top card */
-    /* The "fake" cards below the top card */
     .stack.piled::before,
     .stack.piled::after {
       content: "";
@@ -115,10 +169,14 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: #fafafa;
+
+      /* Dark Cards */
+      background: #1e293b;
+      /* Slate-800 */
       border-radius: 12px;
-      border: 1px solid #ddd;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+
       z-index: -1;
       transition: transform 0.3s;
     }
@@ -136,6 +194,8 @@
     /* Hover effect: slightly spread the stack */
     .stack.piled:hover::before {
       transform: translate(4px, 4px) rotate(4deg);
+      border-color: rgba(56, 189, 248, 0.3);
+      /* Blue Accent */
     }
 
     .stack.piled:hover::after {
@@ -193,17 +253,24 @@
       justify-content: center;
       padding: 15px;
       box-sizing: border-box;
-      background: white;
-      border: 1px solid #ccc;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-      /* Soft shadow */
+
+      /* Glassmorphism Base */
+      background: rgba(30, 41, 59, 0.7);
+      /* Dark Glass */
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     }
 
     /* Playing Card "Face" Pattern (Simplified) */
     .card .front {
-      /* Clean white per user request for Most-Wanted style (utilitarian look) */
-      background: white;
+      /* Front Specifics */
+      background: rgba(15, 23, 42, 0.85);
+      /* Slightly darker/more opaque for readability */
       padding: 24px;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      /* Subtle Blue Border */
     }
 
     /* Corners for Rank/Suit */
@@ -216,6 +283,8 @@
       font-weight: bold;
       font-size: 1.2rem;
       padding: 8px;
+      color: var(--color-brand-light);
+      /* Default color */
     }
 
     .top-left {
@@ -234,31 +303,39 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 0 40px;
-      /* Space for corners */
+      padding: 0 10px;
+      /* Reduced side padding */
+      width: 100%;
     }
 
     .card-title {
       font-family: 'Courier New', Courier, monospace;
-      /* Utilitarian/Typewriter feel */
-      text-transform: uppercase;
+      /* Kept for "Nuts & Bolts" label feel */
       font-weight: 900;
       letter-spacing: 1px;
-      font-size: 0.75rem;
-      /* Reduced for 140px width */
+      font-size: 0.85rem;
+      color: var(--color-brand-accent-1);
+      /* Blue for titles */
+      text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+      margin-top: 10px;
     }
 
     .card .back {
       transform: rotateY(180deg);
-      background: #f1c40f;
-      /* Yellow background */
-      color: #333;
+
+      /* Back Specifics - Waal Bridge Dark Glass */
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      /* Purple Border for back */
+      box-shadow: 0 0 15px rgba(168, 85, 247, 0.15);
+      /* Purple Glow */
+
+      color: var(--color-brand-light);
       justify-content: space-between;
-      /* Space out elements */
       padding: 20px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
     }
 
+    /* New Back Styles - FlipCardApp Design */
     /* New Back Styles - FlipCardApp Design */
     /* Sizes are reduced to compensate for 2.6x scale when focused */
     .card-description-input {
@@ -266,16 +343,24 @@
       text-align: left;
       flex-grow: 1;
       width: 100%;
-      padding: 4px;
-      border: 1px solid #333;
-      border-radius: 2px;
-      background-color: rgba(255, 255, 255, 0.9);
-      color: #333;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+
+      /* Dark Input Style */
+      background-color: rgba(0, 0, 0, 0.3);
+      color: var(--color-brand-light);
+      font-family: 'Inter', sans-serif;
+
       resize: none;
       min-height: 50px;
       box-sizing: border-box;
       margin-top: 4px;
+      outline: none;
+    }
+
+    .card-description-input:focus {
+      border-color: var(--color-brand-accent-1);
     }
 
     .checkbox-container {
@@ -292,16 +377,16 @@
       cursor: pointer;
       font-size: 0.5rem;
       font-weight: 500;
+      color: #94a3b8;
+      /* Slate-400 */
     }
 
     .checkbox-label input[type="checkbox"] {
       width: 8px;
       height: 8px;
       cursor: pointer;
-    }
-
-    .checkbox-label span {
-      user-select: none;
+      accent-color: var(--color-brand-accent-2);
+      /* Teal Checkbox */
     }
 
     /* Buttons - Sizes reduced to compensate for 2.6x scale */
@@ -309,24 +394,36 @@
       padding: 4px 12px;
       border: none;
       border-radius: 3px;
-      background: #3498db;
-      color: white;
-      font-weight: 600;
+
+      /* Gradient Button */
+      background: linear-gradient(90deg, var(--color-brand-accent-1), var(--color-brand-accent-2));
+      color: var(--color-brand-midnight);
+
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
       cursor: pointer;
-      transition: background 0.2s;
+      transition: all 0.2s;
       font-size: 0.5rem;
       margin-top: 2px;
       align-self: center;
+      box-shadow: 0 2px 5px rgba(56, 189, 248, 0.3);
     }
 
     .explore-btn:hover {
-      background: #2980b9;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(56, 189, 248, 0.5);
+      filter: brightness(1.1);
     }
 
     .explore-btn:disabled {
-      background-color: #95a5a6;
+      background: #475569;
+      /* Slate-600 */
+      color: #94a3b8;
       cursor: not-allowed;
       opacity: 0.6;
+      box-shadow: none;
+      transform: none;
     }
 
     /* Back Button */
@@ -344,26 +441,43 @@
       /* Space between buttons and cards */
     }
 
-
-
     .back-button {
       display: none;
       /* Toggled via JS */
-      padding: 10px 20px;
-      background-color: #3498db;
-      color: white;
+      padding: 10px 24px;
+
+      /* Waal Bridge Gradient */
+      background: linear-gradient(90deg, var(--color-brand-accent-1), var(--color-brand-accent-2));
+      color: var(--color-brand-midnight);
+
       border: none;
-      border-radius: 5px;
+      border-radius: 9999px;
+      /* Pill shape */
       cursor: pointer;
-      font-size: 1rem;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
       pointer-events: auto;
       /* Re-enable clicks on buttons */
-      transition: background-color 0.2s, transform 0.2s;
+      transition: all 0.3s;
     }
 
     .back-button:hover {
-      background: #c0392b;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
+      filter: brightness(1.1);
+    }
+
+    #upLevelBtn {
+      background: linear-gradient(90deg, var(--color-brand-accent-3), #d946ef);
+      /* Purple to Pink */
+      box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
+    }
+
+    #upLevelBtn:hover {
+      box-shadow: 0 6px 20px rgba(168, 85, 247, 0.5);
     }
 
     /* Popup */
@@ -374,33 +488,44 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.85);
+      background: rgba(2, 6, 23, 0.95);
+      /* Midnight almost opaque */
       z-index: 3000 !important;
       align-items: center;
       justify-content: center;
       flex-direction: column;
+      backdrop-filter: blur(5px);
     }
 
     .diagram-popup img {
       max-width: 90%;
       max-height: 80vh;
       border-radius: 8px;
-      box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 0 50px rgba(56, 189, 248, 0.3);
+      /* Blue Glow */
+      border: 1px solid rgba(56, 189, 248, 0.2);
     }
 
     .close-btn {
-      color: white;
-      font-size: 2rem;
+      color: var(--color-brand-light);
+      font-size: 3rem;
       position: absolute;
       top: 30px;
       right: 40px;
       cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .close-btn:hover {
+      color: var(--color-brand-accent-3);
+      /* Purple hover */
     }
 
     .caption {
-      color: white;
+      color: var(--color-brand-light);
       margin-top: 20px;
       font-size: 1.2rem;
+      font-weight: 300;
     }
 
     /* Pagination */
@@ -414,21 +539,25 @@
 
     .page-btn {
       padding: 10px 15px;
-      background: #34495e;
-      color: #ecf0f1;
-      border: none;
+      background: rgba(30, 41, 59, 0.5);
+      color: #94a3b8;
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 5px;
       cursor: pointer;
-      font-weight: bold;
-      transition: background 0.2s;
+      font-weight: 600;
+      transition: all 0.2s;
     }
 
     .page-btn.active {
-      background: #3498db;
+      background: var(--color-brand-accent-1);
+      color: var(--color-brand-midnight);
+      border-color: var(--color-brand-accent-1);
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
     }
 
     .page-btn:hover:not(.active) {
-      background: #2c3e50;
+      background: rgba(56, 189, 248, 0.2);
+      color: white;
     }
 
     .child-indicator {
@@ -437,11 +566,11 @@
       left: 15px;
       width: 12px;
       height: 12px;
-      background-color: #2E8B57;
-      /* Waal Bridge Green */
+      background-color: var(--color-brand-accent-2);
+      /* Teal */
       border-radius: 50%;
       z-index: 10;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 8px rgba(45, 212, 191, 0.6);
       border: 1px solid white;
     }
 
@@ -451,36 +580,36 @@
       right: 10px;
       width: 30px;
       height: 30px;
-      background-color: rgba(255, 255, 255, 0.8);
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 50%;
       display: flex;
-      /* Flexbox for centering */
       justify-content: center;
       align-items: center;
       cursor: pointer;
-      /* z-index: 20; removed high z-index to check layering */
-      font-size: 20px;
-      color: #333;
+      font-size: 18px;
+      color: var(--color-brand-light);
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
       user-select: none;
       display: none;
-      /* Hidden by default */
+      transition: all 0.2s;
     }
 
     /* Ensure flip button on back is visible */
     .card .back .flip-button {
       display: flex;
-      background-color: rgba(255, 255, 255, 0.9);
+      background-color: rgba(255, 255, 255, 0.1);
     }
 
     .stack.focused .flip-button {
       display: flex;
-      /* Shown when focused */
     }
 
     .flip-button:hover {
-      background-color: #fff;
+      background-color: var(--color-brand-accent-1);
+      color: var(--color-brand-midnight);
       transform: scale(1.1);
+      border-color: var(--color-brand-accent-1);
     }
   </style>
 
@@ -489,8 +618,20 @@
 <body>
 
   <div id="pathSidebar">
-    <h3>Navigation</h3>
-    <div id="sidebarContent"></div>
+    <!-- Back Navigation -->
+    <a href="index.html"
+      class="block px-5 py-4 mb-4 border-b border-white/10 text-brand-accent-1 hover:text-white hover:bg-white/5 transition-all group no-underline">
+      <div class="flex items-center gap-2">
+        <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        <span class="font-bold text-sm tracking-wide uppercase">Back to Portfolio</span>
+      </div>
+    </a>
+
+    <h3>Current Path</h3>
+    <div id="pathList"></div>
   </div>
 
   <div class="modal">
@@ -609,6 +750,8 @@
       // Determine media availability
       let hasPdf = false;
       let hasGraphic = false;
+      let hasWeb = false;
+      let hasVideo = false;
 
       if (card.media && Array.isArray(card.media)) {
         hasPdf = card.media.some(file => file.toLowerCase().endsWith('.pdf'));
@@ -618,8 +761,16 @@
         });
       }
 
+      // Check for new fields
+      if (card.web && card.web.trim().length > 0) {
+        hasWeb = true;
+      }
+      if (card.video && card.video.trim().length > 0) {
+        hasVideo = true;
+      }
+
       // Auto-enable view button if content exists
-      const viewDisabled = (!hasPdf && !hasGraphic) ? 'disabled' : '';
+      const viewDisabled = (!hasPdf && !hasGraphic && !hasWeb && !hasVideo) ? 'disabled' : '';
 
       el.innerHTML = `
         <div class="card">
@@ -653,6 +804,14 @@
                         <input type="checkbox" class="graphic-checkbox" name="graphic" ${hasGraphic ? 'checked' : ''} disabled>
                         <span>Graphic</span>
                     </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="web-checkbox" name="web" ${hasWeb ? 'checked' : ''} disabled>
+                        <span>Web</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="video-checkbox" name="video" ${hasVideo ? 'checked' : ''} disabled>
+                        <span>Video</span>
+                    </label>
                 </div>
                 
                 <button class="explore-btn" ${viewDisabled}>View</button>
@@ -680,35 +839,97 @@
       exploreBtn.onclick = (e) => {
         e.stopPropagation();
 
-        // Button ONLY handles Media interactions as requested 
-        // "Currently if you click on anywhere other than the button you display the childen of the big card. Its only when you click on the button you get the image options."
+        // 1. Aggregate all media types
+        let allMedia = [];
 
-        let mediaList = [];
+        // PDF / Images from card.media
         if (card.media) {
+          let mediaList = [];
           if (Array.isArray(card.media)) {
-            // Flatten and split any comma-separated strings inside the array
             mediaList = card.media.flatMap(m => m.split(',').map(s => s.trim()));
           } else if (typeof card.media === 'string') {
             mediaList = card.media.split(',').map(s => s.trim());
           }
+
+          mediaList.forEach(m => {
+            let cleanPath = m.trim();
+            // Remove existing prefixes if present (for robustness during migration)
+            cleanPath = cleanPath.replace(/^(pdf|images)[\\/]/i, '');
+
+            const lower = cleanPath.toLowerCase();
+            let type = 'image';
+            let finalPath = cleanPath;
+
+            if (lower.endsWith('.pdf')) {
+              type = 'pdf';
+              finalPath = 'pdf/' + cleanPath;
+            } else {
+              // Assume image
+              finalPath = 'images/' + cleanPath;
+            }
+
+            allMedia.push({ type: type, value: finalPath, title: cleanPath });
+          });
         }
 
-        if (mediaList.length > 0) {
-          if (mediaList.length === 1) {
-            showMedia({ ...card, media: mediaList[0] });
+        // Web Link
+        if (card.web && card.web.trim().length > 0) {
+          const links = card.web.split(',');
+          links.forEach(link => {
+            const url = link.trim();
+            if (url) {
+              allMedia.push({ type: 'web', value: url, title: 'Web Link' });
+            }
+          });
+        }
+
+        // Video
+        if (card.video && card.video.trim().length > 0) {
+          const videos = card.video.split(',');
+          videos.forEach(v => {
+            // Assuming video is in 'Videos/' subdirectory if it doesn't have a path
+            let vPath = v.trim();
+
+            // Clean up path separators
+            vPath = vPath.replace(/\\/g, '/');
+            if (vPath.startsWith('/')) vPath = vPath.substring(1);
+
+            if (vPath && !vPath.includes('/')) {
+              vPath = 'Videos/' + vPath;
+            }
+            if (vPath) {
+              allMedia.push({ type: 'video', value: vPath, title: 'Video' });
+            }
+          });
+        }
+
+        // 2. Decide Action
+        if (allMedia.length > 0) {
+          if (allMedia.length === 1) {
+            showMedia(allMedia[0]);
           } else {
-            // Pass the split list as the media property for the selection popup
-            showMediaSelection({ ...card, media: mediaList });
+            showMediaSelection(allMedia);
           }
           return;
         }
 
+        // Fallback to legacy relationship-based media (preserve existing logic)
         const mediaRels = relationships.filter(r => getSource(r) === card.id && r.type === 'show_media');
 
         if (mediaRels.length > 0) {
           const targetId = getTarget(mediaRels[0]);
           if (cards[targetId]) {
-            showMedia(cards[targetId]);
+            // For legacy, we just assume it's an image/pdf on the target card
+            // We'll wrap it in our new structure to be safe, or showMedia needs to handle raw cards too?
+            // The existing showMedia took a card. Let's make showMedia handle both for backward compat or update this.
+            // Simplest: construct a mock item
+            let mSrc = (typeof cards[targetId].media === 'string') ? cards[targetId].media : cards[targetId].card_image;
+            if (Array.isArray(cards[targetId].media)) mSrc = cards[targetId].media[0];
+
+            let type = 'image';
+            if (mSrc && mSrc.toLowerCase().endsWith('.pdf')) type = 'pdf';
+
+            showMedia({ type: type, value: mSrc, title: cards[targetId].title });
           }
         } else {
           console.log("No media to explore for this card.");
@@ -882,7 +1103,7 @@
     }
 
     function updateSidebar() {
-      const container = document.getElementById('sidebarContent');
+      const container = document.getElementById('pathList');
       if (!container) return;
       container.innerHTML = '';
 
@@ -955,18 +1176,14 @@
     }
     window.renderRoot = renderRoot;
 
-    function showMedia(mediaCard) {
-      console.log("showMedia called with:", mediaCard);
-      // Logic handled before calling, but robust check:
-      let finalSrc = (typeof mediaCard.media === 'string') ? mediaCard.media : mediaCard.card_image;
+    function showMedia(item) {
+      console.log("showMedia called with:", item);
 
-      if (mediaCard.media && typeof mediaCard.media === 'string') {
-        finalSrc = mediaCard.media;
-      } else if (Array.isArray(mediaCard.media) && mediaCard.media.length > 0) {
-        finalSrc = mediaCard.media[0];
+      // Handle Web
+      if (item.type === 'web') {
+        window.open(item.value, '_blank');
+        return;
       }
-
-      console.log("finalSrc:", finalSrc);
 
       // Detect media type
       const popupContent = document.getElementById('diagramPopup');
@@ -974,52 +1191,73 @@
       const imgEl = document.getElementById('diagramImage');
       const captionEl = document.getElementById('diagramCaption');
 
-      // Remove any existing iframe
-      const existingIframe = document.getElementById('pdfFrame');
-      if (existingIframe) existingIframe.remove();
-
-      if (finalSrc && finalSrc.toLowerCase().endsWith('.pdf')) {
-        console.log("Displaying as PDF");
+      // Helper to reset popup
+      const resetPopup = () => {
         imgEl.style.display = 'none';
+        const existingIframe = document.getElementById('pdfFrame');
+        if (existingIframe) existingIframe.remove();
+        const existingVideo = document.getElementById('videoPlayer');
+        if (existingVideo) existingVideo.remove();
+        const existingErr = document.getElementById('imgError');
+        if (existingErr) existingErr.remove();
+      };
+      resetPopup();
+
+      if (item.type === 'pdf') {
+        console.log("Displaying as PDF");
 
         const iframe = document.createElement('iframe');
         iframe.id = 'pdfFrame';
-        iframe.src = finalSrc;
+        iframe.src = item.value;
         iframe.style.width = '90%';
         iframe.style.height = '80vh';
         iframe.style.border = 'none';
         iframe.style.borderRadius = '8px';
         iframe.style.boxShadow = '0 0 50px rgba(0, 0, 0, 0.5)';
 
-        popupContent.insertBefore(iframe, captionEl); // Insert before caption
+        popupContent.insertBefore(iframe, captionEl);
+      } else if (item.type === 'video') {
+        console.log("Displaying as Video");
+
+        const video = document.createElement('video');
+        video.id = 'videoPlayer';
+        video.controls = true;
+        video.autoplay = true;
+        video.style.width = '90%';
+        video.style.maxHeight = '80vh';
+        video.style.borderRadius = '8px';
+        video.style.boxShadow = '0 0 50px rgba(0, 0, 0, 0.5)';
+
+        const source = document.createElement('source');
+        source.src = item.value;
+        source.type = 'video/mp4';
+        video.appendChild(source);
+
+        popupContent.insertBefore(video, captionEl);
       } else {
         console.log("Displaying as Image");
         imgEl.style.display = 'block';
-        imgEl.src = finalSrc || '';
+        imgEl.src = item.value || '';
         imgEl.onerror = function () {
           this.style.display = 'none';
           const errDiv = document.createElement('div');
           errDiv.id = 'imgError';
           errDiv.style.color = 'white';
           errDiv.style.textAlign = 'center';
-          errDiv.innerHTML = '<h3>Image Not Found</h3><p>' + (finalSrc || 'No source provided') + '</p>';
+          errDiv.innerHTML = '<h3>Image Not Found</h3><p>' + (item.value || 'No source provided') + '</p>';
           popupContent.insertBefore(errDiv, captionEl);
         };
-        // Reset error message if it exists from previous open
-        const existingErr = document.getElementById('imgError');
-        if (existingErr) existingErr.remove();
       }
 
-      captionEl.textContent = mediaCard.title || '';
+      captionEl.textContent = item.title || '';
       popupContent.style.display = 'flex';
-      console.log("Popup display set to flex");
     }
 
-    function showMediaSelection(card) {
+    function showMediaSelection(items) {
       const container = document.getElementById('mediaSelectionContainer');
       container.innerHTML = ''; // Clear previous
 
-      card.media.forEach(imgName => {
+      items.forEach(item => {
         const btn = document.createElement('div');
         btn.style.cssText = `
                 width: 150px; 
@@ -1035,27 +1273,26 @@
                 flex-direction: column;
             `;
 
-        // Try to show preview if it's an image, else text/icon for PDF
         let previewHtml = '';
-        if (imgName.toLowerCase().endsWith('.pdf')) {
-          previewHtml = `
-             <div style="width: 100%; height: 100px; display: flex; align-items: center; justify-content: center; background: #e74c3c; color: white; font-weight: bold; font-size: 24px;">PDF</div>
-            `;
+        if (item.type === 'pdf') {
+          previewHtml = `<div style="width: 100%; height: 100px; display: flex; align-items: center; justify-content: center; background: #e74c3c; color: white; font-weight: bold; font-size: 24px;">PDF</div>`;
+        } else if (item.type === 'video') {
+          previewHtml = `<div style="width: 100%; height: 100px; display: flex; align-items: center; justify-content: center; background: #8e44ad; color: white; font-weight: bold; font-size: 24px;">▶</div>`;
+        } else if (item.type === 'web') {
+          previewHtml = `<div style="width: 100%; height: 100px; display: flex; align-items: center; justify-content: center; background: #2980b9; color: white; font-weight: bold; font-size: 24px;">WWW</div>`;
         } else {
-          previewHtml = `<img src="${imgName}" style="width: 100%; height: 100px; object-fit: cover; margin-bottom: 5px;">`;
+          // Image
+          previewHtml = `<img src="${item.value}" style="width: 100%; height: 100px; object-fit: cover; margin-bottom: 5px;">`;
         }
-
-        // Clean Title
-        const cleanTitle = imgName.split(/[/\\]/).pop().split('.')[0].replace(/[-_]/g, ' ');
 
         btn.innerHTML = `
                 ${previewHtml}
-                <span style="color: white; font-size: 0.8rem; word-break: break-all; padding: 2px; text-transform: capitalize;">${cleanTitle}</span>
+                <span style="color: white; font-size: 0.8rem; word-break: break-all; padding: 2px; text-transform: capitalize; text-align: center;">${item.title || item.value}</span>
             `;
 
         btn.onclick = () => {
           closeMediaSelection();
-          showMedia({ ...card, media: imgName, title: `${card.title} - ${cleanTitle}` });
+          showMedia(item);
         };
 
         container.appendChild(btn);
@@ -1069,15 +1306,25 @@
     }
 
     function closeDiagram() {
+      // Pause video if playing
+      const v = document.getElementById('videoPlayer');
+      if (v) v.pause();
+
       document.getElementById('diagramPopup').style.display = 'none';
-      // Check if we need to show selection popup again? 
-      // User request: "When i close the popup containing the rendered image. I should return to the back of the card view."
-      // So we do NOT re-open the selection popup.
     }
 
     // Clean up pagination as it's not strictly compatible with the drill-down unless we re-implement it per level
     document.getElementById('pagination').style.display = 'none';
     document.getElementById('backButton').style.display = 'none'; // Replaced by breadcrumbs
+
+    // Project Video Button Logic
+    document.getElementById('projectVideoBtn').onclick = () => {
+      showMedia({
+        type: 'video',
+        value: 'Videos/Waal_Bridge__Harmonising_Tech.mp4',
+        title: 'Project Overview'
+      });
+    };
 
   </script>
 

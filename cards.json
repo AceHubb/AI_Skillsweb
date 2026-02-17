@@ -1,6 +1,26 @@
 {
   "cards": [
     {
+      "id": "10073_aaaatest_card",
+      "title": "AAAATEST_CARD",
+      "type": "stack",
+      "description": "",
+      "web": "https://www.youtube.com/watch?v=BhfTQXMtoZw",
+      "video": "The_Waal_Bridge_Test.mp4",
+      "media": [
+        "ProdTool.png",
+        "ProdTool.png",
+        "1454_monte_carlo_simulations.pdf"
+      ],
+      "frontBackgroundColor": "",
+      "displayImages": {
+        "front": {
+          "url": "",
+          "alt": "Cyber Icon"
+        }
+      }
+    },
+    {
       "id": "1101_access_control",
       "type": "capability",
       "title": "Access Control & Security",
@@ -23,7 +43,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1243_access_controls",
@@ -49,7 +71,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1343_active_directory_basics",
@@ -75,7 +99,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1290_ad_hoc_reports",
@@ -101,7 +127,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1301_advanced_applied_analytics",
@@ -130,7 +158,9 @@
       "frontBackgroundColor": "lightblue",
       "media": [
         "pdf/Advanced_Applied_Ana.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "1405_advanced_chemical_discovery",
@@ -156,7 +186,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "100_agile_methods",
@@ -184,7 +216,9 @@
       "frontBackgroundColor": "lightblue",
       "media": [
         "pdf/Software_Delivery_Me.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "10038_ai_machine_learning_the_intelligence",
@@ -199,7 +233,9 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "802_ai_doc_systems",
@@ -224,7 +260,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10017_media_ai_workflow",
@@ -252,7 +290,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1391_ai_based_workflows_applications",
@@ -278,7 +318,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "008_stack_ai_development",
@@ -308,7 +350,9 @@
         "pdf/Artificial_Intellige.pdf",
         "pdf/Vector_Databases_AI.pdf",
         "pdf/AI-Driven_Private_Do.pdf, images/BookCLanguage.png"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "1393_ai_native_applications",
@@ -338,7 +382,9 @@
       "media": [
         "pdf/AI-Driven_Private_Do.pdf",
         "pdf/Backend_Application_.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "1452_algorithms_to_live_by",
@@ -365,7 +411,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1265_analytics",
@@ -391,7 +439,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10042_analytics_the_insights",
@@ -406,7 +456,9 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "004_stack_analytics_reporting",
@@ -438,7 +490,9 @@
         "pdf/Structural_Integrity.pdf",
         "pdf/Advanced_Applied_Ana.pdf",
         "pdf/Dashboard_Architectu.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "1266_analytics_foundations",
@@ -467,7 +521,9 @@
       "frontBackgroundColor": "lightblue",
       "media": [
         "pdf/Computing_Foundation.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "1280_anomaly_detection",
@@ -493,7 +549,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1304_anomaly_detection_fraud_analytics",
@@ -519,7 +577,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10020_media_anonymized_flow",
@@ -547,7 +607,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1441_antifragile",
@@ -574,7 +636,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "tech_doc_level2_1",
@@ -599,7 +663,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10002_media_architecture_diagram",
@@ -627,7 +693,17 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
+    },
+    {
+      "id": "10070_articles",
+      "title": "Articles",
+      "type": "other",
+      "description": "Articles of interest",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1411_attack_surface_reduction",
@@ -653,7 +729,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "tech_doc_level4_1",
@@ -678,7 +756,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1000_aws",
@@ -704,7 +784,9 @@
       },
       "assets": [],
       "frontBackgroundColor": "lightblue",
-      "media": []
+      "media": [],
+      "web": "",
+      "video": ""
     },
     {
       "id": "10025_aws_ai_machine_learning_the_intelligence",
@@ -719,7 +801,9 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1471_aws_amaxon_web_services",
@@ -733,7 +817,9 @@
           "url": "images/AWSLogo.png",
           "alt": "Cyber Icon"
         }
-      }
+      },
+      "web": "",
+      "video": ""
     },
     {
       "id": "10030_aws_analytics_the_insights",
@@ -750,7 +836,9 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10031_aws_application_integration_the_glue",
@@ -765,13 +853,17 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1472_aws_career_paths",
       "title": "AWS Career Paths",
       "type": "generic",
-      "description": "Different roles using AWS\n"
+      "description": "Different roles using AWS\n",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10023_aws_compute_the_engine",
@@ -786,7 +878,9 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10026_aws_databases_the_ledger",
@@ -801,7 +895,9 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10034_aws_developer_tools_the_workbench",
@@ -816,7 +912,9 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10032_aws_key_services_sqs_queues",
@@ -831,7 +929,9 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10028_aws_key_services_vpc_isolated_network",
@@ -846,7 +946,9 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10033_aws_management_governance_the_oversight",
@@ -861,7 +963,9 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10027_aws_networking_the_nervous_system",
@@ -876,13 +980,17 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1473_aws_newworking",
       "title": "AWS Newworking",
       "type": "generic",
-      "description": ""
+      "description": "",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10029_aws_security_identity_the_guardrails",
@@ -897,7 +1005,9 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1438_aws_architect",
@@ -924,7 +1034,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10024_aws_storage_the_memory",
@@ -939,7 +1051,9 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1285_balanced_scorecard_alignment",
@@ -965,7 +1079,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1402_banking_stp_trade_reconciliation",
@@ -991,7 +1107,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1223_basel_iii",
@@ -1017,7 +1135,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1330_basic_sql_queries",
@@ -1043,7 +1163,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10014_media_before_after_architecture",
@@ -1071,13 +1193,17 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1474_begining_aws",
       "title": "Begining AWS",
       "type": "generic",
-      "description": ""
+      "description": "",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1351_bi_dashboard_development",
@@ -1103,7 +1229,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1238_board_oversight_audit_committees_risk_committees_etc",
@@ -1129,7 +1257,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1453_books_and_articles",
@@ -1156,7 +1286,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1433_ethereum_contracts",
@@ -1183,7 +1315,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "005_stack_business_analysis",
@@ -1213,13 +1347,17 @@
         "pdf/Requirements_Gatheri.pdf",
         "pdf/Strategic_KPI_Defini.pdf",
         "pdf/High-Volatility_Data.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "10035_c_language",
       "title": "C Language",
       "type": "generic",
-      "description": ""
+      "description": "",
+      "web": "",
+      "video": ""
     },
     {
       "id": "700_csharp_python",
@@ -1244,7 +1382,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1209_ccpa_cpra",
@@ -1270,7 +1410,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1364_change_management_adoption",
@@ -1296,7 +1438,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10016_media_ci_cd_pipeline",
@@ -1324,7 +1468,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1424_clean_code",
@@ -1351,7 +1497,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "010_stack_cloud_hosting",
@@ -1369,7 +1517,7 @@
           "alt": ""
         },
         "front": {
-          "url": "images/WaalBridgeIcon.png",
+          "url": "images/Hybridcloud.png",
           "alt": "Cyber Icon"
         },
         "thumbnail": {
@@ -1382,7 +1530,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1339_ms_cloud_security",
@@ -1412,7 +1562,9 @@
       "media": [
         "pdf/Azure_Cloud_Infrastr.pdf",
         "pdf/Infrastructure_as_a_.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "10019_media_cloud_architecture",
@@ -1440,7 +1592,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1343_gcp_identity_access",
@@ -1466,7 +1620,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1249_cobit",
@@ -1492,7 +1648,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1436_power_bi_transform",
@@ -1519,7 +1677,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1252_combines",
@@ -1545,7 +1705,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1245_common_frameworks",
@@ -1571,7 +1733,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "0112_compliance",
@@ -1597,7 +1761,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10036_compute_the_engine",
@@ -1612,7 +1778,9 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10011_media_control_chart",
@@ -1640,7 +1808,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10021_media_control_charts",
@@ -1668,7 +1838,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1230_corporate_organizational_governance",
@@ -1694,7 +1866,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1231_corporate_organizational_governance",
@@ -1720,7 +1894,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1236_corporate_governance_codes",
@@ -1746,7 +1922,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1229_coso",
@@ -1772,7 +1950,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1263_coso",
@@ -1798,7 +1978,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1463_cost_control",
@@ -1827,7 +2009,9 @@
       "frontBackgroundColor": "lightblue",
       "media": [
         "pdf/Cost_Control_in_High.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "101_critical_path",
@@ -1852,7 +2036,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1347_cross_system_data_integration",
@@ -1878,7 +2064,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1358_cross_team_knowledge_sharing",
@@ -1904,7 +2092,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "502_crypto_research",
@@ -1929,7 +2119,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10013_media_crypto_dashboard",
@@ -1957,7 +2149,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1302_customer_segmentation_behaviour_analysis",
@@ -1983,7 +2177,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1217_cyber_essentials_cyber_essentials_plus",
@@ -2009,7 +2205,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1310_cyber_security",
@@ -2042,7 +2240,9 @@
         "pdf/Platform_Security_Mo.pdf",
         "pdf/Microsoft_Security_E.pdf",
         "pdf/Google_Cloud_Securit.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "1246_dama_dmbok",
@@ -2068,7 +2268,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1269_dashboard_architecture",
@@ -2097,7 +2299,9 @@
       "frontBackgroundColor": "lightblue",
       "media": [
         "pdf/Dashboard_Architectu.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "1294_dashboard_architecture",
@@ -2123,7 +2327,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1295_dashboard_architecture",
@@ -2149,7 +2355,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1300_dashboard_performance_maintenance",
@@ -2175,7 +2383,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1296_dashboard_requirements_audience",
@@ -2201,7 +2411,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1293_data_accuracy_validation",
@@ -2227,7 +2439,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1387_data_analysis_visualization",
@@ -2253,7 +2467,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1241_data_classification",
@@ -2279,7 +2495,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "002_stack_data_engineering",
@@ -2309,7 +2527,9 @@
         "pdf/Database_Platform_De.pdf",
         "Database_Schema_Desi.pdf",
         "Data_Warehouse_and_D.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "1232_data_governance",
@@ -2335,7 +2555,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1349_data_governance_compliance",
@@ -2361,7 +2583,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1386_data_migration",
@@ -2387,7 +2611,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1239_data_ownership_stewardship",
@@ -2413,7 +2639,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1254_data_protection",
@@ -2439,7 +2667,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1205_data_protection_an_piracy",
@@ -2465,7 +2695,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1345_gcp_data_protection",
@@ -2491,7 +2723,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1345_data_quality_validation",
@@ -2517,7 +2751,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1240_data_quality_management",
@@ -2543,7 +2779,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1341_ms_data_security",
@@ -2569,7 +2807,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1257_data_sharing_controls",
@@ -2595,7 +2835,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "302_data_validation",
@@ -2620,7 +2862,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "206_datawarehouse_design",
@@ -2648,7 +2892,9 @@
       "frontBackgroundColor": "lightblue",
       "media": [
         "pdf/Data_Warehouse_and_D.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "1350_database_architecture_optimization",
@@ -2674,7 +2920,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "205_db_schema_design",
@@ -2699,7 +2947,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10039_databases_the_ledger",
@@ -2714,7 +2964,9 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10009_media_dataset_flow",
@@ -2742,7 +2994,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1385_datawarehouse_datamarts",
@@ -2768,7 +3022,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1247_dcam",
@@ -2794,7 +3050,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1202_delivery_methodologies",
@@ -2822,7 +3080,9 @@
       "frontBackgroundColor": "lightblue",
       "media": [
         "pdf/Delivery_Methodology.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "1271_descriptive_analytics",
@@ -2848,7 +3108,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1423_gof_design_patterns",
@@ -2875,7 +3137,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10045_developer_tools_the_workbench",
@@ -2890,7 +3154,9 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "001_stack_development_leadership",
@@ -2921,7 +3187,9 @@
         "pdf/Software_Delivery_Me.pdf",
         "pdf/Project_Management_R.pdf",
         "pdf/Technical_Authorship.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "1414_device_and_removable_media_control",
@@ -2947,7 +3215,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1272_diagnostic_analytics",
@@ -2973,7 +3243,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1398_document_management",
@@ -3002,7 +3274,9 @@
       "frontBackgroundColor": "lightblue",
       "media": [
         "pdf/Identity_Management_.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "1466_earned_value_engine_development",
@@ -3028,7 +3302,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1412_endpoint_detection_response",
@@ -3054,7 +3330,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1338_ms_endpoint_security",
@@ -3080,7 +3358,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1413_endpoint_vulnerability_management",
@@ -3106,7 +3386,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1465_engineering_project_support",
@@ -3132,7 +3414,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1248_enterprise_data_governance_frameworks",
@@ -3158,7 +3442,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1208_eprivacy_directive_pecr",
@@ -3184,7 +3470,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10004_media_er_diagram",
@@ -3212,7 +3500,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1348_etl_data_pipelines",
@@ -3238,7 +3528,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "003_stack_etl_integration",
@@ -3264,7 +3556,9 @@
       },
       "assets": [],
       "frontBackgroundColor": "lightblue",
-      "media": []
+      "media": [],
+      "web": "",
+      "video": ""
     },
     {
       "id": "1344_event_logs_security_monitoring",
@@ -3290,7 +3584,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "401_excel_ssrs",
@@ -3315,7 +3611,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1291_exception_alert_reporting",
@@ -3341,7 +3639,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1275_exploratory_data_analysis_eda",
@@ -3367,7 +3667,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1226_fda_21_cfr_part_11",
@@ -3393,7 +3695,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1218_finance_payments",
@@ -3419,7 +3723,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1360_financial_performance_optimization",
@@ -3445,7 +3751,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1279_forecasting",
@@ -3474,7 +3782,17 @@
       "frontBackgroundColor": "lightblue",
       "media": [
         "pdf/Orchestrating_Large-.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
+    },
+    {
+      "id": "10067_frontier_ai_models",
+      "title": "Frontier AI Models",
+      "type": "other",
+      "description": "Leading edge AI models",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10001_media_gantt_chart",
@@ -3502,7 +3820,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1203_gdpr",
@@ -3528,7 +3848,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1206_gdpr_eu_uk_gdpr",
@@ -3554,7 +3876,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1100_gdpr",
@@ -3582,7 +3906,9 @@
       "frontBackgroundColor": "lightblue",
       "media": [
         "pdf/GDPR_and_Data_Privac.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "1261_gdpr_compliance",
@@ -3611,7 +3937,9 @@
       "frontBackgroundColor": "lightblue",
       "media": [
         "pdf/Policy,_Compliance,_.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "1220_general_corporate_governance_risk",
@@ -3637,7 +3965,17 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
+    },
+    {
+      "id": "10069_google_gemini",
+      "title": "Google - Gemini",
+      "type": "other",
+      "description": "",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1002_monitoring_scaling",
@@ -3664,7 +4002,9 @@
       "assets": [],
       "frontBackgroundColor": "lightblue",
       "description": "Google Cloud",
-      "media": []
+      "media": [],
+      "web": "",
+      "video": ""
     },
     {
       "id": "10050_google_cloud_data_analytics_the_brain",
@@ -3679,7 +4019,9 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10056_google_cloud_developer_tools_firebase_the_workbench",
@@ -3694,7 +4036,9 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10052_google_cloud_networking_the_nervous_system",
@@ -3709,7 +4053,9 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10049_google_cloud_ai_machine_learning_the_intelligence",
@@ -3724,7 +4070,9 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10055_google_cloud_application_integration_the_glue",
@@ -3739,7 +4087,9 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10047_google_cloud_compute_the_engine",
@@ -3754,7 +4104,9 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10051_google_cloud_databases_the_ledger",
@@ -3769,7 +4121,9 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10054_google_cloud_management_operations_the_oversight",
@@ -3784,7 +4138,9 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10053_google_cloud_security_identity_the_guardrails",
@@ -3799,7 +4155,9 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1342_google_cloud_security",
@@ -3829,7 +4187,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10048_google_cloud_storage_the_memory",
@@ -3844,7 +4204,9 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "0111_governance",
@@ -3870,7 +4232,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "011_stack_governance_compliance",
@@ -3902,7 +4266,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "007_stack_greenfield_dev",
@@ -3932,7 +4298,9 @@
         "pdf/Backend_Application_.pdf",
         "pdf/GUI_Design_and_Rapid.pdf",
         "pdf/Microservices_Archit.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "701_gui_design",
@@ -3960,7 +4328,9 @@
       "frontBackgroundColor": "lightblue",
       "media": [
         "pdf/GUI_Design_and_Rapid.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "10015_media_gui_screenshot",
@@ -3988,7 +4358,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1225_gxp_gamp5",
@@ -4014,7 +4386,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1219_healthcare_life_sciences",
@@ -4040,7 +4414,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1401_healthcare_commissioning_finance",
@@ -4066,7 +4442,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1400_healthcare_systems_multiple",
@@ -4092,7 +4470,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1457_high_complexity_industrial_domains_heading",
@@ -4118,7 +4498,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1224_hipaa",
@@ -4144,7 +4526,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1337_ms_identity_access",
@@ -4170,7 +4554,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10041_identity_security_the_guardrails",
@@ -4185,7 +4571,9 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1357_implementation_leadership",
@@ -4211,7 +4599,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1461_incineration_energy_plants",
@@ -4237,7 +4627,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1446_cialdini_influence",
@@ -4264,7 +4656,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1234_information_governance_nhs_healthcare",
@@ -4290,7 +4684,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1297_information_hierarchy_layout",
@@ -4316,7 +4712,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1260_information_lifecycle_management",
@@ -4342,7 +4740,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1256_information_security",
@@ -4371,7 +4771,9 @@
       "frontBackgroundColor": "lightblue",
       "media": [
         "pdf/Platform_Security_Mo.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "1212_information_security_data_handling",
@@ -4397,7 +4799,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1344_gcp_infrastructure_security",
@@ -4426,7 +4830,9 @@
       "frontBackgroundColor": "lightblue",
       "media": [
         "pdf/Structural_Integrity.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "1467_integrated_cost_schedule_systems",
@@ -4452,7 +4858,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10043_integration_the_glue",
@@ -4467,7 +4875,9 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1299_interactivity_drill_downs",
@@ -4493,7 +4903,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "901_inventory_ops",
@@ -4521,7 +4933,9 @@
       "frontBackgroundColor": "lightblue",
       "media": [
         "pdf/Inventory_and_Operat.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "1228_iso_22301",
@@ -4547,7 +4961,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1213_iso_27001",
@@ -4573,7 +4989,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1214_iso_27701",
@@ -4599,7 +5017,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1262_iso_31000",
@@ -4625,7 +5045,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1251_iso_38500",
@@ -4651,7 +5073,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1227_iso_9001",
@@ -4677,7 +5101,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1233_it_governance",
@@ -4703,7 +5129,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1250_itil",
@@ -4729,7 +5157,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1318_kali_linux_security_tools",
@@ -4756,7 +5186,9 @@
       },
       "assets": [],
       "frontBackgroundColor": "lightblue",
-      "media": []
+      "media": [],
+      "web": "",
+      "video": ""
     },
     {
       "id": "1267_kpi_metrics_design",
@@ -4785,7 +5217,9 @@
       "frontBackgroundColor": "lightblue",
       "media": [
         "pdf/KPI_and_Metrics_Desi.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "1281_kpi_metrics_design",
@@ -4811,7 +5245,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1346_kpi_performance_reporting",
@@ -4837,7 +5273,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10010_media_kpi_dashboard",
@@ -4865,7 +5303,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "501_kpi_functional_spec",
@@ -4890,7 +5330,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1287_kpi_governance_quality",
@@ -4916,7 +5358,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1282_kpi_identification",
@@ -4942,7 +5386,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1388_kpi_dashboard_development",
@@ -4968,7 +5414,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1307_layout_visual_design",
@@ -4994,7 +5442,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1284_leading_vs_lagging_indicators",
@@ -5020,7 +5470,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "006_stack_legacy_modernisation",
@@ -5049,7 +5501,9 @@
       "media": [
         "pdf/Legacy_Codebase_Mode.pdf",
         "pdf/Orchestrating_Large-.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "1211_lgpd",
@@ -5075,13 +5529,17 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10064_linux",
       "title": "Linux",
       "type": "generic",
-      "description": ""
+      "description": "",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10058_linux_command_line_administration_automation",
@@ -5096,7 +5554,9 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10062_linux_environment_deployment_support",
@@ -5111,7 +5571,9 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10059_linux_file_systems_storage_management",
@@ -5126,7 +5588,9 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10057_linux_operating_systems_linux_administration",
@@ -5141,7 +5605,9 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10063_linux_security_environments_optional",
@@ -5156,7 +5622,9 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10061_linux_system_monitoring_troubleshooting",
@@ -5171,7 +5639,9 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10044_management_governance_the_oversight",
@@ -5186,7 +5656,9 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1244_metadata_management",
@@ -5212,7 +5684,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1283_metric_definition_calculation",
@@ -5238,7 +5712,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "702_microservices_rad",
@@ -5266,7 +5742,9 @@
       "frontBackgroundColor": "lightblue",
       "media": [
         "pdf/Microservices_Archit.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "10046_microsoft_azure",
@@ -5280,7 +5758,9 @@
           "url": "/images/Azure.png",
           "alt": "Cyber Icon"
         }
-      }
+      },
+      "web": "",
+      "video": ""
     },
     {
       "id": "1439_azure_architect",
@@ -5307,7 +5787,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1338_windows_fundamentals",
@@ -5334,7 +5816,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1336_microsoft_security_ecosystem",
@@ -5363,7 +5847,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "300_ssis_azure",
@@ -5388,7 +5874,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1384_military_computer_systems",
@@ -5414,7 +5902,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1454_monte_carlo_simulations",
@@ -5443,7 +5933,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1308_navigation_interactivity",
@@ -5469,7 +5961,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10040_networking_the_nervous_system",
@@ -5484,7 +5978,9 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1216_nist_cybersecurity_framework",
@@ -5510,7 +6006,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1392_non_ai_apps_using_ai",
@@ -5536,7 +6034,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1237_oecd_corporate_governance_principles",
@@ -5562,7 +6062,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1458_offshore_topsides_planning",
@@ -5588,7 +6090,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1253_often_includes",
@@ -5614,7 +6118,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "900_oltp",
@@ -5639,7 +6145,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1404_online_payment_collection_backend",
@@ -5665,7 +6173,17 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
+    },
+    {
+      "id": "10068_openai_chat_gpt",
+      "title": "OpenAI - Chat GPT",
+      "type": "generic",
+      "description": "other",
+      "web": "",
+      "video": ""
     },
     {
       "id": "800_openai_langchain",
@@ -5690,7 +6208,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1361_operational_efficiency",
@@ -5716,7 +6236,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1268_operational_reporting",
@@ -5745,7 +6267,9 @@
       "frontBackgroundColor": "lightblue",
       "media": [
         "pdf/Operational_Reportin.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "1288_operational_reporting",
@@ -5771,7 +6295,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1286_operational_vs_strategic_metrics",
@@ -5797,7 +6323,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "201_oracle",
@@ -5822,7 +6350,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1429_oracle_reference",
@@ -5849,7 +6379,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1428_feuerstein_plsql",
@@ -5876,7 +6408,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1221_pci_dss",
@@ -5902,7 +6436,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1306_performance_optimization_operational_analytics",
@@ -5928,7 +6464,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1210_pipeda",
@@ -5954,7 +6492,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10008_media_pipeline_diagram",
@@ -5982,7 +6522,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "203_plsql_dev",
@@ -6007,7 +6549,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10006_media_plsql_pipeline",
@@ -6035,7 +6579,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1466_planning_and_scheduling",
@@ -6064,7 +6610,9 @@
       "frontBackgroundColor": "lightblue",
       "media": [
         "pdf/Planning_and_Schedul.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "10003_media_pm_dashboard",
@@ -6092,7 +6640,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1102_policy_compliance",
@@ -6117,7 +6667,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "tech_doc_level3_2",
@@ -6142,7 +6694,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "400_powerbi_tableau_qlik",
@@ -6167,7 +6721,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1341_powershell_cli_scripting",
@@ -6193,7 +6749,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1389_predictive_advanced_analytics",
@@ -6219,7 +6777,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1273_predictive_analytics",
@@ -6245,7 +6805,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1303_predictive_analytics_forecasting",
@@ -6271,7 +6833,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1274_prescriptive_analytics",
@@ -6297,7 +6861,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10012_media_process_diagram",
@@ -6325,7 +6891,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1397_process_management",
@@ -6354,7 +6922,9 @@
       "frontBackgroundColor": "lightblue",
       "media": [
         "pdf/Project_Management_R.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "1462_procurement_planning",
@@ -6380,7 +6950,27 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
+    },
+    {
+      "id": "10066_productivity_tools",
+      "title": "Productivity Tools ",
+      "type": "other",
+      "description": "",
+      "media": [
+        "\\pdf\\AIProductivity.pdf"
+      ],
+      "frontBackgroundColor": "",
+      "displayImages": {
+        "front": {
+          "url": "\\images\\prodtool.png",
+          "alt": "Cyber Icon"
+        }
+      },
+      "web": "",
+      "video": ""
     },
     {
       "id": "012_stack_professional_practices",
@@ -6415,7 +7005,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1431_sql_server_programming",
@@ -6442,7 +7034,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1430_knight_ssis",
@@ -6469,7 +7063,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1352_programming_automation",
@@ -6495,7 +7091,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1432_jesse_liberty_csharp",
@@ -6522,7 +7120,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1464_project_controls",
@@ -6553,7 +7153,9 @@
         "pdf/Cost_Control_in_High.pdf",
         "pdf/Planning_and_Schedul.pdf",
         "pdf/1454_monte_carlo_simulations.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "1465_project_controls_software_architecture",
@@ -6579,7 +7181,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "102_pm_reporting",
@@ -6604,7 +7208,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1394_project_management_systems_oil_gas",
@@ -6630,7 +7236,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10022_media_methodology_visuals",
@@ -6658,7 +7266,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1355_project_planning_risk_management",
@@ -6684,7 +7294,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1395_project_workstream_management",
@@ -6710,7 +7322,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1469_python_crash_course",
@@ -6727,7 +7341,9 @@
           "url": "",
           "alt": "Cyber Icon"
         }
-      }
+      },
+      "web": "",
+      "video": ""
     },
     {
       "id": "1468_python",
@@ -6743,7 +7359,9 @@
           "url": "",
           "alt": "Cyber Icon"
         }
-      }
+      },
+      "web": "",
+      "video": ""
     },
     {
       "id": "1470_python_programming",
@@ -6759,7 +7377,9 @@
           "url": "",
           "alt": "Cyber Icon"
         }
-      }
+      },
+      "web": "",
+      "video": ""
     },
     {
       "id": "1434_qlikview_business",
@@ -6786,7 +7406,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "009_stack_real_world",
@@ -6815,7 +7437,9 @@
       "media": [
         "pdf/Inventory_and_Operat.pdf",
         "pdf/Straight-Through_Pro.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "1406_real_world_systems",
@@ -6841,7 +7465,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1255_records_management",
@@ -6867,7 +7493,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1258_records_retention",
@@ -6893,7 +7521,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1459_refinery_infrastructure_planning",
@@ -6919,7 +7549,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1340_registry_file_system_security",
@@ -6945,7 +7577,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1329_relational_databases",
@@ -6976,7 +7610,9 @@
         "pdf/High-Volatility_Data.pdf",
         "pdf/SQL_and_Relational_D.pdf",
         "pdf/Vector_Databases_AI.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "1292_report_automation_scheduling",
@@ -7002,7 +7638,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "500_requirements_gathering",
@@ -7030,7 +7668,9 @@
       "frontBackgroundColor": "lightblue",
       "media": [
         "pdf/Requirements_Gatheri.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "1242_retention_deletion_policies",
@@ -7056,7 +7696,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1235_risk_compliance_governance",
@@ -7082,7 +7724,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1403_robotics_systems_integration",
@@ -7108,7 +7752,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1204_sarbanes_oaxley",
@@ -7134,7 +7780,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1259_secure_disposal",
@@ -7160,7 +7808,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1278_segmentation_cohort_analysis",
@@ -7186,7 +7836,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1362_service_delivery_monitoring",
@@ -7216,7 +7868,9 @@
       "media": [
         "pdf/Software_Delivery_Me.pdf",
         "pdf/System_Monitoring,_S.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "1340_ms_siem_soc",
@@ -7242,7 +7896,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1440_google_sre",
@@ -7269,7 +7925,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1200_six_sigma_pp",
@@ -7298,7 +7956,9 @@
       "media": [
         "pdf/Process_Improvement_.pdf",
         "pdf/ReviewSixSigm.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "402_six_sigma",
@@ -7323,7 +7983,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1215_soc_2",
@@ -7349,7 +8011,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1270_something_specific_from_our_experience",
@@ -7375,7 +8039,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1222_sox",
@@ -7401,7 +8067,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "301_specialist_dataset",
@@ -7426,7 +8094,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1312_sql_databases",
@@ -7453,7 +8123,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1331_sql_data_types",
@@ -7479,7 +8151,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1332_sql_filtering_where",
@@ -7505,7 +8179,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1335_sql_joins",
@@ -7531,7 +8207,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1334_sql_logical_operators",
@@ -7557,7 +8235,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1333_sql_pattern_matching",
@@ -7583,7 +8263,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "202_sql_server",
@@ -7608,7 +8290,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1396_stakeholder_vendor_management",
@@ -7634,7 +8318,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1356_stakeholder_engagement_coordination",
@@ -7660,7 +8346,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1289_standard_reports",
@@ -7686,7 +8374,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10005_media_star_schema",
@@ -7715,7 +8405,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1276_statistical_analysis",
@@ -7744,7 +8436,9 @@
       "frontBackgroundColor": "lightblue",
       "media": [
         "pdf/Artificial_Intellige.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "10037_storage_the_memory",
@@ -7759,7 +8453,9 @@
           "alt": "Icon"
         }
       },
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "902_stp",
@@ -7787,7 +8483,9 @@
       "frontBackgroundColor": "lightblue",
       "media": [
         "pdf/Straight-Through_Pro.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "1363_strategic_insight_decision_support",
@@ -7816,7 +8514,9 @@
       "frontBackgroundColor": "lightblue",
       "media": [
         "pdf/Strategic_KPI_Defini.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "1359_structured_problem_solving",
@@ -7842,7 +8542,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "tech_doc_level3_1",
@@ -7867,7 +8569,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "tech_doc_level2_2",
@@ -7892,7 +8596,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1353_system_integration_ui_design",
@@ -7918,7 +8624,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "204_tsql_dev",
@@ -7943,7 +8651,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10007_media_tsql_pipeline",
@@ -7971,7 +8681,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1435_tableau_data",
@@ -7998,7 +8710,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "103_tech_authorship",
@@ -8023,7 +8737,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1201_doc_maintenance",
@@ -8063,7 +8779,9 @@
       "frontBackgroundColor": "lightblue",
       "media": [
         "pdf/Document_Maintenance.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "1390_technical_report_writing",
@@ -8092,7 +8810,9 @@
       "frontBackgroundColor": "lightblue",
       "media": [
         "pdf/Technical_Authorship.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "1399_tender_management",
@@ -8118,13 +8838,17 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10065_test",
       "title": "test",
       "type": "generic",
-      "description": ""
+      "description": "",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1354_test_automation_tdd",
@@ -8150,7 +8874,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1444_woods_ai_leader",
@@ -8177,7 +8903,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1418_masm_assembly",
@@ -8204,7 +8932,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1416_art_of_electronics",
@@ -8231,7 +8961,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1437_the_atmosphere_heading",
@@ -8257,7 +8989,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1319_bash_shell",
@@ -8283,7 +9017,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1449_the_black_swan",
@@ -8310,7 +9046,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1427_the_branches_heading",
@@ -8336,7 +9074,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1419_kr_c_programming",
@@ -8363,7 +9103,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1442_the_fruit_heading",
@@ -8389,7 +9131,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1445_keller_one_thing",
@@ -8416,7 +9160,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1420_practice_of_programming",
@@ -8443,7 +9189,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1448_six_sigma_way",
@@ -8470,7 +9218,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1415_the_soil_heading",
@@ -8496,7 +9246,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1417_the_taproot_heading",
@@ -8522,7 +9274,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1447_toyota_way",
@@ -8549,7 +9303,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1421_the_trunk_heading",
@@ -8575,7 +9331,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1450_thinking_in_systems",
@@ -8602,7 +9360,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1451_thinking_fast_and_slow",
@@ -8629,7 +9389,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1346_gcp_threat_detection",
@@ -8655,7 +9417,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1264_three_lines_model",
@@ -8681,7 +9445,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "10018_media_transaction_workflow",
@@ -8709,7 +9475,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1277_trend_time_series_analysis",
@@ -8735,7 +9503,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1305_trend_analysis_market_insights",
@@ -8761,7 +9531,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1207_uk_data_protection_act_2018",
@@ -8787,7 +9559,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1425_uml_distilled",
@@ -8814,7 +9588,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1460_underground_utility_networks",
@@ -8840,7 +9616,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1422_unix_reference",
@@ -8867,7 +9645,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "601_vendor_software",
@@ -8892,7 +9672,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1342_user_group_management",
@@ -8918,7 +9700,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1309_user_experience_ux",
@@ -8944,7 +9728,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1426_vb_objects_ntier",
@@ -8971,7 +9757,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "600_vb_python",
@@ -8996,7 +9784,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "801_vector_db",
@@ -9021,7 +9811,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "602_vendor_migrations",
@@ -9046,7 +9838,17 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
+    },
+    {
+      "id": "10072_video_homemade",
+      "title": "Video Homemade",
+      "type": "other",
+      "description": "",
+      "web": "",
+      "video": "videos/The_Waal_Bridge_Test.mp4"
     },
     {
       "id": "1298_visualization_selection_best_practices",
@@ -9072,7 +9874,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1443_blaise_intelligence",
@@ -9099,7 +9903,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "200_decision_database_platform",
@@ -9127,7 +9933,9 @@
       "frontBackgroundColor": "lightblue",
       "media": [
         "pdf/Database_Platform_De.pdf"
-      ]
+      ],
+      "web": "",
+      "video": ""
     },
     {
       "id": "1339_windows_os_architecture",
@@ -9153,7 +9961,9 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
     },
     {
       "id": "1347_gcp_workload_security",
@@ -9179,7 +9989,25 @@
         }
       },
       "assets": [],
-      "frontBackgroundColor": "lightblue"
+      "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
+    },
+    {
+      "id": "10071_video_interview",
+      "title": "You tube video Interview",
+      "type": "other",
+      "description": "Vieo Interview or Podcast",
+      "web": "https://www.youtube.com/watch?v=BhfTQXMtoZw",
+      "video": "",
+      "media": [],
+      "frontBackgroundColor": "",
+      "displayImages": {
+        "front": {
+          "url": "",
+          "alt": "Cyber Icon"
+        }
+      }
     }
   ]
 }

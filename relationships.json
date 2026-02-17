@@ -2313,6 +2313,48 @@
       "to": "003_stack_etl_integration",
       "type": "contains",
       "strength": "1"
+    },
+    {
+      "from": "010_stack_cloud_hosting",
+      "to": "10066_productivity_tools",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10067_frontier_ai_models",
+      "to": "10069_google_gemini",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10067_frontier_ai_models",
+      "to": "10068_openai_chat_gpt",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "010_stack_cloud_hosting",
+      "to": "10067_frontier_ai_models",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1453_books_and_articles",
+      "to": "10070_articles",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10070_articles",
+      "to": "10071_video_interview",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10070_articles",
+      "to": "10072_video_homemade",
+      "type": "contains",
+      "strength": "1"
     }
   ]
 }

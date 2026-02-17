@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Waal Bridge | Strategic Orchestration</title>
     <link href="./css/style.css" rel="stylesheet">
+    <link href="./css/cards.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
@@ -37,6 +38,7 @@
 <body class="bg-brand-midnight text-brand-light font-sans mesh-bg-vibrant" x-data="{ 
     showAbout: false,
     showNutsBolts: false,
+    showProjectVideo: false,
     skills: {
         technical: [
             { name: 'Python', info: 'Automation, Data Analysis, Backend' },
@@ -181,6 +183,8 @@
                         </template>
                     </div>
 
+
+
                     <h1 class="text-5xl lg:text-7xl font-extrabold tracking-tight mb-6 text-white leading-tight">
                         Bridging <br>
                         <span class="text-gradient-accent text-glow">Technology</span> and <br>
@@ -192,6 +196,11 @@
                         <p>
                             Orchestrating complex infrastructure and strategic outcomes by building the vital link
                             between technical excellence and commercial reality.
+                            <button @click="showProjectVideo = true"
+                                class="inline-block align-middle ml-2 px-3 py-1 text-[10px] font-bold tracking-widest text-white border-transparent rounded-full hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl"
+                                style="background: linear-gradient(135deg, #a855f7 0%, #d946ef 100%); box-shadow: 0 2px 10px rgba(168, 85, 247, 0.3);">
+                                View cutting edge overview ▷
+                            </button>
                         </p>
                     </div>
 
@@ -434,80 +443,170 @@
         </div>
         <div class="container mx-auto px-6 relative z-10">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4 text-white">Delivering Results for Organisations</h2>
+                <h2 class="text-3xl font-bold mb-4 text-white">Services & Delivery</h2>
                 <div class="w-24 h-1 bg-brand-accent-1 mx-auto rounded-full shadow-[0_0_10px_rgba(56,189,248,0.5)]">
                 </div>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Card 1 -->
-                <div class="glass-panel p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300">
-                    <div
-                        class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center mb-6 text-brand-accent-1 border border-brand-accent-1/20">
-                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
+                <div class="stack-card piled group">
+                    <div class="wb-card">
+                        <div class="front">
+                            <div class="wb-flip-btn"
+                                onclick="event.stopPropagation(); this.closest('.wb-card').classList.toggle('flip')">⟳
+                            </div>
+                            <div class="wb-corner wb-top-left"><img src="./boltandnut.png" class="wb-suit-icon"></div>
+
+                            <div
+                                class="w-16 h-16 bg-blue-500/10 rounded-xl flex items-center justify-center mb-4 text-brand-accent-1 border border-brand-accent-1/20">
+                                <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                            </div>
+                            <h3 class="wb-card-title text-xl">High-Impact Problem Solving</h3>
+
+                            <div class="wb-corner wb-bottom-right"><img src="./boltandnut.png" class="wb-suit-icon">
+                            </div>
+                        </div>
+                        <div class="back">
+                            <div class="wb-flip-btn"
+                                onclick="event.stopPropagation(); this.closest('.wb-card').classList.toggle('flip')">⟳
+                            </div>
+                            <h3 class="wb-card-title text-sm mb-4">High-Impact Problem Solving</h3>
+                            <p class="wb-card-desc">Quickly assess and resolve complex technical or process challenges,
+                                ensuring business continuity and efficiency.</p>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">High-Impact Problem Solving</h3>
-                    <p class="text-gray-400 leading-relaxed">Quickly assess and resolve complex technical or process
-                        challenges, ensuring business continuity and efficiency.</p>
                 </div>
 
                 <!-- Card 2 -->
-                <div class="glass-panel p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300">
-                    <div
-                        class="w-12 h-12 bg-indigo-500/10 rounded-xl flex items-center justify-center mb-6 text-brand-accent-3 border border-brand-accent-3/20">
-                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                        </svg>
+                <div class="stack-card piled group">
+                    <div class="wb-card">
+                        <div class="front">
+                            <div class="wb-flip-btn"
+                                onclick="event.stopPropagation(); this.closest('.wb-card').classList.toggle('flip')">⟳
+                            </div>
+                            <div class="wb-corner wb-top-left"><img src="./boltandnut.png" class="wb-suit-icon"></div>
+
+                            <div
+                                class="w-16 h-16 bg-indigo-500/10 rounded-xl flex items-center justify-center mb-4 text-brand-accent-3 border border-brand-accent-3/20">
+                                <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                </svg>
+                            </div>
+                            <h3 class="wb-card-title text-xl">Software & System Modernization</h3>
+
+                            <div class="wb-corner wb-bottom-right"><img src="./boltandnut.png" class="wb-suit-icon">
+                            </div>
+                        </div>
+                        <div class="back">
+                            <div class="wb-flip-btn"
+                                onclick="event.stopPropagation(); this.closest('.wb-card').classList.toggle('flip')">⟳
+                            </div>
+                            <h3 class="wb-card-title text-sm mb-4">Software & System Modernization</h3>
+                            <p class="wb-card-desc">Upgrade or integrate legacy systems, streamline workflows, and
+                                implement maintainable solutions.</p>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Software & System Modernization</h3>
-                    <p class="text-gray-400 leading-relaxed">Upgrade or integrate legacy systems, streamline workflows,
-                        and implement maintainable solutions.</p>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="glass-panel p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300">
-                    <div
-                        class="w-12 h-12 bg-cyan-500/10 rounded-xl flex items-center justify-center mb-6 text-cyan-400 border border-cyan-400/20">
-                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                        </svg>
+                <div class="stack-card piled group">
+                    <div class="wb-card">
+                        <div class="front">
+                            <div class="wb-flip-btn"
+                                onclick="event.stopPropagation(); this.closest('.wb-card').classList.toggle('flip')">⟳
+                            </div>
+                            <div class="wb-corner wb-top-left"><img src="./boltandnut.png" class="wb-suit-icon"></div>
+
+                            <div
+                                class="w-16 h-16 bg-cyan-500/10 rounded-xl flex items-center justify-center mb-4 text-cyan-400 border border-cyan-400/20">
+                                <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                </svg>
+                            </div>
+                            <h3 class="wb-card-title text-xl">Data Analysis & Process Improvement</h3>
+
+                            <div class="wb-corner wb-bottom-right"><img src="./boltandnut.png" class="wb-suit-icon">
+                            </div>
+                        </div>
+                        <div class="back">
+                            <div class="wb-flip-btn"
+                                onclick="event.stopPropagation(); this.closest('.wb-card').classList.toggle('flip')">⟳
+                            </div>
+                            <h3 class="wb-card-title text-sm mb-4">Data Analysis & Process Improvement</h3>
+                            <p class="wb-card-desc">Transform data into actionable insights, optimize processes, and
+                                enhance decision-making.</p>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Data Analysis & Process Improvement</h3>
-                    <p class="text-gray-400 leading-relaxed">Transform data into actionable insights, optimize
-                        processes, and enhance decision-making.</p>
                 </div>
 
                 <!-- Card 4 -->
-                <div class="glass-panel p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300">
-                    <div
-                        class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center mb-6 text-brand-accent-3 border border-brand-accent-3/20">
-                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                        </svg>
+                <div class="stack-card piled group">
+                    <div class="wb-card">
+                        <div class="front">
+                            <div class="wb-flip-btn"
+                                onclick="event.stopPropagation(); this.closest('.wb-card').classList.toggle('flip')">⟳
+                            </div>
+                            <div class="wb-corner wb-top-left"><img src="./boltandnut.png" class="wb-suit-icon"></div>
+
+                            <div
+                                class="w-16 h-16 bg-purple-500/10 rounded-xl flex items-center justify-center mb-4 text-brand-accent-3 border border-brand-accent-3/20">
+                                <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                                </svg>
+                            </div>
+                            <h3 class="wb-card-title text-xl">Cross-Industry Expertise</h3>
+
+                            <div class="wb-corner wb-bottom-right"><img src="./boltandnut.png" class="wb-suit-icon">
+                            </div>
+                        </div>
+                        <div class="back">
+                            <div class="wb-flip-btn"
+                                onclick="event.stopPropagation(); this.closest('.wb-card').classList.toggle('flip')">⟳
+                            </div>
+                            <h3 class="wb-card-title text-sm mb-4">Cross-Industry Expertise</h3>
+                            <p class="wb-card-desc">Deliver projects across finance, healthcare, pharma, and technology,
+                                often spanning multiple sectors simultaneously.</p>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Cross-Industry Expertise</h3>
-                    <p class="text-gray-400 leading-relaxed">Deliver projects across finance, healthcare, pharma, and
-                        technology, often spanning multiple sectors simultaneously.</p>
                 </div>
 
                 <!-- Card 5 -->
-                <div class="glass-panel p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300">
-                    <div
-                        class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center mb-6 text-brand-accent-2 border border-brand-accent-2/20">
-                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                        </svg>
+                <div class="stack-card piled group">
+                    <div class="wb-card">
+                        <div class="front">
+                            <div class="wb-flip-btn"
+                                onclick="event.stopPropagation(); this.closest('.wb-card').classList.toggle('flip')">⟳
+                            </div>
+                            <div class="wb-corner wb-top-left"><img src="./boltandnut.png" class="wb-suit-icon"></div>
+
+                            <div
+                                class="w-16 h-16 bg-emerald-500/10 rounded-xl flex items-center justify-center mb-4 text-brand-accent-2 border border-brand-accent-2/20">
+                                <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                </svg>
+                            </div>
+                            <h3 class="wb-card-title text-xl">Collaborative & Inclusive Approach</h3>
+
+                            <div class="wb-corner wb-bottom-right"><img src="./boltandnut.png" class="wb-suit-icon">
+                            </div>
+                        </div>
+                        <div class="back">
+                            <div class="wb-flip-btn"
+                                onclick="event.stopPropagation(); this.closest('.wb-card').classList.toggle('flip')">⟳
+                            </div>
+                            <h3 class="wb-card-title text-sm mb-4">Collaborative & Inclusive Approach</h3>
+                            <p class="wb-card-desc">Work seamlessly with teams at all levels, from diverse backgrounds,
+                                ensuring alignment and effective knowledge transfer.</p>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Collaborative & Inclusive Approach</h3>
-                    <p class="text-gray-400 leading-relaxed">Work seamlessly with teams at all levels, from diverse
-                        backgrounds, ensuring alignment and effective knowledge transfer.</p>
                 </div>
             </div>
         </div>
@@ -521,7 +620,7 @@
         </div>
         <div class="container mx-auto px-6 relative z-10">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4 text-white">Core Competencies</h2>
+                <h2 class="text-3xl font-bold mb-4 text-white">Technical Expertise</h2>
                 <div class="w-24 h-1 bg-brand-accent-2 mx-auto rounded-full shadow-[0_0_10px_rgba(45,212,191,0.5)]">
                 </div>
             </div>
@@ -596,7 +695,7 @@
                     </ul>
                     <div class="mt-8 pt-4 border-t border-white/10">
                         <button @click="openVisualization('./Bus_ana.json')"
-                            class="w-full py-3 bg-brand-dark text-white rounded-xl font-bold shadow-lg hover:bg-brand-accent-1 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
+                            class="w-full py-3 btn-primary flex items-center justify-center gap-2">
                             <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -622,7 +721,7 @@
                     </ul>
                     <div class="mt-8 pt-4 border-t border-white/10">
                         <button @click="openVisualization('./skill_collab.json')"
-                            class="w-full py-3 bg-brand-dark text-white rounded-xl font-bold shadow-lg hover:bg-brand-accent-1 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
+                            class="w-full py-3 btn-primary flex items-center justify-center gap-2">
                             <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -736,67 +835,63 @@
         <div class="container mx-auto px-6 relative z-10">
             <!-- Header -->
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4 text-white">Technical Arsenal</h2>
+                <h2 class="text-3xl font-bold mb-4 text-white">Nuts and Bolts</h2>
                 <div class="w-24 h-1 bg-brand-accent-3 mx-auto rounded-full shadow-[0_0_15px_rgba(244,63,94,0.8)]">
                 </div>
             </div>
 
             <!-- Content Grid -->
-            <div class="grid lg:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
 
-                <!-- Text Column -->
-                <div class="order-2 lg:order-1 text-left space-y-6">
-                    <h3 class="text-2xl font-bold text-white">
-                        Under the Hood
-                    </h3>
-                    <p class="text-gray-300 leading-relaxed text-lg">
-                        Dive deep into the specific tools, languages, and frameworks that power my solutions.
-                    </p>
-                    <p class="text-gray-400 leading-relaxed">
-                        This interactive explorer allows you to drill down from high-level domains (like <span
-                            class="text-brand-accent-1">Data Analysis</span> or <span
-                            class="text-brand-accent-2">Automation</span>) into the specific libraries and techniques I
-                        employ to deliver results.
-                    </p>
+                <!-- Text Column (Left Side, Glass Panel) -->
+                <div
+                    class="lg:col-span-8 glass-panel p-10 rounded-3xl border border-white/10 relative overflow-hidden group hover:border-brand-accent-3/30 transition-all duration-500">
 
-                    <div class="pt-4">
-                        <button @click="showNutsBolts = true"
-                            class="px-8 py-3 bg-brand-accent-3 text-white rounded-xl font-bold shadow-lg hover:bg-rose-600 hover:-translate-y-1 transition-all duration-300 flex items-center gap-2">
-                            <span>Explore Tech Stack</span>
-                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
-                        </button>
+                    <!-- Decorative Background Gradient -->
+                    <div
+                        class="absolute top-0 right-0 w-64 h-64 bg-brand-accent-3/5 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none">
+                    </div>
+
+                    <div class="relative z-10 space-y-6 text-left">
+                        <div class="flex items-center gap-4 mb-2">
+                            <div class="p-3 bg-brand-accent-3/10 rounded-xl text-brand-accent-3">
+                                <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">Under the Hood</h3>
+                        </div>
+
+                        <p class="text-gray-300 leading-relaxed text-lg max-w-2xl">
+                            Dive deep into the specific tools, languages, and frameworks that power my solutions.
+                        </p>
+                        <p class="text-gray-400 leading-relaxed max-w-2xl">
+                            This interactive explorer allows you to drill down from high-level domains (like <span
+                                class="text-brand-accent-1">Data Analysis</span> or <span
+                                class="text-brand-accent-2">Automation</span>) into the specific libraries and
+                            techniques I
+                            employ to deliver results.
+                        </p>
+
+                        <div class="pt-6">
+                            <a href="nuts_and_bolts.html" target="_blank"
+                                class="inline-flex px-8 py-3 bg-brand-accent-3 text-white rounded-xl font-bold shadow-lg hover:bg-rose-600 hover:-translate-y-1 transition-all duration-300 items-center gap-2 group-hover:shadow-[0_0_20px_rgba(244,63,94,0.4)]">
+                                <span>Explore Tech Stack</span>
+                                <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Interactive Card Column -->
-                <div class="order-1 lg:order-2 flex justify-center lg:justify-end">
-                    <div class="group relative w-full max-w-md aspect-square cursor-pointer"
-                        @click="showNutsBolts = true">
-                        <!-- Glass Panel container -->
-                        <div
-                            class="absolute inset-0 glass-panel rounded-2xl shadow-2xl transition-all duration-500 group-hover:bg-white/10 group-hover:border-brand-accent-3/50 group-hover:shadow-[0_0_50px_rgba(244,63,94,0.4)] flex items-center justify-center p-8">
-
-                            <!-- Nut & Bolt Image -->
-                            <div class="relative w-full h-full flex items-center justify-center">
-                                <div
-                                    class="absolute inset-0 bg-brand-accent-3/10 blur-3xl rounded-full scale-75 group-hover:scale-100 transition-transform duration-700">
-                                </div>
-                                <img src="./boltandnut.png" alt="Launch Nuts & Bolts"
-                                    class="relative w-3/4 h-3/4 object-contain filter drop-shadow-2xl transition-transform duration-700 group-hover:rotate-12 group-hover:scale-110">
-                            </div>
-
-                            <!-- Floating Label -->
-                            <div class="absolute bottom-6 left-1/2 -translate-x-1/2">
-                                <span
-                                    class="px-4 py-1.5 rounded-full bg-brand-accent-3/20 border border-brand-accent-3/50 text-brand-accent-3 text-xs font-bold uppercase tracking-widest backdrop-blur-md group-hover:bg-brand-accent-3 group-hover:text-white transition-all duration-300">
-                                    Click to Launch
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Empty Column to Balance (Optional, allows background to show through) -->
+                <div class="hidden lg:block lg:col-span-4">
                 </div>
 
             </div>
@@ -814,7 +909,7 @@
         </div>
         <div class="container mx-auto px-6 relative z-10 text-white">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">Results Achieved</h2>
+                <h2 class="text-3xl font-bold mb-4">Delivered Results</h2>
                 <div class="w-24 h-1 bg-white/30 mx-auto rounded-full"></div>
             </div>
 
@@ -969,29 +1064,33 @@
         </div>
     </footer>
 
-
-    <!-- Nuts & Bolts Iframe Modal -->
-    <div x-show="showNutsBolts" style="display: none;"
-        class="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
+    <!-- Project Video Modal -->
+    <div x-show="showProjectVideo" style="display: none; z-index: 9999; background-color: rgba(0, 0, 0, 0.9);"
         x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0"
         x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200"
-        x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+        x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+        class="fixed inset-0 flex items-center justify-center backdrop-blur-sm p-4">
 
-        <!-- Close Button (Top Right) -->
-        <button @click="showNutsBolts = false"
-            class="absolute top-6 right-6 text-white/50 hover:text-white transition-colors z-50">
-            <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-        </button>
+        <div class="relative w-full max-w-5xl bg-slate-900 border border-white/10 rounded-xl overflow-hidden shadow-2xl"
+            @click.outside="showProjectVideo = false; $refs.projectVideo.pause()">
 
-        <!-- Modal Container -->
-        <div class="w-full h-full max-w-[95vw] max-h-[95vh] relative" @click.away="showNutsBolts = false">
-            <iframe src="nuts_and_bolts.html"
-                class="w-full h-full border-0 rounded-xl shadow-2xl bg-brand-midnight"></iframe>
+            <button @click="showProjectVideo = false; $refs.projectVideo.pause()"
+                class="absolute top-4 right-4 text-white hover:text-purple-400 z-10 p-2 rounded-full bg-black/50 hover:bg-black/70 transition-all">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+            <div class="aspect-video w-full bg-black relative flex items-center justify-center">
+                <video x-ref="projectVideo" class="w-full h-full object-contain" controls
+                    style="filter: invert(0.92) hue-rotate(100deg) saturate(1.5) contrast(1.1);">
+                    <source src="Videos/Waal_Bridge__Harmonising_Tech.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
         </div>
     </div>
-
 </body>
+
 
 </html>

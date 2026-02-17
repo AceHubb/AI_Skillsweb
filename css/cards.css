@@ -1,0 +1,185 @@
+/* Extracted from Nuts & Bolts Prototype - Waal Bridge Styling */
+
+:root {
+  --color-brand-midnight: #020617;
+  --color-brand-accent-1: #38bdf8; /* Blue */
+  --color-brand-accent-2: #2dd4bf; /* Teal */
+  --color-brand-accent-3: #a855f7; /* Purple */
+  --color-brand-light: #f8fafc;
+}
+
+/* Stack Container - Adapted for Grid */
+.stack-card {
+  position: relative;
+  width: 100%;
+  min-height: 320px; /* Ensure consistent height */
+  perspective: 1200px;
+  cursor: pointer;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s;
+  z-index: 1;
+}
+
+/* The "fake" cards below */
+.stack-card.piled::before,
+.stack-card.piled::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #1e293b; /* Slate-800 */
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  z-index: -1;
+  transition: transform 0.3s;
+}
+
+.stack-card.piled::before {
+  transform: translate(2px, 3px) rotate(1deg);
+}
+
+.stack-card.piled::after {
+  transform: translate(-3px, 4px) rotate(-1deg);
+  z-index: -2;
+}
+
+.stack-card.piled:hover::before {
+  transform: translate(4px, 4px) rotate(2deg);
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.stack-card.piled:hover::after {
+  transform: translate(-6px, 6px) rotate(-2deg);
+}
+
+/* Card Flipping Wrapper */
+.wb-card {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+  z-index: 2;
+}
+
+.wb-card.flip {
+  transform: rotateY(180deg);
+}
+
+.wb-card .front,
+.wb-card .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center content vertically */
+  padding: 24px;
+  box-sizing: border-box;
+  text-align: center;
+
+  /* Glassmorphism Base */
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+}
+
+/* Front Face */
+.wb-card .front {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+/* Corners */
+.wb-corner {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.wb-card:hover .wb-corner {
+  opacity: 1;
+}
+
+.wb-top-left {
+  top: 8px;
+  left: 8px;
+}
+
+.wb-bottom-right {
+  bottom: 8px;
+  right: 8px;
+  transform: rotate(180deg);
+}
+
+.wb-suit-icon {
+  width: 20px;
+  height: auto;
+  filter: sepia(1) hue-rotate(90deg) saturate(3) brightness(0.9); /* Gold/Teal tint */
+}
+
+/* Back Face */
+.wb-card .back {
+  transform: rotateY(180deg);
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(168, 85, 247, 0.3); /* Purple */
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.15);
+  justify-content: space-between;
+}
+
+/* Flip Button */
+.wb-flip-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 28px;
+  height: 28px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: var(--color-brand-light);
+  font-size: 14px;
+  transition: all 0.2s;
+  z-index: 10;
+}
+
+.wb-flip-btn:hover {
+  background-color: var(--color-brand-accent-1);
+  color: var(--color-brand-midnight);
+  transform: rotate(180deg);
+}
+
+/* Typography override for card title */
+.wb-card-title {
+  font-family: 'Courier New', Courier, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-brand-accent-1);
+  margin-top: 12px;
+  font-weight: 800;
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+}
+
+.wb-card-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #94a3b8; /* Slate 400 */
+}
