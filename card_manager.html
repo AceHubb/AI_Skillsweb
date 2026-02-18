@@ -172,6 +172,10 @@
                 title="Developer Settings">
                 ⚙️
             </button>
+            <a href="/view-raw-data" target="_blank"
+                class="text-slate-400 hover:text-white mr-2 flex items-center gap-1" title="View Raw Data">
+                <span class="text-xs font-bold">RAW</span>
+            </a>
             <button @click="toggleLinkMode()" class="px-4 py-2 rounded-lg text-sm font-bold transition-all border"
                 :class="linkMode ? 'bg-amber-600 text-white border-amber-500 shadow-[0_0_15px_rgba(245,158,11,0.5)]' : 'bg-slate-800 text-slate-400 border-slate-700 hover:border-slate-600'">
                 <span x-text="linkMode ? '🔗 Linking Mode Active' : 'Enable Graphical Linking'"></span>

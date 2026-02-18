@@ -1,138 +1,6 @@
 {
   "relationships": [
     {
-      "from": "10074_traditional_mastery_maintenance_support",
-      "to": "002_stack_data_engineering",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "10074_traditional_mastery_maintenance_support",
-      "to": "003_stack_etl_integration",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "10074_traditional_mastery_maintenance_support",
-      "to": "004_stack_analytics_reporting",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "10074_traditional_mastery_maintenance_support",
-      "to": "009_stack_real_world",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "10074_traditional_mastery_maintenance_support",
-      "to": "1406_real_world_systems",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "10074_traditional_mastery_maintenance_support",
-      "to": "1471_aws_amazon_web_services",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "10074_traditional_mastery_maintenance_support",
-      "to": "1387_analytics_reporting",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "10075_agentic_modernisation_the_innovation_hub",
-      "to": "001_stack_development_leadership",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "10075_agentic_modernisation_the_innovation_hub",
-      "to": "005_stack_business_analysis",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "10075_agentic_modernisation_the_innovation_hub",
-      "to": "006_stack_legacy_modernisation",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "10075_agentic_modernisation_the_innovation_hub",
-      "to": "007_stack_greenfield_dev",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "10075_agentic_modernisation_the_innovation_hub",
-      "to": "008_stack_ai_development",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "10075_agentic_modernisation_the_innovation_hub",
-      "to": "1442_the_fruit_heading",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "10075_agentic_modernisation_the_innovation_hub",
-      "to": "1391_ai_based_workflows_applications",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "10076_enterprise_guardian_reliability_foundations",
-      "to": "010_stack_cloud_hosting",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "10076_enterprise_guardian_reliability_foundations",
-      "to": "011_stack_governance_compliance",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "10076_enterprise_guardian_reliability_foundations",
-      "to": "012_stack_professional_practices",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "10076_enterprise_guardian_reliability_foundations",
-      "to": "1310_cyber_security",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "10076_enterprise_guardian_reliability_foundations",
-      "to": "1415_the_soil_heading",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "10076_enterprise_guardian_reliability_foundations",
-      "to": "1417_the_taproot_heading",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "10076_enterprise_guardian_reliability_foundations",
-      "to": "1421_the_trunk_heading",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "10076_enterprise_guardian_reliability_foundations",
-      "to": "1453_books_and_articles",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
       "from": "1201_doc_maintenance",
       "to": "tech_doc_level2_1",
       "type": "contains",
@@ -1297,111 +1165,73 @@
       "strength": "1"
     },
     {
-      "from": "1338_windows_fundamentals",
-      "to": "1339_windows_os_architecture",
-      "type": "contains",
+      "parent_id": "1338_windows_fundamentals",
+      "child_id": "1339_windows_os_architecture",
       "strength": "1"
     },
     {
-      "from": "1338_windows_fundamentals",
-      "to": "1340_registry_file_system_security",
-      "type": "contains",
+      "parent_id": "1338_windows_fundamentals",
+      "child_id": "1340_registry_file_system_security",
       "strength": "1"
     },
     {
-      "from": "1338_windows_fundamentals",
-      "to": "1341_powershell_cli_scripting",
-      "type": "contains",
+      "parent_id": "1338_windows_fundamentals",
+      "child_id": "1341_powershell_cli_scripting",
       "strength": "1"
     },
     {
-      "from": "1338_windows_fundamentals",
-      "to": "1342_user_group_management",
-      "type": "contains",
+      "parent_id": "1338_windows_fundamentals",
+      "child_id": "1342_user_group_management",
       "strength": "1"
     },
     {
-      "from": "1338_windows_fundamentals",
-      "to": "1343_active_directory_basics",
-      "type": "contains",
+      "parent_id": "1338_windows_fundamentals",
+      "child_id": "1343_active_directory_basics",
       "strength": "1"
     },
     {
-      "from": "1338_windows_fundamentals",
-      "to": "1344_event_logs_security_monitoring",
-      "type": "contains",
+      "parent_id": "1338_windows_fundamentals",
+      "child_id": "1344_event_logs_security_monitoring",
       "strength": "1"
     },
     {
-      "from": "1338_ms_endpoint_security",
-      "to": "1411_attack_surface_reduction",
-      "type": "contains",
+      "parent_id": "1345_data_quality_validation",
+      "child_id": "1346_kpi_performance_reporting",
       "strength": "1"
     },
     {
-      "from": "1338_ms_endpoint_security",
-      "to": "1412_endpoint_detection_response",
-      "type": "contains",
+      "parent_id": "1345_data_quality_validation",
+      "child_id": "1347_cross_system_data_integration",
       "strength": "1"
     },
     {
-      "from": "1338_ms_endpoint_security",
-      "to": "1413_endpoint_vulnerability_management",
-      "type": "contains",
+      "parent_id": "1345_data_quality_validation",
+      "child_id": "1348_etl_data_pipelines",
       "strength": "1"
     },
     {
-      "from": "1338_ms_endpoint_security",
-      "to": "1414_device_and_removable_media_control",
-      "type": "contains",
+      "parent_id": "1351_bi_dashboard_development",
+      "child_id": "1352_programming_automation",
       "strength": "1"
     },
     {
-      "from": "1345_data_quality_validation",
-      "to": "1346_kpi_performance_reporting",
-      "type": "contains",
+      "parent_id": "1351_bi_dashboard_development",
+      "child_id": "1353_system_integration_ui_design",
       "strength": "1"
     },
     {
-      "from": "1345_data_quality_validation",
-      "to": "1347_cross_system_data_integration",
-      "type": "contains",
+      "parent_id": "1351_bi_dashboard_development",
+      "child_id": "1354_test_automation_tdd",
       "strength": "1"
     },
     {
-      "from": "1345_data_quality_validation",
-      "to": "1348_etl_data_pipelines",
-      "type": "contains",
+      "parent_id": "1355_project_planning_risk_management",
+      "child_id": "1356_stakeholder_engagement_coordination",
       "strength": "1"
     },
     {
-      "from": "1351_bi_dashboard_development",
-      "to": "1352_programming_automation",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1351_bi_dashboard_development",
-      "to": "1353_system_integration_ui_design",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1351_bi_dashboard_development",
-      "to": "1354_test_automation_tdd",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1355_project_planning_risk_management",
-      "to": "1356_stakeholder_engagement_coordination",
-      "type": "contains",
-      "strength": "1"
-    },
-    {
-      "from": "1355_project_planning_risk_management",
-      "to": "1357_implementation_leadership",
-      "type": "contains",
+      "parent_id": "1355_project_planning_risk_management",
+      "child_id": "1357_implementation_leadership",
       "strength": "1"
     },
     {
@@ -1447,8 +1277,44 @@
       "strength": "1"
     },
     {
+      "from": "1265_analytics",
+      "to": "1346_kpi_performance_reporting",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1265_analytics",
+      "to": "1345_data_quality_validation",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1265_analytics",
+      "to": "1347_cross_system_data_integration",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1265_analytics",
+      "to": "1348_etl_data_pipelines",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
       "from": "1353_system_integration_ui_design",
       "to": "002_stack_data_engineering",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "007_stack_greenfield_dev",
+      "to": "1352_programming_automation",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "007_stack_greenfield_dev",
+      "to": "1354_test_automation_tdd",
       "type": "contains",
       "strength": "1"
     },
@@ -1568,7 +1434,925 @@
     },
     {
       "from": "1406_real_world_systems",
-      "to": "1387_data_analysis",
+      "to": "1387_data_analysis_visualization",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1349_data_governance_compliance",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1350_database_architecture_optimization",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1385_datawarehouse_datamarts",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1398_document_management",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1401_healthcare_commissioning_finance",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1400_healthcare_systems_multiple",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1388_kpi_dashboard_development",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1384_military_computer_systems",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1404_online_payment_collection_backend",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1389_predictive_advanced_analytics",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1397_process_management",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1394_project_management_systems_oil_gas",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1395_project_workstream_management",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1403_robotics_systems_integration",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1396_stakeholder_vendor_management",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1390_technical_report_writing",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1399_tender_management",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "1386_data_migration",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1393_ai_native_applications",
+      "to": "1392_non_ai_apps_using_ai",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1391_ai_based_workflows_applications",
+      "to": "1393_ai_native_applications",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1338_windows_fundamentals",
+      "to": "1339_windows_os_architecture",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1338_ms_endpoint_security",
+      "to": "1411_attack_surface_reduction",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1338_ms_endpoint_security",
+      "to": "1412_endpoint_detection_response",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1338_ms_endpoint_security",
+      "to": "1413_endpoint_vulnerability_management",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1338_ms_endpoint_security",
+      "to": "1414_device_and_removable_media_control",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1338_windows_fundamentals",
+      "to": "1343_active_directory_basics",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1338_windows_fundamentals",
+      "to": "1344_event_logs_security_monitoring",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1338_windows_fundamentals",
+      "to": "1341_powershell_cli_scripting",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1338_windows_fundamentals",
+      "to": "1340_registry_file_system_security",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1338_windows_fundamentals",
+      "to": "1342_user_group_management",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1437_the_atmosphere_heading",
+      "to": "1440_google_sre",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1437_the_atmosphere_heading",
+      "to": "1441_antifragile",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1443_blaise_intelligence",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1444_woods_ai_leader",
+      "to": "1443_blaise_intelligence",
+      "type": "supports",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1444_woods_ai_leader",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1445_keller_one_thing",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1446_cialdini_influence",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1447_toyota_way",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1448_six_sigma_way",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1450_thinking_in_systems",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1451_thinking_fast_and_slow",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1452_algorithms_to_live_by",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1453_books_and_articles",
+      "to": "1415_the_soil_heading",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1453_books_and_articles",
+      "to": "1417_the_taproot_heading",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1453_books_and_articles",
+      "to": "1421_the_trunk_heading",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1453_books_and_articles",
+      "to": "1427_the_branches_heading",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1453_books_and_articles",
+      "to": "1437_the_atmosphere_heading",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1453_books_and_articles",
+      "to": "1442_the_fruit_heading",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1415_the_soil_heading",
+      "to": "1416_art_of_electronics",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1417_the_taproot_heading",
+      "to": "1420_practice_of_programming",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1421_the_trunk_heading",
+      "to": "1422_unix_reference",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1421_the_trunk_heading",
+      "to": "1423_gof_design_patterns",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1421_the_trunk_heading",
+      "to": "1424_clean_code",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1421_the_trunk_heading",
+      "to": "1425_uml_distilled",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1421_the_trunk_heading",
+      "to": "1426_vb_objects_ntier",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1427_the_branches_heading",
+      "to": "1428_feuerstein_plsql",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1427_the_branches_heading",
+      "to": "1429_oracle_reference",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1427_the_branches_heading",
+      "to": "1430_knight_ssis",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1427_the_branches_heading",
+      "to": "1431_sql_server_programming",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1427_the_branches_heading",
+      "to": "1432_jesse_liberty_csharp",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1427_the_branches_heading",
+      "to": "1433_ethereum_contracts",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1427_the_branches_heading",
+      "to": "1434_qlikview_business",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1427_the_branches_heading",
+      "to": "1435_tableau_data",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1427_the_branches_heading",
+      "to": "1436_power_bi_transform",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1437_the_atmosphere_heading",
+      "to": "1438_aws_architect",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1437_the_atmosphere_heading",
+      "to": "1439_azure_architect",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "101_critical_path",
+      "to": "1454_monte_carlo_simulations",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1457_high_complexity_industrial_domains_heading",
+      "to": "1458_offshore_topsides_planning",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1457_high_complexity_industrial_domains_heading",
+      "to": "1459_refinery_infrastructure_planning",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1457_high_complexity_industrial_domains_heading",
+      "to": "1460_underground_utility_networks",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1457_high_complexity_industrial_domains_heading",
+      "to": "1461_incineration_energy_plants",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "101_critical_path",
+      "to": "1457_high_complexity_industrial_domains_heading",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "101_critical_path",
+      "to": "1462_procurement_planning",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "001_stack_development_leadership",
+      "to": "1465_engineering_project_support",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1465_engineering_project_support",
+      "to": "1464_project_controls",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1464_project_controls",
+      "to": "1463_cost_control",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1464_project_controls",
+      "to": "1466_planning_and_scheduling",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1466_planning_and_scheduling",
+      "to": "101_critical_path",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1406_real_world_systems",
+      "to": "009_stack_real_world",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1453_books_and_articles",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1417_the_taproot_heading",
+      "to": "1424_clean_code",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1417_the_taproot_heading",
+      "to": "1423_gof_design_patterns",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1449_the_black_swan",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1417_the_taproot_heading",
+      "to": "1425_uml_distilled",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1417_the_taproot_heading",
+      "to": "1422_unix_reference",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1417_the_taproot_heading",
+      "to": "1426_vb_objects_ntier",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1465_project_controls_software_architecture",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1466_earned_value_engine_development",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1442_the_fruit_heading",
+      "to": "1467_integrated_cost_schedule_systems",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1471_aws_amaxon_web_services",
+      "to": "1472_aws_career_paths",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1471_aws_amaxon_web_services",
+      "to": "1473_aws_newworking",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1471_aws_amaxon_web_services",
+      "to": "1474_begining_aws",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "011_stack_governance_compliance",
+      "to": "1310_cyber_security",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "0112_compliance",
+      "to": "1100_gdpr",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1310_cyber_security",
+      "to": "1101_access_control",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "0112_compliance",
+      "to": "1102_policy_compliance",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1000_aws",
+      "to": "10025_aws_ai_machine_learning_the_intelligence",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1000_aws",
+      "to": "10030_aws_analytics_the_insights",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1000_aws",
+      "to": "10031_aws_application_integration_the_glue",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1000_aws",
+      "to": "10023_aws_compute_the_engine",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1000_aws",
+      "to": "10026_aws_databases_the_ledger",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1000_aws",
+      "to": "10034_aws_developer_tools_the_workbench",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1000_aws",
+      "to": "10032_aws_key_services_sqs_queues",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1000_aws",
+      "to": "10028_aws_key_services_vpc_isolated_network",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1000_aws",
+      "to": "10033_aws_management_governance_the_oversight",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1000_aws",
+      "to": "10027_aws_networking_the_nervous_system",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1000_aws",
+      "to": "10029_aws_security_identity_the_guardrails",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1000_aws",
+      "to": "10024_aws_storage_the_memory",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1453_books_and_articles",
+      "to": "1468_python",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1468_python",
+      "to": "1469_python_crash_course",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1468_python",
+      "to": "1470_python_programming",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1453_books_and_articles",
+      "to": "10035_c_language",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10035_c_language",
+      "to": "1419_kr_c_programming",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "010_stack_cloud_hosting",
+      "to": "10046_microsoft_azure",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10046_microsoft_azure",
+      "to": "10038_ai_machine_learning_the_intelligence",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10046_microsoft_azure",
+      "to": "10042_analytics_the_insights",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10046_microsoft_azure",
+      "to": "10036_compute_the_engine",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10046_microsoft_azure",
+      "to": "10039_databases_the_ledger",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10046_microsoft_azure",
+      "to": "10045_developer_tools_the_workbench",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10046_microsoft_azure",
+      "to": "10041_identity_security_the_guardrails",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10046_microsoft_azure",
+      "to": "10043_integration_the_glue",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10046_microsoft_azure",
+      "to": "10044_management_governance_the_oversight",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10046_microsoft_azure",
+      "to": "10037_storage_the_memory",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10046_microsoft_azure",
+      "to": "10040_networking_the_nervous_system",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1002_monitoring_scaling",
+      "to": "10050_google_cloud_data_analytics_the_brain",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1002_monitoring_scaling",
+      "to": "10052_google_cloud_networking_the_nervous_system",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1002_monitoring_scaling",
+      "to": "10055_google_cloud_application_integration_the_glue",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1002_monitoring_scaling",
+      "to": "10047_google_cloud_compute_the_engine",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1002_monitoring_scaling",
+      "to": "10051_google_cloud_databases_the_ledger",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1002_monitoring_scaling",
+      "to": "10053_google_cloud_security_identity_the_guardrails",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1002_monitoring_scaling",
+      "to": "10048_google_cloud_storage_the_memory",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1002_monitoring_scaling",
+      "to": "10056_google_cloud_developer_tools_firebase_the_workbench",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1002_monitoring_scaling",
+      "to": "10049_google_cloud_ai_machine_learning_the_intelligence",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1002_monitoring_scaling",
+      "to": "10054_google_cloud_management_operations_the_oversight",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10064_linux",
+      "to": "10061_linux_system_monitoring_troubleshooting",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10064_linux",
+      "to": "10058_linux_command_line_administration_automation",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10064_linux",
+      "to": "10063_linux_security_environments_optional",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10064_linux",
+      "to": "10044_management_governance_the_oversight",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10064_linux",
+      "to": "10059_linux_file_systems_storage_management",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10064_linux",
+      "to": "10062_linux_environment_deployment_support",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10064_linux",
+      "to": "10057_linux_operating_systems_linux_administration",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1310_cyber_security",
+      "to": "10064_linux",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10064_linux",
+      "to": "1319_bash_shell",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1310_cyber_security",
+      "to": "1318_kali_linux_security_tools",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1415_the_soil_heading",
+      "to": "1418_masm_assembly",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "002_stack_data_engineering",
+      "to": "003_stack_etl_integration",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "010_stack_cloud_hosting",
+      "to": "10066_productivity_tools",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10067_frontier_ai_models",
+      "to": "10069_google_gemini",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10067_frontier_ai_models",
+      "to": "10068_openai_chat_gpt",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "010_stack_cloud_hosting",
+      "to": "10067_frontier_ai_models",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "1453_books_and_articles",
+      "to": "10070_articles",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10070_articles",
+      "to": "10071_video_interview",
+      "type": "contains",
+      "strength": "1"
+    },
+    {
+      "from": "10070_articles",
+      "to": "10072_video_homemade",
       "type": "contains",
       "strength": "1"
     }

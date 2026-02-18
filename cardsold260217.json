@@ -1,6 +1,26 @@
 {
   "cards": [
     {
+      "id": "10073_aaaatest_card",
+      "title": "AAAATEST_CARD",
+      "type": "stack",
+      "description": "",
+      "web": "https://www.youtube.com/watch?v=BhfTQXMtoZw",
+      "video": "The_Waal_Bridge_Test.mp4",
+      "media": [
+        "ProdTool.png",
+        "ProdTool.png",
+        "1454_monte_carlo_simulations.pdf"
+      ],
+      "frontBackgroundColor": "",
+      "displayImages": {
+        "front": {
+          "url": "",
+          "alt": "Cyber Icon"
+        }
+      }
+    },
+    {
       "id": "1101_access_control",
       "type": "capability",
       "title": "Access Control & Security",
@@ -171,17 +191,10 @@
       "video": ""
     },
     {
-      "id": "10075_agentic_modernisation_the_innovation_hub",
-      "title": "Agentic Modernisation: The Innovation Hub",
+      "id": "10075_agentoc_modernisation_the_innovation_hub",
+      "title": "Agentoc Modernisation: The Innovation Hub",
       "type": "stack",
       "description": "Bridging the legacy gap with AI. Orchestrating agentic workflows, LLMs, and modern cloud architectures to transform static data into proactive business intelligence.",
-      "displayImages": {
-        "front": {
-          "url": "images/AIDrivDevIcon.png",
-          "alt": "Agentic Innovation Icon"
-        }
-      },
-      "frontBackgroundColor": "seagreen",
       "web": "",
       "video": ""
     },
@@ -319,7 +332,7 @@
     },
     {
       "id": "008_stack_ai_development",
-      "type": "other",
+      "type": "stack",
       "title": "AI-Driven Development",
       "displayImages": {
         "background": {
@@ -344,8 +357,7 @@
       "media": [
         "pdf/Artificial_Intellige.pdf",
         "pdf/Vector_Databases_AI.pdf",
-        "pdf/AI-Driven_Private_Do.pdf",
-        "images/BookCLanguage.png"
+        "pdf/AI-Driven_Private_Do.pdf, images/BookCLanguage.png"
       ],
       "web": "",
       "video": ""
@@ -458,7 +470,7 @@
     },
     {
       "id": "004_stack_analytics_reporting",
-      "type": "other",
+      "type": "stack",
       "title": "Analytics & Reporting",
       "displayImages": {
         "background": {
@@ -1259,7 +1271,7 @@
     },
     {
       "id": "1453_books_and_articles",
-      "type": "other",
+      "type": "stack",
       "title": "Books and Articles",
       "description": "The foundational knowledge repository containing technical bibles, architectural standards, and strategic leadership literature.",
       "media": [],
@@ -1317,7 +1329,7 @@
     },
     {
       "id": "005_stack_business_analysis",
-      "type": "other",
+      "type": "stack",
       "title": "Business Analysis & Research",
       "displayImages": {
         "background": {
@@ -1499,7 +1511,7 @@
     },
     {
       "id": "010_stack_cloud_hosting",
-      "type": "other",
+      "type": "stack",
       "title": "Cloud & Hosting",
       "media": [
         "df/Infrastructure_as_a_.pdf",
@@ -2497,7 +2509,7 @@
     },
     {
       "id": "002_stack_data_engineering",
-      "type": "other",
+      "type": "stack",
       "title": "Data Engineering",
       "displayImages": {
         "background": {
@@ -3156,7 +3168,7 @@
     },
     {
       "id": "001_stack_development_leadership",
-      "type": "other",
+      "type": "stack",
       "title": "Development Leadership",
       "displayImages": {
         "background": {
@@ -3445,15 +3457,8 @@
     {
       "id": "10076_enterprise_guardian_reliability_foundations",
       "title": "Enterprise Guardian: Reliability & Foundations",
-      "type": "stack",
+      "type": "generic",
       "description": "The technical bedrock. Combining strict compliance (GDPR/SOX) and security with deep first-principles engineering and systems architecture patterns.",
-      "displayImages": {
-        "front": {
-          "url": "images/GovandComplianceIcon.png",
-          "alt": "Enterprise Guardian Icon"
-        }
-      },
-      "frontBackgroundColor": "crimson",
       "web": "",
       "video": ""
     },
@@ -4249,7 +4254,7 @@
     },
     {
       "id": "011_stack_governance_compliance",
-      "type": "other",
+      "type": "stack",
       "title": "Governance & Compliance & Cyber",
       "description": "Overall management of governance and compliance practices in the organisation.",
       "media": [
@@ -4283,7 +4288,7 @@
     },
     {
       "id": "007_stack_greenfield_dev",
-      "type": "other",
+      "type": "stack",
       "title": "Greenfield / Software Development",
       "displayImages": {
         "background": {
@@ -5487,7 +5492,7 @@
     },
     {
       "id": "006_stack_legacy_modernisation",
-      "type": "other",
+      "type": "stack",
       "title": "Legacy System Modernisation",
       "displayImages": {
         "background": {
@@ -6985,7 +6990,7 @@
     },
     {
       "id": "012_stack_professional_practices",
-      "type": "other",
+      "type": "stack",
       "title": "Professional Practices",
       "card_image": "boltandnut.png",
       "description": "Testing",
@@ -7423,7 +7428,7 @@
     },
     {
       "id": "009_stack_real_world",
-      "type": "other",
+      "type": "stack",
       "title": "Real-World System Deployment",
       "displayImages": {
         "background": {
@@ -7454,7 +7459,7 @@
     },
     {
       "id": "1406_real_world_systems",
-      "type": "other",
+      "type": "stack",
       "title": "Real-World Systems & Operational Work",
       "description": "Portfolio of complex, operational systems, analytics, and project delivery capabilities across industries.",
       "displayImages": {
@@ -8978,7 +8983,7 @@
     },
     {
       "id": "1437_the_atmosphere_heading",
-      "type": "other_heading",
+      "type": "stack_heading",
       "title": "The Atmosphere (Cloud & Resilience)",
       "description": "Distributed computing and global-scale architecture focused on reliability.",
       "displayImages": {
@@ -9462,16 +9467,9 @@
     },
     {
       "id": "10074_traditional_mastery_maintenance_support",
-      "title": "Traditional Mastery: Maintenance & Support",
+      "title": "Traditional Mastery:  Maintenance & Support ",
       "type": "stack",
       "description": "Elite-level support for enterprise legacy cores. Expert management of Oracle, SQL Server, and complex ETL pipelines to ensure operational continuity and minimize technical debt.",
-      "displayImages": {
-        "front": {
-          "url": "images/WaalBridgeIcon.png",
-          "alt": "Traditional Support Icon"
-        }
-      },
-      "frontBackgroundColor": "steelblue",
       "web": "",
       "video": ""
     },

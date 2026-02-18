@@ -4,9 +4,64 @@ import json
 import os
 import datetime
 
+import html
+
 PORT = 8002
 
 class CardHandler(http.server.SimpleHTTPRequestHandler):
+    def do_GET(self):
+        if self.path == '/view-raw-data':
+            self.send_response(200)
+            self.send_header('Content-type', 'text/html')
+            self.end_headers()
+
+            try:
+                with open('cards.json', 'r', encoding='utf-8') as f:
+                    cards_data = html.escape(f.read())
+            except Exception as e:
+                cards_data = f"Error reading cards.json: {e}"
+
+            try:
+                with open('relationships.json', 'r', encoding='utf-8') as f:
+                    relationships_data = html.escape(f.read())
+            except Exception as e:
+                relationships_data = f"Error reading relationships.json: {e}"
+
+            html_content = f"""
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Raw Data Viewer</title>
+                <style>
+                    body {{ font-family: sans-serif; background-color: #0f172a; color: #f8fafc; padding: 20px; }}
+                    h2 {{ color: #60a5fa; }}
+                    textarea {{ width: 100%; height: 400px; background-color: #1e293b; color: #cbd5e1; border: 1px solid #334155; padding: 10px; font-family: monospace; }}
+                    .container {{ display: flex; gap: 20px; flex-direction: column; }}
+                    @media (min-width: 768px) {{ .container {{ flex-direction: row; }} .box {{ flex: 1; }} }}
+                </style>
+            </head>
+            <body>
+                <h1>Raw Data Viewer</h1>
+                <div class="container">
+                    <div class="box">
+                        <h2>cards.json</h2>
+                        <textarea readonly>{cards_data}</textarea>
+                    </div>
+                    <div class="box">
+                        <h2>relationships.json</h2>
+                        <textarea readonly>{relationships_data}</textarea>
+                    </div>
+                </div>
+            </body>
+            </html>
+            """
+            self.wfile.write(html_content.encode('utf-8'))
+            return
+
+        super().do_GET()
+
     def do_POST(self):
         if self.path == '/save/cards':
             filename = 'cards.json'

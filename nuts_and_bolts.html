@@ -630,6 +630,14 @@
       </div>
     </a>
 
+    <!-- Raw Data Viewer -->
+    <a href="/view-raw-data" target="_blank"
+      class="block px-5 py-4 mb-4 border-b border-white/10 text-brand-accent-1 hover:text-white hover:bg-white/5 transition-all group no-underline">
+      <div class="flex items-center gap-2">
+        <span class="font-bold text-sm tracking-wide uppercase">Raw Data Viewer</span>
+      </div>
+    </a>
+
     <h3>Current Path</h3>
     <div id="pathList"></div>
   </div>
@@ -657,16 +665,50 @@
     <div id="mediaSelectionContainer" style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;"></div>
   </div>
 
+  <div class="diagram-popup" id="jsonErrorModal" style="background: rgba(50, 0, 0, 0.95); z-index: 9999;">
+    <div
+      style="text-align: center; max-width: 600px; padding: 40px; border: 2px solid #ef4444; border-radius: 16px; background: #1e293b; color: white; display: flex; flex-direction: column; gap: 20px; box-shadow: 0 0 50px rgba(239, 68, 68, 0.5);">
+      <div style="font-size: 4rem; color: #ef4444;">⚠️</div>
+      <h2 style="color: #ef4444; margin: 0; font-size: 2rem;">Data Loading Error</h2>
+      <p style="font-size: 1.1rem; line-height: 1.6; color: #cbd5e1;">There was a problem loading the project data. This
+        is usually caused by a syntax error in <strong>cards.json</strong> or <strong>relationships.json</strong>.</p>
+
+      <div id="jsonErrorMessage"
+        style="background: #0f172a; padding: 15px; border-radius: 8px; font-family: monospace; text-align: left; color: #fca5a5; font-size: 0.9rem; overflow-x: auto; border: 1px solid #7f1d1d;">
+        Error details...
+      </div>
+
+      <button onclick="location.reload()"
+        style="padding: 12px 24px; background: #ef4444; color: white; border: none; border-radius: 8px; font-weight: bold; font-size: 1rem; cursor: pointer; transition: all 0.2s; text-transform: uppercase; letter-spacing: 1px;">
+        Reload App
+      </button>
+    </div>
+  </div>
+
   <script>
     let cards = {};
     let relationships = [];
     let currentStackId = null;
     let breadcrumbs = [];
 
+    // wrapper to fetch and check json
+    const fetchJson = (url) => {
+      return fetch(url + '?t=' + Date.now())
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status} for ${url}`);
+          }
+          return response.json();
+        })
+        .catch(err => {
+          throw new Error(`Failed to load ${url}: ${err.message}`);
+        });
+    };
+
     // Load Data
     Promise.all([
-      fetch('cards.json?t=' + Date.now()).then(r => r.json()),
-      fetch('relationships.json?t=' + Date.now()).then(r => r.json())
+      fetchJson('cards.json'),
+      fetchJson('relationships.json')
     ]).then(([cardsData, relationshipsData]) => {
       // Handle wrappers if present (user provided files have 'cards' and 'relationships' keys)
       const cList = cardsData.cards || cardsData;
@@ -675,7 +717,15 @@
       cList.forEach(c => cards[c.id] = c);
       relationships = rList;
       init();
-    }).catch(err => console.error("Error loading data:", err));
+    }).catch(err => {
+      console.error("Critical Data Error:", err);
+      const modal = document.getElementById('jsonErrorModal');
+      const msg = document.getElementById('jsonErrorMessage');
+      if (modal && msg) {
+        msg.textContent = err.message;
+        modal.style.display = 'flex'; // Use flex to center with existing class
+      }
+    });
 
     function init() {
       // Find top-level stacks and assign Suit/Rank 
