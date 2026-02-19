@@ -13,6 +13,7 @@
     rel="stylesheet">
   <!-- Tailwind/Custom Vars (Note: style.css defines vars in :root) -->
   <link href="./css/style.css" rel="stylesheet">
+  <script src="https://d3js.org/d3.v7.min.js"></script>
 
   <style>
     :root {
@@ -48,19 +49,53 @@
       left: 0;
       bottom: 0;
       width: 300px;
-
-      /* Glass Panel Effect Waal Bridge Style */
       background: rgba(15, 23, 42, 0.6);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-right: 1px solid rgba(255, 255, 255, 0.1);
-
       overflow-y: auto;
       padding: 20px 0;
       box-sizing: border-box;
       z-index: 100;
       color: var(--color-brand-light);
       font-family: 'Inter', sans-serif;
+    }
+
+    /* Right Sidebar for Strategic Trails */
+    #strategicSidebar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 300px;
+      /* Glass Panel Effect Waal Bridge Style */
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-left: 1px solid rgba(255, 255, 255, 0.1);
+      overflow-y: auto;
+      padding: 20px;
+      box-sizing: border-box;
+      z-index: 100;
+      color: var(--color-brand-light);
+      font-family: 'Inter', sans-serif;
+    }
+
+    #strategicSidebar h3 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 15px;
+      /* Text Gradient Accent */
+      background: linear-gradient(135deg, var(--color-brand-accent-1) 0%, var(--color-brand-accent-3) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: var(--color-brand-accent-1);
     }
 
     #pathSidebar h3 {
@@ -191,11 +226,179 @@
       z-index: -2;
     }
 
-    /* Hover effect: slightly spread the stack */
-    .stack.piled:hover::before {
-      transform: translate(4px, 4px) rotate(4deg);
-      border-color: rgba(56, 189, 248, 0.3);
-      /* Blue Accent */
+    /* Strategic Trails (Pathfinder) Styles */
+    .node-active-trail {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 100 !important;
+      opacity: 1 !important;
+      pointer-events: auto;
+    }
+
+    /* Glow Effects per Trail - Neon Pipeline */
+    .legacy_rescue-glow {
+      filter: drop-shadow(0 0 15px rgba(52, 152, 219, 0.9));
+      border: 2px solid #3498db !important;
+    }
+
+    .safe_innovation-glow {
+      filter: drop-shadow(0 0 15px rgba(46, 204, 113, 0.9));
+      border: 2px solid #2ecc71 !important;
+    }
+
+    .systems_architect-glow {
+      filter: drop-shadow(0 0 15px rgba(231, 76, 60, 0.9));
+      border: 2px solid #e74c3c !important;
+    }
+
+    /* The "Blackout" Dimming logic */
+    .node-dimmed {
+      opacity: 0.2;
+      filter: grayscale(100%) blur(2px);
+      pointer-events: none;
+      transition: all 0.5s ease;
+    }
+
+    /* FORCE THE BREAKOUT - High Specificity */
+    #stackGrid.trail-view-active {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      grid-template-columns: none !important;
+      justify-content: center !important;
+      gap: 60px 40px !important;
+      padding: 80px 20px !important;
+    }
+
+    /* MINI-CARD TRANSFORMATION */
+    #stackGrid.trail-view-active .stack {
+      width: 140px !important;
+      /* Smaller footprint for map view */
+      height: 190px !important;
+      margin: 0 !important;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    /* CLEANUP: Remove repetitive 'ACTIVE PATH' labels seen in screenshot */
+    #stackGrid.trail-view-active .active-path-label,
+    #stackGrid.trail-view-active .corner {
+      display: none !important;
+    }
+
+    /* THE NEON PIPELINE (Visual Connectors) */
+    #stackGrid.trail-view-active .node-active-trail {
+      position: relative;
+      border-radius: 8px;
+    }
+
+    #stackGrid.trail-view-active .node-active-trail::after {
+      content: "";
+      position: absolute;
+      right: -45px;
+      /* Bridges the gap to the next flex item */
+      top: 50%;
+      width: 45px;
+      height: 2px;
+      background: var(--trail-color);
+      box-shadow: 0 0 15px var(--trail-color);
+      z-index: -1;
+    }
+
+    /* ZOOM ON HOVER: Maintains detail accessibility */
+    #stackGrid.trail-view-active .stack:hover {
+      transform: scale(1.6) translateY(-15px);
+      z-index: 500 !important;
+    }
+
+    /* Active Path Label */
+    .active-path-label {
+      position: absolute;
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--trail-color, #fff);
+      color: #000;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      box-shadow: 0 0 10px var(--trail-color, #fff);
+      z-index: 200;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      animation: fadeIn 0.5s forwards 0.2s;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Sidebar Button Styling (Mission Control) */
+    .trail-btn {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 12px;
+      background: #0f172a;
+      /* Darker slate */
+      border: 1px solid #334155;
+      border-left: 4px solid transparent;
+      color: #94a3b8;
+      cursor: pointer;
+      text-align: left;
+      border-radius: 6px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      font-family: 'Inter', sans-serif;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .trail-btn:hover {
+      background: #1e293b;
+      color: white;
+      border-color: #475569;
+      transform: translateX(-2px);
+    }
+
+    .trail-btn.active {
+      border-left-color: var(--trail-color, #fff);
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
+      color: white;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    .trail-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .trail-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .trail-title {
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.95rem;
+      line-height: 1.2;
+    }
+
+    .trail-subtext {
+      font-size: 0.75rem;
+      opacity: 0.7;
+      font-weight: 400;
+      margin-top: 2px;
+    }
+
+    /* Space for scroll */
+    .grid {
+      padding-bottom: 100px;
     }
 
     .stack.piled:hover::after {
@@ -611,6 +814,196 @@
       transform: scale(1.1);
       border-color: var(--color-brand-accent-1);
     }
+
+    /* --- Network View Styles (D3) --- */
+    #networkContainer {
+      display: none;
+      /* Hidden by default */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #0f172a;
+      /* Slate 900 - Dark opaque background */
+      z-index: 9999;
+      /* Topmost layer */
+      overflow: hidden;
+    }
+
+    .network-node rect {
+      fill: rgba(30, 41, 59, 0.9);
+      stroke: var(--trail-color, #38bdf8);
+      stroke-width: 2px;
+      rx: 8px;
+      /* Rounded corners */
+      ry: 8px;
+      filter: drop-shadow(0 0 8px var(--trail-color, #38bdf8));
+      transition: stroke-width 0.2s, fill 0.2s;
+      cursor: grab;
+    }
+
+    .network-node:active rect {
+      cursor: grabbing;
+    }
+
+    .network-node:hover rect {
+      fill: var(--trail-color, #38bdf8);
+      stroke: white;
+      stroke-width: 3px;
+    }
+
+    .network-node text {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      fill: white;
+      text-anchor: middle;
+      pointer-events: none;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      user-select: none;
+    }
+
+    .network-link {
+      fill: none;
+      stroke: #94a3b8;
+      /* Default Slate 400 */
+      stroke-width: 1.5px;
+      opacity: 0.6;
+      transition: stroke-width 0.2s;
+    }
+
+    .network-link.high-tension-link {
+      stroke: #ef4444 !important;
+      /* Force RED */
+      stroke-width: 3px !important;
+      stroke-dasharray: none !important;
+      filter: drop-shadow(0 0 5px #ef4444) !important;
+      /* RED Glow */
+      opacity: 1 !important;
+      animation: pulse-tension 2s infinite;
+    }
+
+    @keyframes pulse-tension {
+      0% {
+        stroke-opacity: 0.8;
+        stroke-width: 3px;
+      }
+
+      50% {
+        stroke-opacity: 1;
+        stroke-width: 4px;
+      }
+
+      100% {
+        stroke-opacity: 0.8;
+        stroke-width: 3px;
+      }
+    }
+
+    /* Seed Filter Checkboxes */
+    .seed-filter-container {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      background: rgba(15, 23, 42, 0.95);
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      margin-bottom: 5px;
+    }
+
+    .seed-checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      color: #cbd5e1;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .seed-checkbox-label input {
+      cursor: pointer;
+    }
+
+    /* Control Buttons */
+    .network-controls {
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 10001;
+    }
+
+    .network-btn {
+      width: 40px;
+      height: 40px;
+      background: rgba(30, 41, 59, 0.9);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 18px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .network-btn:hover {
+      background: var(--trail-color);
+      color: black;
+      border-color: white;
+    }
+
+    .close-network-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 10002;
+      padding: 10px 20px;
+      background: rgba(220, 38, 38, 0.9);
+      /* Red */
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      transition: all 0.2s;
+    }
+
+    .close-network-btn:hover {
+      background: rgba(185, 28, 28, 1);
+      transform: scale(1.05);
+    }
+
+    .network-link.active-link {
+      stroke: var(--trail-color, #38bdf8);
+      stroke-width: 3px;
+      filter: drop-shadow(0 0 5px var(--trail-color, #38bdf8));
+    }
+
+    /* Tooltip/Context Menu for Network */
+    .network-tooltip {
+      position: absolute;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid var(--trail-color);
+      padding: 10px;
+      border-radius: 8px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+      z-index: 5000;
+      max-width: 200px;
+    }
   </style>
 
 </head>
@@ -638,18 +1031,44 @@
       </div>
     </a>
 
+
+
     <h3>Current Path</h3>
     <div id="pathList"></div>
   </div>
 
+  <!-- Right Sidebar for Strategic Trails -->
+  <div id="strategicSidebar">
+    <h3>Strategic Trails</h3>
+    <div id="trailsContainer"></div>
+    <button id="resetTrailsBtn" class="trail-btn"
+      style="width: 100%; text-align: center; background: #333; color: white; display: none;">
+      Reset View
+    </button>
+
+    <!-- Skill Match / Recruiter Search -->
+    <div id="skillMatchContainer"
+      style="margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+      <h3>Skill Match</h3>
+      <textarea id="skillInput" placeholder="Paste Job Spec / Keywords..."
+        style="width: 100%; height: 80px; background: rgba(0,0,0,0.3); color: #e2e8f0; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; padding: 10px; font-family: 'Inter', sans-serif; font-size: 0.85rem; resize: vertical; box-sizing: border-box;"></textarea>
+      <button onclick="runSkillMatch()"
+        style="width: 100%; margin-top: 10px; padding: 10px; background: linear-gradient(135deg, var(--color-brand-accent-2) 0%, var(--color-brand-accent-1) 100%); color: #0f172a; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05em; transition: opacity 0.2s;">
+        Find Evidence
+      </button>
+      <!-- Results open in popup -->
+    </div>
+  </div>
+
   <div class="modal">
-    <!-- Navigation Controls Container -->
     <div class="navigation-controls" id="navControls">
       <button class="back-button" id="backButton">Back to Grid</button>
       <button class="back-button" id="upLevelBtn" style="background-color: #27ae60;">Up One Level</button>
     </div>
 
     <div class="grid" id="stackGrid"></div>
+    <div id="networkContainer"></div>
+
     <div class="pagination" id="pagination"></div>
   </div>
 
@@ -685,6 +1104,24 @@
     </div>
   </div>
 
+  <div class="diagram-popup" id="skillMatchPopup" style="background: rgba(15, 23, 42, 0.95);">
+    <span class="close-btn" onclick="closeSkillMatch()">× Close</span>
+    <h2 style="color: var(--color-brand-accent-2); margin-top: 20px; margin-bottom: 20px;">Skill Match Results</h2>
+    <div id="skillMatchResultsList" style="
+        width: 80%; 
+        max-width: 600px; 
+        max-height: 70vh; 
+        overflow-y: auto; 
+        background: rgba(255,255,255,0.05); 
+        border-radius: 8px; 
+        padding: 20px; 
+        border: 1px solid rgba(255,255,255,0.1);
+        display: flex; 
+        flex-direction: column; 
+        gap: 10px;">
+    </div>
+  </div>
+
   <script>
     let cards = {};
     let relationships = [];
@@ -706,16 +1143,25 @@
     };
 
     // Load Data
+    let trailsConfig = [];
+
     Promise.all([
       fetchJson('cards.json'),
-      fetchJson('relationships.json')
-    ]).then(([cardsData, relationshipsData]) => {
+      fetchJson('relationships.json'),
+      fetchJson('pathfinder_config.json').catch(e => { console.warn("No trails config found"); return { trails: [] }; })
+    ]).then(([cardsData, relationshipsData, configData]) => {
       // Handle wrappers if present (user provided files have 'cards' and 'relationships' keys)
       const cList = cardsData.cards || cardsData;
       const rList = relationshipsData.relationships || relationshipsData;
 
       cList.forEach(c => cards[c.id] = c);
       relationships = rList;
+
+      if (configData && configData.trails) {
+        trailsConfig = configData.trails;
+        initTrailsUI();
+      }
+
       init();
     }).catch(err => {
       console.error("Critical Data Error:", err);
@@ -773,6 +1219,7 @@
       const getSource = (r) => r.source || r.from;
       const getTarget = (r) => r.target || r.to;
 
+      el.id = card.id; // Critical for Pathfinder
       el.className = 'stack'; // Using 'stack' class for main grid items for now
 
       const hasChildren = relationships.some(r => (r.source || r.from) === card.id && (r.type === 'contains' || r.type === 'leads_to'));
@@ -1167,9 +1614,21 @@
         // Indentation
         div.style.paddingLeft = (20 + (index * 15)) + 'px';
 
-        // Current Node Highlight
+        // Current Node Highlight and Trail Color
         if (index === path.length - 1) {
           div.classList.add('current-node');
+        }
+
+        // Apply Trail Color if active
+        if (activeTrailId) {
+          const config = trailsConfig.find(t => t.id === activeTrailId);
+          if (config) {
+            div.style.color = config.color;
+            div.style.textShadow = `0 0 5px ${config.color}`;
+          }
+        } else {
+          div.style.color = '';
+          div.style.textShadow = '';
         }
 
         // Reduced interactivity significantly as per user request "Sidebar is readonly"
@@ -1367,14 +1826,848 @@
     document.getElementById('pagination').style.display = 'none';
     document.getElementById('backButton').style.display = 'none'; // Replaced by breadcrumbs
 
-    // Project Video Button Logic
-    document.getElementById('projectVideoBtn').onclick = () => {
-      showMedia({
-        type: 'video',
-        value: 'Videos/Waal_Bridge__Harmonising_Tech.mp4',
-        title: 'Project Overview'
+    // --- Strategic Trails (Pathfinder) Logic ---
+
+    let activeTrailId = null;
+    let trailCache = {};
+
+    function initTrailsUI() {
+      const container = document.getElementById('trailsContainer');
+      const resetBtn = document.getElementById('resetTrailsBtn');
+      if (!container) return;
+
+      container.innerHTML = '';
+
+      trailsConfig.forEach(trail => {
+        const btn = document.createElement('button');
+        btn.className = 'trail-btn';
+        // Mission Control Layout
+        btn.innerHTML = `
+          <div class="trail-icon">${trail.icon || '🔹'}</div>
+          <div class="trail-text">
+            <div class="trail-title">${trail.name}</div>
+            <div class="trail-subtext">${trail.subtext || trail.description}</div>
+          </div>
+        `;
+        btn.style.setProperty('--trail-color', trail.color);
+        btn.onclick = () => setActiveTrail(trail.id);
+        btn.id = `btn-${trail.id}`;
+        container.appendChild(btn);
       });
-    };
+
+      if (resetBtn) {
+        resetBtn.onclick = resetTrails;
+      }
+    }
+
+    function getNodesInTrail(trailId) {
+      if (trailCache[trailId]) return trailCache[trailId];
+
+      const config = trailsConfig.find(t => t.id === trailId);
+      if (!config) return [];
+
+      let whitelist = null;
+      if (config.cards && Array.isArray(config.cards) && config.cards.length > 0) {
+        whitelist = new Set(config.cards);
+        // Ensure seeds are always whitelisted
+        config.seeds.forEach(s => whitelist.add(s));
+      }
+
+      let visited = new Set();
+      // Queue for BFS: { id, depth }
+      let queue = config.seeds.map(id => ({ id, depth: 0 }));
+      let results = [];
+
+      // Build adjacency map for faster lookup
+      const adj = {};
+      relationships.forEach(r => {
+        // We traverse down 'contains'
+        if (r.type === 'contains') {
+          const src = r.source || r.from;
+          const tgt = r.target || r.to;
+          if (!adj[src]) adj[src] = [];
+          adj[src].push(tgt);
+        }
+      });
+
+      while (queue.length > 0) {
+        const { id, depth } = queue.shift(); // Dequeue
+
+        if (!visited.has(id)) {
+          visited.add(id);
+
+          // FILTER: Only add if whitelist is null OR id is in whitelist
+          if (!whitelist || whitelist.has(id)) {
+            results.push({ id, depth });
+          } else {
+            // If node is NOT in whitelist, do we stop traversing? 
+            // Usually yes, if we want to hide that branch. 
+            // Or do we traverse through invisible nodes? 
+            // Let's assume we stop traversing this branch to reduce clutter.
+            continue;
+          }
+
+          const children = adj[id] || [];
+          children.forEach(childId => {
+            if (!visited.has(childId)) {
+              queue.push({ id: childId, depth: depth + 1 });
+            }
+          });
+        }
+      }
+
+      trailCache[trailId] = results;
+      return results;
+    }
+
+    function setActiveTrail(trailId) {
+      const resetBtn = document.getElementById('resetTrailsBtn');
+      activeTrailId = trailId;
+
+      // Update UI Buttons
+      document.querySelectorAll('.trail-btn').forEach(b => b.classList.remove('active'));
+      const activeBtn = document.getElementById(`btn-${trailId}`);
+      if (activeBtn) activeBtn.classList.add('active');
+
+      if (resetBtn) resetBtn.style.display = 'block';
+
+      // Switch to Network View
+      updateVisualsForTrail(trailId);
+    }
+
+    function resetTrails() {
+      activeTrailId = null;
+      document.querySelectorAll('.trail-btn').forEach(b => b.classList.remove('active'));
+      const resetBtn = document.getElementById('resetTrailsBtn');
+      if (resetBtn) resetBtn.style.display = 'none';
+
+      updateVisualsForTrail(null);
+    }
+
+    function updateVisualsForTrail(trailId) {
+      const grid = document.getElementById('stackGrid');
+      const networkContainer = document.getElementById('networkContainer');
+      const navControls = document.getElementById('navControls');
+
+      // RESET STATE (Grid View)
+      if (!trailId) {
+        grid.style.display = 'grid'; // Restore grid
+        // Restore grid settings just in case
+        grid.style.gridTemplateColumns = 'repeat(6, 1fr)';
+        grid.style.gap = '20px';
+        grid.style.padding = '20px';
+
+        // Hide Network Overlay
+        networkContainer.innerHTML = '';
+        networkContainer.style.display = 'none';
+
+        // Remove lingering tooltips (Fix for duplicate description bug)
+        d3.selectAll('.network-tooltip').remove();
+
+        // Show Grid Elements
+        renderRoot();
+
+        if (navControls) navControls.style.display = 'flex';
+        // Also show sidebar elements if they were hidden?
+        return;
+      }
+
+      // ACTIVATE NETWORK VIEW
+      // grid.style.display = 'none'; // Optional: keep grid in background if overlay logic is different?
+
+      // SHOW OVERLAY
+      networkContainer.style.display = 'block';
+
+      // navControls should be hidden or irrelevant as overlay covers them
+      // if(navControls) navControls.style.display = 'none';
+
+      // Render D3 Network
+      renderNetwork(trailId);
+
+      updateBreadcrumbs(); // Keep sidebar updated
+    }
+
+    function renderNetwork(trailId) {
+      const container = document.getElementById('networkContainer');
+      container.innerHTML = ''; // Clear
+
+      const width = container.clientWidth;
+      const height = container.clientHeight;
+
+      const config = trailsConfig.find(t => t.id === trailId);
+      const trailColor = config ? config.color : '#38bdf8';
+
+      // --- UI CONTROLS ---
+
+      // Close Button
+      const closeBtn = document.createElement('button');
+      closeBtn.className = 'close-network-btn';
+      closeBtn.innerText = 'Close Network View';
+      closeBtn.onclick = () => resetTrails();
+      container.appendChild(closeBtn);
+
+      // Controls Container
+      const controls = document.createElement('div');
+      controls.className = 'network-controls';
+      controls.style.zIndex = '10005';
+      controls.style.width = '200px'; // Wider to accommodate text
+
+      // Seed Filter Controls
+      const seedControlStr = document.createElement('div');
+      seedControlStr.className = 'seed-filter-container';
+      seedControlStr.innerHTML = `<label style="font-size:10px; font-weight:bold; text-transform:uppercase; margin-bottom:4px; display:block; color:white;">Active Clusters</label>`;
+
+      const seedToggles = {}; // id -> checkbox element
+      const activeSeeds = new Set(config.seeds); // All active initially
+
+      config.seeds.forEach(seedId => {
+        const sCard = cards[seedId];
+        const label = document.createElement('label');
+        label.className = 'seed-checkbox-label';
+
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.checked = true;
+        checkbox.dataset.seed = seedId;
+
+        // Event Listener added later after graph function is defined
+        seedToggles[seedId] = checkbox;
+
+        const span = document.createElement('span');
+        span.innerText = sCard ? (sCard.title.length > 18 ? sCard.title.substring(0, 16) + '..' : sCard.title) : seedId;
+
+        label.appendChild(checkbox);
+        label.appendChild(span);
+        seedControlStr.appendChild(label);
+      });
+      controls.appendChild(seedControlStr);
+
+      // Depth Slider Control
+      const depthControl = document.createElement('div');
+      depthControl.style.cssText = `
+        background: rgba(15, 23, 42, 0.95);
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid rgba(255,255,255,0.2);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        align-items: center;
+        margin-bottom: 5px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      `;
+      depthControl.innerHTML = `
+        <label style="font-size:10px; font-weight:bold; text-transform:uppercase;">
+           Depth: <span id="depthVal">All</span>
+        </label>
+        <input type="range" id="depthSlider" min="1" max="5" step="1" value="5" style="cursor:pointer; width: 100%;">
+      `;
+      controls.appendChild(depthControl);
+
+      // Career Link Controls (Type 5)
+      const careerControl = document.createElement('div');
+      careerControl.className = 'seed-filter-container';
+      careerControl.style.marginTop = '0px';
+      careerControl.innerHTML = `
+        <label style="font-size:10px; font-weight:bold; text-transform:uppercase; margin-bottom:4px; display:block; color:white;">Career Paths</label>
+        
+        <label class="seed-checkbox-label">
+            <input type="checkbox" id="careerLinkVis" checked>
+            <span>Show Links</span>
+        </label>
+        
+        <div style="display:flex; flex-direction:column; gap:2px; margin-top:5px;">
+            <label style="font-size:9px; color:#cbd5e1;">Length: <span id="careerLenVal">40</span></label>
+            <input type="range" id="careerLenSlider" min="20" max="300" step="10" value="40" style="cursor:pointer;">
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:2px; margin-top:5px;">
+            <label style="font-size:9px; color:#cbd5e1;">Tension: <span id="careerTenVal">1.0</span></label>
+            <input type="range" id="careerTenSlider" min="0.1" max="2.0" step="0.1" value="1.0" style="cursor:pointer;">
+        </div>
+      `;
+      controls.appendChild(careerControl);
+
+      // Zoom Buttons
+      // Zoom Buttons
+      const zoomBtns = document.createElement('div');
+      zoomBtns.style.cssText = 'display:flex; flex-direction:column; gap:8px; align-items:center; width:100%;';
+      zoomBtns.innerHTML = `
+          <div class="network-btn" id="zoomInBtn" title="Zoom In">+</div>
+          <div class="network-btn" id="resetViewBtn" title="Reset View" style="font-size:12px">⟲</div>
+          <div class="network-btn" id="zoomOutBtn" title="Zoom Out">-</div>
+      `;
+      controls.appendChild(zoomBtns);
+
+      container.appendChild(controls);
+
+      container.style.setProperty('--trail-color', trailColor);
+
+      // --- DATA PREP (Graph) ---
+      const trailNodes = getNodesInTrail(trailId);
+
+      // MAP NODES TO SEEDS (Origin Tracking)
+      const nodeToSeeds = new Map(); // nodeId -> Set of seedIds
+
+      config.seeds.forEach(seedId => {
+        const queue = [seedId];
+        const visited = new Set([seedId]);
+
+        if (!nodeToSeeds.has(seedId)) nodeToSeeds.set(seedId, new Set());
+        nodeToSeeds.get(seedId).add(seedId);
+
+        while (queue.length > 0) {
+          const curr = queue.shift();
+          // Find outgoing 'contains'
+          relationships.forEach(r => {
+            if (r.type === 'contains' && (r.from === curr || r.source === curr)) {
+              const tgt = r.to || r.target;
+              if (!visited.has(tgt)) {
+                visited.add(tgt);
+                queue.push(tgt);
+
+                if (!nodeToSeeds.has(tgt)) nodeToSeeds.set(tgt, new Set());
+                nodeToSeeds.get(tgt).add(seedId);
+              }
+            }
+          });
+        }
+      });
+
+      // Calculate Max Depth for Slider
+      const maxDepth = Math.max(...trailNodes.map(n => n.depth));
+      const bufferDepth = maxDepth + 1; // Ensure 'All' is covered
+
+      const slider = controls.querySelector('#depthSlider');
+      const depthLabel = controls.querySelector('#depthVal');
+
+      slider.max = bufferDepth;
+      slider.value = bufferDepth;
+      depthLabel.innerText = "All";
+
+      // Pre-process all possible nodes/links
+      const allNodesData = trailNodes.map(n => {
+        const card = cards[n.id];
+        return {
+          id: n.id,
+          name: card ? card.title : n.id,
+          type: card ? card.type : 'unknown',
+          depth: n.depth
+        };
+      });
+
+      const allNodeIds = new Set(allNodesData.map(n => n.id));
+      const allLinksData = [];
+
+      relationships.forEach(r => {
+        const src = r.source || r.from;
+        const tgt = r.target || r.to;
+        if (allNodeIds.has(src) && allNodeIds.has(tgt)) {
+          allLinksData.push({
+            source: src,
+            target: tgt,
+            type: r.type,
+            strength: r.strength || 1,
+            _sourceId: src, // Store IDs for filtering later
+            _targetId: tgt
+          });
+        }
+      });
+
+      // --- SVG SETUP ---
+      const svg = d3.select("#networkContainer").append("svg")
+        .attr("width", "100%")
+        .attr("height", "100%")
+        .style("cursor", "move");
+
+      const g = svg.append("g");
+      const linkGroup = g.append("g").attr("class", "links");
+      const nodeGroup = g.append("g").attr("class", "nodes");
+
+      // Arrow Marker
+      svg.append("defs").append("marker")
+        .attr("id", "arrowhead")
+        .attr("viewBox", "0 -5 10 10")
+        .attr("refX", 90)
+        .attr("refY", 0)
+        .attr("markerWidth", 6)
+        .attr("markerHeight", 6)
+        .attr("orient", "auto")
+        .append("path")
+        .attr("d", "M0,-5L10,0L0,5")
+        .attr("fill", trailColor);
+
+      // Red Arrow Marker (Career Paths)
+      svg.append("defs").append("marker")
+        .attr("id", "arrowhead-red")
+        .attr("viewBox", "0 -5 10 10")
+        .attr("refX", 90)
+        .attr("refY", 0)
+        .attr("markerWidth", 6)
+        .attr("markerHeight", 6)
+        .attr("orient", "auto")
+        .append("path")
+        .attr("d", "M0,-5L10,0L0,5")
+        .attr("fill", "#ef4444");
+
+      const zoom = d3.zoom()
+        .scaleExtent([0.1, 4])
+        .on("zoom", (event) => g.attr("transform", event.transform));
+
+      svg.call(zoom).on("dblclick.zoom", null);
+
+      let simulation = null;
+
+      // --- UPDATE FUNCTION ---
+      function updateGraph(depthLimit) {
+        if (depthLimit === undefined) {
+          depthLimit = parseInt(slider.value) >= bufferDepth ? 999 : parseInt(slider.value);
+        }
+
+        // Filter Data
+        const visibleNodes = allNodesData.filter(n => {
+          // 1. Depth Check
+          if (n.depth > depthLimit) return false;
+
+          // 2. Seed Visibility Check
+          // If node has tracked ancestors, at least one must be active
+          const parentSeeds = nodeToSeeds.get(n.id);
+          if (parentSeeds) {
+            for (let s of parentSeeds) {
+              if (activeSeeds.has(s)) return true;
+            }
+            return false; // Has parents but none active
+          }
+          return true; // Orphan/Independent (keep visible)
+        });
+
+        const visibleNodeIds = new Set(visibleNodes.map(n => n.id));
+
+        const visibleLinks = allLinksData.filter(l => {
+          const isConnected = visibleNodeIds.has(l._sourceId) && visibleNodeIds.has(l._targetId);
+          if (!isConnected) return false;
+
+          // Check Career Link Visibility
+          if (l.strength >= 5 && !careerVisCheck.checked) return false;
+
+          return true;
+        }).map(l => ({ ...l })); // Clone to avoid mutation issues in D3
+
+        // Stop old simulation
+        if (simulation) simulation.stop();
+
+        // Clear Groups (Simplest Approach for now)
+        linkGroup.selectAll("*").remove();
+        nodeGroup.selectAll("*").remove();
+
+        const cLen = parseInt(careerLenSlider.value);
+        const cTen = parseFloat(careerTenSlider.value);
+
+        // --- FORCE SIMULATION ---
+        simulation = d3.forceSimulation(visibleNodes)
+          .force("link", d3.forceLink(visibleLinks)
+            .id(d => d.id)
+            .distance(d => d.strength >= 5 ? cLen : 150)
+            .strength(d => d.strength >= 5 ? cTen : 0.1)
+          )
+          .force("charge", d3.forceManyBody().strength(-1000))
+          .force("center", d3.forceCenter(width / 2, height / 2))
+          .force("collide", d3.forceCollide().radius(60));
+
+        // Draw Links
+        const link = linkGroup.selectAll("line")
+          .data(visibleLinks)
+          .enter().append("line")
+          .attr("class", d => d.strength >= 5 ? "network-link high-tension-link" : "network-link")
+          .style("stroke", d => d.strength >= 5 ? "#ef4444" : trailColor)
+          .attr("marker-end", d => d.strength >= 5 ? "url(#arrowhead-red)" : "url(#arrowhead)");
+
+        // Draw Nodes
+        const node = nodeGroup.selectAll("g")
+          .data(visibleNodes)
+          .enter().append("g")
+          .attr("class", "network-node")
+          .call(d3.drag()
+            .on("start", dragstarted)
+            .on("drag", dragged)
+            .on("end", dragended))
+          .on("dblclick", (event, d) => {
+            event.stopPropagation();
+            // 1. Close Network View
+            resetTrails();
+
+            // 2. Find Card Logic
+            const targetId = d.id;
+            const card = cards[targetId];
+            if (!card) return;
+
+            // 3. Find Parent to render context
+            // Search relationships where target == d.id AND type == 'contains'
+            const parentRel = relationships.find(r => (r.target === targetId || r.to === targetId) && r.type === 'contains');
+
+            if (parentRel) {
+              const parentId = parentRel.source || parentRel.from;
+              const parentCard = cards[parentId];
+              if (parentCard) {
+                // Navigate to parent (renders siblings)
+                navigateTo(parentCard);
+
+                // Focus the specific card after a minimal DOM tick
+                setTimeout(() => {
+                  const el = document.getElementById(targetId);
+                  if (el) focusStack(el);
+                }, 50);
+              }
+            } else {
+              // It's likely a root item or has no parent
+              renderRoot();
+              setTimeout(() => {
+                const el = document.getElementById(targetId);
+                if (el) focusStack(el);
+              }, 50);
+            }
+          });
+
+        node.append("rect")
+          .attr("width", 160)
+          .attr("height", 50)
+          .attr("x", -80)
+          .attr("y", -25)
+          .attr("rx", 10)
+          .style("--trail-color", trailColor);
+
+        node.append("text")
+          .attr("dy", 4)
+          .each(function (d) {
+            const el = d3.select(this);
+            const name = d.name;
+            if (name.length > 25) {
+              el.text(name.substring(0, 23) + '...');
+              el.append("title").text(name);
+            } else {
+              el.text(name);
+            }
+          });
+
+        // Tick
+        simulation.on("tick", () => {
+          link
+            .attr("x1", d => d.source.x)
+            .attr("y1", d => d.source.y)
+            .attr("x2", d => d.target.x)
+            .attr("y2", d => d.target.y);
+
+          node.attr("transform", d => `translate(${d.x},${d.y})`);
+        });
+
+        // Tooltips re-attach
+        attachTooltips(node, trailColor);
+      }
+
+      // --- INTERACTION HANDLERS ---
+
+      const careerVisCheck = controls.querySelector('#careerLinkVis');
+      const careerLenSlider = controls.querySelector('#careerLenSlider');
+      const careerTenSlider = controls.querySelector('#careerTenSlider');
+
+      careerVisCheck.onchange = () => updateGraph();
+
+      careerLenSlider.oninput = (e) => {
+        controls.querySelector('#careerLenVal').innerText = e.target.value;
+        updateGraph();
+      };
+
+      careerTenSlider.oninput = (e) => {
+        controls.querySelector('#careerTenVal').innerText = e.target.value;
+        updateGraph();
+      };
+
+      // Wire up checkboxes
+      Object.keys(seedToggles).forEach(seedId => {
+        seedToggles[seedId].onchange = (e) => {
+          if (e.target.checked) activeSeeds.add(seedId);
+          else activeSeeds.delete(seedId);
+          updateGraph();
+        };
+      });
+
+      slider.oninput = (e) => {
+        const val = parseInt(e.target.value);
+        if (val >= bufferDepth) {
+          depthLabel.innerText = "All";
+          updateGraph(999);
+        } else {
+          depthLabel.innerText = "Level " + val;
+          updateGraph(val);
+        }
+      };
+
+      // Initial Draw
+      updateGraph(999);
+
+      // --- HELPERS ---
+      function dragstarted(event, d) {
+        if (!event.active) simulation.alphaTarget(0.3).restart();
+        d.fx = d.x;
+        d.fy = d.y;
+      }
+      function dragged(event, d) { d.fx = event.x; d.fy = event.y; }
+      function dragended(event, d) {
+        if (!event.active) simulation.alphaTarget(0);
+        d.fx = null; d.fy = null;
+      }
+
+      container.querySelector('#zoomInBtn').onclick = () => svg.transition().duration(300).call(zoom.scaleBy, 1.3);
+      container.querySelector('#zoomOutBtn').onclick = () => svg.transition().duration(300).call(zoom.scaleBy, 0.7);
+      container.querySelector('#resetViewBtn').onclick = () => {
+        svg.transition().duration(750).call(zoom.transform, d3.zoomIdentity);
+        simulation.alpha(1).restart();
+      };
+
+      function attachTooltips(nodeSelection, color) {
+        const tooltip = d3.select(".network-tooltip").empty() ?
+          d3.select("body").append("div").attr("class", "network-tooltip") :
+          d3.select(".network-tooltip");
+
+        nodeSelection.on("mouseover", function (event, d) {
+          const card = cards[d.id];
+          const desc = card ? (card.description || "No details available") : "";
+          tooltip.transition().duration(200).style("opacity", 1);
+          tooltip.html(`
+                <strong style="color:${color}; font-size:12px;">${d.name}</strong><br>
+                <div style="margin-top:5px; font-size:10px; color:#cbd5e1;">${desc.substring(0, 150)}${desc.length > 150 ? '...' : ''}</div>
+            `)
+            .style("left", (event.pageX + 15) + "px")
+            .style("top", (event.pageY - 28) + "px")
+            .style("border-color", color);
+          d3.select(this).select("rect").style("fill", color).style("stroke", "white");
+        })
+          .on("mouseout", function (d) {
+            tooltip.transition().duration(500).style("opacity", 0);
+            d3.select(this).select("rect").style("fill", "rgba(30, 41, 59, 0.9)").style("stroke", color);
+          });
+      }
+    }
+
+    // --- RECRUITER SKILL MATCH ---
+    // --- LOCATE CARD LOGIC ---
+    function locateCard(cardId) {
+      console.log("Locating card:", cardId);
+      const target = cards[cardId];
+      if (!target) return;
+
+      // 1. Reset View (Close trails if open)
+      if (typeof resetTrails === 'function') resetTrails();
+
+      // 2. Find Path to Root (Trace Parents)
+      let path = [];
+      let currentId = cardId;
+      let iterations = 0;
+
+      while (true) {
+        const parentRel = relationships.find(r => (r.target === currentId || r.to === currentId) && r.type === 'contains');
+        if (parentRel) {
+          const parentId = parentRel.source || parentRel.from;
+          const parentCard = cards[parentId];
+          if (parentCard) {
+            path.unshift(parentCard);
+            currentId = parentId;
+          } else { break; }
+        } else { break; }
+        iterations++;
+        if (iterations > 20) break;
+      }
+
+      // 3. Navigate
+      if (path.length === 0) {
+        if (typeof renderRoot === 'function') window.renderRoot();
+      } else {
+        breadcrumbs = path; // global
+        if (typeof jumpToCrumb === 'function') jumpToCrumb(breadcrumbs.length - 1);
+      }
+
+      // 4. Focus
+      setTimeout(() => {
+        const el = document.getElementById(cardId);
+        if (el) {
+          if (typeof focusStack === 'function') focusStack(el);
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          // Additional visual cue
+          el.style.boxShadow = '0 0 30px white';
+          setTimeout(() => el.style.boxShadow = '', 1000);
+        }
+      }, 350);
+    }
+
+    function runSkillMatch() {
+      const input = document.getElementById('skillInput').value;
+      const resultsContainer = document.getElementById('skillResults');
+
+      if (!input || input.trim().length === 0) {
+        resultsContainer.innerHTML = '<div style="color:#64748b; font-style:italic; padding:10px;">Please enter keywords matching your job description...</div>';
+        return;
+      }
+
+      const keywords = input.toLowerCase().split(/[\s,]+/).filter(k => k.length > 2 && !['and', 'the', 'for', 'with', 'this', 'that'].includes(k));
+
+      if (keywords.length === 0) {
+        resultsContainer.innerHTML = '<div style="color:#64748b; padding:10px;">Keywords too short.</div>';
+        return;
+      }
+
+      const matches = [];
+      Object.values(cards).forEach(card => {
+        let score = 0;
+        const title = (card.title || '').toLowerCase();
+        const desc = (card.description || '').toLowerCase();
+
+        keywords.forEach(k => {
+          // Weight Title Matches higher
+          if (title.includes(k)) score += 3;
+          // Weight Description Matches lower
+          if (desc.includes(k)) score += 1;
+        });
+
+        if (score > 0) {
+          matches.push({ card, score });
+        }
+      });
+
+      // Sort by absolute score
+      matches.sort((a, b) => b.score - a.score);
+
+      // Render
+      resultsContainer.innerHTML = '';
+      if (matches.length === 0) {
+        resultsContainer.innerHTML = '<div style="color:#ef4444; padding:10px;">No exact matches found in portfolio.</div>';
+        return;
+      }
+
+      resultsContainer.innerHTML = `<div style="color:#94a3b8; font-size:0.75rem; margin-bottom:10px; padding-left:5px;">Found ${matches.length} matching evidence cards:</div>`;
+
+      matches.slice(0, 15).forEach(m => {
+        const item = document.createElement('div');
+        // Use inline styles to match sidebar-item feel but with extra distinctness
+        item.style.padding = '8px 12px';
+        item.style.marginBottom = '6px';
+        item.style.background = 'rgba(255,255,255,0.03)';
+        item.style.borderLeft = '3px solid var(--color-brand-accent-2)';
+        item.style.borderRadius = '0 4px 4px 0';
+        item.style.cursor = 'pointer';
+        item.style.transition = 'all 0.2s';
+
+        // Hover effect via JS
+        item.onmouseenter = () => item.style.background = 'rgba(255,255,255,0.1)';
+        item.onmouseleave = () => item.style.background = 'rgba(255,255,255,0.03)';
+
+        // Click to locate (if we can implement robust navigation later)
+        // Click to locate
+        item.onclick = () => locateCard(m.card.id);
+
+        item.innerHTML = `
+          <div style="font-weight:700; font-size:0.8rem; color:#f1f5f9;">${m.card.title}</div>
+          <div style="font-size:0.7rem; color:#64748b; margin-top:2px;">
+            Relevance: <span style="color:var(--color-brand-accent-2);">${m.score}</span>
+          </div>
+        `;
+        resultsContainer.appendChild(item);
+      });
+    }
+
+    // Expose for debugging
+    window.runSkillMatch = runSkillMatch;
+    window.locateCard = locateCard;
+
+    // --- SKILL MATCH POPUP LOGIC ---
+    function closeSkillMatch() {
+      const popup = document.getElementById('skillMatchPopup');
+      if (popup) popup.style.display = 'none';
+    }
+
+    function runSkillMatch() {
+      const input = document.getElementById('skillInput').value;
+      const popup = document.getElementById('skillMatchPopup');
+      const resultsContainer = document.getElementById('skillMatchResultsList');
+
+      // Reset
+      resultsContainer.innerHTML = '';
+      popup.style.display = 'flex';
+
+      if (!input || input.trim().length === 0) {
+        resultsContainer.innerHTML = '<div style="color:#64748b; font-style:italic; padding:10px; text-align:center;">Please enter keywords matching your job description...</div>';
+        return;
+      }
+
+      const keywords = input.toLowerCase().split(/[\s,]+/).filter(k => k.length > 2 && !['and', 'the', 'for', 'with', 'this', 'that'].includes(k));
+
+      if (keywords.length === 0) {
+        resultsContainer.innerHTML = '<div style="color:#64748b; padding:10px; text-align:center;">Keywords too short.</div>';
+        return;
+      }
+
+      const matches = [];
+      Object.values(cards).forEach(card => {
+        let score = 0;
+        const title = (card.title || '').toLowerCase();
+        const desc = (card.description || '').toLowerCase();
+
+        keywords.forEach(k => {
+          if (title.includes(k)) score += 3;
+          if (desc.includes(k)) score += 1;
+        });
+
+        if (score > 0) {
+          matches.push({ card, score });
+        }
+      });
+
+      matches.sort((a, b) => b.score - a.score);
+
+      if (matches.length === 0) {
+        resultsContainer.innerHTML = '<div style="color:#ef4444; padding:10px; text-align:center;">No exact matches found in portfolio.</div>';
+        return;
+      }
+
+      const header = document.createElement('div');
+      header.style.color = '#94a3b8';
+      header.style.fontSize = '0.9rem';
+      header.style.marginBottom = '15px';
+      header.style.textAlign = 'center';
+      header.innerHTML = `Found <span style="color:white; font-weight:bold;">${matches.length}</span> matching evidence cards:`;
+      resultsContainer.appendChild(header);
+
+      matches.slice(0, 20).forEach(m => {
+        const item = document.createElement('div');
+        item.style.padding = '12px 16px';
+        item.style.marginBottom = '8px';
+        item.style.background = 'rgba(255,255,255,0.03)';
+        item.style.borderLeft = '4px solid var(--color-brand-accent-2)';
+        item.style.borderRadius = '0 6px 6px 0';
+        item.style.cursor = 'pointer';
+        item.style.transition = 'all 0.2s';
+
+        item.onmouseenter = () => item.style.background = 'rgba(255,255,255,0.1)';
+        item.onmouseleave = () => item.style.background = 'rgba(255,255,255,0.03)';
+
+        // Click to locate and close popup
+        item.onclick = () => {
+          closeSkillMatch();
+          locateCard(m.card.id);
+        };
+
+        item.innerHTML = `
+          <div style="font-weight:700; font-size:1rem; color:#f1f5f9;">${m.card.title}</div>
+          <div style="font-size:0.8rem; color:#64748b; margin-top:4px;">
+            Relevance Score: <span style="color:var(--color-brand-accent-2); font-weight:bold;">${m.score}</span>
+          </div>
+        `;
+        resultsContainer.appendChild(item);
+      });
+    }
+
+    window.closeSkillMatch = closeSkillMatch;
+    window.runSkillMatch = runSkillMatch;
 
   </script>
 

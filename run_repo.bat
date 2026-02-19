@@ -1,1 +1,1 @@
-start https://github.com/WaalBridge/AI_Skillsweb
+start https://waalbridge.github.io/AI_Skillsweb/index.html

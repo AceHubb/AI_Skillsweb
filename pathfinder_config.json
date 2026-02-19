@@ -1,0 +1,62 @@
+{
+  "trails": [
+    {
+      "id": "legacy_rescue",
+      "name": "Legacy Rescue (Operational Bedrock)",
+      "icon": "\u2699\ufe0f",
+      "color": "#3498db",
+      "seeds": [
+        "002_stack_data_engineering",
+        "009_stack_real_world",
+        "006_stack_legacy_modernisation",
+        "004_stack_analytics_reporting",
+        "003_stack_etl_integration"
+      ],
+      "subtext": "Expert core recovery and migration strategy."
+    },
+    {
+      "id": "safe_innovation",
+      "name": "Safe Innovation (Agentic Modernisation)",
+      "icon": "🤖",
+      "color": "#2ecc71",
+      "seeds": [
+        "008_stack_ai_development",
+        "1442_the_fruit_heading",
+        "005_stack_business_analysis",
+        "001_stack_development_leadership",
+        "007_stack_greenfield_dev"
+      ],
+      "subtext": "Bridging AI awareness with engineering safety."
+    },
+    {
+      "id": "systems_architect",
+      "name": "Systems Architect (Enterprise Guardian)",
+      "icon": "🛡️",
+      "color": "#e74c3c",
+      "seeds": [
+        "011_stack_governance_compliance",
+        "1417_the_taproot_heading",
+        "1421_the_trunk_heading",
+        "010_stack_cloud_hosting",
+        "012_stack_professional_practices",
+        "1310_cyber_security"
+      ],
+      "subtext": "Foundational logic and strict governance standards."
+    },
+    {
+      "id": "strategic_leadership",
+      "name": "Strategic Leadership (The Executive)",
+      "icon": "👔",
+      "color": "#8e44ad",
+      "seeds": [
+        "013_stack_executive_management",
+        "014_stack_industry_verticals",
+        "001_stack_development_leadership",
+        "011_stack_governance_compliance",
+        "005_stack_business_analysis",
+        "015_stack_visual_portfolio"
+      ],
+      "subtext": "Holistic oversight, industry expertise, and high-level strategy."
+    }
+  ]
+}

@@ -186,6 +186,14 @@
       "video": ""
     },
     {
+      "id": "10082_agentic_orchestration_for_legacy",
+      "title": "Agentic Orchestration for Legacy",
+      "type": "other",
+      "description": "The Bridge: Using AI Agents as \"Cognitive Middleware\" to perform complex, multi-step tasks across legacy SQL, Oracle, and Mainframe systems.",
+      "web": "",
+      "video": ""
+    },
+    {
       "id": "100_agile_methods",
       "type": "capability",
       "title": "Agile / Waterfall / RAD methodologies",
@@ -256,6 +264,14 @@
       },
       "assets": [],
       "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
+    },
+    {
+      "id": "10079_ai_evaluation_red_teaming",
+      "title": "AI Evaluation & Red-Teaming",
+      "type": "other",
+      "description": "Verification: Proactive adversarial testing. Identifying failure modes in LLMs (prompt injection, data leakage) before they reach production.",
       "web": "",
       "video": ""
     },
@@ -753,6 +769,14 @@
       },
       "assets": [],
       "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
+    },
+    {
+      "id": "10084_automated_data_reconciliation",
+      "title": "Automated Data Reconciliation",
+      "type": "other",
+      "description": "Integrity: Automated \"Truth Verification\" between legacy systems and modern cloud/AI replicas to ensure data parity during migration.",
       "web": "",
       "video": ""
     },
@@ -2037,6 +2061,14 @@
       "video": ""
     },
     {
+      "id": "10083_cross_era_regression_testing",
+      "title": "Cross-Era Regression Testing",
+      "type": "other",
+      "description": "Safety: Advanced regression strategies to ensure that the introduction of AI or Python services does not break 30-year-old stored procedures.",
+      "web": "",
+      "video": ""
+    },
+    {
       "id": "1347_cross_system_data_integration",
       "type": "capability",
       "title": "Cross-System Data Integration",
@@ -3134,6 +3166,14 @@
       },
       "assets": [],
       "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
+    },
+    {
+      "id": "10080_deterministic_vs_probabilistic_testing",
+      "title": "Deterministic vs. Probabilistic Testing",
+      "type": "generic",
+      "description": "The Shift: Moving from Binary (Pass/Fail) logic to Distribution (Confidence/Variance) testing. Managing \"Stochastic\" (random) system behaviors",
       "web": "",
       "video": ""
     },
@@ -4538,6 +4578,14 @@
       },
       "assets": [],
       "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
+    },
+    {
+      "id": "10081_hybrid_ai_verification_pipelines",
+      "title": "Hybrid AI Verification Pipelines",
+      "type": "other",
+      "description": "The Solution: Wrapping probabilistic AI outputs in a \"Deterministic Cage.\" Using SQL/Logic scripts to verify the accuracy of AI-generated results.",
       "web": "",
       "video": ""
     },
@@ -5990,6 +6038,22 @@
         }
       },
       "frontBackgroundColor": "lightblue",
+      "web": "",
+      "video": ""
+    },
+    {
+      "id": "10078_nist_ai_600_1_generative_ai",
+      "title": "NIST AI 600-1 (Generative AI)",
+      "type": "other",
+      "description": "The Standard: Specific risk management for GenAI. Addresses hallucinations, harmful content, and data provenance. Essential for production-grade AI deployments.",
+      "web": "",
+      "video": ""
+    },
+    {
+      "id": "10077_nist_ai_risk_management_framework",
+      "title": "NIST AI Risk Management Framework",
+      "type": "other",
+      "description": "The Framework: Govern, Map, Measure, Manage. Focuses on the \"Trustworthiness\" of AI systems (Validity, Reliability, Safety, Security, and Resilience).",
       "web": "",
       "video": ""
     },
@@ -10034,6 +10098,27 @@
           "alt": "Cyber Icon"
         }
       }
+    },
+    {
+      "id": "013_stack_executive_management",
+      "title": "Executive Management & Strategy",
+      "type": "stack",
+      "description": "High-level operational strategy, financial optimization, and stakeholder governance.",
+      "frontBackgroundColor": "slategray"
+    },
+    {
+      "id": "014_stack_industry_verticals",
+      "title": "Industry Domain Expertise",
+      "type": "stack",
+      "description": "Specialized experience in Finance, Healthcare, Oil & Gas, and Engineering sectors.",
+      "frontBackgroundColor": "darkgoldenrod"
+    },
+    {
+      "id": "015_stack_visual_portfolio",
+      "title": "Visual Portfolio & Media",
+      "type": "stack",
+      "description": "A collection of diagrams, dashboards, and video assets demonstrating real-world output.",
+      "frontBackgroundColor": "darkcyan"
     }
   ]
 }
