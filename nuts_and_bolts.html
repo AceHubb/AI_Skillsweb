@@ -542,11 +542,11 @@
     /* New Back Styles - FlipCardApp Design */
     /* Sizes are reduced to compensate for 2.6x scale when focused */
     .card-description-input {
-      font-size: 0.5rem;
+      font-size: 0.8rem;
       text-align: left;
       flex-grow: 1;
       width: 100%;
-      padding: 6px;
+      padding: 10px;
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 4px;
 
@@ -556,10 +556,11 @@
       font-family: 'Inter', sans-serif;
 
       resize: none;
-      min-height: 50px;
+      min-height: 80px;
       box-sizing: border-box;
       margin-top: 4px;
       outline: none;
+      line-height: 1.4;
     }
 
     .card-description-input:focus {
@@ -576,17 +577,17 @@
     .checkbox-label {
       display: flex;
       align-items: center;
-      gap: 3px;
+      gap: 4px;
       cursor: pointer;
-      font-size: 0.5rem;
+      font-size: 0.75rem;
       font-weight: 500;
       color: #94a3b8;
       /* Slate-400 */
     }
 
     .checkbox-label input[type="checkbox"] {
-      width: 8px;
-      height: 8px;
+      width: 12px;
+      height: 12px;
       cursor: pointer;
       accent-color: var(--color-brand-accent-2);
       /* Teal Checkbox */
@@ -594,9 +595,9 @@
 
     /* Buttons - Sizes reduced to compensate for 2.6x scale */
     .explore-btn {
-      padding: 4px 12px;
+      padding: 6px 16px;
       border: none;
-      border-radius: 3px;
+      border-radius: 4px;
 
       /* Gradient Button */
       background: linear-gradient(90deg, var(--color-brand-accent-1), var(--color-brand-accent-2));
@@ -607,8 +608,8 @@
       letter-spacing: 0.05em;
       cursor: pointer;
       transition: all 0.2s;
-      font-size: 0.5rem;
-      margin-top: 2px;
+      font-size: 0.75rem;
+      margin-top: 4px;
       align-self: center;
       box-shadow: 0 2px 5px rgba(56, 189, 248, 0.3);
     }
@@ -1231,7 +1232,14 @@
       }
 
       // Determine contents for back of card
-      const description = card.description || card.details || card.title || "No description available.";
+      let displayContent = "";
+      if (card.description && card.description.trim()) {
+        displayContent = card.description;
+      } else if (card.details && card.details.trim()) {
+        displayContent = card.details;
+      } else {
+        displayContent = "(No description available)";
+      }
 
       // Image Logic: Prefer displayImages.front.url -> card_image -> boltandnut.png
       let frontImage = null;
@@ -1290,7 +1298,7 @@
             <div class="back">
                 <div class="flip-button" title="Flip Card">⟳</div>
                 
-                <textarea class="card-description-input" readonly>${card.title}\n\n${description}</textarea>
+                <textarea class="card-description-input" readonly>${card.title}\n\n${displayContent}</textarea>
                 
                 <div class="checkbox-container">
                     <label class="checkbox-label">
